@@ -15,9 +15,14 @@ import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.Description;
+import org.junit.runner.manipulation.Filter;
 import org.xml.sax.SAXException;
 
+import com.atopcloud.testcasefilter.MyTestCaseFilter;
 import com.atopcloud.util.ByteBuffer2StringUtil;
+import com.atopcloud.util.MyConfigUtil;
+import com.atopcloud.util.MyHttpUtil;
 import com.atopcloud.util.PropertiesManager;
 import com.google.protobuf.ByteString;
 //http unit
@@ -29,6 +34,12 @@ import com.meterware.httpunit.WebResponse;
 import dzhyun.Dzhoutput.QuoteDynaOutput;
 import dzhyun.Dzhoutput.QuoteDynaSingle;
 import dzhyun.Dzhua.UAResponse;
+
+
+
+
+
+
 
 
 
@@ -49,22 +60,14 @@ import java.util.Properties;
  * @author Lizhiqiang
  *
  */
-public class QuoteDynaTest {
-	public String ip;
-	public String port;
-
+public class QuoteDynaTest{
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
 		//System.out.println("setup");
-		//初始化
-		//读取环境变量
-		String envPath = System.getProperty("user.dir") + "\\config\\env.properties";
-		PropertiesManager pm = new PropertiesManager(envPath);
-		 ip = pm.getValue("ip");
-		 port=pm.getValue("port");
 	}
 
 	/**
@@ -75,46 +78,7 @@ public class QuoteDynaTest {
 		//System.out.println("teardown");
 	}
 
-	/**
-	 * 发送一般request http请求
-	 * @param url
-	 * @return
-	 * @throws Exception
-	 * @throws SAXException
-	 */
-	public String sendHttpRequest(String url) throws Exception, SAXException
-	{
-		// WebConversation是HttpUnit的中心，您使用它来展开与HTTP相关的协议对话
-		WebConversation  	web = new WebConversation(); 
-		//使用 WebRequest设置相关的请求参数
-		GetMethodWebRequest get = new GetMethodWebRequest(url);
-			
-		//WebConversation连接目的网页，然後得到回应WebResponse
-		//get
-		WebResponse response = web.getResponse(get);  
-		//response.getInputStream();
-		return response.getText();
-		
-	}
 
-	/**
-	 * 发送post http请求，暂没用上。
-	 * @param url
-	 * @return
-	 * @throws Exception
-	 * @throws SAXException
-	 */
-	public String sendHttpPost(String url) throws Exception, SAXException
-	{
-		// WebConversation是HttpUnit的中心，您使用它来展开与HTTP相关的协议对话
-		WebConversation  	web = new WebConversation(); 
-		//使用 WebRequest设置相关的请求参数
-		PostMethodWebRequest post = new PostMethodWebRequest(url);
-			
-		//WebConversation连接目的网页，然後得到回应WebResponse
-		WebResponse response = web.getResponse(post);  
-		return response.getText();
-	}
 	/**
 	 * 测试所有沪深A股代码
 	 * @throws Exception 
@@ -135,13 +99,15 @@ public class QuoteDynaTest {
 		String code=null;    //沪深股代码
 		int codeNum = 0;
 		int succNum=0;
+		String ip = MyConfigUtil.getConfig("ip");
+		String port=MyConfigUtil.getConfig("port");
 		while((code = breader.readLine()) !=null)
 		{
 			code = code.trim();
 			codeNum++;
 			//http://10.15.144.101/quote/dyna?obj=SH600000
 			urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code;
-			String ret = sendHttpRequest(urlString);
+			String ret = MyHttpUtil.sendHttpRequest(urlString).getText();
 			if(ret.contains(code))  //如果返回字符串带有code，例如SH600000，一般是成功返回。
 				succNum++;
 			//System.out.println();
@@ -161,12 +127,12 @@ public class QuoteDynaTest {
 	public void testField() throws SAXException, Exception
 	{
 		//发送请求
-		String urlString =null;
 		String code= "SH600000";    //沪深股代码
-
+		String ip = MyConfigUtil.getConfig("ip");
+		String port=MyConfigUtil.getConfig("port");
 		//http://10.15.144.101/quote/dyna?obj=SH600000
-		urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose";
-		String ret = sendHttpRequest(urlString);
+		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose";
+		String ret = MyHttpUtil.sendHttpRequest(urlString).getText();
 		assertTrue(ret.contains(code));
 	}
 
@@ -179,12 +145,13 @@ public class QuoteDynaTest {
 	public void testJson() throws SAXException, Exception
 	{
 		//发送请求
-		String urlString =null;
+		String ip = MyConfigUtil.getConfig("ip");
+		String port=MyConfigUtil.getConfig("port");
 		String code= "SH600000";    //沪深股代码
 
 		//http://10.15.144.101/quote/dyna?obj=SH600000
-		urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose&output=json";
-		String ret = sendHttpRequest(urlString);
+		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose&output=json";
+		String ret =MyHttpUtil. sendHttpRequest(urlString).getText();
 		System.out.println(ret);
 		assertTrue(ret.contains(code));
 	}
@@ -198,28 +165,15 @@ public class QuoteDynaTest {
 	public void testPb() throws SAXException, Exception
 	{
 		//发送请求
-		String urlString =null;
+		String ip = MyConfigUtil.getConfig("ip");
+		String port=MyConfigUtil.getConfig("port");
 		String code= "SH600000";    //沪深股代码
 
 		//http://10.15.144.101/quote/dyna?obj=SH600000
-		urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose&output=pb&qid=test1";//&field=time,lastclose
-		
-		// WebConversation是HttpUnit的中心，您使用它来展开与HTTP相关的协议对话
-		WebConversation  	web = new WebConversation(); 
-		//使用 WebRequest设置相关的请求参数
-		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
-			
-		//WebConversation连接目的网页，然後得到回应WebResponse
-		//get
-		WebResponse response = web.getResponse(get);  
+		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose&output=pb&qid=test1";//&field=time,lastclose
+		WebResponse response = MyHttpUtil.sendHttpRequest(urlString);  
 
-		//通过文件得到消息实例，本例不需要通过文件，而是直接读取http请求返回的输入流
-		//UAResponse uaresponse = UAResponse.parseFrom(new FileInputStream("C:\\Users\\shun\\Desktop\\test\\aaa.protoout"));//通过文件
-		//通过http 请求返回的输入流得到消息实例
 		UAResponse uaresponse = UAResponse.parseFrom(response.getInputStream());
-//		System.out.println("qid="+uaresponse.getQid());
-//		System.out.println("err="+uaresponse.getErr());
-//		System.out.println("counter="+uaresponse.getCounter());
 		if(uaresponse.hasData())
 		{
 			//获取DATA部分
@@ -228,9 +182,10 @@ public class QuoteDynaTest {
 			QuoteDynaOutput output = QuoteDynaOutput.parseFrom(bs);
 			QuoteDynaSingle single = output.getResults(0);
 			String obj = single.getObj();
-			
+			//断言
 			assertEquals(code,obj);
 		}		
-	}	
+	}
+
 }
 

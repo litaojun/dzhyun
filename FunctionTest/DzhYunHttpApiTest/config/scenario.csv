@@ -1,0 +1,3 @@
+all
+com.gw.dzhyun.httptest.QuoteDynaTest:testJson
+com.gw.dzhyun.httptest.QuoteDynaTest:testPb
