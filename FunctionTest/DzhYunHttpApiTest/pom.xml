@@ -40,9 +40,31 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
-			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+		    <groupId>com.google.protobuf</groupId>
+		    <artifactId>protobuf-java</artifactId>
+		    <version>2.6.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.httpunit</groupId>
+		    <artifactId>httpunit</artifactId>
+		    <version>1.7.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>xerces</groupId>
+		    <artifactId>xercesImpl</artifactId>
+		    <version>2.11.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>xerces</groupId>
+		    <artifactId>xmlParserAPIs</artifactId>
+		    <version>2.6.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -51,12 +73,20 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
 				<configuration>
-					<compilerVersion>1.7</compilerVersion>
-					<source>1.7</source>
-					<target>1.7</target>
+					<includes>
+						<include>**/AllTests.java</include>
+					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
+		
 	</build>
+	
+	
 </project>

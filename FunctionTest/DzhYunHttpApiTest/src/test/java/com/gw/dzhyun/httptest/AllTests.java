@@ -42,7 +42,7 @@ public class AllTests {
 		return suite;
 		*/
 		
-		/*使用过滤的情况*/
+		/*产生TestSuite（使用过滤的情况）*/
 		if(getScenario())
 		{
 			for(Map.Entry<String, Class> entry : scenario.entrySet())	
