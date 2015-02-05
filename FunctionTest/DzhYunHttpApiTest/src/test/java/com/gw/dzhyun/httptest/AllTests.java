@@ -69,7 +69,7 @@ public class AllTests {
 	public static boolean getScenario() throws IOException, ClassNotFoundException
 	{
 //		System.out.println("getScenario");
-		String runConfig = System.getProperty("user.dir")+"\\config\\scenario.csv";
+		String runConfig = System.getProperty("user.dir")+"/config/scenario.csv";
 //		System.out.println(runConfig);
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(runConfig),"utf-8"));
 		String line=null;
