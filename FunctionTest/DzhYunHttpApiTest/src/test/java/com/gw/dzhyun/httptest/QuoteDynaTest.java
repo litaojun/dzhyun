@@ -144,7 +144,7 @@ public class QuoteDynaTest{
 	@Test
 	public void testJson() throws SAXException, Exception
 	{
-		//发送请求
+		//发送请求  
 		String ip = MyConfigUtil.getConfig("ip");
 		String port=MyConfigUtil.getConfig("port");
 		String code= "SH600000";    //沪深股代码
