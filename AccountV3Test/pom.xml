@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.shekhar</groupId>
-	<artifactId>wordgame</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.gw.accountv3</groupId>
+	<artifactId>accountv3test</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>wordgame</name>
+	<name>com.gw.accountv3.accountv3test</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -63,6 +63,11 @@
 		<dependency>
 		    <groupId>xerces</groupId>
 		    <artifactId>xmlParserAPIs</artifactId>
+		    <version>2.6.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
 		    <version>2.6.2</version>
 		</dependency>
 	</dependencies>
