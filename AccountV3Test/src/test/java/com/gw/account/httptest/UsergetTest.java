@@ -23,10 +23,20 @@ import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class UsergetTest {
-	
+	//下面的变量设置缺省值
+	private String method = "adduser";//=adduser
+	private String uname;//string 50 字节是不少于4 个字节的中英文字符（非法字符定义详细↗ ）
+	private String ringupass;//string;//50 字节是密码明文或MD5 加密串（HTTP 接口需填为MD5 加密串）
+	private String mobile;//string;//15 字节否验证过的手机号
+	private String email;// string;//50 字节否验证过的邮箱
+	private String vname;// string;//50 字节否昵称（nickname）
+	private String appid;//10 字节否默认不填，除非明确告知需填入分配的appid
+	private String sql;
+	private String rediskey;
 	@Before
 	public void setUp() throws Exception {
 		//System.out.println("setup");
+		
 	}
 
 	/**
@@ -76,7 +86,18 @@ public class UsergetTest {
 	@Test
 	//正常获取一个用户信息
 	public void testNormalUserget() throws IOException,SAXException {
+		
 		String accresult = AccInterface.testUserget("&uname=johnny");
 		assertTrue("True",accresult.contains("result=0"));	
 	}
+	
+//	@Test
+//	//测试uname最大长度
+//	public void testAdduserMaxUnameLength() throws IOException,SAXException {
+//		uname = "111111111111111111111111111111111111111111111111111";
+//		String accresult = AccInterface.testUserget();
+//		
+//		assertTrue("True",accresult.contains("result=0"));	
+//		
+//	}
 }
