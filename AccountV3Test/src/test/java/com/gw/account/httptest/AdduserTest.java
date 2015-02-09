@@ -104,12 +104,14 @@ public class AdduserTest {
 	//只传用户名密码正常测试
 	public void testUnameupass() throws IOException,SAXException, ClassNotFoundException, SQLException{
 		
-		String accresult = AccInterface.testAdduser("&uname=lidb"+curtimeuname+"&upass=123qwe");					
-		int accmysql = MyDatabaseUtil.dosureQuerySql("SELECT * FROM T_MOBILE_BIND_INFO");
-		System.out.println(accmysql);			
+		String accresult = AccInterface.testAdduser("&uname=lidb"+curtimeuname+"&upass=123qwe");										
 		assertTrue("True",accresult.contains("result=0"));
-		MyRedisUtil accre = new MyRedisUtil();
+		int accmysql = MyDatabaseUtil.dosureQuerySql("SELECT * FROM T_MOBILE_BIND_INFO");
+		System.out.println(accmysql);
+		assertEquals(accmysql,45338);
+		MyRedisUtil accre = new MyRedisUtil();		
 		String accredis = accre.getValue("GwInetActApp:RECIEVE_CODE:2:ZVQBJY");	
+		assertEquals(accredis,"ZVQBJY");
 		System.out.print(accredis);
 		
 	}
