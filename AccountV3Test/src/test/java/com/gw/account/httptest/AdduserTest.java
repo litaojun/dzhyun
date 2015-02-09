@@ -42,7 +42,7 @@ public class AdduserTest {
 	private String appid;//10 字节否默认不填，除非明确告知需填入分配的appid
 	private String sql;
 	private String rediskey;
-	private String curtimeuname = MyCurrentTime.MyTime();
+	private String curtimeuname = MyCurrentTime.MyTime(); //使每次传递用户名不重复 ，不用初始数据库
 
 	@Before
 	public void setUp() throws Exception {
