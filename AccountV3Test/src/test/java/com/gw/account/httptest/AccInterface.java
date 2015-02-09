@@ -18,6 +18,8 @@ import com.meterware.servletunit.ServletUnitClient;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+
+
 public class AccInterface {
     //1.adduser接口的构造方法
 	public static String testAdduser(String casename, String unameinput) throws IOException, SAXException{

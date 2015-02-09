@@ -18,16 +18,19 @@ import redis.clients.jedis.ShardedJedisPool;
 import redis.clients.jedis.SortingParams;
 
 public class MyRedisUtil {
-    private Jedis jedis;//非切片额客户端连接
+    private  Jedis jedis;//非切片额客户端连接
     
     public MyRedisUtil()
-    {
+    {   
+    	
     	jedis = new Jedis("10.15.144.93", 6379);
+    	
     }
     
     
-    public String getValue(String key)
-    {
+    public  String getValue(String key)
+    {   
+    	
     	String value = null;
     	if(jedis.exists(key))
     		value= jedis.get(key);
