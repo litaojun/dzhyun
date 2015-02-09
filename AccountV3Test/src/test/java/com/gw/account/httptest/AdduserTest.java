@@ -7,8 +7,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import org.xml.sax.SAXException;
+
+import com.atopcloud.util.MyCurrentTime;
+import com.atopcloud.util.MyDatabaseUtil;
+import com.atopcloud.util.MyRedisUtil;
 
 
 
@@ -25,6 +31,18 @@ import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class AdduserTest {
+	
+	//下面的变量设置缺省值
+	private String method = "adduser";//=adduser
+	private String uname = "lidbv3";//string 50 字节是不少于4 个字节的中英文字符（非法字符定义详细↗ ）
+	private String ringupass;//string;//50 字节是密码明文或MD5 加密串（HTTP 接口需填为MD5 加密串）
+	private String mobile;//string;//15 字节否验证过的手机号
+	private String email;// string;//50 字节否验证过的邮箱
+	private String vname;// string;//50 字节否昵称（nickname）
+	private String appid;//10 字节否默认不填，除非明确告知需填入分配的appid
+	private String sql;
+	private String rediskey;
+	private String curtimeuname = MyCurrentTime.MyTime();
 
 	@Before
 	public void setUp() throws Exception {
@@ -83,12 +101,39 @@ public class AdduserTest {
 */
 
 	@Test
-	public void testEmail() throws IOException,SAXException{
-		String accresult = AccInterface.testAdduser("&uname=johnny&upass=123qwe");
+	//只传用户名密码正常测试
+	public void testUnameupass() throws IOException,SAXException, ClassNotFoundException, SQLException{
+		
+		String accresult = AccInterface.testAdduser("&uname=lidb"+curtimeuname+"&upass=123qwe");					
+		int accmysql = MyDatabaseUtil.dosureQuerySql("SELECT * FROM T_MOBILE_BIND_INFO");
+		System.out.println(accmysql);			
 		assertTrue("True",accresult.contains("result=0"));
+		MyRedisUtil accre = new MyRedisUtil();
+		String accredis = accre.getValue("GwInetActApp:RECIEVE_CODE:2:ZVQBJY");	
+		System.out.print(accredis);
+		
 	}
 	
-
+/*
+	public void testEmail() throws IOException,SAXException{
+		String accresult = AccInterface.testAdduser("&uname=johnny4&upass=123qwe");				
+		try {
+			int accmysql = MyDatabaseUtil.doQuerySql("10.15.201.24", "3306", "root", "", "INETACT", "SELECT * FROM T_MOBILE_BIND_INFO");
+			System.out.print(accmysql);	
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		assertTrue("True",accresult.contains("result=0"));
+		MyRedisUtil accre = new MyRedisUtil();
+		String accredis = accre.getValue("GwInetActApp:RECIEVE_CODE:2:ZVQBJY");		
+		System.out.print(accredis);
+		
+	}
+*/	
 /*
 	@Test
 	public void testEmail() throws IOException,SAXException{
