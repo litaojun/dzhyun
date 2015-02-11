@@ -15,6 +15,8 @@ import org.xml.sax.SAXException;
 import com.atopcloud.util.MyCurrentTime;
 import com.atopcloud.util.MyDatabaseUtil;
 import com.atopcloud.util.MyRedisUtil;
+import com.atopcloud.util.MyUid;
+import com.atopcloud.util.MyBdbUtil;
 
 
 
@@ -91,29 +93,69 @@ public class AdduserTest {
 		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case6:用户名等于28位", "ut", "123qwe");
 		assertEquals("-101",accresult);
 	}
+	
 	@Test
 	//密码为空
 	public void testUpassnull() throws IOException,SAXException{
 		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case7:密码为空", "ajohnny", "");
 		assertEquals("-102",accresult);
 	}
-	
-*/
+	*/
+
 
 	@Test
-	//只传用户名密码正常测试
+	//Case1:只传用户名密码正常测试
 	public void testUnameupass() throws IOException,SAXException, ClassNotFoundException, SQLException{
 		
-		String accresult = AccInterface.testAdduser("&uname=lidb"+curtimeuname+"&upass=123qwe");										
+		String accresult = AccInterface.testAdduser("&uname=lidb"+curtimeuname+"&upass=123456");	
 		assertTrue("True",accresult.contains("result=0"));
-		int accmysql = MyDatabaseUtil.dosureQuerySql("SELECT * FROM T_MOBILE_BIND_INFO");
-		System.out.println(accmysql);
-		assertEquals(accmysql,45338);
-		MyRedisUtil accre = new MyRedisUtil();		
-		String accredis = accre.getValue("GwInetActApp:RECIEVE_CODE:2:ZVQBJY");	
-		assertEquals(accredis,"ZVQBJY");
-		System.out.print(accredis);
+		String Myuid = MyUid.Uid(accresult);
+//		System.out.println(Myuid);
+//		int accmysql = MyDatabaseUtil.dosureQuerySql("SELECT * FROM T_MOBILE_BIND_INFO");
+//		System.out.println(accmysql);
+//		assertEquals(accmysql,45338);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");
+//		System.out.println(myredisuid);
+		//校验redis中的uid对应的用户名是否正确
+		assertEquals(myredisuid,"lidb"+curtimeuname+"");
+		MyBdbUtil  mybdb = new MyBdbUtil();		
+		String myuid = mybdb.getValue("uid:"+Myuid+"");
+		String myu = mybdb.getValue("u:lidb"+curtimeuname+"");
+		String myuts = mybdb.getValue("uid:lidb"+curtimeuname+"");
+		//校验bdb中的uid对应的用户名是否正确
+		assertEquals(myuid,"lidb"+curtimeuname+"");
+	//	assertTrue("True",myuts.contains("lidb"+curtimeuname+""));
+		//校验bdb中u:key中是否包含用户名
+		assertTrue("True",myu.contains("lidb"+curtimeuname+""));
+				
+						
+	}
+	
+	@Test
+	//Case2:测试大写用户名注册后转换成小写用户名
+	public void testCapitalUname() throws IOException,SAXException{
 		
+		String accresult = AccInterface.testAdduser("&uname=LIDBB"+curtimeuname+"&upass=123456");	
+		assertTrue("True",accresult.contains("result=0"));
+		String Myuid = MyUid.Uid(accresult);
+//		System.out.println(Myuid);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");
+//		System.out.println(myredisuid);
+		//校验redis中的uid对应的用户名是否正确
+		assertEquals(myredisuid,"lidbb"+curtimeuname+"");
+		MyBdbUtil  mybdb = new MyBdbUtil();		
+		String myuid = mybdb.getValue("uid:"+Myuid+"");
+		String myu = mybdb.getValue("u:lidbb"+curtimeuname+"");
+		String myuts = mybdb.getValue("uid:lidbb"+curtimeuname+"");
+		//校验bdb中的uid对应的用户名是否正确
+		assertEquals(myuid,"lidbb"+curtimeuname+"");
+	//	assertTrue("True",myuts.contains("lidb"+curtimeuname+""));
+		//校验bdb中u:key中是否包含用户名
+		assertTrue("True",myu.contains("lidbb"+curtimeuname+""));
+				
+						
 	}
 	
 /*

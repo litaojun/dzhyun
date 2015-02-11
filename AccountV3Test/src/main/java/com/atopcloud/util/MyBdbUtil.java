@@ -1,6 +1,6 @@
 package com.atopcloud.util;
 /**
- * 处理redis查询操作
+ * 处理BDB查询操作
  * @author Administrator
  *
  */
@@ -17,13 +17,13 @@ import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 import redis.clients.jedis.SortingParams;
 
-public class MyRedisUtil {
+public class MyBdbUtil {
     private  Jedis jedis;//非切片额客户端连接
     
-    public MyRedisUtil()
+    public MyBdbUtil()
     {   
     	
-    	jedis = new Jedis("10.15.201.107", 22121);
+    	jedis = new Jedis("10.15.201.106", 10001);
     	
     }
     
@@ -32,8 +32,7 @@ public class MyRedisUtil {
     {   
     	
     	String value = null;
-    	if(jedis.exists(key))
-    		value= jedis.get(key);
+    	value= jedis.get(key);
         return value;
     }
 
