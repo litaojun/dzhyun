@@ -17,6 +17,7 @@ import com.atopcloud.util.MyDatabaseUtil;
 import com.atopcloud.util.MyRedisUtil;
 import com.atopcloud.util.MyUid;
 import com.atopcloud.util.MyBdbUtil;
+import com.atopcloud.util.MyCheckBdb;
 
 
 
@@ -35,13 +36,13 @@ import junit.framework.TestCase;
 public class AdduserTest {
 	
 	//下面的变量设置缺省值
-	private String method = "adduser";//=adduser
-	private String uname = "lidbv3";//string 50 字节是不少于4 个字节的中英文字符（非法字符定义详细↗ ）
-	private String ringupass;//string;//50 字节是密码明文或MD5 加密串（HTTP 接口需填为MD5 加密串）
-	private String mobile;//string;//15 字节否验证过的手机号
-	private String email;// string;//50 字节否验证过的邮箱
-	private String vname;// string;//50 字节否昵称（nickname）
-	private String appid;//10 字节否默认不填，除非明确告知需填入分配的appid
+	private String method = "adduser";            //=adduser
+	private String uname = "lidbv3";              //string 50 字节是不少于4 个字节的中英文字符（非法字符定义详细↗ ）
+	private String upass = "123456";              //string;50 字节是密码明文或MD5 加密串（HTTP 接口需填为MD5 加密串）
+	private String mobile = "15901620000";        //string;15 字节否验证过的手机号
+	private String email = "1918880550@qq.com";   //string;50 字节否验证过的邮箱
+	private String vname = "Hello是你好";           // string;50 字节否昵称（nickname）
+	private String appid = "test001";             //10 字节否默认不填，除非明确告知需填入分配的appid
 	private String sql;
 	private String rediskey;
 	private String curtimeuname = MyCurrentTime.MyTime(); //使每次传递用户名不重复 ，不用初始数据库
@@ -106,20 +107,19 @@ public class AdduserTest {
 	@Test
 	//Case1:只传用户名密码正常测试
 	public void testUnameupass() throws IOException,SAXException, ClassNotFoundException, SQLException{
-		
-		String accresult = AccInterface.testAdduser("&uname=lidb"+curtimeuname+"&upass=123456");	
+		String uname = "lidb"+curtimeuname+"";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uid(accresult);
-//		System.out.println(Myuid);
-//		int accmysql = MyDatabaseUtil.dosureQuerySql("SELECT * FROM T_MOBILE_BIND_INFO");
-//		System.out.println(accmysql);
-//		assertEquals(accmysql,45338);
 		MyRedisUtil myredis = new MyRedisUtil();		
 		String myredisuid = myredis.getValue("uid:"+Myuid+"");
-//		System.out.println(myredisuid);
 		//校验redis中的uid对应的用户名是否正确
 		assertEquals(myredisuid,"lidb"+curtimeuname+"");
-		MyBdbUtil  mybdb = new MyBdbUtil();		
+//		MyBdbUtil  mybdb = new MyBdbUtil();		
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:lidb"+curtimeuname+"");
+		assertTrue(ret);
+	//	assertEquals(ret,"true");
+		/*
 		String myuid = mybdb.getValue("uid:"+Myuid+"");
 		String myu = mybdb.getValue("u:lidb"+curtimeuname+"");
 		String myuts = mybdb.getValue("uid:lidb"+curtimeuname+"");
@@ -128,7 +128,7 @@ public class AdduserTest {
 	//	assertTrue("True",myuts.contains("lidb"+curtimeuname+""));
 		//校验bdb中u:key中是否包含用户名
 		assertTrue("True",myu.contains("lidb"+curtimeuname+""));
-				
+		*/		
 						
 	}
 	
@@ -136,7 +136,7 @@ public class AdduserTest {
 	//Case2:测试大写用户名注册后转换成小写用户名
 	public void testCapitalUname() throws IOException,SAXException{
 		
-		String accresult = AccInterface.testAdduser("&uname=LIDBB"+curtimeuname+"&upass=123456");	
+		String accresult = AccInterface.testAdduser("&uname=LIDBB"+curtimeuname+"&upass="+upass+"");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uid(accresult);
 //		System.out.println(Myuid);
@@ -153,7 +153,32 @@ public class AdduserTest {
 		assertEquals(myuid,"lidbb"+curtimeuname+"");
 	//	assertTrue("True",myuts.contains("lidb"+curtimeuname+""));
 		//校验bdb中u:key中是否包含用户名
-		assertTrue("True",myu.contains("lidbb"+curtimeuname+""));
+		assertTrue("True",myu.contains("lidbb"+curtimeuname+""));				
+						
+	}
+	
+	@Test
+	//Case3:非必填字段全部正确书写请求
+	public void testAllfields() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		String curtimeuname = MyCurrentTime.MyTime();
+		String accresult = AccInterface.testAdduser("&uname=lidb"+curtimeuname+"&upass="+upass+"&mobile=15901620429&email=1918880550@qq.com&vname=测试V2非必填");	
+		assertTrue("True",accresult.contains("result=0"));
+		String Myuid = MyUid.Uid(accresult);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");
+		//校验redis中的uid对应的用户名是否正确
+		assertEquals(myredisuid,"lidb"+curtimeuname+"");
+		MyBdbUtil  mybdb = new MyBdbUtil();		
+		String myuid = mybdb.getValue("uid:"+Myuid+"");
+		String myu = mybdb.getValue("u:lidb"+curtimeuname+"");
+		String myuts = mybdb.getValue("uid:lidb"+curtimeuname+"");
+		String kemail = mybdb.getValue("k_1:"+email+"");
+		//校验bdb中的uid对应的用户名是否正确
+		assertEquals(myuid,"lidb"+curtimeuname+"");
+	//	assertTrue("True",myuts.contains("lidb"+curtimeuname+""));
+		//校验bdb中u:key中是否包含用户名
+		assertTrue("True",myu.contains("lidb"+curtimeuname+""));
 				
 						
 	}
