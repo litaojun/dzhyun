@@ -37,10 +37,11 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
+		System.out.println("Request:"+urlparam.trim());
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();  
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println(response.getText());
+		System.out.println("Response:" +response.getText());
 	    return response.getText();
 	}
 	
