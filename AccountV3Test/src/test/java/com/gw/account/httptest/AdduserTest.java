@@ -55,59 +55,13 @@ public class AdduserTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-/*
-	@Test
-	//正常添加一个用户
-	public void testAdduser() throws IOException,SAXException{
-		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case1:正常注册用户", "johnnysharp", "123qwe");
-		assertTrue("True",accresult.contains("result=0"));	
-	}
-	
-	@Test
-	//空用户名空密码
-	public void testNulluname() throws IOException,SAXException{
-		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case2:空用户名空密码", "", "");
-		assertEquals("-101",accresult);	
-	}
-	@Test
-	//用户名超过29位
-	public void testUnamegt29() throws IOException,SAXException{
-		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case3:用户名超过29位", "abcdefghijklmnopqrstuvwxyzabcdefg", "123qwe");
-		assertEquals("-101",accresult);
-	}
-	@Test
-	//用户名超过29位
-	public void testUnameeq29() throws IOException,SAXException{
-		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case4:用户名等于29位", "abcdefghijklmnopqrstuvwxyzabc", "123qwe");
-		assertTrue("True",accresult.contains("result=0"));
-	}
-	@Test
-	//用户名超过28位
-	public void testUnameeq28() throws IOException,SAXException{
-		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case5:用户名等于28位", "abcdefghijklmnopqrstuvwxyzab", "123qwe");
-		assertTrue("True",accresult.contains("result=0"));
-	}
-	@Test
-	//用户名是布尔类型,True或者False
-	public void testUnameboolean() throws IOException,SAXException{
-		Boolean ut = true;
-		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case6:用户名等于28位", "ut", "123qwe");
-		assertEquals("-101",accresult);
-	}
-	
-	@Test
-	//密码为空
-	public void testUpassnull() throws IOException,SAXException{
-		String accresult = com.dzh.crm.servlet.AccInterface.testAdduser("Case7:密码为空", "ajohnny", "");
-		assertEquals("-102",accresult);
-	}
-	*/
 
 
 	@Test
 	//Case1:只传用户名密码正常测试
 	public void testUnameupass() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case1:只传用户名密码正常测试=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "lidb"+curtimeuname+"";
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
@@ -138,6 +92,7 @@ public class AdduserTest {
 	//Case2:测试大写用户名注册后转换成小写用户名,存储在库中时也为小写
 	public void testCapitalUname() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case2:测试大写用户名注册后转换成小写用户名,存储在库中时也为小写=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "LIDB"+curtimeuname+"";
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
@@ -157,6 +112,7 @@ public class AdduserTest {
 	//Case3:非必填字段全部正确书写请求
 	public void testAllparams() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case3:非必填字段全部正确书写请求=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "lidb"+curtimeuname+"";
 		String mobile = MyUid.Monbile(curtimeuname);
@@ -178,6 +134,7 @@ public class AdduserTest {
 	@Test
 	//Case4:中文用户名注册
 	public void testChnUname() throws IOException,SAXException{
+		System.out.println("======Case4:中文用户名注册=======");
 		String uname = "你好"+curtimeuname+"";
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
 		assertTrue("True",accresult.contains("result=0"));
@@ -195,6 +152,7 @@ public class AdduserTest {
 	//Case5:必添字段用户名缺失
 	public void testDefectUname() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case5:必添字段用户名缺失=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String email = MyUid.Email(curtimeuname);
@@ -208,6 +166,7 @@ public class AdduserTest {
 	//Case6:必添字段密码缺失
 	public void testDefectUpass() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case6:必添字段密码缺失=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String email = MyUid.Email(curtimeuname);
@@ -221,6 +180,7 @@ public class AdduserTest {
 	//Case7:非必填字段缺失手机号
 	public void testDefectMobile() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case7:非必填字段缺失手机号=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "lidb"+curtimeuname+"";
 		String mobile = MyUid.Monbile(curtimeuname);
@@ -243,6 +203,7 @@ public class AdduserTest {
 	//Case8:非必填字邮箱段缺失
 	public void testDefectEmail() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case8:非必填字邮箱段缺失=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "lidb"+curtimeuname+"";
 		String mobile = MyUid.Monbile(curtimeuname);
@@ -264,6 +225,7 @@ public class AdduserTest {
 	//Case9:非必填字段昵称昵称缺失
 	public void testDefectvname() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
+		System.out.println("======Case9:非必填字段昵称昵称缺失=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "lidb"+curtimeuname+"";
 		String mobile = MyUid.Monbile(curtimeuname);
@@ -286,9 +248,144 @@ public class AdduserTest {
 	//Case10:用户名重复测试
 	public void testUnameSame() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
 		Thread.sleep(1001);
-		String uname = "lidb"+curtimeuname+"";
+		System.out.println("======Case10:用户名重复测试=======");
+		String uname = "lidb";
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
 		assertTrue("True",accresult.contains("result=1"));							
+	}
+	
+	@Test
+	//Case11:用户名字节少于4字
+	public void testUname3char() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case11:用户名字节少于4字=======");
+		String uname = "lid";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
+		assertTrue("True",accresult.contains("result=3"));							
+	}
+	
+	@Test
+	//Case12:用户名字节大于50字节
+	public void testUname51char() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case11:用户名字节大于50字节=======");
+		String uname = "lidb50000000000000000000000000000000000000000000000";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
+		assertTrue("True",accresult.contains("result=3"));							
+	}
+	
+	@Test
+	//Case13:用户名特殊字符
+	public void testUnameSpecialchar() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case13:用户名特殊字符=======");
+		String uname = "lidb!#$";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"");	
+		assertTrue("True",accresult.contains("result=101"));							
+	}
+	
+	@Test
+	//Case14:密码字节等于50测试
+	public void testUpass50char() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case14:密码字节等于50测试=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb"+curtimeuname+"";
+		String upass50 = "lidb500000000000000000000000000000000000000000000";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass50+"");	
+		assertTrue("True",accresult.contains("result=0"));
+		String Myuid = MyUid.Uid(accresult);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");
+		assertEquals(myredisuid,uname);
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"","","","","");
+		assertTrue(ret);
+						
+	}
+	
+	@Test
+	//Case15:密码字节等于51测试
+	public void testUpass51char() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case14:密码字节等于51测试=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb"+curtimeuname+"";
+		String upass50 = "lidb50000000000000000000000000000000000000000000001";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass50+"");	
+		assertTrue("True",accresult.contains("result=59"));
+						
+	}
+	
+	@Test
+	//Case16:手机号码10位
+	public void testMobile10char() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case16:手机号码9位=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb"+curtimeuname+"";
+		String mobile = "1590162042";
+		String email = MyUid.Email(curtimeuname);
+		String vname = MyUid.Monbile(curtimeuname); 
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
+		assertTrue("True",accresult.contains("result=104"));															
+	}
+	
+	@Test
+	//Case17:手机号码12位
+	public void testMobile12char() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case17:手机号码12位=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb"+curtimeuname+"";
+		String mobile = "159016204211";
+		String email = MyUid.Email(curtimeuname);
+		String vname = MyUid.Monbile(curtimeuname); 
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
+		assertTrue("True",accresult.contains("result=104"));															
+	}
+	
+	
+	@Test
+	//Case18:非电话号码注册
+	public void testNoMobile() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case18:非电话号码注册=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb"+curtimeuname+"";
+		String mobile = "05901620421";
+		String email = MyUid.Email(curtimeuname);
+		String vname = MyUid.Monbile(curtimeuname); 
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
+		assertTrue("True",accresult.contains("result=104"));															
+	}
+	
+	@Test
+	//Case19:邮箱格式错误注册
+	public void testNoEmail() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case19:邮箱格式错误注册=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb"+curtimeuname+"";
+		String mobile = MyUid.Monbile(curtimeuname);
+		String email = "05901620421qq.com";
+		String vname = MyUid.Monbile(curtimeuname); 
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
+		assertTrue("True",accresult.contains("result=105"));															
+	}
+	
+	@Test
+	//Case20:字段名错误注册
+	public void testErrorparams() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		System.out.println("======Case20:字段名错误注册=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb"+curtimeuname+"";
+		String mobile = MyUid.Monbile(curtimeuname);
+		String email = MyUid.Email(curtimeuname);
+		String vname = MyUid.Monbile(curtimeuname); 
+		String accresult = AccInterface.testAdduser("&une="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
+		assertTrue("True",accresult.contains("result=101"));			
+		
 	}
 /*
 	public void testEmail() throws IOException,SAXException{
