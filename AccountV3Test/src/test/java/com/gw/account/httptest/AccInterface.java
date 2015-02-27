@@ -69,7 +69,8 @@ public class AccInterface {
 	public static String testLogin(String casename, String unameinput, String upassinput) throws IOException, SAXException{
 	    System.out.println(casename);
 		WebConversation  	web = new WebConversation(); 
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=login&uname="+unameinput+"&upass="+upassinput+"";
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=login&uname="+unameinput+"&upass="+upassinput;
+        System.out.println(urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);  
 		System.out.println("\n");
@@ -92,7 +93,8 @@ public class AccInterface {
 	public static String testLogout(String casename, String unameinput) throws IOException,SAXException{
 		    System.out.println(casename);
 			WebConversation  	web = new WebConversation(); 
-			String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=logout&uname="+unameinput+"";
+			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=logout&uname="+unameinput+"";
+            System.out.println(urlString);
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 			WebResponse response = web.getResponse(get);  
 			System.out.println("\n");
