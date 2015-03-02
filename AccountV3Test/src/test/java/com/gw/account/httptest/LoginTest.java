@@ -99,3 +99,6 @@ public class LoginTest {
         assertTrue("Case13:手机登录密码为空,msg: " + string , string.contains("result=101"));
     }
 }
+
+
+
