@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 
+
 //
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
@@ -46,11 +47,27 @@ public class UsergetTest {
 	public void tearDown() throws Exception {
 		//System.out.println("teardown");
 	}
-
+	
+	@Test
+	////Case1:获取一个不存在用户的信息
+	public void testNotExistUname() throws IOException,SAXException {
+		System.out.println("======Case1:获取一个不存在用户的信息=======");	
+		String accresult = AccInterface.testUserget("&uname=johnnyoo");
+		assertTrue("True",accresult.contains("result=2"));
+	}
+	
+	@Test
+	////Case2:非必填字段全部正确书写请求	
+	public void testAllParams() throws IOException,SAXException {
+		System.out.println("======Case2:非必填字段全部正确书写请求=======");	
+		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=2"));
+	}
+/*
 
 	@Test
 	//获取一个不存在用户的信息
-	public void testNotExistUname() throws IOException,SAXException {
+	public void testNotExistUname1() throws IOException,SAXException {
 		String accresult = AccInterface.testUserget("Case2:获取一个不存在用户信息", "johnnyoo");
 		assertTrue("True",accresult.contains("result=2"));
 	}
@@ -100,4 +117,6 @@ public class UsergetTest {
 //		assertTrue("True",accresult.contains("result=0"));	
 //		
 //	}
+ * 
+ */
 }
