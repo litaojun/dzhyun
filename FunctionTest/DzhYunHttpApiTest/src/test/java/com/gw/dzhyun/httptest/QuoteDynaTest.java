@@ -19,12 +19,15 @@ import org.junit.runner.Description;
 import org.junit.runner.manipulation.Filter;
 import org.xml.sax.SAXException;
 
+import com.alibaba.fastjson.JSONObject;
 import com.atopcloud.testcasefilter.MyTestCaseFilter;
 import com.atopcloud.util.ByteBuffer2StringUtil;
 import com.atopcloud.util.MyConfigUtil;
 import com.atopcloud.util.MyHttpUtil;
 import com.atopcloud.util.PropertiesManager;
 import com.google.protobuf.ByteString;
+import com.googlecode.protobuf.format.JsonFormat;
+import com.gw.dzhyun.util.MyQuoteDynaUtil;
 //http unit
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.PostMethodWebRequest;
@@ -34,6 +37,10 @@ import com.meterware.httpunit.WebResponse;
 import dzhyun.Dzhoutput.QuoteDynaOutput;
 import dzhyun.Dzhoutput.QuoteDynaSingle;
 import dzhyun.Dzhua.UAResponse;
+
+
+
+
 
 
 
@@ -61,6 +68,10 @@ import java.util.Properties;
  *
  */
 public class QuoteDynaTest{
+	//变量
+	String ip = MyConfigUtil.getConfig("ip");
+	String port=MyConfigUtil.getConfig("port");
+	String code= "SH600000";    //沪深股代码
 	
 	/**
 	 * @throws java.lang.Exception
@@ -68,6 +79,7 @@ public class QuoteDynaTest{
 	@Before
 	public void setUp() throws Exception {
 		//System.out.println("setup");
+		
 	}
 
 	/**
@@ -83,77 +95,74 @@ public class QuoteDynaTest{
 	 * 测试所有沪深A股代码
 	 * @throws Exception 
 	 */
-	@Test
-	public void testAllSZCodes() throws Exception {
-		//若果不想运行本函数，添加fail语句
-		fail("donot run this!");
-		
-		//读取测试用例参数
-		String filePath = System.getProperty("user.dir") + "\\resources\\沪深A股.txt";
-		//System.out.println("filepath="+filePath);
-		BufferedReader breader =null;
-		breader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),"UTF-8"));
-		
-		//发送请求
-		String urlString =null;
-		String code=null;    //沪深股代码
-		int codeNum = 0;
-		int succNum=0;
-		String ip = MyConfigUtil.getConfig("ip");
-		String port=MyConfigUtil.getConfig("port");
-		while((code = breader.readLine()) !=null)
-		{
-			code = code.trim();
-			codeNum++;
-			//http://10.15.144.101/quote/dyna?obj=SH600000
-			urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code;
-			String ret = MyHttpUtil.sendHttpRequest(urlString).getText();
-			if(ret.contains(code))  //如果返回字符串带有code，例如SH600000，一般是成功返回。
-				succNum++;
-			//System.out.println();
-		}
-		
-		//关闭文件close
-		breader.close();
-		assertEquals(codeNum,succNum);
-	}
+//	@Test
+//	public void testAllSZCodes() throws Exception {
+//		//若果不想运行本函数，添加fail语句
+//		fail("donot run this!");
+//		
+//		//读取测试用例参数
+//		String filePath = System.getProperty("user.dir") + "\\resources\\沪深A股.txt";
+//		//System.out.println("filepath="+filePath);
+//		BufferedReader breader =null;
+//		breader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),"UTF-8"));
+//		
+//		//发送请求
+//		String urlString =null;
+//		String code=null;    //沪深股代码
+//		int codeNum = 0;
+//		int succNum=0;
+//		String ip = MyConfigUtil.getConfig("ip");
+//		String port=MyConfigUtil.getConfig("port");
+//		while((code = breader.readLine()) !=null)
+//		{
+//			code = code.trim();
+//			codeNum++;
+//			//http://10.15.144.101/quote/dyna?obj=SH600000
+//			urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code;
+//			String ret = MyHttpUtil.sendHttpRequest(urlString).getText();
+//			if(ret.contains(code))  //如果返回字符串带有code，例如SH600000，一般是成功返回。
+//				succNum++;
+//			//System.out.println();
+//		}
+//		
+//		//关闭文件close
+//		breader.close();
+//		assertEquals(codeNum,succNum);
+//	}
 	
 	/**
 	 * 带参数：field
 	 * @throws Exception 
 	 * @throws SAXException 
 	 */
-	@Test
-	public void testField() throws SAXException, Exception
-	{
-		//发送请求
-		String code= "SH600000";    //沪深股代码
-		String ip = MyConfigUtil.getConfig("ip");
-		String port=MyConfigUtil.getConfig("port");
-		//http://10.15.144.101/quote/dyna?obj=SH600000
-		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose";
-		String ret = MyHttpUtil.sendHttpRequest(urlString).getText();
-		assertTrue(ret.contains(code));
-	}
+//	@Test
+//	public void testField() throws SAXException, Exception
+//	{
+//		//http://10.15.144.101/quote/dyna?obj=SH600000
+//		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose";
+//		String ret = MyHttpUtil.sendHttpRequest(urlString).getText();
+//		assertTrue(ret.contains(code));
+//	}
 
 	/**
-	 * 带参数：out为json
+	 * 带参数：out为json的情况。
+	 * 需要：1）比较输出结果与直接从行情系统QTRS取到的数据的一致性；2）比较取到结果的时间戳与直接从QTRS取到数据的时间戳一致。
 	 * @throws Exception 
 	 * @throws SAXException 
 	 */
 	@Test
-	public void testJson() throws SAXException, Exception
+	public void testOutputJson() throws SAXException, Exception
 	{
-		//发送请求  
-		String ip = MyConfigUtil.getConfig("ip");
-		String port=MyConfigUtil.getConfig("port");
-		String code= "SH600000";    //沪深股代码
-
-		//http://10.15.144.101/quote/dyna?obj=SH600000
-		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose&output=json";
-		String ret =MyHttpUtil. sendHttpRequest(urlString).getText();
-		System.out.println(ret);
-		assertTrue(ret.contains(code));
+		///quote/dyna?obj=SH600000,SZ000001&field=time,lastclose&output=json
+		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&output=json";
+		String type="json";
+		String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+		System.out.println("返回："+ ret);
+		//正确性验证、及时性验证：与从行情服务器直接获取的数据对比，时间对比
+		//这部分先不做
+//		JSONObject jsonQD = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+//		System.out.println("json 2 message!");
+		
 	}
 	
 	/**
@@ -161,31 +170,26 @@ public class QuoteDynaTest{
 	 * @throws Exception 
 	 * @throws SAXException 
 	 */
-	@Test
-	public void testPb() throws SAXException, Exception
-	{
-		//发送请求
-		String ip = MyConfigUtil.getConfig("ip");
-		String port=MyConfigUtil.getConfig("port");
-		String code= "SH600000";    //沪深股代码
-
-		//http://10.15.144.101/quote/dyna?obj=SH600000
-		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose&output=pb&qid=test1";//&field=time,lastclose
-		WebResponse response = MyHttpUtil.sendHttpRequest(urlString);  
-
-		UAResponse uaresponse = UAResponse.parseFrom(response.getInputStream());
-		if(uaresponse.hasData())
-		{
-			//获取DATA部分
-			ByteString bs = uaresponse.getData();		
-			//DATA部分也是protobuf格式，仍需要解析
-			QuoteDynaOutput output = QuoteDynaOutput.parseFrom(bs);
-			QuoteDynaSingle single = output.getResults(0);
-			String obj = single.getObj();
-			//断言
-			assertEquals(code,obj);
-		}		
-	}
+//	@Test
+//	public void testOutputPb() throws SAXException, Exception
+//	{
+//		//http://10.15.144.101/quote/dyna?obj=SH600000
+//		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=time,lastclose&output=pb&qid=test1";//&field=time,lastclose
+//		WebResponse response = MyHttpUtil.sendHttpRequest(urlString);  
+//
+//		UAResponse uaresponse = UAResponse.parseFrom(response.getInputStream());
+//		if(uaresponse.hasData())
+//		{
+//			//获取DATA部分
+//			ByteString bs = uaresponse.getData();		
+//			//DATA部分也是protobuf格式，仍需要解析
+//			QuoteDynaOutput output = QuoteDynaOutput.parseFrom(bs);
+//			QuoteDynaSingle single = output.getResults(0);
+//			String obj = single.getObj();
+//			//断言
+//			assertEquals(code,obj);
+//		}		
+//	}
 
 }
 

@@ -1,0 +1,60 @@
+package dzhyun;
+
+enum InfoType{
+	Type_Unknow=0;
+	Type_Int=105;		//'i'|a
+	Type_SInt=121;	//'i'|'x'|a
+	Type_Float=102;	//'f'|a
+	Type_Double=100;	//'d'|a
+	Type_String=115;	//'s'|a
+	Type_Binary=98;	//'b'
+	Type_Table=116;	//'t'
+
+	Type_Array=128;
+	Type_ArrayInt=233;
+	Type_ArraySInt=249;
+	Type_ArrayFloat=230;
+	Type_ArrayDouble=228;
+	Type_ArrayString=243;
+}
+
+// pb table
+message CInfo { // Column Info
+    optional string Name   = 1;
+    optional int64  Type   = 2; // 'i'|'x'(差分):sint; 'f':float; 'd':double; 's':string; 't':table; 'b':binary;
+    optional int64  Ratio  = 3; // 数值的放大倍数(仅限数值为整型时可用,此字段有效时表示原始数值为浮点数)
+}
+message CArray { // Array Data
+    repeated sint64 iValues = 1 [packed=true];
+    repeated float  fValues = 2 [packed=true];
+    repeated double dValues = 3 [packed=true];
+    repeated string sValues = 4;
+}
+message CData { // Column Data
+    required int64  Index   = 1; // column index
+    repeated sint64 iValues = 2 [packed=true];
+    repeated float  fValues = 3 [packed=true];
+    repeated double dValues = 4 [packed=true];
+    repeated string sValues = 5;
+    repeated bytes bValues = 6;
+    repeated Table  tValues = 7;
+    repeated CArray  aValues = 8;
+}
+message CDataX { // Column Data (for single row case)
+    required int64  Index  = 1; // column index
+    optional sint64 iValue = 2;
+    optional float  fValue = 3;
+    optional double dValue = 4;
+    optional string sValue = 5;
+    optional bytes bValues = 6;
+    optional Table  tValue = 7;
+    optional CArray  aValues = 8;
+}
+message Table { // pb table
+    optional int64  Tiid  = 1; // id of table info
+    repeated CInfo  Info  = 2; // table info (首次填写,推送时不填,客户端通过tiid自行记录和查找)
+    repeated CData  Data  = 3; // table data
+    repeated CDataX DataX = 4; // table data (single row for each column)
+    optional string Name  = 5;
+    optional string Memo  = 6;
+}

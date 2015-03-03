@@ -1,9 +1,9 @@
-wordgame
+dzhyun测试工程
 ========
 
-A simple word game built using WebSockets. The app uses JSR356 API
+使用httpunit + junit测试dzhyun系统的http接口。
 
 ## Technologies Used ##
 
-1. JSR356 API
-2. Java 7
+1. junit
+2. httpunit

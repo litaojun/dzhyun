@@ -1,0 +1,104 @@
+package dzhyun;
+
+// 动态行情
+
+message QuoteDyna
+{
+    optional int32 Time = 1;
+    optional float LastClose = 2;
+    optional float High = 3;
+    optional float Open = 4;
+    optional float Low = 5;
+    optional float New = 6;
+    optional float Volume = 7;
+    optional float Amount = 8;
+}
+
+message QuoteDynaSingle // ->MSG
+{
+    required string Obj = 1;
+    optional QuoteDyna Data = 2;
+}
+
+message QuoteDynaOutput
+{
+    repeated QuoteDynaSingle Results = 1;
+}
+
+// K线
+
+message QuoteKline
+{
+    optional int32 Time = 1;
+    optional float High = 2;
+    optional float Open = 3;
+    optional float Low = 4;
+    optional float Close = 5;
+    optional float Volume = 6;
+    optional float Amount = 7;
+    optional int32 TickCount = 8;      // 成交笔数
+    optional int32 Advance = 9;        // 上涨家数
+    optional int32 Decline = 10;       // 下跌家数
+}
+
+message QuoteKlineSingle // ->MSG
+{
+    required string Obj = 1;
+    repeated QuoteKline Data = 2;
+}
+
+message QuoteKlineOutput
+{
+    repeated QuoteKlineSingle Results = 1;
+}
+
+//分笔
+message QuoteTick
+{
+	optional int32 Time = 1;
+    optional float Price = 2;
+    optional float Volume = 3;
+    optional float Amount = 4;
+    optional int32 TickCount = 5;
+    repeated float BuyPrice = 6;
+    repeated float BuyVolume = 7;
+    repeated float SellPrice = 8;
+    repeated float SellVolume = 9;
+    optional int32 Outter = 10;
+}
+
+message QuoteTickSingle // ->MSG
+{
+    required string Obj = 1;
+    repeated QuoteTick Data = 2;
+}
+
+message QuoteTickOutput
+{
+    repeated QuoteTickSingle Results = 1;
+}
+
+//分时
+message QuoteMin
+{
+	optional int32 Time = 1;
+    optional float Price = 2;
+    optional float Volume = 3;
+    optional float Amount = 4;
+    optional int32 TickCount = 5;
+    repeated float BuyPrice = 6;
+    repeated float BuyVolume = 7;
+    repeated float SellPrice = 8;
+    repeated float SellVolume = 9;
+}
+
+message QuoteMinSingle // ->MSG
+{
+    required string Obj = 1;
+    repeated QuoteMin Data = 2;
+}
+
+message QuoteMinOutput
+{
+    repeated QuoteMinSingle Results = 1;
+}
