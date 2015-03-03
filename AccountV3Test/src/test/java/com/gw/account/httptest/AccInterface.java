@@ -18,6 +18,8 @@ import com.meterware.servletunit.ServletUnitClient;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+
+
 public class AccInterface {
     //1.adduser接口的构造方法
 	public static String testAdduser(String casename, String unameinput) throws IOException, SAXException{
@@ -35,18 +37,33 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=adduser"+urlparam.trim();  
+		System.out.println("Request:"+urlparam.trim());
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();  
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println(response.getText());
+		System.out.println("Response:" +response.getText());
 	    return response.getText();
 	}
+	
+	//adduserex接口的构造方法
+		public static String testAdduserex(String params) throws IOException,SAXException{
+			StringBuffer sb = new StringBuffer();
+			sb.append(params);
+			String urlparam = sb.toString();
+			WebConversation web = new WebConversation();
+			System.out.println("Request:"+urlparam.trim());
+			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduserex"+urlparam.trim();  
+			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+			WebResponse response = web.getResponse(get);
+			System.out.println("Response:" +response.getText());
+		    return response.getText();
+		}
 	
 	//2.userget接口的构造方法
 	public static String testUserget(String casename, String unameinput) throws IOException, SAXException{
 		    System.out.println(casename);
 			WebConversation  	web = new WebConversation(); 
-			String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=userget&uname="+unameinput+"";
+			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=userget&uname="+unameinput+"";
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 			WebResponse response = web.getResponse(get);  
 			return response.getText();				
@@ -57,17 +74,19 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=userget"+urlparam.trim();  
+		System.out.println("Request:"+urlparam.trim());
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=userget"+urlparam.trim();  
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println(response.getText());
+		System.out.println("Response:"+response.getText());
 	    return response.getText();
 	}
 	//3.login接口的构造方法
 	public static String testLogin(String casename, String unameinput, String upassinput) throws IOException, SAXException{
 	    System.out.println(casename);
 		WebConversation  	web = new WebConversation(); 
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=login&uname="+unameinput+"&upass="+upassinput+"";
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=login&uname="+unameinput+"&upass="+upassinput;
+        System.out.println(urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);  
 		System.out.println("\n");
@@ -90,7 +109,8 @@ public class AccInterface {
 	public static String testLogout(String casename, String unameinput) throws IOException,SAXException{
 		    System.out.println(casename);
 			WebConversation  	web = new WebConversation(); 
-			String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=logout&uname="+unameinput+"";
+			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=logout&uname="+unameinput+"";
+            System.out.println(urlString);
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 			WebResponse response = web.getResponse(get);  
 			System.out.println("\n");
