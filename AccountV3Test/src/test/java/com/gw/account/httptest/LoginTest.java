@@ -2,24 +2,58 @@ package com.gw.account.httptest;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
  * Created by song on 2015/2/12.
  */
 public class LoginTest {
-    private String uname = "eeeeeeee";
-    private String email = "eeeeeeee@126.com";
-    private String mobile = "13000000000";
-    private String pass_md5_str = "11111111";
-    private String uname_NotExist = "nnnnnnnn";
-    private String email_NotExist = "nnnnnnnn@126.com";
-    private String mobile_NotExist = "13011111111";
-    private String pass_md5_str_Wrong = "22222222";
+    private static String uname;
+    private static String email;
+    private static String mobile = "18800000000";
+    private static String pass_md5_str = "11111111";
+    private static String uname_NotExist = "nnnnnnnn";
+    private static String email_NotExist = "nnnnnnnn@126.com";
+    private static String mobile_NotExist = "18999999999";
+    private static String pass_md5_str_Wrong = "22222222";
+
+
+    @BeforeClass
+    public static void globalInit() throws IOException, SAXException {
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+        uname = df.format(new Date());
+        email = uname + "@126.com";
+        String s = mobile.substring(2);
+        long l = Long.parseLong("800000000") + 1;
+        mobile = "18" + String.valueOf(Long.getLong(mobile.substring(2)) + 1);
+        AccInterface.testAdduser("&uname=" + uname + "&upass=" + pass_md5_str);
+        String emailencode = URLEncoder.encode("email=" + email, "UTF-8");
+        String mobilencode = URLEncoder.encode("mobile=" + mobile, "UTF-8");
+        String params = "&uname=" + uname + "&key=" + emailencode + "&key=" + mobilencode;
+        System.out.println(params);
+        AccInterface.testUserbind(params);
+    }
+
+
+    @AfterClass
+    public static void globalDestory() {
+        System.out.println("destory all method...");
+    }
+
+    @After
+    public void tearDown() throws IOException, SAXException {
+        AccInterface.testLogout("&uname="+uname);
+    }
 
     @Test
     public void testCorrectUnamelogin() throws IOException, SAXException {

@@ -129,6 +129,20 @@ public class AccInterface {
 		System.out.println(response.getText());
 	    return response.getText();
 	}
+
+    //userbind接口的构造方法
+    public static String testUserbind(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=userkeybind"+urlparam.trim();
+        System.out.println(urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        System.out.println(response.getText());
+        return response.getText();
+    }
 	
 	//5.updpass接口的构造方法
 	public static String testUpdpass(String casename, String unameinput, String upassinput) throws IOException,SAXException{
