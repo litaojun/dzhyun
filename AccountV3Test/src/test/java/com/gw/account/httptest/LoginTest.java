@@ -33,9 +33,7 @@ public class LoginTest {
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
         uname = df.format(new Date());
         email = uname + "@126.com";
-        String s = mobile.substring(2);
-        long l = Long.parseLong("800000000") + 1;
-        mobile = "18" + String.valueOf(Long.getLong(mobile.substring(2)) + 1);
+        mobile = "18" + String.valueOf(Long.parseLong(mobile.substring(2)) + 1);
         AccInterface.testAdduser("&uname=" + uname + "&upass=" + pass_md5_str);
         String emailencode = URLEncoder.encode("email=" + email, "UTF-8");
         String mobilencode = URLEncoder.encode("mobile=" + mobile, "UTF-8");
