@@ -1,4 +1,4 @@
-package com.gw.account.httptest;
+package com.atopcloud.util;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
