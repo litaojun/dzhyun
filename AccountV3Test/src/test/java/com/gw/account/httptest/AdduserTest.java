@@ -158,7 +158,8 @@ public class AdduserTest {
 		String email = MyUid.Email(curtimeuname);
 		String vname = MyUid.Monbile(curtimeuname); 
 		String accresult = AccInterface.testAdduser("&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("uname_empty"));		
+		assertTrue("True",accresult.contains("uname_bad"));	
+		assertTrue("True",accresult.contains("result=101"));	
 												
 	}
 	
@@ -172,7 +173,8 @@ public class AdduserTest {
 		String email = MyUid.Email(curtimeuname);
 		String vname = MyUid.Monbile(curtimeuname); 
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("upass_empty"));		
+		assertTrue("True",accresult.contains("upass_bad"));	
+		assertTrue("True",accresult.contains("result=101"));
 												
 	}
 	
@@ -312,7 +314,8 @@ public class AdduserTest {
 		String uname = "lidb"+curtimeuname+"";
 		String upass50 = "lidb50000000000000000000000000000000000000000000001";
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass50+"");	
-		assertTrue("True",accresult.contains("result=59"));
+		assertTrue("True",accresult.contains("result=101"));
+		assertTrue("True",accresult.contains("upass_bad"));
 						
 	}
 	

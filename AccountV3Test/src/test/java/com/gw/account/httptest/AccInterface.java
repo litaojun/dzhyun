@@ -131,7 +131,7 @@ public class AccInterface {
 	}
 	
 	//5.updpass接口的构造方法
-	public static String testUpdpass(String casename, String unameinput, String upassinput) throws IOException,SAXException{
+	public static String Updpass(String casename, String unameinput, String upassinput) throws IOException,SAXException{
 	    System.out.println(casename);
 		WebConversation  	web = new WebConversation(); 
 		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=updpass&uname="+unameinput+"&upass"+upassinput+"";
@@ -140,6 +140,22 @@ public class AccInterface {
 		System.out.println("\n");
 		return response.getText();
     }	
+	
+	//Updpass接口的构造方法
+	public static String testUpdpass(String params) throws IOException,SAXException{
+		StringBuffer sb = new StringBuffer();
+		sb.append(params);
+		String urlparam = sb.toString();
+		WebConversation web = new WebConversation();
+		System.out.println("Request:"+urlparam.trim());
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=updpass"+urlparam.trim();  
+		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+		WebResponse response = web.getResponse(get);
+		System.out.println("Response:" +response.getText());
+	    return response.getText();
+	}
+
+/*	
 	
 	//login接口的构造方法
 	public static String testUpdpass(String params) throws IOException,SAXException{
@@ -153,7 +169,7 @@ public class AccInterface {
 		System.out.println(response.getText());
 	    return response.getText();
 	}
-	
+*/	
 	//6.updbase接口的构造方法
 	public static String testUpdbase(String casename, String unameinput) throws IOException,SAXException{
 	    System.out.println(casename);
@@ -223,6 +239,8 @@ public class AccInterface {
 		System.out.println(response.getText());
 	    return response.getText();
 	}	
+	
+	
 }
 
 

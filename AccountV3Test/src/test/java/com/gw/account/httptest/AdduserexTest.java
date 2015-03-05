@@ -261,7 +261,7 @@ public class AdduserexTest {
 	//Case13:密码字节数为51时
 	public void testupass51char() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case3:非必填字段全部正确书写请求=======");
+		System.out.println("======Case13:密码字节数为51时=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String upass ="lidb50000000000000000000000000000000000000000000001";
@@ -307,14 +307,15 @@ public class AdduserexTest {
 	}
 	
 	@Test
-	//Case17:当keytp=email时，key不为正常手机号注册(其余keytp与key不对应测试)
+	//Case17:当keytp=email时，key不为正常邮箱注册(其余keytp与key不对应测试)
 	public void testErrorEmail() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
 		System.out.println("======Case17:当keytp=email时，key不为正常手机号注册(其余keytp与key不对应测试)=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+mobile+"");	
-		assertTrue("True",accresult.contains("result=104"));	
+		assertTrue("True",accresult.contains("result=105"));	
+		assertTrue("True",accresult.contains("email_error"));
 												
 	}
 }

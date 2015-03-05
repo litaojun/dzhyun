@@ -23,7 +23,7 @@ public class MyBdbUtil {
     public MyBdbUtil()
     {   
     	
-    	jedis = new Jedis("10.15.201.106", 10001);
+    	jedis = new Jedis("10.15.108.4", 10001);
     	
     }
     
