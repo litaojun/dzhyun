@@ -52,7 +52,7 @@ public class UpdpassTest {
 
 	@Before
 	public void setUp() throws Exception {
-		/*
+		
 		String accresult = AccInterface.testAdduser("&uname=lidb&upass=123456");
 		String accresult1 = AccInterface.testAdduser("&uname=lidb001&upass=111111&moblie=15901620000");
 		String accresult2 = AccInterface.testAdduser("&uname=lidb002&upass=111111&email=15901620000@qq.com");
@@ -60,7 +60,7 @@ public class UpdpassTest {
 		String accresult4 = AccInterface.testAdduser("&uname=lidb003&upass=123456");
 		String accresult5 = AccInterface.testAdduser("&uname=lidb004&upass=123456");
        
-*/
+
 
 	}
 

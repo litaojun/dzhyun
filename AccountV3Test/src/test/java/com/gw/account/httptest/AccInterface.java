@@ -29,9 +29,11 @@ public class AccInterface {
 	public static String testAdduser(String casename, String unameinput) throws IOException, SAXException{
 	    System.out.println(casename);
 		WebConversation  	web = new WebConversation(); 
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=adduser&uname="+unameinput+"";
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname="+unameinput+"";
+        System.out.println("testAdduser: "+ urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
-		WebResponse response = web.getResponse(get);  
+		WebResponse response = web.getResponse(get);
+        System.out.println("testAdduser: " +response.getText());
 		return response.getText();		
 		
 }
@@ -41,13 +43,17 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
+
 	//	System.out.println("Request:"+urlparam.trim());
 		log.info("Request:"+urlparam.trim());
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();  
+//		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();
+        System.out.println("testAdduser: "+ urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
 	//	System.out.println("Response:" +response.getText());
 		log.info("Response:" +response.getText());
+		System.out.println("testAdduser: " +response.getText());
 	    return response.getText();
 	}
 	
@@ -92,10 +98,10 @@ public class AccInterface {
 	    System.out.println(casename);
 		WebConversation  	web = new WebConversation(); 
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=login&uname="+unameinput+"&upass="+upassinput;
-        System.out.println(urlString);
+        System.out.println("testLogin: " + urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
-		WebResponse response = web.getResponse(get);  
-		System.out.println("\n");
+		WebResponse response = web.getResponse(get);
+        System.out.println("testLogin: " + response.getText());
 		return response.getText();
 	}	
 	//login接口的构造方法
@@ -104,10 +110,11 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=login"+urlparam.trim();  
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=login"+urlparam.trim();
+        System.out.println("testLogin: " + urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println(response.getText());
+		System.out.println("testLogin: " + response.getText());
 	    return response.getText();
 	}
 	
@@ -116,10 +123,10 @@ public class AccInterface {
 		    System.out.println(casename);
 			WebConversation  	web = new WebConversation(); 
 			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=logout&uname="+unameinput+"";
-            System.out.println(urlString);
+            System.out.println("testLogout: " + urlString);
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
-			WebResponse response = web.getResponse(get);  
-			System.out.println("\n");
+			WebResponse response = web.getResponse(get);
+            System.out.println("testLogout: " + response.getText());
 			return response.getText();
 	}
 	
@@ -129,10 +136,11 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=logout"+urlparam.trim();  
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=logout"+urlparam.trim();
+        System.out.println("testLogout: " + urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println(response.getText());
+		System.out.println("testLogout: " + response.getText());
 	    return response.getText();
 	}
 
@@ -143,10 +151,38 @@ public class AccInterface {
         String urlparam = sb.toString();
         WebConversation web = new WebConversation();
         String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=userkeybind"+urlparam.trim();
-        System.out.println(urlString);
+        System.out.println("testUserbind: " + urlString);
         GetMethodWebRequest get = new GetMethodWebRequest(urlString);
         WebResponse response = web.getResponse(get);
-        System.out.println(response.getText());
+        System.out.println("testUserbind: " + response.getText());
+        return response.getText();
+    }
+
+    //getuserbind接口的构造方法
+    public static String testGetUserbind(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=getuserbind"+urlparam.trim();
+        System.out.println("testGetUserbind: " + urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        System.out.println("testGetUserbind: " + response.getText());
+        return response.getText();
+    }
+
+    //getuserbind接口的构造方法
+    public static String testDelUserbind(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=deluserbind"+urlparam.trim();
+        System.out.println("testDelUserbind: " + urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        System.out.println("testDelUserbind: " + response.getText());
         return response.getText();
     }
 	
@@ -154,7 +190,7 @@ public class AccInterface {
 	public static String Updpass(String casename, String unameinput, String upassinput) throws IOException,SAXException{
 	    System.out.println(casename);
 		WebConversation  	web = new WebConversation(); 
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=updpass&uname="+unameinput+"&upass"+upassinput+"";
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=updpass&uname="+unameinput+"&upass"+upassinput+"";
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);  
 		System.out.println("\n");
@@ -196,7 +232,7 @@ public class AccInterface {
 	public static String testUpdbase(String casename, String unameinput) throws IOException,SAXException{
 	    System.out.println(casename);
 		WebConversation  	web = new WebConversation(); 
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=updbase&uname="+unameinput+"";
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=updbase&uname="+unameinput+"";
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);  
 		System.out.println("\n");
@@ -209,7 +245,7 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=updbase"+urlparam.trim();  
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=updbase"+urlparam.trim();
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
 		System.out.println(response.getText());
@@ -220,7 +256,7 @@ public class AccInterface {
 		public static String testUpextra(String casename, String unameinput, String uMaketinput, String extrabufinput) throws IOException,SAXException{
 		    System.out.println(casename);
 			WebConversation  	web = new WebConversation(); 
-			String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=updextra&uname="+unameinput+"&uMaket="+uMaketinput+"&extrabuf="+extrabufinput+"";
+			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=updextra&uname="+unameinput+"&uMaket="+uMaketinput+"&extrabuf="+extrabufinput+"";
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 			WebResponse response = web.getResponse(get);  
 			System.out.println("\n");
@@ -232,7 +268,7 @@ public class AccInterface {
 			sb.append(params);
 			String urlparam = sb.toString();
 			WebConversation web = new WebConversation();
-			String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=updextra"+urlparam.trim();  
+			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=updextra"+urlparam.trim();
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 			WebResponse response = web.getResponse(get);
 			System.out.println(response.getText());
@@ -243,7 +279,7 @@ public class AccInterface {
 	public static String testDeluser(String casename, String unameinput) throws IOException,SAXException{
 		    System.out.println(casename);
 			WebConversation  	web = new WebConversation(); 
-			String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=deluser&uname="+unameinput+"&upass="+unameinput+"";
+			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=deluser&uname="+unameinput+"&upass="+unameinput+"";
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 			WebResponse response = web.getResponse(get);  
 			System.out.println("\n");
@@ -255,7 +291,7 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		String urlString = "http://10.15.108.114:9001/AccService/AccServlet.do?method=deluser"+urlparam.trim();  
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=deluser"+urlparam.trim();
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
 		System.out.println(response.getText());
