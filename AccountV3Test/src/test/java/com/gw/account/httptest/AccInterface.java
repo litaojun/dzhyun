@@ -1,10 +1,12 @@
 package com.gw.account.httptest;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
+
 
 //
 import com.meterware.httpunit.GetMethodWebRequest;
@@ -21,6 +23,8 @@ import junit.framework.TestCase;
 
 
 public class AccInterface {
+	static Logger  log = Logger.getLogger(AccInterface.class);
+	
     //1.adduser接口的构造方法
 	public static String testAdduser(String casename, String unameinput) throws IOException, SAXException{
 	    System.out.println(casename);
@@ -37,11 +41,13 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		System.out.println("Request:"+urlparam.trim());
+	//	System.out.println("Request:"+urlparam.trim());
+		log.info("Request:"+urlparam.trim());
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();  
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println("Response:" +response.getText());
+	//	System.out.println("Response:" +response.getText());
+		log.info("Response:" +response.getText());
 	    return response.getText();
 	}
 	
@@ -51,11 +57,11 @@ public class AccInterface {
 			sb.append(params);
 			String urlparam = sb.toString();
 			WebConversation web = new WebConversation();
-			System.out.println("Request:"+urlparam.trim());
+			log.info("Request:"+urlparam.trim());
 			String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduserex"+urlparam.trim();  
 			GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 			WebResponse response = web.getResponse(get);
-			System.out.println("Response:" +response.getText());
+			log.info("Response:" +response.getText());
 		    return response.getText();
 		}
 	
@@ -74,11 +80,11 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		System.out.println("Request:"+urlparam.trim());
+		log.info("Request:"+urlparam.trim());
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=userget"+urlparam.trim();  
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println("Response:"+response.getText());
+		log.info("Response:"+response.getText());
 	    return response.getText();
 	}
 	//3.login接口的构造方法
@@ -161,11 +167,13 @@ public class AccInterface {
 		sb.append(params);
 		String urlparam = sb.toString();
 		WebConversation web = new WebConversation();
-		System.out.println("Request:"+urlparam.trim());
+		log.info("Request:"+urlparam.trim());
+	//	System.out.println("Request:"+urlparam.trim());
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=updpass"+urlparam.trim();  
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
-		System.out.println("Response:" +response.getText());
+	//	System.out.println("Response:" +response.getText());
+		log.info("Response:" +response.getText());
 	    return response.getText();
 	}
 

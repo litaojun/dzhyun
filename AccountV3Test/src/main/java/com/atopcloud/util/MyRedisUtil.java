@@ -23,7 +23,7 @@ public class MyRedisUtil {
     public MyRedisUtil()
     {   
     	
-    	jedis = new Jedis("10.15.201.107", 22121);
+    	jedis = new Jedis("10.15.108.3", 6379);
     	
     }
     

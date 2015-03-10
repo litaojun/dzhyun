@@ -4,10 +4,12 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
+
 
 
 
@@ -26,6 +28,9 @@ import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class UsergetTest {
+	
+	Logger  log = Logger.getLogger(UsergetTest.class);
+
 	//下面的变量设置缺省值
 	private String method = "adduser";//=adduser
 	private String uname;//string 50 字节是不少于4 个字节的中英文字符（非法字符定义详细↗ ）
@@ -38,7 +43,7 @@ public class UsergetTest {
 	private String rediskey;
 	@Before
 	public void setUp() throws Exception {
-		//System.out.println("setup");
+		//log.info("setup");
 		
 	}
 
@@ -47,13 +52,13 @@ public class UsergetTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
-		//System.out.println("teardown");
+		//log.info("teardown");
 	}
 	
 	@Test
 	////Case1:获取一个不存在用户的信息
 	public void testNotExistUname() throws IOException,SAXException {
-		System.out.println("======Case1:获取一个不存在用户的信息=======");	
+		log.info("======Case1:获取一个不存在用户的信息=======");	
 		String accresult = AccInterface.testUserget("&uname=johnnyoo");
 		assertTrue("True",accresult.contains("result=2"));
 	}
@@ -61,15 +66,15 @@ public class UsergetTest {
 	@Test
 	////Case2:非必填字段全部正确书写请求
 	public void testAllParamsnotpass() throws IOException,SAXException {
-		System.out.println("======Case2:非必填字段全部正确书写请求=======");	
-		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=123456&exreq={\"ver\":\"1.0\"}");
+		log.info("======Case2:非必填字段全部正确书写请求=======");	
+		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=111111&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=0"));
 	}
 	
 	@Test
 	////Case3:查找中文用户名
 	public void testChnUname() throws IOException,SAXException {
-		System.out.println("======Case3:查找中文用户名=======");	
+		log.info("======Case3:查找中文用户名=======");	
 		String accresult = AccInterface.testUserget("&uname=你好&gettp=12288&passmd5=&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=0"));
 	}
@@ -77,7 +82,7 @@ public class UsergetTest {
 	@Test
 	////Case4:缺失用户名时查找
 	public void testDefectUname() throws IOException,SAXException {
-		System.out.println("======Case4:缺失用户名时查找=======");	
+		log.info("======Case4:缺失用户名时查找=======");	
 		String accresult = AccInterface.testUserget("&gettp=12288&passmd5=&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=101"));
 		assertTrue("True",accresult.contains("uname_bad"));
@@ -87,7 +92,7 @@ public class UsergetTest {
 	////Case5:缺失gettp时查找
 	public void testDefectgettp() throws IOException,SAXException {
 		fail("donot run this!");
-		System.out.println("======Case5:缺失gettp时查找=======");	
+		log.info("======Case5:缺失gettp时查找=======");	
 		String accresult = AccInterface.testUserget("&uname=你好&passmd5=&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=101"));
 		assertTrue("True",accresult.contains("uname_bad"));
@@ -96,7 +101,7 @@ public class UsergetTest {
 	@Test
 	////Case6:非必填字段全部书写请求，密码错误
 	public void testAllParams() throws IOException,SAXException {
-		System.out.println("======Case6:非必填字段全部书写请求，密码错误=======");	
+		log.info("======Case6:非必填字段全部书写请求，密码错误=======");	
 		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=123457&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=59"));
 	}
@@ -104,7 +109,7 @@ public class UsergetTest {
 	@Test
 	////Case7:非必添字段缺失
 	public void testDefect() throws IOException,SAXException {
-		System.out.println("======Case7:非必添字段缺失=======");	
+		log.info("======Case7:非必添字段缺失=======");	
 		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288");
 		assertTrue("True",accresult.contains("result=0"));
 	}
@@ -113,7 +118,7 @@ public class UsergetTest {
 	////Case8:gettp不为12288时查找
 	public void testErrorgettp() throws IOException,SAXException {
 		fail("donot run this!");
-		System.out.println("======Case8:gettp不为12288时查找=======");	
+		log.info("======Case8:gettp不为12288时查找=======");	
 		String accresult = AccInterface.testUserget("&uname=lidb&gettp=18&passmd5=123456&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=101"));
 	}
@@ -121,7 +126,7 @@ public class UsergetTest {
 	@Test
 	////Case9:字段名错误，非必填错误
 	public void testErrorpass() throws IOException,SAXException {
-		System.out.println("======Case9:字段名错误，非必填错误=======");	
+		log.info("======Case9:字段名错误，非必填错误=======");	
 		String accresult = AccInterface.testUserget("&uname=lidb&pad5=123456&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=0"));
 	}
@@ -129,7 +134,7 @@ public class UsergetTest {
 	@Test
 	////Case10:字段名错误，用户名错误
 	public void testErroruname() throws IOException,SAXException {
-		System.out.println("======Case10:字段名错误，用户名错误=======");	
+		log.info("======Case10:字段名错误，用户名错误=======");	
 		String accresult = AccInterface.testUserget("&ume=lidb&passmd5=123456&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=101"));
 		assertTrue("True",accresult.contains("uname_bad"));
