@@ -75,7 +75,7 @@ public class QuoteDynaTest{
 	
 	/**
 	 * @throws java.lang.Exception
-	 */
+	 */ 
 	@Before
 	public void setUp() throws Exception {
 		//System.out.println("setup");
