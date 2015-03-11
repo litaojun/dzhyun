@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 
+
+
+
 //
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
@@ -46,11 +49,99 @@ public class UsergetTest {
 	public void tearDown() throws Exception {
 		//System.out.println("teardown");
 	}
-
+	
+	@Test
+	////Case1:获取一个不存在用户的信息
+	public void testNotExistUname() throws IOException,SAXException {
+		System.out.println("======Case1:获取一个不存在用户的信息=======");	
+		String accresult = AccInterface.testUserget("&uname=johnnyoo");
+		assertTrue("True",accresult.contains("result=2"));
+	}
+	
+	@Test
+	////Case2:非必填字段全部正确书写请求
+	public void testAllParamsnotpass() throws IOException,SAXException {
+		System.out.println("======Case2:非必填字段全部正确书写请求=======");	
+		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=123456&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=0"));
+	}
+	
+	@Test
+	////Case3:查找中文用户名
+	public void testChnUname() throws IOException,SAXException {
+		System.out.println("======Case3:查找中文用户名=======");	
+		String accresult = AccInterface.testUserget("&uname=你好&gettp=12288&passmd5=&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=0"));
+	}
+	
+	@Test
+	////Case4:缺失用户名时查找
+	public void testDefectUname() throws IOException,SAXException {
+		System.out.println("======Case4:缺失用户名时查找=======");	
+		String accresult = AccInterface.testUserget("&gettp=12288&passmd5=&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=101"));
+		assertTrue("True",accresult.contains("uname_bad"));
+	}
+	
+	@Test
+	////Case5:缺失gettp时查找
+	public void testDefectgettp() throws IOException,SAXException {
+		fail("donot run this!");
+		System.out.println("======Case5:缺失gettp时查找=======");	
+		String accresult = AccInterface.testUserget("&uname=你好&passmd5=&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=101"));
+		assertTrue("True",accresult.contains("uname_bad"));
+	}
+	
+	@Test
+	////Case6:非必填字段全部书写请求，密码错误
+	public void testAllParams() throws IOException,SAXException {
+		System.out.println("======Case6:非必填字段全部书写请求，密码错误=======");	
+		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=123457&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=59"));
+	}
+	
+	@Test
+	////Case7:非必添字段缺失
+	public void testDefect() throws IOException,SAXException {
+		System.out.println("======Case7:非必添字段缺失=======");	
+		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288");
+		assertTrue("True",accresult.contains("result=0"));
+	}
+	
+	@Test
+	////Case8:gettp不为12288时查找
+	public void testErrorgettp() throws IOException,SAXException {
+		fail("donot run this!");
+		System.out.println("======Case8:gettp不为12288时查找=======");	
+		String accresult = AccInterface.testUserget("&uname=lidb&gettp=18&passmd5=123456&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=101"));
+	}
+	
+	@Test
+	////Case9:字段名错误，非必填错误
+	public void testErrorpass() throws IOException,SAXException {
+		System.out.println("======Case9:字段名错误，非必填错误=======");	
+		String accresult = AccInterface.testUserget("&uname=lidb&pad5=123456&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=0"));
+	}
+	
+	@Test
+	////Case10:字段名错误，用户名错误
+	public void testErroruname() throws IOException,SAXException {
+		System.out.println("======Case10:字段名错误，用户名错误=======");	
+		String accresult = AccInterface.testUserget("&ume=lidb&passmd5=123456&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult.contains("result=101"));
+		assertTrue("True",accresult.contains("uname_bad"));
+	}
+	
+	
+	
+/*
 
 	@Test
 	//获取一个不存在用户的信息
-	public void testNotExistUname() throws IOException,SAXException {
+	public void testNotExistUname1() throws IOException,SAXException {
 		String accresult = AccInterface.testUserget("Case2:获取一个不存在用户信息", "johnnyoo");
 		assertTrue("True",accresult.contains("result=2"));
 	}
@@ -100,4 +191,6 @@ public class UsergetTest {
 //		assertTrue("True",accresult.contains("result=0"));	
 //		
 //	}
+ * 
+ */
 }

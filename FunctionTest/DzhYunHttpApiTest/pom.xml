@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.shekhar</groupId>
-	<artifactId>wordgame</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.gw</groupId>
+	<artifactId>DzhYunHttpAPITest</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>DzhYunHttpApiTestProject</name>
-	<url>http://maven.apache.org</url>
+	<url>http://dms.gw.com.cn/pages/viewpage.action?pageId=129695813</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,12 +42,19 @@
 			<version>4.11</version>
 		</dependency>
 
+		<!-- protobuf -->
 		<dependency>
 		    <groupId>com.google.protobuf</groupId>
 		    <artifactId>protobuf-java</artifactId>
 		    <version>2.6.1</version>
 		</dependency>
 		
+		<dependency>
+		<groupId>com.googlecode.protobuf-java-format</groupId>
+		<artifactId>protobuf-java-format</artifactId>
+		<version>1.2</version>
+		</dependency>
+
 		<dependency>
 		    <groupId>org.httpunit</groupId>
 		    <artifactId>httpunit</artifactId>
@@ -65,6 +72,31 @@
 		    <artifactId>xmlParserAPIs</artifactId>
 		    <version>2.6.2</version>
 		</dependency>
+        <!-- DataBase mysql Driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.25</version>
+		</dependency>
+		<!-- redis driver for java -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>2.6.2</version>
+		</dependency>
+		<!-- alibaba fastjson -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.4</version>
+		</dependency>
+		
+		<!-- jna用于调用c++ dll或so -->
+		<dependency>
+		    <groupId>net.java.dev.jna</groupId>
+		    <artifactId>jna</artifactId>
+		    <version>4.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -80,7 +112,8 @@
 				<version>2.18.1</version>
 				<configuration>
 					<includes>
-						<include>**/AllTests.java</include>
+						<!--  <include>**/AllTests.java</include>-->
+						<include>**/QuoteDynaTest.java</include>
 					</includes>
 				</configuration>
 			</plugin>

@@ -158,7 +158,8 @@ public class AdduserTest {
 		String email = MyUid.Email(curtimeuname);
 		String vname = MyUid.Monbile(curtimeuname); 
 		String accresult = AccInterface.testAdduser("&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("uname_empty"));		
+		assertTrue("True",accresult.contains("uname_bad"));	
+		assertTrue("True",accresult.contains("result=101"));	
 												
 	}
 	
@@ -172,7 +173,8 @@ public class AdduserTest {
 		String email = MyUid.Email(curtimeuname);
 		String vname = MyUid.Monbile(curtimeuname); 
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("upass_empty"));		
+		assertTrue("True",accresult.contains("upass_bad"));	
+		assertTrue("True",accresult.contains("result=101"));
 												
 	}
 	
@@ -307,12 +309,13 @@ public class AdduserTest {
 	//Case15:密码字节等于51测试
 	public void testUpass51char() throws IOException,SAXException, ClassNotFoundException, SQLException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case14:密码字节等于51测试=======");
+		System.out.println("======Case15:密码字节等于51测试=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "lidb"+curtimeuname+"";
 		String upass50 = "lidb50000000000000000000000000000000000000000000001";
 		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass50+"");	
-		assertTrue("True",accresult.contains("result=59"));
+		assertTrue("True",accresult.contains("result=101"));
+		assertTrue("True",accresult.contains("upass_bad"));
 						
 	}
 	
@@ -346,7 +349,7 @@ public class AdduserTest {
 	
 	
 	@Test
-	//Case18:非电话号码注册
+	//Case18:非电话号码注册.
 	public void testNoMobile() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
 		System.out.println("======Case18:非电话号码注册=======");
