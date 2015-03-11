@@ -52,13 +52,16 @@ public class UpdpassTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
+/*
 		String accresult = AccInterface.testAdduser("&uname=lidb&upass=123456");
-		String accresult1 = AccInterface.testAdduser("&uname=lidb001&upass=111111&moblie=15901620000");
+		String accresult1 = AccInterface.testAdduser("&uname=lidb001&upass=111111&mobile=15901620000");
 		String accresult2 = AccInterface.testAdduser("&uname=lidb002&upass=111111&email=15901620000@qq.com");
 		String accresult3 = AccInterface.testAdduser("&uname=你好&upass=123456");
 		String accresult4 = AccInterface.testAdduser("&uname=lidb003&upass=123456");
 		String accresult5 = AccInterface.testAdduser("&uname=lidb004&upass=123456");
+		String accresult6 = AccInterface.testAdduser("&uname=lidb006&upass=111111&mobile=15901110000");
+		String accresult7 = AccInterface.testAdduser("&uname=lidb007&upass=111111&mobile=15901110001");
+*/
        
 
 
@@ -84,7 +87,7 @@ public class UpdpassTest {
 	public void testAllParams() throws IOException,SAXException, ClassNotFoundException, InterruptedException{		
 	//	System.out.println("======Case2:非必填字段全部正确书写请求mobile(uname取唯一key)=======");
 		log.info("======Case2:非必填字段全部正确书写请求mobile(uname取唯一key)=======");
-		String accresult = AccInterface.testUpdpass("&uname=10309150014&upass=111111&opass=111111&keytp=mobile");	
+		String accresult = AccInterface.testUpdpass("&uname=15901110001&upass=111111&opass=111111&keytp=mobile");	
 		assertTrue("True",accresult.contains("result=0"));							
 	}
 	
@@ -191,6 +194,14 @@ public class UpdpassTest {
 	//	System.out.println("======Case13:不存在的用户名修改=======");	
 		log.info("======Case13:不存在的用户名修改=======");
 		String accresult = AccInterface.testUpdpass("&uname=12testtt&upass=111111&opass=123456");	
+		assertTrue("True",accresult.contains("result=0"));							
+	}	
+	
+	//Case14:密码为md5密码
+	public void testmd5upass() throws IOException,SAXException, ClassNotFoundException, InterruptedException{		
+	//	System.out.println("======Case13:不存在的用户名修改=======");	
+		log.info("======Case14:密码为md5密码=======");
+		String accresult = AccInterface.testUpdpass("&uname=lidb006&upass=111111&opass=96e79218965eb72c92a549dd5a330112");	
 		assertTrue("True",accresult.contains("result=0"));							
 	}	
 	
