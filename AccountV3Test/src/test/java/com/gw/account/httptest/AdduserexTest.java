@@ -292,7 +292,8 @@ public class AdduserexTest {
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key=10225155940");	
-		assertTrue("True",accresult.contains("result=114"));														
+		String accresult1 = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key=10225155940");	
+		assertTrue("True",accresult1.contains("result=114"));														
 	}
 	
 	@Test
@@ -320,4 +321,79 @@ public class AdduserexTest {
 		assertTrue("True",accresult.contains("email_error"));
 												
 	}
+	
+	@Test
+	//Case18:非必填字段全部正确返回格式校验
+	public void testresultparams() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case18:非必填字段全部正确返回格式校验=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
+		assertTrue("True",accresult.contains("result=0"));
+		assertTrue("True",accresult.contains("mobile="+mobile+""));
+		assertTrue("True",accresult.contains("upass="+upass+""));
+		String Myuid = MyUid.Uidex(accresult);
+		assertTrue("True",accresult.contains("usertid="+Myuid+""));
+		String uname = MyUid.Una(accresult);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");		
+		//校验redis中的uid对应的用户名是否正确
+		assertEquals(myredisuid,uname);
+		//检验DBD中所存信息是否正确
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"","",mobile,"","");
+		assertTrue(ret);		
+												
+	}
+	
+	@Test
+	//Case19:手机号重复增加
+	public void testSameMobile() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case19:手机号重复增加=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
+		String accresult1 = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
+		assertTrue("True",accresult1.contains("result=114"));
+												
+	}
+	@Test
+	//Case20:邮箱注册
+	public void testEmail() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case20:邮箱注册=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String email = MyUid.Email(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+email+"");	
+		assertTrue("True",accresult.contains("result=0"));
+		assertTrue("True",accresult.contains("email="+email+""));
+		assertTrue("True",accresult.contains("upass="+upass+""));
+		String Myuid = MyUid.Uidex(accresult);
+		assertTrue("True",accresult.contains("usertid="+Myuid+""));
+		String uname = MyUid.Una(accresult);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");		
+		//校验redis中的uid对应的用户名是否正确
+		assertEquals(myredisuid,uname);
+		//检验DBD中所存信息是否正确
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"",email,"","","");
+		assertTrue(ret);		
+												
+	}	
+	
+	@Test
+	//Case21:邮箱重复增加
+	public void testSameEmail() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case20:邮箱重复增加=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String email = MyUid.Email(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+email+"");	
+		String accresult1 = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+email+"");	
+		assertTrue("True",accresult1.contains("result=114"));
+												
+	}
+	
 }

@@ -45,13 +45,17 @@ public class AccInterface {
 		WebConversation web = new WebConversation();
 
 	//	System.out.println("Request:"+urlparam.trim());
-		log.info("Request:" + urlparam.trim());
+		log.info("RequestPararms:"+urlparam.trim());
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();  
+		log.info("Request:" + urlparam.trim());
 //		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();
+        log.info("Url: "+ urlString);
         System.out.println("testAdduser: "+ urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
 	//	System.out.println("Response:" +response.getText());
+		log.info("Response:" +response.getText());
+	//	System.out.println("testAdduser: " +response.getText());
 		log.info("Response:" +response.getText());
 		System.out.println("testAdduser: " +response.getText());
 	    return response.getText();
