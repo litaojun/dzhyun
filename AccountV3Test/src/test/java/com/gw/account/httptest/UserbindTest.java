@@ -74,20 +74,14 @@ public class UserbindTest {
     //=================================正常绑定=======================================
     @Test
     public void testBindEmail() throws IOException, SAXException, InterruptedException {
-        String emailencode = URLEncoder.encode("email=" + email,"UTF-8");
-        String params = "&uname=" + uname + "&key=" + emailencode;
-        String result = AccInterface.testUserbind(params);
-        String getuname = myBdbUtil.getValue("k_1:" + email);
-        assertTrue("Case1:正常邮箱绑定,msg: " + result, result.contains("result=0") && getuname.equals(uname.toLowerCase()));
+        boolean result = MyCheckUtil.checkALL(uname,pass_md5_str,"email",email);
+        assertTrue("Case2:正常手机绑定",result);
     }
 
     @Test
     public void testBindMobile() throws IOException, SAXException, InterruptedException {
-        String mobileencode = URLEncoder.encode("mobile=" + mobile,"UTF-8");
-        String params = "&uname=" + uname + "&key=" + mobileencode;
-        String result = AccInterface.testUserbind(params);
-        String getuname = myBdbUtil.getValue("k_2:" + mobile);
-        assertTrue("Case2:正常手机绑定,msg: " + result , result.contains("result=0") && getuname.equals(uname.toLowerCase()));
+        boolean result = MyCheckUtil.checkALL(uname,pass_md5_str,"mobile",mobile);
+        assertTrue("Case2:正常手机绑定",result);
     }
 
 //    @Test
