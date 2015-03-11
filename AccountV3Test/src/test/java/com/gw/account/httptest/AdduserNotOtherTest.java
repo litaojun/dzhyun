@@ -36,9 +36,9 @@ import junit.framework.TestCase;
 
 
 
-public class AdduserTest {
+public class AdduserNotOtherTest {
 	
-	Logger  log = Logger.getLogger(AdduserTest.class);
+	Logger  log = Logger.getLogger(AdduserNotOtherTest.class);
 //	PropertyConfigurator.configure("log4j.properties");
 	
 	
@@ -125,10 +125,8 @@ public class AdduserTest {
 		log.info("Case3:非必填字段全部正确书写请求=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String uname = "lidb"+curtimeuname+"";
-		String mobile = MyUid.Monbile(curtimeuname);
-		String email = MyUid.Email(curtimeuname);
 		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&vname="+vname+"");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uid(accresult);
 		MyRedisUtil myredis = new MyRedisUtil();		
@@ -136,7 +134,7 @@ public class AdduserTest {
 		//校验redis中的uid对应的用户名是否正确
 		assertEquals(myredisuid,uname);
 		//检验DBD中所存信息是否正确
-		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"",email,mobile,"","");
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"","","","","");
 		assertTrue(ret);		
 												
 	}
@@ -189,51 +187,7 @@ public class AdduserTest {
 		assertTrue("True",accresult.contains("result=101"));
 												
 	}
-	
-	@Test
-	//Case7:非必填字段缺失手机号
-	public void testDefectMobile() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case7:非必填字段缺失手机号=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = MyUid.Monbile(curtimeuname);
-		String email = MyUid.Email(curtimeuname);
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=0"));
-		String Myuid = MyUid.Uid(accresult);
-		MyRedisUtil myredis = new MyRedisUtil();		
-		String myredisuid = myredis.getValue("uid:"+Myuid+"");
-		//校验redis中的uid对应的用户名是否正确
-		assertEquals(myredisuid,uname);
-		//检验DBD中所存信息是否正确
-		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"",email,"","","");
-		assertTrue(ret);		
-												
-	}
-	
-	@Test
-	//Case8:非必填字邮箱段缺失
-	public void testDefectEmail() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case8:非必填字邮箱段缺失=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = MyUid.Monbile(curtimeuname);
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=0"));
-		String Myuid = MyUid.Uid(accresult);
-		MyRedisUtil myredis = new MyRedisUtil();		
-		String myredisuid = myredis.getValue("uid:"+Myuid+"");
-		//校验redis中的uid对应的用户名是否正确
-		assertEquals(myredisuid,uname);
-		//检验DBD中所存信息是否正确
-		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"","",mobile,"","");
-		assertTrue(ret);		
-												
-	}
+		
 	
 	@Test
 	//Case9:非必填字段昵称昵称缺失
@@ -252,7 +206,7 @@ public class AdduserTest {
 		//校验redis中的uid对应的用户名是否正确
 		assertEquals(myredisuid,uname);
 		//检验DBD中所存信息是否正确
-		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"",email,mobile,"","");
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"","","","","");
 		assertTrue(ret);		
 												
 	}
@@ -333,63 +287,8 @@ public class AdduserTest {
 		assertTrue("True",accresult.contains("upass_bad"));
 						
 	}
+
 	
-	@Test
-	//Case16:手机号码10位
-	public void testMobile10char() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case16:手机号码9位=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = "1590162042";
-		String email = MyUid.Email(curtimeuname);
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=104"));															
-	}
-	
-	@Test
-	//Case17:手机号码12位
-	public void testMobile12char() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case17:手机号码12位=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = "159016204211";
-		String email = MyUid.Email(curtimeuname);
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=104"));															
-	}
-	
-	
-	@Test
-	//Case18:非电话号码注册.
-	public void testNoMobile() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case18:非电话号码注册=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = "05901620421";
-		String email = MyUid.Email(curtimeuname);
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=104"));															
-	}
-	
-	@Test
-	//Case19:邮箱格式错误注册
-	public void testNoEmail() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case19:邮箱格式错误注册=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = MyUid.Monbile(curtimeuname);
-		String email = "05901620421qq.com";
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=105"));															
-	}
 	
 	@Test
 	//Case20:字段名错误注册
@@ -406,56 +305,6 @@ public class AdduserTest {
 		
 	}
 	
-	
-	@Test
-	//Case21:手机号重复增加
-	public void testSameMobile() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case21:手机号重复增加=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = MyUid.Monbile(curtimeuname);
-		String email = MyUid.Email(curtimeuname);
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=0"));
-		String Myuid = MyUid.Uid(accresult);
-		MyRedisUtil myredis = new MyRedisUtil();		
-		String myredisuid = myredis.getValue("uid:"+Myuid+"");
-		//校验redis中的uid对应的用户名是否正确
-		assertEquals(myredisuid,uname);
-		//检验DBD中所存信息是否正确
-		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"",email,mobile,"","");
-		assertTrue(ret);
-		String accresult1 = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&vname="+vname+"");	
-		assertTrue("True",accresult1.contains("result=1"));
-												
-	}
-	
-	@Test
-	//Case22:邮箱重复增加
-	public void testSameEmail() throws IOException,SAXException, InterruptedException{
-		Thread.sleep(1001);
-		log.info("Case22:邮箱重复增加=======");
-		String curtimeuname = MyCurrentTime.MyTime();
-		String uname = "lidb"+curtimeuname+"";
-		String mobile = MyUid.Monbile(curtimeuname);
-		String email = MyUid.Email(curtimeuname);
-		String vname = MyUid.Monbile(curtimeuname); 
-		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&mobile="+mobile+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult.contains("result=0"));
-		String Myuid = MyUid.Uid(accresult);
-		MyRedisUtil myredis = new MyRedisUtil();		
-		String myredisuid = myredis.getValue("uid:"+Myuid+"");
-		//校验redis中的uid对应的用户名是否正确
-		assertEquals(myredisuid,uname);
-		//检验DBD中所存信息是否正确
-		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"",email,mobile,"","");
-		assertTrue(ret);
-		String accresult1 = AccInterface.testAdduser("&uname="+uname+"&upass="+upass+"&email="+email+"&vname="+vname+"");	
-		assertTrue("True",accresult1.contains("result=1"));
-												
-	}
 	
 	@Test
 	//Case23:微信id注册 

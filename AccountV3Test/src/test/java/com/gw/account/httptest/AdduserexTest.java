@@ -2,6 +2,7 @@ package com.gw.account.httptest;
 
 import static org.junit.Assert.*;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,6 +36,7 @@ import junit.framework.TestCase;
 
 public class AdduserexTest {
 	
+	Logger  log = Logger.getLogger(UpdpassTest.class);
 	//下面的变量设置缺省值
 	private String method = "adduser";            //=adduser
 	private String uname = "lidbv3";              //string 50 字节是不少于4 个字节的中英文字符（非法字符定义详细↗ ）
@@ -61,7 +63,7 @@ public class AdduserexTest {
 	//Case1:必填字段全部正确书写请求（gen=seq）
 	public void testMustParamsseq() throws IOException,SAXException, ClassNotFoundException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case1:必填字段全部正确书写请求（gen=seq）=======");		
+		log.info("======Case1:必填字段全部正确书写请求（gen=seq）=======");		
 		String accresult = AccInterface.testAdduserex("&gen=seq");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uidex(accresult);
@@ -79,7 +81,7 @@ public class AdduserexTest {
 	//Case2:必填字段全部正确书写请求（gen=rand）
 	public void testMustParamsrand() throws IOException,SAXException, ClassNotFoundException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case2:必填字段全部正确书写请求（gen=rand）=======");		
+		log.info("======Case2:必填字段全部正确书写请求（gen=rand）=======");		
 		String accresult = AccInterface.testAdduserex("&gen=rand");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uidex(accresult);
@@ -98,7 +100,7 @@ public class AdduserexTest {
 	//Case3:非必填字段全部正确书写请求
 	public void testAllparams() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case3:非必填字段全部正确书写请求=======");
+		log.info("======Case3:非必填字段全部正确书写请求=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
@@ -119,7 +121,7 @@ public class AdduserexTest {
 	//Case4:有前缀prefix，gen为seq时
 	public void testPrefixseq() throws IOException,SAXException, ClassNotFoundException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case3:有前缀prefix，gen为seq时=======");		
+		log.info("======Case3:有前缀prefix，gen为seq时=======");		
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uidex(accresult);
@@ -137,7 +139,7 @@ public class AdduserexTest {
 	//Case5:有前缀prefix，gen为rand时
 	public void testPrefixrand() throws IOException,SAXException, ClassNotFoundException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case5:有前缀prefix，gen为rand时=======");		
+		log.info("======Case5:有前缀prefix，gen为rand时=======");		
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=rand");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uidex(accresult);
@@ -155,7 +157,7 @@ public class AdduserexTest {
 	//Case6:缺失gen字段时
 	public void testDefectgen() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case6:缺失gen字段时=======");
+		log.info("======Case6:缺失gen字段时=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&upass="+upass+"&keytp=mobile&key="+mobile+"");	
@@ -167,7 +169,7 @@ public class AdduserexTest {
 	//Case7:缺失keytp字段时
 	public void testDefectkeytp() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case7:缺失keytp字段时=======");
+		log.info("======Case7:缺失keytp字段时=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&upass="+upass+"&gen=seq&key="+mobile+"");	
@@ -179,7 +181,7 @@ public class AdduserexTest {
 	//Case8:缺失key字段时
 	public void testDefectkey() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case8:缺失key字段时=======");
+		log.info("======Case8:缺失key字段时=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&upass="+upass+"&gen=seq&keytp=mobile");	
@@ -191,7 +193,7 @@ public class AdduserexTest {
 	//Case9:缺失upass字段时
 	public void testDefectupassy() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case9:缺失upass字段时=======");
+		log.info("======Case9:缺失upass字段时=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&keytp=mobile&key="+mobile+"");	
@@ -212,7 +214,7 @@ public class AdduserexTest {
 	//Case10:前缀prefix为20字节时
 	public void testPrefix20char() throws IOException,SAXException, ClassNotFoundException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case11:前缀prefix为20字节时=======");		
+		log.info("======Case11:前缀prefix为20字节时=======");		
 		String accresult = AccInterface.testAdduserex("&prefix=lidbllllllllllllllll&gen=seq");	
 		assertTrue("True",accresult.contains("result=0"));
 		String Myuid = MyUid.Uidex(accresult);
@@ -230,7 +232,7 @@ public class AdduserexTest {
 	//Case11:前缀prefix为21字节时
 	public void testPrefix21char() throws IOException,SAXException, ClassNotFoundException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case11:前缀prefix为21字节时=======");		
+		log.info("======Case11:前缀prefix为21字节时=======");		
 		String accresult = AccInterface.testAdduserex("&prefix=lidblllllllllllllllll&gen=seq");	
 		assertTrue("True",accresult.contains("result=101"));
 	}
@@ -239,7 +241,7 @@ public class AdduserexTest {
 	//Case12:密码字节数为50时
 	public void testupass50char() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case3:非必填字段全部正确书写请求=======");
+		log.info("======Case3:非必填字段全部正确书写请求=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String upass ="lidb5000000000000000000000000000000000000000000000";
@@ -261,7 +263,7 @@ public class AdduserexTest {
 	//Case13:密码字节数为51时
 	public void testupass51char() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case13:密码字节数为51时=======");
+		log.info("======Case13:密码字节数为51时=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String upass ="lidb50000000000000000000000000000000000000000000001";
@@ -274,7 +276,7 @@ public class AdduserexTest {
 	//Case14:当keytp=mobile时，key不为正常手机号注册(其余keytp与key不对应测试)
 	public void testErrorMobile() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case14:当keytp=mobile时，key不为正常手机号注册(其余keytp与key不对应测试)=======");
+		log.info("======Case14:当keytp=mobile时，key不为正常手机号注册(其余keytp与key不对应测试)=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+curtimeuname+"");	
@@ -286,18 +288,19 @@ public class AdduserexTest {
 	//Case15:当key重复时测试
 	public void testSamekey() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case15:当key重复时测试=======");
+		log.info("======Case15:当key重复时测试=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key=10225155940");	
-		assertTrue("True",accresult.contains("result=114"));														
+		String accresult1 = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key=10225155940");	
+		assertTrue("True",accresult1.contains("result=114"));														
 	}
 	
 	@Test
 	//Case16:字段名错误注册
 	public void testErrorparams() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case16:字段名错误注册=======");
+		log.info("======Case16:字段名错误注册=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gn=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
@@ -310,7 +313,7 @@ public class AdduserexTest {
 	//Case17:当keytp=email时，key不为正常邮箱注册(其余keytp与key不对应测试)
 	public void testErrorEmail() throws IOException,SAXException, InterruptedException{
 		Thread.sleep(1001);
-		System.out.println("======Case17:当keytp=email时，key不为正常手机号注册(其余keytp与key不对应测试)=======");
+		log.info("======Case17:当keytp=email时，key不为正常手机号注册(其余keytp与key不对应测试)=======");
 		String curtimeuname = MyCurrentTime.MyTime();
 		String mobile = MyUid.Monbile(curtimeuname);
 		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+mobile+"");	
@@ -318,4 +321,79 @@ public class AdduserexTest {
 		assertTrue("True",accresult.contains("email_error"));
 												
 	}
+	
+	@Test
+	//Case18:非必填字段全部正确返回格式校验
+	public void testresultparams() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case18:非必填字段全部正确返回格式校验=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
+		assertTrue("True",accresult.contains("result=0"));
+		assertTrue("True",accresult.contains("mobile="+mobile+""));
+		assertTrue("True",accresult.contains("upass="+upass+""));
+		String Myuid = MyUid.Uidex(accresult);
+		assertTrue("True",accresult.contains("usertid="+Myuid+""));
+		String uname = MyUid.Una(accresult);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");		
+		//校验redis中的uid对应的用户名是否正确
+		assertEquals(myredisuid,uname);
+		//检验DBD中所存信息是否正确
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"","",mobile,"","");
+		assertTrue(ret);		
+												
+	}
+	
+	@Test
+	//Case19:手机号重复增加
+	public void testSameMobile() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case19:手机号重复增加=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
+		String accresult1 = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=mobile&key="+mobile+"");	
+		assertTrue("True",accresult1.contains("result=114"));
+												
+	}
+	@Test
+	//Case20:邮箱注册
+	public void testEmail() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case20:邮箱注册=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String email = MyUid.Email(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+email+"");	
+		assertTrue("True",accresult.contains("result=0"));
+		assertTrue("True",accresult.contains("email="+email+""));
+		assertTrue("True",accresult.contains("upass="+upass+""));
+		String Myuid = MyUid.Uidex(accresult);
+		assertTrue("True",accresult.contains("usertid="+Myuid+""));
+		String uname = MyUid.Una(accresult);
+		MyRedisUtil myredis = new MyRedisUtil();		
+		String myredisuid = myredis.getValue("uid:"+Myuid+"");		
+		//校验redis中的uid对应的用户名是否正确
+		assertEquals(myredisuid,uname);
+		//检验DBD中所存信息是否正确
+		boolean ret = MyCheckBdb.CheckBdb(uname,"uid:"+Myuid+"","u:"+uname+"",email,"","","");
+		assertTrue(ret);		
+												
+	}	
+	
+	@Test
+	//Case21:邮箱重复增加
+	public void testSameEmail() throws IOException,SAXException, InterruptedException{
+		Thread.sleep(1001);
+		log.info("======Case20:邮箱重复增加=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String email = MyUid.Email(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+email+"");	
+		String accresult1 = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass="+upass+"&keytp=email&key="+email+"");	
+		assertTrue("True",accresult1.contains("result=114"));
+												
+	}
+	
 }

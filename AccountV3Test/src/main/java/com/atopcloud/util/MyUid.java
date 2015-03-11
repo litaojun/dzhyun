@@ -1,9 +1,13 @@
 package com.atopcloud.util;
 
+import org.apache.log4j.Logger;
 //取服务返回信息中的userid
+
+import com.gw.account.httptest.AdduserTest;
 
 public class MyUid {
 	
+	static Logger  log = Logger.getLogger(MyUid.class);
     //取服务器返回的uid
 	public static String Uid(String resUid){
 		int uid = resUid.indexOf("usertid");
@@ -32,13 +36,13 @@ public class MyUid {
 			int repa = resUid.indexOf("upass");
 			if (uid > unm && uid > res && unm > repa ){
 				String myresuid = resUid.substring(resUid.lastIndexOf("usertid=")+8);
-				System.out.println(myresuid);
+				log.info(myresuid);
 				return myresuid;
 			}else{
 				int num = resUid.indexOf("usertid=");
 				int num2 = resUid.indexOf("&upass");
 				String myresuid = resUid.substring(num+8, num2);
-				System.out.println(myresuid);
+				log.info(myresuid);
 			    return myresuid;
 			}	
 			
@@ -54,13 +58,13 @@ public class MyUid {
 			
 			if (unm > uid && unm > res && unm > repa ){
 				String myresUna = resUna.substring(resUna.lastIndexOf("uname=")+6);
-				System.out.println(myresUna);
+				log.info(myresUna);
 				return myresUna;
 			}else{
 				int num = resUna.indexOf("uname=");
 				int num2 = resUna.indexOf("&usertid");
 				String myresUna = resUna.substring(num+6, num2);
-				System.out.println(myresUna);
+				log.info(myresUna);
 			    return myresUna;
 			}							
 
@@ -72,10 +76,10 @@ public class MyUid {
 		if (mob >= 0 ){
 			String newmoblie = Curtime.substring(4,14);
 			String retnewmoblie = "1"+newmoblie+"";
-			System.out.println(retnewmoblie);
+			log.info(retnewmoblie);
 		    return retnewmoblie ;
 		}else{			
-			System.out.println("新号码生成失败");
+			log.info("新号码生成失败");
 			return null;
 		}	
 		
@@ -89,11 +93,11 @@ public static String Email(String Curtime){
 		if (mob >= 0 ){
 			String newemail = Curtime.substring(4,14);
 			String retnewemail = "1"+newemail+"@qq.com";
-			System.out.println(retnewemail);
+			log.info(retnewemail);
 			
 		    return retnewemail ;
 		}else{			
-			System.out.println("新邮箱生成失败");
+			log.info("新邮箱生成失败");
 			return null;
 		}	
 		
