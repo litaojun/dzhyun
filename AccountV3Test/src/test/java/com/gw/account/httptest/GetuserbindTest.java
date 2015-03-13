@@ -25,6 +25,7 @@ public class GetuserbindTest {
     private static String unameforidcard;
     private static String email;
     private static String mobile;
+    private static String truename;
     private static String nickname;
     private static String idcard_18;
     private static String idcard_18_x;
@@ -42,6 +43,7 @@ public class GetuserbindTest {
         uname = "Test" + "测试" + number;
         email = "Test" + number + "@126.com";
         mobile = "188" + number;
+        truename = "True" + "测试" + number;
         nickname = "Nick" + number;
         idcard_18 = String.format("%018d",Long.parseLong(number));
         idcard_18_x = String.format("%017d",Long.parseLong(number)) + "x";
@@ -51,48 +53,41 @@ public class GetuserbindTest {
         idcard_15_X = String.format("%014d",Long.parseLong(number)) + "X";
         String emailencode = URLEncoder.encode("email=" + email, "UTF-8");
         String mobilencode = URLEncoder.encode("mobile=" + mobile, "UTF-8");
+        String truenameencode = URLEncoder.encode("truename=" + truename, "UTF-8");
         String nicknameencode = URLEncoder.encode("nickname=" + nickname, "UTF-8");
         AccInterface.testAdduser("&uname=" + uname + "&upass=" + pass_md5_str);
-        AccInterface.testUserbind("&uname=" + uname + "&key="  + emailencode
-                + "&key=" + mobilencode + "&key="  + nicknameencode);
+        AccInterface.testUserbind("&uname=" + uname + "&key="  + emailencode + "&key=" + mobilencode
+                + "&key=" + truenameencode + "&key=" + nicknameencode);
         sleep(1000);
     }
 
 
     @Test
     public void testGetBindEmail() throws IOException, SAXException {
-        String result = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=email");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int emailstartindex = result.indexOf("email=") + 6;
-        int emailendindex = (result.indexOf("&",emailstartindex) != -1) ? result.indexOf("&",emailstartindex) : result.length();
-        String getemail = result.substring(emailstartindex,emailendindex);
-        assertTrue("查询绑定邮箱,msg: " + result , getuname.equals(uname) && getemail.equals(email));
+        String response = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=email");
+        boolean result = MyCheckUtil.checkResponse(response,uname,"email",email);
+        assertTrue("查询绑定邮箱,msg: " + response , result);
     }
 
     @Test
     public void testGetBindMobile() throws IOException, SAXException {
-        String result = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=mobile");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int mobilestartindex = result.indexOf("mobile=") + 7;
-        int mobileendindex = (result.indexOf("&",mobilestartindex) != -1) ? result.indexOf("&",mobilestartindex) : result.length();
-        String getmobile = result.substring(mobilestartindex,mobileendindex);
-        assertTrue("查询绑定手机,msg: " + result , getuname.equals(uname) && getmobile.equals(mobile));
+        String response = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=mobile");
+        boolean result = MyCheckUtil.checkResponse(response,uname,"mobile",mobile);
+        assertTrue("查询绑定手机,msg: " + response , result);
+    }
+
+    @Test
+    public void testGetBindTruename() throws IOException, SAXException {
+        String response = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=truename");
+        boolean result = MyCheckUtil.checkResponse(response,uname,"truename",truename);
+        assertTrue("查询绑定昵称,msg: " + response , result);
     }
 
     @Test
     public void testGetBindNickname() throws IOException, SAXException {
-        String result = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=nickname");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int nicknamestartindex = result.indexOf("nickname=") + 9;
-        int nicknameendindex = (result.indexOf("&",nicknamestartindex) != -1) ? result.indexOf("&",nicknamestartindex) : result.length();
-        String getnickname = result.substring(nicknamestartindex,nicknameendindex);
-        assertTrue("查询绑定昵称,msg: " + result , getuname.equals(uname) && getnickname.equals(nickname));
+        String response = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=nickname");
+        boolean result = MyCheckUtil.checkResponse(response,uname,"nickname",nickname);
+        assertTrue("查询绑定昵称,msg: " + response , result);
     }
 
     public static void createUserBind(String idcard) throws IOException, SAXException, InterruptedException {
@@ -109,82 +104,54 @@ public class GetuserbindTest {
     @Test
     public void testGetBindIdcard18() throws IOException, SAXException, InterruptedException {
         createUserBind(idcard_18);
-        String result = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int idcardstartindex = result.indexOf("idcard=") + 7;
-        int idcardendindex = (result.indexOf("&",idcardstartindex) != -1) ? result.indexOf("&",idcardstartindex) : result.length();
-        String getidcard = result.substring(idcardstartindex,idcardendindex);
-        assertTrue("查询绑定18位身份证,msg: " + result , getuname.equals(unameforidcard) && getidcard.equals(idcard_18));
+        String response = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
+        boolean result = MyCheckUtil.checkResponse(response,unameforidcard,"idcard",idcard_18);
+        assertTrue("查询绑定身份证,msg: " + response , result);
     }
 
     @Test
     public void testGetBindIdcard18x() throws IOException, SAXException, InterruptedException {
         createUserBind(idcard_18_x);
-        String result = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int idcardstartindex = result.indexOf("idcard=") + 7;
-        int idcardendindex = (result.indexOf("&",idcardstartindex) != -1) ? result.indexOf("&",idcardstartindex) : result.length();
-        String getidcard = result.substring(idcardstartindex,idcardendindex);
-        assertTrue("查询绑定18位带x身份证,msg: " + result , getuname.equals(unameforidcard) && getidcard.equals(idcard_18_x));    }
+        String response = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
+        boolean result = MyCheckUtil.checkResponse(response, unameforidcard, "idcard", idcard_18_x);
+        assertTrue("查询绑定身份证,msg: " + response, result);
+    }
 
     @Test
     public void testGetBindIdcard18X() throws IOException, SAXException, InterruptedException {
         createUserBind(idcard_18_X);
-        String result = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int idcardstartindex = result.indexOf("idcard=") + 7;
-        int idcardendindex = (result.indexOf("&",idcardstartindex) != -1) ? result.indexOf("&",idcardstartindex) : result.length();
-        String getidcard = result.substring(idcardstartindex,idcardendindex);
-        assertTrue("查询绑定18位带X身份证,msg: " + result , getuname.equals(unameforidcard) && getidcard.equals(idcard_18_X));
+        String response = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
+        boolean result = MyCheckUtil.checkResponse(response, unameforidcard, "idcard", idcard_18_X);
+        assertTrue("查询绑定身份证,msg: " + response, result);
     }
 
     @Test
     public void testGetBindIdcard15() throws IOException, SAXException, InterruptedException {
         createUserBind(idcard_15);
-        String result = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int idcardstartindex = result.indexOf("idcard=") + 7;
-        int idcardendindex = (result.indexOf("&",idcardstartindex) != -1) ? result.indexOf("&",idcardstartindex) : result.length();
-        String getidcard = result.substring(idcardstartindex,idcardendindex);
-        assertTrue("查询绑定15位身份证,msg: " + result , getuname.equals(unameforidcard) && getidcard.equals(idcard_15));
+        String response = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
+        boolean result = MyCheckUtil.checkResponse(response, unameforidcard, "idcard", idcard_15);
+        assertTrue("查询绑定身份证,msg: " + response, result);
     }
 
     @Test
     public void testGetBindIdcard15x() throws IOException, SAXException, InterruptedException {
         createUserBind(idcard_15_x);
-        String result = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int idcardstartindex = result.indexOf("idcard=") + 7;
-        int idcardendindex = (result.indexOf("&",idcardstartindex) != -1) ? result.indexOf("&",idcardstartindex) : result.length();
-        String getidcard = result.substring(idcardstartindex,idcardendindex);
-        assertTrue("查询绑定15位带x身份证,msg: " + result , getuname.equals(unameforidcard) && getidcard.equals(idcard_15_x));
+        String response = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
+        boolean result = MyCheckUtil.checkResponse(response, unameforidcard, "idcard", idcard_15_x);
+        assertTrue("查询绑定身份证,msg: " + response, result);
     }
 
     @Test
     public void testGetBindIdcard15X() throws IOException, SAXException, InterruptedException {
         createUserBind(idcard_15_X);
-        String result = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
-        int unamestartindex = result.indexOf("uname=") + 6;
-        int unameendindex = (result.indexOf("&",unamestartindex) != -1) ? result.indexOf("&",unamestartindex) : result.length();
-        String getuname = result.substring(unamestartindex,unameendindex);
-        int idcardstartindex = result.indexOf("idcard=") + 7;
-        int idcardendindex = (result.indexOf("&",idcardstartindex) != -1) ? result.indexOf("&",idcardstartindex) : result.length();
-        String getidcard = result.substring(idcardstartindex,idcardendindex);
-        assertTrue("查询绑定15位带X身份证,msg: " + result , getuname.equals(unameforidcard) && getidcard.equals(idcard_15_X));
+        String response = AccInterface.testGetUserbind("&uname=" + unameforidcard + "&keytp=idcard");
+        boolean result = MyCheckUtil.checkResponse(response, unameforidcard, "idcard", idcard_15_X);
+        assertTrue("查询绑定身份证,msg: " + response, result);
     }
 
     @Test
-    public void testGetBindNull() throws IOException, SAXException {
+    public void testGetBindNull() throws IOException, SAXException {      //不传递是可以的,表示就是uname，带keytp表示这个uname是个key
+                                                                          // 比如可以直接用mobile来进行查询
         String result = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=");
         assertTrue("查询参数为空的绑定信息,msg: " + result , result.contains("result=0"));
     }

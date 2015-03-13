@@ -41,67 +41,48 @@ public class LogoutTest {
     public void testCorrectUnamelogout() throws IOException, SAXException {
         AccInterface.testLogin("&uname=" + uname + "&upass=" + pass_md5_str);
         String string = AccInterface.testLogout("&uname=" + uname);
-        assertTrue("Case1:正常账号名退出,msg: " + string , string.contains("result=0"));
+        assertTrue("正常账号名退出,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testCorrectEmaillogout() throws IOException, SAXException {
         AccInterface.testLogin("&uname=" + email + "&upass=" + pass_md5_str);
         String string = AccInterface.testLogout("&uname=" + email);
-        assertTrue("Case2:正常邮箱退出,msg: " + string , string.contains("result=0"));
+        assertTrue("正常邮箱退出,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testCorrectMobilelogout() throws IOException, SAXException {
         AccInterface.testLogin("&uname=" + mobile + "&upass=" + pass_md5_str);
         String string = AccInterface.testLogout("&uname=" + mobile);
-        assertTrue("Case2:正常手机退出,msg: " + string , string.contains("result=0"));
+        assertTrue("正常手机退出,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testNotExistUnamelogout() throws IOException, SAXException {
         AccInterface.testLogin("&uname=" + uname + "&upass=" + pass_md5_str);
         String string = AccInterface.testLogout("&uname=" + uname_NotExist);
-        assertTrue("Case4:退出账号名不存在,msg: " + string , string.contains("result=0"));
+        assertTrue("退出账号名不存在,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testNotExistEmaillogout() throws IOException, SAXException {
         AccInterface.testLogin("&uname=" + email + "&upass=" + pass_md5_str);
         String string = AccInterface.testLogout("&uname=" + email_NotExist);
-        assertTrue("Case5:退出邮箱不存在,msg: " + string , string.contains("result=0"));
+        assertTrue("退出邮箱不存在,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testNotExistMobilelogout() throws IOException, SAXException {
         AccInterface.testLogin("&uname=" + mobile + "&upass=" + pass_md5_str);
         String string = AccInterface.testLogout("&uname=" + mobile_NotExist);
-        assertTrue("Case6:退出手机不存在,msg: " + string , string.contains("result=0"));
+        assertTrue("退出手机不存在,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testNullUnamelogout() throws IOException, SAXException {
         AccInterface.testLogin("&uname=" + uname + "&upass=" + pass_md5_str);
         String string = AccInterface.testLogout("&uname=" + "");
-        assertTrue("Case2:退出用户名为空,msg: " + string , string.contains("result=101"));
+        assertTrue("退出用户名为空,msg: " + string , string.contains("result=101"));
     }
-
-
-
-//	@Test
-//	public void testUnamenull() throws IOException,SAXException{
-//         String accresult = AccInterface.testLogout("Case1:空用户名退出", "");
-//         assertEquals("-101",accresult);
-//	}
-//
-//    @Test
-//    public void testUnameNotExist() throws IOException,SAXException{
-//    	String accresult = AccInterface.testLogout("Case3:用户名不存在", "notexist");
-//    	assertTrue("True",accresult.contains("result=2"));
-//    }
-//    @Test
-//    public void testUnamegt29() throws IOException,SAXException{
-//    	String accresult = AccInterface.testLogout("Case4:用户名超过29位","abcdefghijklmnopqrstuvwxyz1234");
-//    	assertEquals("-101","accresult");
-//    }
 }
