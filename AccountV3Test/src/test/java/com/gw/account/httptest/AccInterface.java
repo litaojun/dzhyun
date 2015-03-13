@@ -319,7 +319,31 @@ public class AccInterface {
 	    return response.getText();
 	}	
 	
-	
+
+	//findunamebykey
+	public static String testFindunamebykey(String params) throws IOException,SAXException{
+		StringBuffer sb = new StringBuffer();
+		sb.append(params);
+		String urlparam = sb.toString();
+		WebConversation web = new WebConversation();
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey"+urlparam.trim();  
+		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+		WebResponse response = web.getResponse(get);
+		System.out.println(response.getText());
+	    return response.getText();
+	}
+	//findunamebykeyD-大写
+	public static String testFindunamebykeyD(String params) throws IOException,SAXException{
+		StringBuffer sb = new StringBuffer();
+		sb.append(params);
+		String urlparam = sb.toString();
+		WebConversation web = new WebConversation();
+		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=FindUnameByKey"+urlparam.trim();  
+		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+		WebResponse response = web.getResponse(get);
+		System.out.println(response.getText());
+	    return response.getText();
+	}
 }
 
 

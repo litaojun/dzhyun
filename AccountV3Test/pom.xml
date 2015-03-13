@@ -103,7 +103,12 @@
 				<version>2.18.1</version>
 				<configuration>
 					<includes>
+
+                        <!-- 任国华findunamebykey脚本 -->
+						<include>**/FindnameTest.java</include>
+
 						<include>**/*AllTests.java</include>
+
 					</includes>
 				</configuration>
 			</plugin>
