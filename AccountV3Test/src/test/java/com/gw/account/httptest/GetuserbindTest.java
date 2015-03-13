@@ -1,5 +1,8 @@
 package com.gw.account.httptest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -17,6 +20,7 @@ import static org.junit.Assert.assertTrue;
  * Created by song on 2015/3/6.
  */
 public class GetuserbindTest {
+    private static final Log LOG = LogFactory.getLog(GetuserbindTest.class);
     private static String uname;
     private static String unameforidcard;
     private static String email;
@@ -32,6 +36,7 @@ public class GetuserbindTest {
 
     @BeforeClass
     public static void globalInit() throws IOException, SAXException, InterruptedException {
+        MyCheckUtil.initialize();
         SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
         String number = df.format(new Date());
         uname = "Test" + "测试" + number;

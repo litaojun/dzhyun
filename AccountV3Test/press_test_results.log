@@ -1,138 +1,18 @@
-2015-03-11 15:59:04,722 INFO  [main] (AdduserexTest.java:142)     - ======Case5:有前缀prefix，gen为rand时=======
-2015-03-11 15:59:04,878 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=rand
-2015-03-11 15:59:04,911 INFO  [main] (AccInterface.java:70)     - Response:1&result=0&uname=lidb122284&usertid=504723833&upass=124789&=
-2015-03-11 15:59:04,912 INFO  [main] (   MyUid.java:45)     - 504723833
-2015-03-11 15:59:04,913 INFO  [main] (   MyUid.java:67)     - lidb122284
-2015-03-11 15:59:04,946 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:04,947 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:04,948 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:05,951 INFO  [main] (AdduserexTest.java:279)     - ======Case14:当keytp=mobile时，key不为正常手机号注册(其余keytp与key不对应测试)=======
-2015-03-11 15:59:05,951 INFO  [main] (   MyUid.java:79)     - 10311155905
-2015-03-11 15:59:05,958 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=mobile&key=20150311155905
-2015-03-11 15:59:05,962 INFO  [main] (AccInterface.java:70)     - Response:-104&result=104&msg=mobile_error
-2015-03-11 15:59:06,964 INFO  [main] (AdduserexTest.java:172)     - ======Case7:缺失keytp字段时=======
-2015-03-11 15:59:06,964 INFO  [main] (   MyUid.java:79)     - 10311155906
-2015-03-11 15:59:06,968 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&upass=123456&gen=seq&key=10311155906
-2015-03-11 15:59:06,971 INFO  [main] (AccInterface.java:70)     - Response:-101&result=101&msg=parameter_error
-2015-03-11 15:59:07,976 INFO  [main] (AdduserexTest.java:364)     - ======Case20:邮箱注册=======
-2015-03-11 15:59:07,976 INFO  [main] (   MyUid.java:96)     - 10311155907@qq.com
-2015-03-11 15:59:07,980 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=email&key=10311155907@qq.com
-2015-03-11 15:59:07,993 INFO  [main] (AccInterface.java:70)     - Response:1&usertid=504723837&upass=123456&email=10311155907@qq.com&result=0&uname=lidb284288
-2015-03-11 15:59:07,994 INFO  [main] (   MyUid.java:45)     - 504723837
-2015-03-11 15:59:07,994 INFO  [main] (   MyUid.java:61)     - lidb284288
-2015-03-11 15:59:08,000 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:08,002 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:08,004 INFO  [main] (MyCheckBdb.java:53)     - Find useremail:0
-2015-03-11 15:59:08,004 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:09,006 INFO  [main] (AdduserexTest.java:196)     - ======Case9:缺失upass字段时=======
-2015-03-11 15:59:09,006 INFO  [main] (   MyUid.java:79)     - 10311155909
-2015-03-11 15:59:09,009 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&keytp=mobile&key=10311155909
-2015-03-11 15:59:09,023 INFO  [main] (AccInterface.java:70)     - Response:1&uname=lidb284292&usertid=504723841&upass=372493&mobile=10311155909&result=0
-2015-03-11 15:59:09,023 INFO  [main] (   MyUid.java:45)     - 504723841
-2015-03-11 15:59:09,024 INFO  [main] (   MyUid.java:67)     - lidb284292
-2015-03-11 15:59:09,030 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:09,031 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:09,033 INFO  [main] (MyCheckBdb.java:67)     - Find usermobile:0
-2015-03-11 15:59:09,033 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:10,035 INFO  [main] (AdduserexTest.java:302)     - ======Case16:字段名错误注册=======
-2015-03-11 15:59:10,035 INFO  [main] (   MyUid.java:79)     - 10311155910
-2015-03-11 15:59:10,038 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gn=seq&upass=123456&keytp=mobile&key=10311155910
-2015-03-11 15:59:10,041 INFO  [main] (AccInterface.java:70)     - Response:-101&result=101&msg=gen_bad
-2015-03-11 15:59:11,043 INFO  [main] (AdduserexTest.java:160)     - ======Case6:缺失gen字段时=======
-2015-03-11 15:59:11,043 INFO  [main] (   MyUid.java:79)     - 10311155911
-2015-03-11 15:59:11,046 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&upass=123456&keytp=mobile&key=10311155911
-2015-03-11 15:59:11,050 INFO  [main] (AccInterface.java:70)     - Response:-101&result=101&msg=gen_bad
-2015-03-11 15:59:12,052 INFO  [main] (AdduserexTest.java:184)     - ======Case8:缺失key字段时=======
-2015-03-11 15:59:12,052 INFO  [main] (   MyUid.java:79)     - 10311155912
-2015-03-11 15:59:12,055 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&upass=123456&gen=seq&keytp=mobile
-2015-03-11 15:59:12,059 INFO  [main] (AccInterface.java:70)     - Response:-101&result=101&msg=parameter_error
-2015-03-11 15:59:13,061 INFO  [main] (AdduserexTest.java:124)     - ======Case3:有前缀prefix，gen为seq时=======
-2015-03-11 15:59:13,063 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq
-2015-03-11 15:59:13,068 INFO  [main] (AccInterface.java:70)     - Response:1&upass=267184&=&result=0&uname=lidb284296&usertid=504723845
-2015-03-11 15:59:13,069 INFO  [main] (   MyUid.java:39)     - 504723845
-2015-03-11 15:59:13,069 INFO  [main] (   MyUid.java:67)     - lidb284296
-2015-03-11 15:59:13,076 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:13,077 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:13,078 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:14,080 INFO  [main] (AdduserexTest.java:66)     - ======Case1:必填字段全部正确书写请求（gen=seq）=======
-2015-03-11 15:59:14,081 INFO  [main] (AccInterface.java:66)     - Request:&gen=seq
-2015-03-11 15:59:14,088 INFO  [main] (AccInterface.java:70)     - Response:1&result=0&uname=284300&usertid=504723849&upass=734751&=
-2015-03-11 15:59:14,088 INFO  [main] (   MyUid.java:45)     - 504723849
-2015-03-11 15:59:14,088 INFO  [main] (   MyUid.java:67)     - 284300
-2015-03-11 15:59:14,093 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:14,095 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:14,095 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:15,097 INFO  [main] (AdduserexTest.java:217)     - ======Case11:前缀prefix为20字节时=======
-2015-03-11 15:59:15,100 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidbllllllllllllllll&gen=seq
-2015-03-11 15:59:15,106 INFO  [main] (AccInterface.java:70)     - Response:1&result=0&uname=lidbllllllllllllllll284304&usertid=504723853&upass=926190&=
-2015-03-11 15:59:15,106 INFO  [main] (   MyUid.java:45)     - 504723853
-2015-03-11 15:59:15,106 INFO  [main] (   MyUid.java:67)     - lidbllllllllllllllll284304
-2015-03-11 15:59:15,112 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:15,114 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:15,114 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:16,115 INFO  [main] (AdduserexTest.java:235)     - ======Case11:前缀prefix为21字节时=======
-2015-03-11 15:59:16,116 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidblllllllllllllllll&gen=seq
-2015-03-11 15:59:16,119 INFO  [main] (AccInterface.java:70)     - Response:-101&result=101&msg=prefix_bad
-2015-03-11 15:59:17,121 INFO  [main] (AdduserexTest.java:315)     - ======Case17:当keytp=email时，key不为正常手机号注册(其余keytp与key不对应测试)=======
-2015-03-11 15:59:17,121 INFO  [main] (   MyUid.java:79)     - 10311155917
-2015-03-11 15:59:17,123 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=email&key=10311155917
-2015-03-11 15:59:17,126 INFO  [main] (AccInterface.java:70)     - Response:-105&result=105&msg=email_error
-2015-03-11 15:59:18,129 INFO  [main] (AdduserexTest.java:103)     - ======Case3:非必填字段全部正确书写请求=======
-2015-03-11 15:59:18,129 INFO  [main] (   MyUid.java:79)     - 10311155918
-2015-03-11 15:59:18,131 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=mobile&key=10311155918
-2015-03-11 15:59:18,142 INFO  [main] (AccInterface.java:70)     - Response:1&uname=lidb284308&usertid=504723857&upass=123456&mobile=10311155918&result=0
-2015-03-11 15:59:18,142 INFO  [main] (   MyUid.java:45)     - 504723857
-2015-03-11 15:59:18,143 INFO  [main] (   MyUid.java:67)     - lidb284308
-2015-03-11 15:59:18,149 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:18,151 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:18,152 INFO  [main] (MyCheckBdb.java:67)     - Find usermobile:0
-2015-03-11 15:59:18,153 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:19,154 INFO  [main] (AdduserexTest.java:388)     - ======Case20:邮箱重复增加=======
-2015-03-11 15:59:19,154 INFO  [main] (   MyUid.java:79)     - 10311155919
-2015-03-11 15:59:19,155 INFO  [main] (   MyUid.java:96)     - 10311155919@qq.com
-2015-03-11 15:59:19,157 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=email&key=10311155919@qq.com
-2015-03-11 15:59:19,170 INFO  [main] (AccInterface.java:70)     - Response:1&uname=lidb284312&usertid=504723861&upass=123456&email=10311155919@qq.com&result=0
-2015-03-11 15:59:19,177 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=email&key=10311155919@qq.com
-2015-03-11 15:59:19,181 INFO  [main] (AccInterface.java:70)     - Response:-114&result=114&msg=email_key_dup&uname=lidb284316
-2015-03-11 15:59:20,183 INFO  [main] (AdduserexTest.java:291)     - ======Case15:当key重复时测试=======
-2015-03-11 15:59:20,183 INFO  [main] (   MyUid.java:79)     - 10311155920
-2015-03-11 15:59:20,191 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=mobile&key=10225155940
-2015-03-11 15:59:20,205 INFO  [main] (AccInterface.java:70)     - Response:1&result=0&uname=lidb284320&usertid=504723869&upass=123456&mobile=10225155940
-2015-03-11 15:59:21,268 INFO  [main] (AdduserexTest.java:244)     - ======Case3:非必填字段全部正确书写请求=======
-2015-03-11 15:59:21,268 INFO  [main] (   MyUid.java:79)     - 10311155921
-2015-03-11 15:59:21,270 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=lidb5000000000000000000000000000000000000000000000&keytp=mobile&key=10311155921
-2015-03-11 15:59:21,283 INFO  [main] (AccInterface.java:70)     - Response:1&uname=lidb284324&usertid=504723873&upass=lidb5000000000000000000000000000000000000000000000&mobile=10311155921&result=0
-2015-03-11 15:59:21,283 INFO  [main] (   MyUid.java:45)     - 504723873
-2015-03-11 15:59:21,284 INFO  [main] (   MyUid.java:67)     - lidb284324
-2015-03-11 15:59:21,290 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:21,292 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:21,294 INFO  [main] (MyCheckBdb.java:67)     - Find usermobile:0
-2015-03-11 15:59:21,294 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:22,296 INFO  [main] (AdduserexTest.java:266)     - ======Case13:密码字节数为51时=======
-2015-03-11 15:59:22,296 INFO  [main] (   MyUid.java:79)     - 10311155922
-2015-03-11 15:59:22,298 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=lidb50000000000000000000000000000000000000000000001&keytp=mobile&key=10311155922
-2015-03-11 15:59:22,301 INFO  [main] (AccInterface.java:70)     - Response:-101&result=101&msg=upass_bad
-2015-03-11 15:59:23,303 INFO  [main] (AdduserexTest.java:84)     - ======Case2:必填字段全部正确书写请求（gen=rand）=======
-2015-03-11 15:59:23,305 INFO  [main] (AccInterface.java:66)     - Request:&gen=rand
-2015-03-11 15:59:23,311 INFO  [main] (AccInterface.java:70)     - Response:1&uname=927320&usertid=504723877&upass=420222&=&result=0
-2015-03-11 15:59:23,311 INFO  [main] (   MyUid.java:45)     - 504723877
-2015-03-11 15:59:23,311 INFO  [main] (   MyUid.java:67)     - 927320
-2015-03-11 15:59:23,317 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:23,319 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:23,319 INFO  [main] (MyCheckBdb.java:74)     - true
-2015-03-11 15:59:24,321 INFO  [main] (AdduserexTest.java:352)     - ======Case19:手机号重复增加=======
-2015-03-11 15:59:24,321 INFO  [main] (   MyUid.java:79)     - 10311155924
-2015-03-11 15:59:24,323 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=mobile&key=10311155924
-2015-03-11 15:59:24,333 INFO  [main] (AccInterface.java:70)     - Response:1&mobile=10311155924&result=0&uname=lidb284328&usertid=504723881&upass=123456
-2015-03-11 15:59:24,334 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=mobile&key=10311155924
-2015-03-11 15:59:24,338 INFO  [main] (AccInterface.java:70)     - Response:-114&result=114&msg=mobile_key_dup&uname=lidb284332
-2015-03-11 15:59:25,341 INFO  [main] (AdduserexTest.java:328)     - ======Case18:非必填字段全部正确返回格式校验=======
-2015-03-11 15:59:25,341 INFO  [main] (   MyUid.java:79)     - 10311155925
-2015-03-11 15:59:25,342 INFO  [main] (AccInterface.java:66)     - Request:&prefix=lidb&gen=seq&upass=123456&keytp=mobile&key=10311155925
-2015-03-11 15:59:25,355 INFO  [main] (AccInterface.java:70)     - Response:1&result=0&uname=lidb284336&usertid=504723889&upass=123456&mobile=10311155925
-2015-03-11 15:59:25,356 INFO  [main] (   MyUid.java:45)     - 504723889
-2015-03-11 15:59:25,356 INFO  [main] (   MyUid.java:67)     - lidb284336
-2015-03-11 15:59:25,362 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
-2015-03-11 15:59:25,364 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:8
-2015-03-11 15:59:25,365 INFO  [main] (MyCheckBdb.java:67)     - Find usermobile:0
-2015-03-11 15:59:25,365 INFO  [main] (MyCheckBdb.java:74)     - true
+2015-03-12 14:18:28,570 ERROR [main] (MyCheckUtil.java:30)     - TESTETTTETTETSTETTET
+2015-03-12 14:18:28,709 INFO  [main] (AccInterface.java:50)     - RequestPararms:&uname=Test测试12141828&upass=11111111
+2015-03-12 14:18:28,710 INFO  [main] (AccInterface.java:52)     - Request:&uname=Test测试12141828&upass=11111111
+2015-03-12 14:18:28,710 INFO  [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test测试12141828&upass=11111111
+2015-03-12 14:18:28,711 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test测试12141828&upass=11111111
+2015-03-12 14:18:28,762 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=test测试12141828&usertid=550924264
+2015-03-12 14:18:28,763 INFO  [main] (AccInterface.java:61)     - Response:1&result=0&uname=test测试12141828&usertid=550924264
+2015-03-12 14:18:28,763 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test测试12141828&usertid=550924264
+2015-03-12 14:18:29,768 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test测试12141828&key=email%3DTest12141828%40126.com
+2015-03-12 14:18:29,779 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test测试12141828&email=Test12141828@126.com
+2015-03-12 14:18:29,783 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test测试12141828&keytp=email
+2015-03-12 14:18:29,789 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test测试12141828&email=Test12141828@126.com
+2015-03-12 14:18:29,791 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=email&key=Test12141828@126.com
+2015-03-12 14:18:29,795 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&result=0&uname=test测试12141828
+2015-03-12 14:18:29,795 ERROR [main] (MyCheckUtil.java:61)     - checkFindUnamebyKey:(Test测试12141828,email,Test12141828@126.com),1&result=0&uname=test测试12141828
+2015-03-12 14:18:29,808 ERROR [main] (MyCheckUtil.java:73)     - checkExistredis.clients.jedis.Jedis@10bc436:No data!
+2015-03-12 14:18:29,811 ERROR [main] (MyCheckUtil.java:111)     - checkIndexredis.clients.jedis.Jedis@10bc436:(Test测试12141828),unameSaved:(test测试12141828)
+2015-03-12 14:18:29,813 ERROR [main] (MyCheckUtil.java:125)     - checkUidredis.clients.jedis.Jedis@10bc436:No data!

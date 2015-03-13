@@ -6,13 +6,13 @@ import java.util.HashMap;
  * Created by song on 2015/3/11.
  */
 public class KeyIdCast {
-    private static HashMap<Integer,String> keyidtokey;
-    private static HashMap<String,Integer> keytokeyid;
+    private static HashMap<Integer,String> keyidtokey = new HashMap<Integer, String>();
+    private static HashMap<String,Integer> keytokeyid = new HashMap<String, Integer>();
 
-    KeyIdCast() {
+    public static void initialize() {
         keyidtokey.clear();
         keytokeyid.clear();
-        putCast(1,"email");
+        putCast(1, "email");
         putCast(2,"mobile");
         putCast(3,"lotterid");
         putCast(4,"deviceid");
