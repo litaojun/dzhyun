@@ -1,9 +1,8 @@
 package com.atopcloud.util;
 
 import org.apache.log4j.Logger;
-//取服务返回信息中的userid
 
-import com.gw.account.httptest.AdduserTest;
+//取服务返回信息中的userid
 
 public class MyUid {
 	
