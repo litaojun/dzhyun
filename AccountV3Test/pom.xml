@@ -116,8 +116,8 @@
                         <include>**/*LoginTest.java</include>
                         <include>**/*LogoutTest.java</include>
                        
-                        <!-- 任国华findunamebykey脚本 -->
-						<include>**/FindnameTest.java</include>                                         
+                        <!-- renguohua脚本 -->
+						<include>**/FindunameTest.java</include>                                         
 					</includes>
 				</configuration>
 			</plugin>
