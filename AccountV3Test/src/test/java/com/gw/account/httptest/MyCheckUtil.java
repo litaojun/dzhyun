@@ -4,21 +4,16 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import core.Userinfo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.xml.sax.SAXException;
 import redis.clients.jedis.BinaryJedis;
-import redis.clients.jedis.Jedis;
-
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by song on 2015/3/10.
