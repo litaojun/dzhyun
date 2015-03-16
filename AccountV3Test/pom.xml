@@ -104,12 +104,12 @@
 				<configuration>
 					<includes>
 
-						
+						<!-- lidebao脚本 -->
 						<include>**/*AdduserNotOtherTest.java</include>
                         <include>**/*AdduserexTest.java</include>
                         <include>**/*UsergetTest.java</include>
                         <include>**/*UpdpassTest.java</include> 
-                                              
+                        <!-- wuzhipei脚本 -->                     
                         <include>**/*GetuserbindTest.java</include>
                         <include>**/*UserbindTest.java</include>
                         <include>**/*DeluserbindTest.java</include>
