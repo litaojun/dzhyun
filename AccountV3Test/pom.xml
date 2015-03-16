@@ -106,9 +106,16 @@
 
                         <!-- 任国华findunamebykey脚本 -->
 						<include>**/FindnameTest.java</include>
-
-						<include>**/*AllTests.java</include>
-
+						<include>**/*AdduserTest.java</include>
+                        <include>**/*AdduserexTest.java</include>
+                        <include>**/*UsergetTest.java</include>
+                        <include>**/*GetuserbindTest.java</include>
+                        <include>**/*UserbindTest.java</include>
+                        <include>**/*DeluserbindTest.java</include>
+                        <include>**/*LoginTest.java</include>
+                        <include>**/*LogoutTest.java</include>
+                        <include>**/*UpdpassTest.java</include>                   
+                        
 					</includes>
 				</configuration>
 			</plugin>
