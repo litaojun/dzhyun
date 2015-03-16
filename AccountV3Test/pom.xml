@@ -104,18 +104,20 @@
 				<configuration>
 					<includes>
 
-                        <!-- 任国华findunamebykey脚本 -->
-						<include>**/FindnameTest.java</include>
-						<include>**/*AdduserTest.java</include>
+						
+						<include>**/*AdduserNotOtherTest.java</include>
                         <include>**/*AdduserexTest.java</include>
                         <include>**/*UsergetTest.java</include>
+                        <include>**/*UpdpassTest.java</include> 
+                                              
                         <include>**/*GetuserbindTest.java</include>
                         <include>**/*UserbindTest.java</include>
                         <include>**/*DeluserbindTest.java</include>
                         <include>**/*LoginTest.java</include>
                         <include>**/*LogoutTest.java</include>
-                        <include>**/*UpdpassTest.java</include>                   
-                        
+                       
+                        <!-- 任国华findunamebykey脚本 -->
+						<include>**/FindnameTest.java</include>                                         
 					</includes>
 				</configuration>
 			</plugin>
