@@ -247,7 +247,7 @@ public class FindunameTest {
 		System.out.println("======Case1.2.1:必填字段全部正确书写请求（mobile）=======");		
 		String accresult = AccInterface.testFindunamebykeyD(params);			
 		//校验返回值
-		assertTrue("True",accresult.contains("result=103"));								
+		assertTrue("True",accresult.contains("result=0"));								
 	}	
 	@Test
 	//Case1.2.2:必填字段全部正确书写请求（email）
@@ -260,7 +260,7 @@ public class FindunameTest {
 		System.out.println("======Case1.2.2:必填字段全部正确书写请求（email）=======");		
 		String accresult = AccInterface.testFindunamebykeyD(params);			
 		//校验返回值
-		assertTrue("True",accresult.contains("result=103"));										
+		assertTrue("True",accresult.contains("result=0"));										
 	}	
 	@Test
 	//Case1.2.3:必填字段全部正确书写请求（idcard）
@@ -273,7 +273,7 @@ public class FindunameTest {
 		System.out.println("======Case1.2.3:必填字段全部正确书写请求（idcard）=======");		
 		String accresult = AccInterface.testFindunamebykeyD(params);			
 		//校验返回值
-		assertTrue("True",accresult.contains("result=103"));							
+		assertTrue("True",accresult.contains("result=0"));							
 	}		
 	@Test
 	//Case1.2.4:必填字段全部正确书写请求（qqid）
@@ -286,7 +286,7 @@ public class FindunameTest {
 		System.out.println("======Case1.2.4:必填字段全部正确书写请求（qqid）=======");		
 		String accresult = AccInterface.testFindunamebykeyD(params);			
 		//校验返回值
-		assertTrue("True",accresult.contains("result=103"));								
+		assertTrue("True",accresult.contains("result=0"));								
 	}	
 	@Test
 	//Case1.2.5:必填字段全部正确书写请求（wxid）
@@ -299,7 +299,7 @@ public class FindunameTest {
 		System.out.println("======Case1.2.5:必填字段全部正确书写请求（wxid）=======");		
 		String accresult = AccInterface.testFindunamebykeyD(params);			
 		//校验返回值		
-		assertTrue("True",accresult.contains("result=103"));											
+		assertTrue("True",accresult.contains("result=0"));											
 	}		
 	@Test
 	//Case1.2.6:必填字段全部正确书写请求（xcid）
@@ -312,7 +312,7 @@ public class FindunameTest {
 		System.out.println("======Case1.2.6:必填字段全部正确书写请求（xcid）=======");		
 		String accresult = AccInterface.testFindunamebykeyD(params);		
 		//校验返回值
-		assertTrue("True",accresult.contains("result=103"));			
+		assertTrue("True",accresult.contains("result=0"));			
 	}	
 //key参数大小写敏感		
 		@Test
