@@ -62,25 +62,25 @@ public class DeluserbindTest {
 
     @Test
     public void testDelBindMobile() throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
-        boolean result = checkDelBindKey(uname,"email",email);
+        boolean result = checkDelBindKey(uname,"mobile",mobile);
         assertTrue("删除手机绑定", result);
     }
 
     @Test
     public void testDelBindNickname() throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
-        boolean result = checkDelBindKey(uname,"email",email);
+        boolean result = checkDelBindKey(uname,"nickname",nickname);
         assertTrue("删除昵称绑定", result);
     }
 
     @Test
     public void testDelBindIdcard() throws IOException, SAXException, InterruptedException, NoSuchAlgorithmException {
-        boolean result = checkDelBindKey(uname,"email",email);
+        boolean result = checkDelBindKey(uname,"idcard",idcard);
         assertTrue("删除身份证绑定", result);
     }
 
     @Test
     public void testDelBindNull() throws IOException, SAXException {
-        String result = AccInterface.testDelUserbind("&uname=" + uname + "&keytp=");
+        String result = AccInterface.testDelUserbind("&uname=" + uname + "&key=");
         assertTrue("删除参数为空的绑定信息,msg: " + result , result.contains("result=101"));
     }
 

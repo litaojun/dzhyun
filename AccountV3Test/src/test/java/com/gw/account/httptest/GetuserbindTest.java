@@ -2,13 +2,11 @@ package com.gw.account.httptest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -151,7 +149,7 @@ public class GetuserbindTest {
 
     @Test
     public void testGetBindNull() throws IOException, SAXException {      //不传递是可以的,表示就是uname，带keytp表示这个uname是个key
-                                                                          // 比如可以直接用mobile来进行查询
+                                                                          //比如可以直接用mobile来进行查询
         String result = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=");
         assertTrue("查询参数为空的绑定信息,msg: " + result , result.contains("result=0"));
     }
