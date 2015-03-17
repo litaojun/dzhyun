@@ -3,7 +3,6 @@ package com.gw.account.httptest;
 import com.atopcloud.util.MyBdbUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -86,7 +85,7 @@ public class DeluserbindTest {
     }
 
     public static boolean checkDelBindKey(String uname, String keytp, String key) throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
-        String response = AccInterface.testDelUserbind("&uname=" + uname + "&keytp=" + keytp);
+        String response = AccInterface.testDelUserbind("&uname=" + uname + "&key=" + keytp);
         boolean checkresponse = MyCheckUtil.checkResponse(response,uname,keytp,"1");
         boolean checknotexist = MyCheckUtil.checkNotExist(uname,pass_md5_str,keytp,key);
         boolean checknotindex = MyCheckUtil.checkNotIndex(uname,keytp,key);
