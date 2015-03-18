@@ -66,7 +66,7 @@ public class UsergetTest {
 	}
 	
 	@Test
-	////Case2:非必填字段全部正确书写请求
+	////Case2:非必填字段全部正确书写请求。
 	public void testAllParamsnotpass() throws IOException,SAXException {
 		log.info("======Case2:非必填字段全部正确书写请求=======");
 		String curtimeuname = MyCurrentTime.MyTime();
