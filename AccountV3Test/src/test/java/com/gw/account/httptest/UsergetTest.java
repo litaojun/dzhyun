@@ -15,6 +15,8 @@ import org.xml.sax.SAXException;
 
 
 
+
+import com.atopcloud.util.MyCurrentTime;
 //
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
@@ -66,8 +68,11 @@ public class UsergetTest {
 	@Test
 	////Case2:非必填字段全部正确书写请求
 	public void testAllParamsnotpass() throws IOException,SAXException {
-		log.info("======Case2:非必填字段全部正确书写请求=======");	
-		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=111111&exreq={\"ver\":\"1.0\"}");
+		log.info("======Case2:非必填字段全部正确书写请求=======");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "你好4"+curtimeuname+"";
+		String accresult1 = AccInterface.testAdduser("&uname="+uname+"&upass=123456");
+		String accresult = AccInterface.testUserget("&uname="+uname+"&gettp=12288&passmd5=123456&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=0"));
 	}
 	
@@ -75,8 +80,11 @@ public class UsergetTest {
 	////Case3:查找中文用户名
 	public void testChnUname() throws IOException,SAXException {
 		log.info("======Case3:查找中文用户名=======");	
-		String accresult = AccInterface.testUserget("&uname=你好&gettp=12288&passmd5=&exreq={\"ver\":\"1.0\"}");
-		assertTrue("True",accresult.contains("result=0"));
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "你好5"+curtimeuname+"";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass=123456");		
+		String accresult1 = AccInterface.testUserget("&uname="+uname+"&gettp=12288&passmd5=&exreq={\"ver\":\"1.0\"}");
+		assertTrue("True",accresult1.contains("result=0"));
 	}
 	
 	@Test
@@ -88,21 +96,29 @@ public class UsergetTest {
 		assertTrue("True",accresult.contains("uname_bad"));
 	}
 	
+	/*
 	@Test
 	////Case5:缺失gettp时查找
 	public void testDefectgettp() throws IOException,SAXException {
 		fail("donot run this!");
 		log.info("======Case5:缺失gettp时查找=======");	
-		String accresult = AccInterface.testUserget("&uname=你好&passmd5=&exreq={\"ver\":\"1.0\"}");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "你好3"+curtimeuname+"";
+		String accresult1 = AccInterface.testAdduser("&uname="+uname+"&upass=123456");
+		String accresult = AccInterface.testUserget("&uname="+uname+"&passmd5=&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=101"));
 		assertTrue("True",accresult.contains("uname_bad"));
 	}
+	*/
 	
 	@Test
 	////Case6:非必填字段全部书写请求，密码错误
 	public void testAllParams() throws IOException,SAXException {
 		log.info("======Case6:非必填字段全部书写请求，密码错误=======");	
-		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288&passmd5=123457&exreq={\"ver\":\"1.0\"}");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lili"+curtimeuname+"";
+		String accresult1 = AccInterface.testAdduser("&uname="+uname+"&upass=123456");
+		String accresult = AccInterface.testUserget("&uname="+uname+"&gettp=12288&passmd5=123457&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=59"));
 	}
 	
@@ -110,24 +126,32 @@ public class UsergetTest {
 	////Case7:非必添字段缺失
 	public void testDefect() throws IOException,SAXException {
 		log.info("======Case7:非必添字段缺失=======");	
-		String accresult = AccInterface.testUserget("&uname=lidb&gettp=12288");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lili12l"+curtimeuname+"";
+		String accresult1 = AccInterface.testAdduser("&uname="+uname+"&upass=123456");
+		String accresult = AccInterface.testUserget("&uname="+uname+"&gettp=12288");
 		assertTrue("True",accresult.contains("result=0"));
 	}
 	
+	/*
 	@Test
 	////Case8:gettp不为12288时查找
 	public void testErrorgettp() throws IOException,SAXException {
-		fail("donot run this!");
+	//	fail("donot run this!");
 		log.info("======Case8:gettp不为12288时查找=======");	
 		String accresult = AccInterface.testUserget("&uname=lidb&gettp=18&passmd5=123456&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=101"));
 	}
+	*/
 	
 	@Test
 	////Case9:字段名错误，非必填错误
 	public void testErrorpass() throws IOException,SAXException {
 		log.info("======Case9:字段名错误，非必填错误=======");	
-		String accresult = AccInterface.testUserget("&uname=lidb&pad5=123456&exreq={\"ver\":\"1.0\"}");
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lili12"+curtimeuname+"";
+		String accresult1 = AccInterface.testAdduser("&uname="+uname+"&upass=123456");
+		String accresult = AccInterface.testUserget("&uname="+uname+"&pad5=123456&exreq={\"ver\":\"1.0\"}");
 		assertTrue("True",accresult.contains("result=0"));
 	}
 	

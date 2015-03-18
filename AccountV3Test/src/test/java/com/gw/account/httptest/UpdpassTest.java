@@ -77,8 +77,11 @@ public class UpdpassTest {
 	public void testMustParamsseq() throws IOException,SAXException, ClassNotFoundException, InterruptedException{
 	//	System.out.println("======Case1:必填字段全部正确书写请求=======");	
 		log.info("======Case1:必填字段全部正确书写请求=======");
-		String accresult = AccInterface.testUpdpass("&uname=lidb&upass=111111");	
-		assertTrue("True",accresult.contains("result=0"));
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb1"+curtimeuname+"";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass=111111");
+		String accresult1 = AccInterface.testUpdpass("&uname="+uname+"&upass=111111");	
+		assertTrue("True",accresult1.contains("result=0"));
 						
 	}
 	
@@ -87,8 +90,11 @@ public class UpdpassTest {
 	public void testAllParams() throws IOException,SAXException, ClassNotFoundException, InterruptedException{		
 	//	System.out.println("======Case2:非必填字段全部正确书写请求mobile(uname取唯一key)=======");
 		log.info("======Case2:非必填字段全部正确书写请求mobile(uname取唯一key)=======");
-		String accresult = AccInterface.testUpdpass("&uname=15901110001&upass=111111&opass=111111&keytp=mobile");	
-		assertTrue("True",accresult.contains("result=0"));							
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass=111111&keytp=mobile&key="+mobile+"");	
+		String accresult1 = AccInterface.testUpdpass("&uname="+mobile+"&upass=123456&opass=111111&keytp=mobile");	
+		assertTrue("True",accresult1.contains("result=0"));							
 	}
 	
 	@Test
@@ -96,8 +102,12 @@ public class UpdpassTest {
 	public void testEmail() throws IOException,SAXException, ClassNotFoundException, InterruptedException{		
 	//	System.out.println("======Case3:非必填字段全部正确书写请求email(uname取唯一key)=======");
 		log.info("======Case3:非必填字段全部正确书写请求email(uname取唯一key)=======");
-		String accresult = AccInterface.testUpdpass("&uname=15901620000@qq.com&upass=111111&opass=111111&keytp=email");	
-		assertTrue("True",accresult.contains("result=0"));							
+		String curtimeuname = MyCurrentTime.MyTime();
+		String mobile = MyUid.Monbile(curtimeuname);
+		String email = MyUid.Email(curtimeuname);
+		String accresult = AccInterface.testAdduserex("&prefix=lidb&gen=seq&upass=111111&keytp=email&key="+email+"");
+		String accresult1 = AccInterface.testUpdpass("&uname="+email+"&upass=123456&opass=111111&keytp=email");	
+		assertTrue("True",accresult1.contains("result=0"));							
 	}
 	
 	@Test
@@ -105,8 +115,11 @@ public class UpdpassTest {
 	public void testChnUname() throws IOException,SAXException, InterruptedException{
 	//	System.out.println("======Case4:中文用户名密码修改=======");
 		log.info("======Case4:中文用户名密码修改=======");
-		String accresult = AccInterface.testUpdpass("&uname=你好&upass=111111");	
-		assertTrue("True",accresult.contains("result=0"));															
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "你好"+curtimeuname+"";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass=123456");
+		String accresult1 = AccInterface.testUpdpass("&uname="+uname+"&upass=111111");	
+		assertTrue("True",accresult1.contains("result=0"));															
 	}
 		
 		
@@ -155,8 +168,11 @@ public class UpdpassTest {
 	public void testSamepass() throws IOException,SAXException, InterruptedException{
 	//	System.out.println("======Case9:修改成相同的密码=======");
 		log.info("======Case9:修改成相同的密码=======");
-		String accresult = AccInterface.testUpdpass("&uname=lidb001&upass=1111111");	
-		assertTrue("True",accresult.contains("result=0"));															
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "你好1"+curtimeuname+"";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass=123456");
+		String accresult1 = AccInterface.testUpdpass("&uname="+uname+"&upass=123456");	
+		assertTrue("True",accresult1.contains("result=0"));															
 	}
 	
 	
@@ -185,8 +201,11 @@ public class UpdpassTest {
 	public void testErrorupass() throws IOException,SAXException, ClassNotFoundException, InterruptedException{		
 	//	System.out.println("======Case12:原始密码错误修改=======");	
 		log.info("======Case12:原始密码错误修改=======");
-		String accresult = AccInterface.testUpdpass("&uname=lidb004&upass=111111&opass=125556");	
-		assertTrue("True",accresult.contains("result=59"));							
+		String curtimeuname = MyCurrentTime.MyTime();
+		String uname = "lidb1"+curtimeuname+"";
+		String accresult = AccInterface.testAdduser("&uname="+uname+"&upass=111111");
+		String accresult1 = AccInterface.testUpdpass("&uname="+uname+"&upass=111111&opass=125556");	
+		assertTrue("True",accresult1.contains("result=59"));							
 	}
 	
 	//Case13:不存在的用户名修改
