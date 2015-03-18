@@ -1,13 +1,10 @@
 package com.atopcloud.util;
 
 
-import static org.junit.Assert.assertEquals;
-
 import org.apache.log4j.Logger;
 
 //检验bdb通用接口
 import com.atopcloud.util.MyBdbUtil;
-import com.gw.account.httptest.AdduserTest;
 
 public class MyCheckBdb {
 	

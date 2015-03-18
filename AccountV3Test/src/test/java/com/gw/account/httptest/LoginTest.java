@@ -40,92 +40,81 @@ public class LoginTest {
         sleep(1000);
     }
 
-
-//    @AfterClass
-//    public static void globalDestory() {
-//        System.out.println("destory all method...");
-//    }
-//
-//    @After
-//    public void tearDown() throws IOException, SAXException {
-//        AccInterface.testLogout("&uname="+uname);
-//    }
-
     @Test
     public void testCorrectUnamelogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + uname + "&upass=" + pass_md5_str);
-        assertTrue("Case1:正常账号名登录,msg: " + string , string.contains("result=0"));
+        assertTrue("正常账号名登录,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testCorrectEmaillogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + email + "&upass=" + pass_md5_str);
-        assertTrue("Case2:正常邮箱登录,msg: " + string , string.contains("result=0"));
+        assertTrue("正常邮箱登录,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testCorrectMobilelogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + mobile + "&upass=" + pass_md5_str);
-        assertTrue("Case3:正常手机登录,msg: " + string , string.contains("result=0"));
+        assertTrue("正常手机登录,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testNotExistUnamelogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + uname_NotExist + "&upass=" + pass_md5_str);
-        assertTrue("Case4:登录账号名不存在,msg: " + string , string.contains("result=2"));
+        assertTrue("登录账号名不存在,msg: " + string , string.contains("result=2"));
     }
 
     @Test
     public void testNotExistEmaillogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + email_NotExist + "&upass=" + pass_md5_str);
-        assertTrue("Case5:登录邮箱不存在,msg: " + string , string.contains("result=2"));
+        assertTrue("登录邮箱不存在,msg: " + string , string.contains("result=2"));
     }
 
     @Test
     public void testNotExistMobilelogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + mobile_NotExist + "&upass=" + pass_md5_str);
-        assertTrue("Case6:登录手机不存在,msg: " + string , string.contains("result=2"));
+        assertTrue("登录手机不存在,msg: " + string , string.contains("result=2"));
     }
 
     @Test
     public void testNullUnamelogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + "" + "&upass=" + pass_md5_str);
-        assertTrue("Case7:登录用户名为空,msg: " + string , string.contains("result=1"));
+        assertTrue("登录用户名为空,msg: " + string , string.contains("result=1"));
     }
 
     @Test
     public void testUnameWrongPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + uname + "&upass=" + pass_md5_str_Wrong);
-        assertTrue("Case8:账号名登录密码错误,msg: " + string , string.contains("result=59"));
+        assertTrue("账号名登录密码错误,msg: " + string , string.contains("result=59"));
     }
 
     @Test
     public void testEmailWrongPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + email + "&upass=" + pass_md5_str_Wrong);
-        assertTrue("Case9:邮箱登录密码错误,msg: " + string , string.contains("result=59"));
+        assertTrue("邮箱登录密码错误,msg: " + string , string.contains("result=59"));
     }
 
     @Test
     public void testMobileWrongPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + mobile + "&upass=" + pass_md5_str_Wrong);
-        assertTrue("Case10:手机登录密码错误,msg: " + string , string.contains("result=59"));
+        assertTrue("手机登录密码错误,msg: " + string , string.contains("result=59"));
     }
 
     @Test
     public void testUnameNullPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + uname + "&upass=" + "");
-        assertTrue("Case11:账号名登录密码为空,msg: " + string , string.contains("result=101"));
+        assertTrue("账号名登录密码为空,msg: " + string , string.contains("result=101"));
     }
 
     @Test
     public void testEmailNullPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + email + "&upass=" + "");
-        assertTrue("Case12:邮箱登录密码为空,msg: " + string , string.contains("result=101"));
+        assertTrue("邮箱登录密码为空,msg: " + string , string.contains("result=101"));
     }
 
     @Test
     public void testMobileNullPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + mobile + "&upass=" + "");
-        assertTrue("Case13:手机登录密码为空,msg: " + string , string.contains("result=101"));
+        assertTrue("手机登录密码为空,msg: " + string , string.contains("result=101"));
     }
 }

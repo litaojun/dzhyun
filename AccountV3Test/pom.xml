@@ -88,6 +88,12 @@
             <version>1.0.4</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0.4</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 	<build>
@@ -103,7 +109,21 @@
 				<version>2.18.1</version>
 				<configuration>
 					<includes>
-						<include>**/*AllTests.java</include>
+
+						<!-- lidebao脚本 -->
+						<include>**/*AdduserNotOtherTest.java</include>
+                        <include>**/*AdduserexTest.java</include>
+                        <include>**/*UsergetTest.java</include>
+                        <include>**/*UpdpassTest.java</include> 
+                        <!-- wuzhipei脚本 -->                     
+                        <include>**/*GetuserbindTest.java</include>
+                        <include>**/*UserbindTest.java</include>
+                        <include>**/*DeluserbindTest.java</include>
+                        <include>**/*LoginTest.java</include>
+                        <include>**/*LogoutTest.java</include>
+                       
+                        <!-- renguohua脚本 -->
+						<include>**/FindunameTest.java</include>                                         
 					</includes>
 				</configuration>
 			</plugin>
