@@ -1,0 +1,205 @@
+2015-03-12 13:45:22,599 INFO  [main] (AdduserTest.java:288)     - Case11:用户名字节大于50字节=======
+2015-03-12 13:45:22,738 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb50000000000000000000000000000000000000000000000&upass=123456
+2015-03-12 13:45:22,738 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb50000000000000000000000000000000000000000000000&upass=123456
+2015-03-12 13:45:22,739 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb50000000000000000000000000000000000000000000000&upass=123456
+2015-03-12 13:45:22,773 INFO  [main] (AccInterface.java:57)     - Response:-3&result=3&msg=uname_error&uname=lidb50000000000000000000000000000000000000000000000
+2015-03-12 13:45:22,773 INFO  [main] (AccInterface.java:59)     - Response:-3&result=3&msg=uname_error&uname=lidb50000000000000000000000000000000000000000000000
+2015-03-12 13:45:22,776 INFO  [main] (AdduserTest.java:148)     - Case4:中文用户名注册=======
+2015-03-12 13:45:22,779 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=你好20150312134522&upass=123456
+2015-03-12 13:45:22,779 INFO  [main] (AccInterface.java:50)     - Request:&uname=你好20150312134522&upass=123456
+2015-03-12 13:45:22,779 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=你好20150312134522&upass=123456
+2015-03-12 13:45:22,786 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=你好20150312134522&usertid=550924080
+2015-03-12 13:45:22,786 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=你好20150312134522&usertid=550924080
+2015-03-12 13:45:22,827 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:22,829 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:22,829 INFO  [main] (MyCheckBdb.java:74)     - true
+2015-03-12 13:45:23,831 INFO  [main] (AdduserTest.java:220)     - Case8:非必填字邮箱段缺失=======
+2015-03-12 13:45:23,833 INFO  [main] (   MyUid.java:79)     - 10312134523
+2015-03-12 13:45:23,834 INFO  [main] (   MyUid.java:79)     - 10312134523
+2015-03-12 13:45:23,837 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134523&upass=123456&mobile=10312134523&vname=10312134523
+2015-03-12 13:45:23,837 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134523&upass=123456&mobile=10312134523&vname=10312134523
+2015-03-12 13:45:23,839 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134523&upass=123456&mobile=10312134523&vname=10312134523
+2015-03-12 13:45:23,845 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134523&usertid=550924084
+2015-03-12 13:45:23,845 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134523&usertid=550924084
+2015-03-12 13:45:23,852 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:23,854 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:24,923 INFO  [main] (AdduserTest.java:167)     - Case5:必添字段用户名缺失=======
+2015-03-12 13:45:24,923 INFO  [main] (   MyUid.java:79)     - 10312134524
+2015-03-12 13:45:24,924 INFO  [main] (   MyUid.java:96)     - 10312134524@qq.com
+2015-03-12 13:45:24,924 INFO  [main] (   MyUid.java:79)     - 10312134524
+2015-03-12 13:45:24,927 INFO  [main] (AccInterface.java:48)     - RequestPararms:&upass=123456&mobile=10312134524&email=10312134524@qq.com&vname=10312134524
+2015-03-12 13:45:24,927 INFO  [main] (AccInterface.java:50)     - Request:&upass=123456&mobile=10312134524&email=10312134524@qq.com&vname=10312134524
+2015-03-12 13:45:24,928 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&upass=123456&mobile=10312134524&email=10312134524@qq.com&vname=10312134524
+2015-03-12 13:45:24,931 INFO  [main] (AccInterface.java:57)     - Response:-101&result=101&msg=uname_bad
+2015-03-12 13:45:24,931 INFO  [main] (AccInterface.java:59)     - Response:-101&result=101&msg=uname_bad
+2015-03-12 13:45:25,933 INFO  [main] (AdduserTest.java:182)     - Case6:必添字段密码缺失=======
+2015-03-12 13:45:25,933 INFO  [main] (   MyUid.java:79)     - 10312134525
+2015-03-12 13:45:25,933 INFO  [main] (   MyUid.java:96)     - 10312134525@qq.com
+2015-03-12 13:45:25,934 INFO  [main] (   MyUid.java:79)     - 10312134525
+2015-03-12 13:45:25,937 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidbv3&mobile=10312134525&email=10312134525@qq.com&vname=10312134525
+2015-03-12 13:45:25,937 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidbv3&mobile=10312134525&email=10312134525@qq.com&vname=10312134525
+2015-03-12 13:45:25,938 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidbv3&mobile=10312134525&email=10312134525@qq.com&vname=10312134525
+2015-03-12 13:45:25,941 INFO  [main] (AccInterface.java:57)     - Response:-101&result=101&msg=upass_bad
+2015-03-12 13:45:25,942 INFO  [main] (AccInterface.java:59)     - Response:-101&result=101&msg=upass_bad
+2015-03-12 13:45:26,944 INFO  [main] (AdduserTest.java:242)     - Case9:非必填字段昵称昵称缺失=======
+2015-03-12 13:45:26,945 INFO  [main] (   MyUid.java:79)     - 10312134526
+2015-03-12 13:45:26,945 INFO  [main] (   MyUid.java:96)     - 10312134526@qq.com
+2015-03-12 13:45:26,947 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134526&upass=123456&mobile=10312134526&email=10312134526@qq.com
+2015-03-12 13:45:26,947 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134526&upass=123456&mobile=10312134526&email=10312134526@qq.com
+2015-03-12 13:45:26,947 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134526&upass=123456&mobile=10312134526&email=10312134526@qq.com
+2015-03-12 13:45:26,962 INFO  [main] (AccInterface.java:57)     - Response:1&uname=lidb20150312134526&usertid=550924088&result=0
+2015-03-12 13:45:26,963 INFO  [main] (AccInterface.java:59)     - Response:1&uname=lidb20150312134526&usertid=550924088&result=0
+2015-03-12 13:45:26,968 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:26,969 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:27,971 INFO  [main] (AdduserTest.java:464)     - Case23:微信id注册=======
+2015-03-12 13:45:27,971 INFO  [main] (   MyUid.java:79)     - 10312134527
+2015-03-12 13:45:27,974 INFO  [main] (   MyUid.java:79)     - 10312134527
+2015-03-12 13:45:27,976 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134527&upass=123456&wxid=10312134527&vname=10312134527
+2015-03-12 13:45:27,976 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134527&upass=123456&wxid=10312134527&vname=10312134527
+2015-03-12 13:45:27,976 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134527&upass=123456&wxid=10312134527&vname=10312134527
+2015-03-12 13:45:27,986 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134527&usertid=550924092
+2015-03-12 13:45:27,987 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134527&usertid=550924092
+2015-03-12 13:45:27,991 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:27,992 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:27,992 INFO  [main] (MyCheckBdb.java:74)     - true
+2015-03-12 13:45:28,994 INFO  [main] (AdduserTest.java:308)     - Case14:密码字节等于50测试=======
+2015-03-12 13:45:28,998 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134528&upass=lidb500000000000000000000000000000000000000000000
+2015-03-12 13:45:28,998 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134528&upass=lidb500000000000000000000000000000000000000000000
+2015-03-12 13:45:28,998 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134528&upass=lidb500000000000000000000000000000000000000000000
+2015-03-12 13:45:29,004 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134528&usertid=550924096
+2015-03-12 13:45:29,004 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134528&usertid=550924096
+2015-03-12 13:45:29,011 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:29,012 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:29,012 INFO  [main] (MyCheckBdb.java:74)     - true
+2015-03-12 13:45:30,014 INFO  [main] (AdduserTest.java:327)     - Case15:密码字节等于51测试=======
+2015-03-12 13:45:30,016 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134530&upass=lidb50000000000000000000000000000000000000000000001
+2015-03-12 13:45:30,016 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134530&upass=lidb50000000000000000000000000000000000000000000001
+2015-03-12 13:45:30,016 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134530&upass=lidb50000000000000000000000000000000000000000000001
+2015-03-12 13:45:30,019 INFO  [main] (AccInterface.java:57)     - Response:-101&result=101&msg=upass_bad
+2015-03-12 13:45:30,019 INFO  [main] (AccInterface.java:59)     - Response:-101&result=101&msg=upass_bad
+2015-03-12 13:45:31,021 INFO  [main] (AdduserTest.java:278)     - Case11:用户名字节少于4字=======
+2015-03-12 13:45:31,023 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lid&upass=123456
+2015-03-12 13:45:31,023 INFO  [main] (AccInterface.java:50)     - Request:&uname=lid&upass=123456
+2015-03-12 13:45:31,023 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lid&upass=123456
+2015-03-12 13:45:31,026 INFO  [main] (AccInterface.java:57)     - Response:-3&result=3&msg=uname_error&uname=lid
+2015-03-12 13:45:31,027 INFO  [main] (AccInterface.java:59)     - Response:-3&result=3&msg=uname_error&uname=lid
+2015-03-12 13:45:32,029 INFO  [main] (AdduserTest.java:398)     - Case20:字段名错误注册=======
+2015-03-12 13:45:32,029 INFO  [main] (   MyUid.java:79)     - 10312134532
+2015-03-12 13:45:32,030 INFO  [main] (   MyUid.java:96)     - 10312134532@qq.com
+2015-03-12 13:45:32,030 INFO  [main] (   MyUid.java:79)     - 10312134532
+2015-03-12 13:45:32,032 INFO  [main] (AccInterface.java:48)     - RequestPararms:&une=lidb20150312134532&upass=123456&mobile=10312134532&email=10312134532@qq.com&vname=10312134532
+2015-03-12 13:45:32,032 INFO  [main] (AccInterface.java:50)     - Request:&une=lidb20150312134532&upass=123456&mobile=10312134532&email=10312134532@qq.com&vname=10312134532
+2015-03-12 13:45:32,032 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&une=lidb20150312134532&upass=123456&mobile=10312134532&email=10312134532@qq.com&vname=10312134532
+2015-03-12 13:45:32,035 INFO  [main] (AccInterface.java:57)     - Response:-101&result=101&msg=uname_bad
+2015-03-12 13:45:32,036 INFO  [main] (AccInterface.java:59)     - Response:-101&result=101&msg=uname_bad
+2015-03-12 13:45:33,038 INFO  [main] (AdduserTest.java:72)     - Case1:只传用户名密码正常测试=======
+2015-03-12 13:45:33,041 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134533&upass=123456
+2015-03-12 13:45:33,042 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134533&upass=123456
+2015-03-12 13:45:33,042 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134533&upass=123456
+2015-03-12 13:45:33,047 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134533&usertid=550924100
+2015-03-12 13:45:33,047 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134533&usertid=550924100
+2015-03-12 13:45:33,052 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:33,053 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:33,053 INFO  [main] (MyCheckBdb.java:74)     - true
+2015-03-12 13:45:34,055 INFO  [main] (AdduserTest.java:298)     - Case13:用户名特殊字符=======
+2015-03-12 13:45:34,058 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb!#$&upass=123456
+2015-03-12 13:45:34,058 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb!#$&upass=123456
+2015-03-12 13:45:34,059 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb!#$&upass=123456
+2015-03-12 13:45:34,065 INFO  [main] (AccInterface.java:57)     - Response:-101&result=101&msg=upass_bad
+2015-03-12 13:45:34,065 INFO  [main] (AccInterface.java:59)     - Response:-101&result=101&msg=upass_bad
+2015-03-12 13:45:35,067 INFO  [main] (AdduserTest.java:104)     - Case2:测试大写用户名注册后转换成小写用户名,存储在库中时也为小写=======
+2015-03-12 13:45:35,068 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=LIDB20150312134535&upass=123456
+2015-03-12 13:45:35,069 INFO  [main] (AccInterface.java:50)     - Request:&uname=LIDB20150312134535&upass=123456
+2015-03-12 13:45:35,069 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=LIDB20150312134535&upass=123456
+2015-03-12 13:45:35,075 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134535&usertid=550924104
+2015-03-12 13:45:35,075 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134535&usertid=550924104
+2015-03-12 13:45:35,087 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:35,088 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:35,089 INFO  [main] (MyCheckBdb.java:74)     - true
+2015-03-12 13:45:36,090 INFO  [main] (AdduserTest.java:125)     - Case3:非必填字段全部正确书写请求=======
+2015-03-12 13:45:36,090 INFO  [main] (   MyUid.java:79)     - 10312134536
+2015-03-12 13:45:36,091 INFO  [main] (   MyUid.java:96)     - 10312134536@qq.com
+2015-03-12 13:45:36,091 INFO  [main] (   MyUid.java:79)     - 10312134536
+2015-03-12 13:45:36,092 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134536&upass=123456&mobile=10312134536&email=10312134536@qq.com&vname=10312134536
+2015-03-12 13:45:36,092 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134536&upass=123456&mobile=10312134536&email=10312134536@qq.com&vname=10312134536
+2015-03-12 13:45:36,092 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134536&upass=123456&mobile=10312134536&email=10312134536@qq.com&vname=10312134536
+2015-03-12 13:45:36,100 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134536&usertid=550924108
+2015-03-12 13:45:36,100 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134536&usertid=550924108
+2015-03-12 13:45:36,106 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:36,107 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:37,113 INFO  [main] (AdduserTest.java:370)     - Case18:非电话号码注册=======
+2015-03-12 13:45:37,113 INFO  [main] (   MyUid.java:96)     - 10312134537@qq.com
+2015-03-12 13:45:37,114 INFO  [main] (   MyUid.java:79)     - 10312134537
+2015-03-12 13:45:37,118 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134537&upass=123456&mobile=05901620421&email=10312134537@qq.com&vname=10312134537
+2015-03-12 13:45:37,119 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134537&upass=123456&mobile=05901620421&email=10312134537@qq.com&vname=10312134537
+2015-03-12 13:45:37,119 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134537&upass=123456&mobile=05901620421&email=10312134537@qq.com&vname=10312134537
+2015-03-12 13:45:37,125 INFO  [main] (AccInterface.java:57)     - Response:1&usertid=550924112&result=0&uname=lidb20150312134537
+2015-03-12 13:45:37,125 INFO  [main] (AccInterface.java:59)     - Response:1&usertid=550924112&result=0&uname=lidb20150312134537
+2015-03-12 13:45:38,128 INFO  [main] (AdduserTest.java:439)     - Case22:邮箱重复增加=======
+2015-03-12 13:45:38,128 INFO  [main] (   MyUid.java:79)     - 10312134538
+2015-03-12 13:45:38,128 INFO  [main] (   MyUid.java:96)     - 10312134538@qq.com
+2015-03-12 13:45:38,128 INFO  [main] (   MyUid.java:79)     - 10312134538
+2015-03-12 13:45:38,129 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134538&upass=123456&mobile=10312134538&email=10312134538@qq.com&vname=10312134538
+2015-03-12 13:45:38,130 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134538&upass=123456&mobile=10312134538&email=10312134538@qq.com&vname=10312134538
+2015-03-12 13:45:38,130 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134538&upass=123456&mobile=10312134538&email=10312134538@qq.com&vname=10312134538
+2015-03-12 13:45:38,156 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134538&usertid=550924116
+2015-03-12 13:45:38,156 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134538&usertid=550924116
+2015-03-12 13:45:38,161 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:38,162 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:39,164 INFO  [main] (AdduserTest.java:265)     - Case10:用户名重复测试=======
+2015-03-12 13:45:39,165 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134539&upass=123456
+2015-03-12 13:45:39,165 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134539&upass=123456
+2015-03-12 13:45:39,165 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134539&upass=123456
+2015-03-12 13:45:39,170 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134539&usertid=550924120
+2015-03-12 13:45:39,170 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134539&usertid=550924120
+2015-03-12 13:45:39,172 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134539&upass=123456
+2015-03-12 13:45:39,172 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134539&upass=123456
+2015-03-12 13:45:39,172 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134539&upass=123456
+2015-03-12 13:45:39,177 INFO  [main] (AccInterface.java:57)     - Response:-1&result=1&msg=user_exist&uname=lidb20150312134539
+2015-03-12 13:45:39,177 INFO  [main] (AccInterface.java:59)     - Response:-1&result=1&msg=user_exist&uname=lidb20150312134539
+2015-03-12 13:45:40,178 INFO  [main] (AdduserTest.java:414)     - Case21:手机号重复增加=======
+2015-03-12 13:45:40,179 INFO  [main] (   MyUid.java:79)     - 10312134540
+2015-03-12 13:45:40,179 INFO  [main] (   MyUid.java:96)     - 10312134540@qq.com
+2015-03-12 13:45:40,180 INFO  [main] (   MyUid.java:79)     - 10312134540
+2015-03-12 13:45:40,182 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134540&upass=123456&mobile=10312134540&email=10312134540@qq.com&vname=10312134540
+2015-03-12 13:45:40,183 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134540&upass=123456&mobile=10312134540&email=10312134540@qq.com&vname=10312134540
+2015-03-12 13:45:40,183 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134540&upass=123456&mobile=10312134540&email=10312134540@qq.com&vname=10312134540
+2015-03-12 13:45:40,196 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134540&usertid=550924128
+2015-03-12 13:45:40,197 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134540&usertid=550924128
+2015-03-12 13:45:40,203 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:40,205 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
+2015-03-12 13:45:41,208 INFO  [main] (AdduserTest.java:384)     - Case19:邮箱格式错误注册=======
+2015-03-12 13:45:41,208 INFO  [main] (   MyUid.java:79)     - 10312134541
+2015-03-12 13:45:41,208 INFO  [main] (   MyUid.java:79)     - 10312134541
+2015-03-12 13:45:41,210 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134541&upass=123456&mobile=10312134541&email=05901620421qq.com&vname=10312134541
+2015-03-12 13:45:41,210 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134541&upass=123456&mobile=10312134541&email=05901620421qq.com&vname=10312134541
+2015-03-12 13:45:41,210 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134541&upass=123456&mobile=10312134541&email=05901620421qq.com&vname=10312134541
+2015-03-12 13:45:41,215 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134541&usertid=550924132
+2015-03-12 13:45:41,216 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134541&usertid=550924132
+2015-03-12 13:45:42,218 INFO  [main] (AdduserTest.java:341)     - Case16:手机号码9位=======
+2015-03-12 13:45:42,222 INFO  [main] (   MyUid.java:96)     - 10312134542@qq.com
+2015-03-12 13:45:42,222 INFO  [main] (   MyUid.java:79)     - 10312134542
+2015-03-12 13:45:42,223 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134542&upass=123456&mobile=1590162042&email=10312134542@qq.com&vname=10312134542
+2015-03-12 13:45:42,223 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134542&upass=123456&mobile=1590162042&email=10312134542@qq.com&vname=10312134542
+2015-03-12 13:45:42,224 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134542&upass=123456&mobile=1590162042&email=10312134542@qq.com&vname=10312134542
+2015-03-12 13:45:42,229 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134542&usertid=550924136
+2015-03-12 13:45:42,229 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134542&usertid=550924136
+2015-03-12 13:45:43,232 INFO  [main] (AdduserTest.java:355)     - Case17:手机号码12位=======
+2015-03-12 13:45:43,232 INFO  [main] (   MyUid.java:96)     - 10312134543@qq.com
+2015-03-12 13:45:43,232 INFO  [main] (   MyUid.java:79)     - 10312134543
+2015-03-12 13:45:43,234 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134543&upass=123456&mobile=159016204211&email=10312134543@qq.com&vname=10312134543
+2015-03-12 13:45:43,234 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134543&upass=123456&mobile=159016204211&email=10312134543@qq.com&vname=10312134543
+2015-03-12 13:45:43,234 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134543&upass=123456&mobile=159016204211&email=10312134543@qq.com&vname=10312134543
+2015-03-12 13:45:43,240 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134543&usertid=550924140
+2015-03-12 13:45:43,240 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134543&usertid=550924140
+2015-03-12 13:45:44,242 INFO  [main] (AdduserTest.java:197)     - Case7:非必填字段缺失手机号=======
+2015-03-12 13:45:44,242 INFO  [main] (   MyUid.java:79)     - 10312134544
+2015-03-12 13:45:44,242 INFO  [main] (   MyUid.java:96)     - 10312134544@qq.com
+2015-03-12 13:45:44,243 INFO  [main] (   MyUid.java:79)     - 10312134544
+2015-03-12 13:45:44,244 INFO  [main] (AccInterface.java:48)     - RequestPararms:&uname=lidb20150312134544&upass=123456&email=10312134544@qq.com&vname=10312134544
+2015-03-12 13:45:44,244 INFO  [main] (AccInterface.java:50)     - Request:&uname=lidb20150312134544&upass=123456&email=10312134544@qq.com&vname=10312134544
+2015-03-12 13:45:44,244 INFO  [main] (AccInterface.java:52)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=lidb20150312134544&upass=123456&email=10312134544@qq.com&vname=10312134544
+2015-03-12 13:45:44,249 INFO  [main] (AccInterface.java:57)     - Response:1&result=0&uname=lidb20150312134544&usertid=550924144
+2015-03-12 13:45:44,250 INFO  [main] (AccInterface.java:59)     - Response:1&result=0&uname=lidb20150312134544&usertid=550924144
+2015-03-12 13:45:44,256 INFO  [main] (MyCheckBdb.java:26)     - Find userid:0
+2015-03-12 13:45:44,258 INFO  [main] (MyCheckBdb.java:41)     - Find ukey:7
