@@ -1,9 +1,7 @@
 package com.gw.account.httptest;
 
-import static java.lang.Thread.sleep;
-import static org.junit.Assert.*;
-
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
@@ -11,19 +9,22 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static java.lang.Thread.sleep;
+import static org.junit.Assert.assertTrue;
+
 
 /**
- * Created by song on 2015/2/12.
+ * Created by Hihiri on 2015/2/12.
  */
 public class LoginTest {
     private static String uname;
     private static String email;
     private static String mobile;
-    private static String pass_md5_str = "11111111";
+    private static String upass = "11111111";
     private static String uname_NotExist = "nnnnnnnn";
     private static String email_NotExist = "nnnnnnnn@126.com";
     private static String mobile_NotExist = "18000000000";
-    private static String pass_md5_str_Wrong = "22222222";
+    private static String upass_Wrong = "22222222";
 
 
     @Before
@@ -35,68 +36,68 @@ public class LoginTest {
         mobile = "188" + number;
         String emailencode = URLEncoder.encode("email=" + email, "UTF-8");
         String mobilencode = URLEncoder.encode("mobile=" + mobile, "UTF-8");
-        AccInterface.testAdduser("&uname=" + uname + "&upass=" + pass_md5_str);
+        AccInterface.testAdduser("&uname=" + uname + "&upass=" + upass);
         AccInterface.testUserbind("&uname=" + uname + "&key=" + emailencode + "&key=" + mobilencode);
         sleep(1000);
     }
 
     @Test
     public void testCorrectUnamelogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + uname + "&upass=" + pass_md5_str);
+        String string = AccInterface.testLogin("&uname=" + uname + "&upass=" + upass);
         assertTrue("正常账号名登录,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testCorrectEmaillogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + email + "&upass=" + pass_md5_str);
+        String string = AccInterface.testLogin("&uname=" + email + "&upass=" + upass);
         assertTrue("正常邮箱登录,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testCorrectMobilelogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + mobile + "&upass=" + pass_md5_str);
+        String string = AccInterface.testLogin("&uname=" + mobile + "&upass=" + upass);
         assertTrue("正常手机登录,msg: " + string , string.contains("result=0"));
     }
 
     @Test
     public void testNotExistUnamelogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + uname_NotExist + "&upass=" + pass_md5_str);
+        String string = AccInterface.testLogin("&uname=" + uname_NotExist + "&upass=" + upass);
         assertTrue("登录账号名不存在,msg: " + string , string.contains("result=2"));
     }
 
     @Test
     public void testNotExistEmaillogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + email_NotExist + "&upass=" + pass_md5_str);
+        String string = AccInterface.testLogin("&uname=" + email_NotExist + "&upass=" + upass);
         assertTrue("登录邮箱不存在,msg: " + string , string.contains("result=2"));
     }
 
     @Test
     public void testNotExistMobilelogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + mobile_NotExist + "&upass=" + pass_md5_str);
+        String string = AccInterface.testLogin("&uname=" + mobile_NotExist + "&upass=" + upass);
         assertTrue("登录手机不存在,msg: " + string , string.contains("result=2"));
     }
 
     @Test
     public void testNullUnamelogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + "" + "&upass=" + pass_md5_str);
+        String string = AccInterface.testLogin("&uname=" + "" + "&upass=" + upass);
         assertTrue("登录用户名为空,msg: " + string , string.contains("result=1"));
     }
 
     @Test
     public void testUnameWrongPasswordlogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + uname + "&upass=" + pass_md5_str_Wrong);
+        String string = AccInterface.testLogin("&uname=" + uname + "&upass=" + upass_Wrong);
         assertTrue("账号名登录密码错误,msg: " + string , string.contains("result=59"));
     }
 
     @Test
     public void testEmailWrongPasswordlogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + email + "&upass=" + pass_md5_str_Wrong);
+        String string = AccInterface.testLogin("&uname=" + email + "&upass=" + upass_Wrong);
         assertTrue("邮箱登录密码错误,msg: " + string , string.contains("result=59"));
     }
 
     @Test
     public void testMobileWrongPasswordlogin() throws IOException, SAXException {
-        String string = AccInterface.testLogin("&uname=" + mobile + "&upass=" + pass_md5_str_Wrong);
+        String string = AccInterface.testLogin("&uname=" + mobile + "&upass=" + upass_Wrong);
         assertTrue("手机登录密码错误,msg: " + string , string.contains("result=59"));
     }
 

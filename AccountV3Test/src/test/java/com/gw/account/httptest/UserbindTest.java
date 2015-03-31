@@ -1,14 +1,11 @@
 package com.gw.account.httptest;
 
-import com.atopcloud.util.MyBdbUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
-import redis.clients.jedis.BinaryJedis;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -20,7 +17,7 @@ import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by song on 2015/3/4.
+ * Created by Hihiri on 2015/3/4.
  */
 public class UserbindTest {
     private static final Log LOG = LogFactory.getLog(UserbindTest.class);
@@ -45,9 +42,8 @@ public class UserbindTest {
     //private static String bankcard;
     //private static String
     private static String xcid;
-    private static String pass_md5_str = "11111111";
+    private static String upass = "11111111";
     private static String uname_dup;
-    private static MyBdbUtil myBdbUtil = new MyBdbUtil();
 
 
     @BeforeClass
@@ -59,7 +55,7 @@ public class UserbindTest {
     public void setUp() throws IOException, SAXException, InterruptedException {
         SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
         String number = df.format(new Date());
-        uname = "Test" + "测试" + number;
+        uname = "Test" + "测试_" + number;
         email = "Test" + number + "@126.com";
         mobile = "188" + number;
         lotterid = "Lotter" + number;
@@ -67,7 +63,7 @@ public class UserbindTest {
         pushid = "Push" + number;
         nlotterid = "Nlotter" + number;
         truename = "True" + "测试" + number;
-        nickname = "Nick" + "测试" + number;
+        nickname = "Nick" + "测试_" + number;
         idcard_18 = String.format("%018d", Long.parseLong(number));
         idcard_18_x = String.format("%017d",Long.parseLong(number)) + "x";
         idcard_18_X = String.format("%017d", Long.parseLong(number)) + "X";
@@ -78,7 +74,7 @@ public class UserbindTest {
         lcb = "lcb" + number;
         wxid = "wx" + number;
         xcid= "xc" + number;
-        AccInterface.testAdduser("&uname=" + uname + "&upass=" + pass_md5_str);
+        AccInterface.testAdduser("&uname=" + uname + "&upass=" + upass);
         sleep(1000);
     }
 
@@ -86,13 +82,13 @@ public class UserbindTest {
     //=================================正常绑定=======================================
     @Test
     public void testBindEmail() throws IOException, SAXException, InterruptedException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "email", email);
+        boolean result = checkALL(uname, upass, "email", email);
         assertTrue("正常邮箱绑定", result);
     }
 
     @Test
     public void testBindMobile() throws IOException, SAXException, InterruptedException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "mobile", mobile);
+        boolean result = checkALL(uname, upass, "mobile", mobile);
         assertTrue("正常手机绑定",result);
     }
 
@@ -132,52 +128,77 @@ public class UserbindTest {
 //        assertTrue("Case1:正常彩票账户ID绑定,msg: " + result, result.contains("result=0") && getuname.equals(uname.toLowerCase()));
 //    }
 
+    /**
+     *
+     * @throws IOException
+     * @throws SAXException
+     * @throws InterruptedException
+     * @throws NoSuchAlgorithmException
+     */
     @Test
     public void testBindTruename() throws IOException, SAXException, InterruptedException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALLNotKey(uname, pass_md5_str, "truename", truename);
+        boolean result = checkALLNotKey(uname, upass, "truename", truename);
         assertTrue("正常真实姓名绑定",result);
     }
 
     @Test
     public void testBindNickname() throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "nickname", nickname);
+        boolean result = checkALL(uname, upass, "nickname", nickname);
         assertTrue("正常昵称绑定",result);
     }
 
     @Test
     public void testBindIdcard18() throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "idcard", idcard_18);
+        boolean result = checkALL(uname, upass, "idcard", idcard_18);
         assertTrue("正常18位身份证绑定",result);
     }
 
     @Test
     public void testBindIdcard18x() throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "idcard", idcard_18_x);
+        boolean result = checkALL(uname, upass, "idcard", idcard_18_x);
         assertTrue("正常18位带x身份证绑定",result);
     }
 
     @Test
     public void testBindIdcard18X() throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "idcard", idcard_18_x);
+        boolean result = checkALL(uname, upass, "idcard", idcard_18_x);
         assertTrue("正常18位带X身份证绑定",result);
     }
 
     @Test
     public void testBindIdcard15() throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "idcard", idcard_18_x);
+        boolean result = checkALL(uname, upass, "idcard", idcard_18_x);
         assertTrue("正常15位身份证绑定",result);
     }
 
     @Test
     public void testBindIdcard15x() throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "idcard", idcard_18_x);
+        boolean result = checkALL(uname, upass, "idcard", idcard_18_x);
         assertTrue("正常15位带x身份证绑定",result);
     }
 
     @Test
     public void testBindIdcard15X() throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean result = MyCheckUtil.checkALL(uname, pass_md5_str, "idcard", idcard_18_x);
+        boolean result = checkALL(uname, upass, "idcard", idcard_18_x);
         assertTrue("正常15位带X身份证绑定",result);
+    }
+
+    public static boolean checkALL(String uname, String upass, String keytp, String key) throws IOException, SAXException, NoSuchAlgorithmException {
+        boolean checkuserbind = MyCheckUtil.checkUserbind(uname, keytp, key);
+        boolean checkgetuserbind = MyCheckUtil.checkGetUserbind(uname, keytp, key);
+        boolean checkfindunamebykey = MyCheckUtil.checkFindUnamebyKey(uname, keytp, key);
+        boolean checkexist = MyCheckUtil.checkExist(uname, upass, keytp, key);
+        boolean checkindex = MyCheckUtil.checkIndex(uname, keytp, key);
+        boolean checkuid = MyCheckUtil.checkUid(uname, "");
+        return checkuserbind && checkgetuserbind && checkfindunamebykey && checkexist && checkindex && checkuid;
+    }
+
+    public static boolean checkALLNotKey(String uname, String upass, String keytp, String key) throws IOException, SAXException, NoSuchAlgorithmException {
+        boolean checkuserbind = MyCheckUtil.checkUserbind(uname, keytp, key);
+        boolean checkgetuserbind = MyCheckUtil.checkGetUserbind(uname, keytp, key);
+        boolean checkexist = MyCheckUtil.checkExist(uname, upass, keytp, key);
+        boolean checkuid = MyCheckUtil.checkUid(uname, "");
+        return checkuserbind && checkgetuserbind && checkexist && checkuid;
     }
 
     //=================================重复绑定=======================================
@@ -251,7 +272,7 @@ public class UserbindTest {
         SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
         String number = df.format(new Date());
         uname_dup = "Test" + "测试" + number;
-        AccInterface.testAdduser("&uname=" + uname_dup + "&upass=" + pass_md5_str);
+        AccInterface.testAdduser("&uname=" + uname_dup + "&upass=" + upass);
         sleep(1000);
     }
 
@@ -334,14 +355,14 @@ public class UserbindTest {
         boolean checkresponse1 = MyCheckUtil.checkResponse(response1,uname,keytp,key);
         boolean checkresponse2 = MyCheckUtil.checkResponse(response2,uname_dup,keytp,key);
 
-        boolean checknotexist1 = MyCheckUtil.checkNotExist(uname,pass_md5_str,keytp,key);
-        boolean checkexist2 = MyCheckUtil.checkExist(uname_dup,pass_md5_str,keytp,key);
+        boolean checknotexist1 = MyCheckUtil.checkNotExist(uname,upass,keytp,key);
+        boolean checkexist2 = MyCheckUtil.checkExist(uname_dup,upass,keytp,key);
 
         boolean checknotindex1 = MyCheckUtil.checkNotIndex(uname,keytp,key);
         boolean checkindex2 = MyCheckUtil.checkIndex(uname_dup,keytp,key);
 
-        boolean checkuid1 = MyCheckUtil.checkUid(uname);
-        boolean checkuid2 = MyCheckUtil.checkUid(uname_dup);
+        boolean checkuid1 = MyCheckUtil.checkUid(uname,"");
+        boolean checkuid2 = MyCheckUtil.checkUid(uname_dup,"");
 
         boolean result = checkresponse1 && checkresponse2 && checknotexist1 && checkexist2 && checknotindex1 && checkindex2 && checkuid1 && checkuid2;
         return result;

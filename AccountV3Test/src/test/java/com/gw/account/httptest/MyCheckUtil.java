@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by song on 2015/3/10.
+ * Created by Hihiri on 2015/3/10.
  */
 public class MyCheckUtil {
     private static final Log LOG = LogFactory.getLog(MyCheckUtil.class);
     private static BinaryJedis database1 = new BinaryJedis("10.15.201.107", 22121);  //twemproxy1
     private static BinaryJedis database2 = new BinaryJedis("10.15.201.108", 22121);  //twemproxy2
-    private static BinaryJedis database3 = new BinaryJedis("10.15.108.4", 10001);    //BDB
+    private static BinaryJedis database3 = new BinaryJedis("10.15.108.5", 10001);    //BDB
     private static List<BinaryJedis> checklist = new ArrayList<BinaryJedis>();
 
     public static void initialize() {
@@ -34,6 +34,16 @@ public class MyCheckUtil {
     }
 
     //=================================验证接口=======================================
+
+    /**
+     * 绑定key并验证返回uname和key，返回错误则打印uname、key和返回信息
+     * @param uname
+     * @param keytp
+     * @param key
+     * @return
+     * @throws IOException
+     * @throws SAXException
+     */
     public static boolean checkUserbind(String uname, String keytp, String key) throws IOException, SAXException {
         String keyencode = URLEncoder.encode(keytp + "=" + key, "UTF-8");
         String response = AccInterface.testUserbind("&uname=" + uname + "&key=" + keyencode);
@@ -73,7 +83,7 @@ public class MyCheckUtil {
             resultsolo = false;
         } else {
             core.Userinfo.UserInfo userInfosolo = Userinfo.UserInfo.parseFrom(u);
-            if (userInfosolo.getName().equals(uname.toLowerCase()) && checkPassword(password, userInfosolo.getPassword())) {
+            if (userInfosolo.getName().equals(uname.toLowerCase()) && userInfosolo.getPassword().equals(encodePassword(password))) {
                 resultsolo = true;
             } else {
                 LOG.error("checkExist" + databasesolo.toString() + ":(" + uname + "," + password + "), infoSaved("
@@ -157,7 +167,15 @@ public class MyCheckUtil {
         return result;
     }
 
-    public static boolean checkUidSolo(BinaryJedis databasesolo, String uname) throws InvalidProtocolBufferException {
+    /**
+     * 根据传入的uname得到库里的uid，再与传入的uid比较是否一致，通过库里的uid得到对应的uname，与传入的uname比较是否一致
+     * @param databasesolo
+     * @param uname
+     * @param uid
+     * @return
+     * @throws InvalidProtocolBufferException
+     */
+    public static boolean checkUidSolo(BinaryJedis databasesolo, String uname, String uid) throws InvalidProtocolBufferException {
         boolean resultsolo = true;
         byte[] u = databasesolo.get(("u:" + uname.toLowerCase()).getBytes());
         if (u == null) {
@@ -166,6 +184,13 @@ public class MyCheckUtil {
         } else {
             core.Userinfo.UserInfo userInfosolo = Userinfo.UserInfo.parseFrom(u);
             long idsolo = userInfosolo.getId();
+            if (uid != "") {
+                long longuid = Long.parseLong(uid);
+                if (idsolo != longuid) {
+                    LOG.error("checkUid" + databasesolo.toString() + ": (" + uid + "), uidSaved:(" + idsolo + ")");
+                    resultsolo = false;
+                }
+            }
             byte[] unamesolo = databasesolo.get(("uid:" + idsolo).getBytes());
             if (unamesolo == null) {
                 LOG.error("checkUid" + databasesolo.toString() + ": (uid:" + idsolo + ") No data!");
@@ -173,50 +198,30 @@ public class MyCheckUtil {
             }
             String unamesolostring = new String(unamesolo);
             if (!unamesolostring.equals(uname.toLowerCase())) {
-                LOG.error("checkUid" + databasesolo.toString() + ":(" + uname + "), unameSaved:(" + unamesolostring + ")");
+                LOG.error("checkUid" + databasesolo.toString() + ": (" + uname + "), unameSaved:(" + unamesolostring + ")");
                 resultsolo = false;
             }
         }
         return resultsolo;
     }
 
-    public static boolean checkUid(String uname) throws InvalidProtocolBufferException {
+    public static boolean checkUid(String uname, String uid) throws InvalidProtocolBufferException {
         boolean result = true;
         for (BinaryJedis databasesolo : checklist) {
-            boolean resultsolo = checkUidSolo(databasesolo, uname);
+            boolean resultsolo = checkUidSolo(databasesolo, uname, uid);
             result = result && resultsolo;
         }
         return result;
     }
 
-    public static boolean checkNotUid(String uname) throws InvalidProtocolBufferException {
+    public static boolean checkNotUid(String uname, String uid) throws InvalidProtocolBufferException {
         boolean result = true;
         for (BinaryJedis databasesolo : checklist) {
-            boolean resultsolo = checkUidSolo(databasesolo, uname);
+            boolean resultsolo = checkUidSolo(databasesolo, uname, uid);
             result = result && !resultsolo;
         }
         return result;
     }
-
-    //=================================验证全部=======================================
-    public static boolean checkALL(String uname, String pass_md5_str, String keytp, String key) throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean checkuserbind = checkUserbind(uname, keytp, key);
-        boolean checkgetuserbind = checkGetUserbind(uname, keytp, key);
-        boolean checkfindunamebykey = checkFindUnamebyKey(uname, keytp, key);
-        boolean checkexist = checkExist(uname, pass_md5_str, keytp, key);
-        boolean checkindex = checkIndex(uname, keytp, key);
-        boolean checkuid = checkUid(uname);
-        return checkuserbind && checkgetuserbind && checkfindunamebykey && checkexist && checkindex && checkuid;
-    }
-
-    public static boolean checkALLNotKey(String uname, String pass_md5_str, String keytp, String key) throws IOException, SAXException, NoSuchAlgorithmException {
-        boolean checkuserbind = checkUserbind(uname, keytp, key);
-        boolean checkgetuserbind = checkGetUserbind(uname, keytp, key);
-        boolean checkexist = checkExist(uname, pass_md5_str, keytp, key);
-        boolean checkuid = checkUid(uname);
-        return checkuserbind && checkgetuserbind && checkexist && checkuid;
-    }
-
 
     //=================================工具方法=======================================
     public static String getValueFromResponse(String response, String keytp) {
@@ -226,14 +231,18 @@ public class MyCheckUtil {
         return value;
     }
 
-    public static boolean checkResponse(String response, String uname, String keytp, String key) {
-        String getuname = getValueFromResponse(response, "uname");
+    public static boolean checkResponseSolo(String response, String keytp, String key) {
         String getkey = getValueFromResponse(response, keytp);
-        boolean result = response.contains("result=0") && getuname.equals(uname) && getkey.equals(key);
+        boolean result = getkey.equals(key);
         return result;
     }
 
-    public static boolean checkPassword(String password, String getpassword) throws NoSuchAlgorithmException {
+    public static boolean checkResponse(String response, String uname, String keytp, String key) {
+        boolean result = response.contains("result=0") && checkResponseSolo(response,"uname",uname) && checkResponseSolo(response,keytp,key);
+        return result;
+    }
+
+    public static String encodePassword(String password) throws NoSuchAlgorithmException {
         String plaintext = password;
         MessageDigest m = MessageDigest.getInstance("MD5");
         m.reset();
@@ -244,9 +253,6 @@ public class MyCheckUtil {
         while (hashtext.length() < 32) {
             hashtext = "0" + hashtext;
         }
-        if (hashtext.equals(getpassword))
-            return true;
-        else
-            return false;
+        return hashtext;
     }
 }

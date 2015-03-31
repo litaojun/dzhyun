@@ -4,7 +4,6 @@ package com.atopcloud.util;
 import org.apache.log4j.Logger;
 
 //检验bdb通用接口
-import com.atopcloud.util.MyBdbUtil;
 
 public class MyCheckBdb {
 	

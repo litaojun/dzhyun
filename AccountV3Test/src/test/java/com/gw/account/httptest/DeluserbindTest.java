@@ -18,7 +18,7 @@ import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by song on 2015/3/6.
+ * Created by Hihiri on 2015/3/6.
  */
 public class DeluserbindTest {
     private static final Log LOG = LogFactory.getLog(DeluserbindTest.class);
@@ -27,7 +27,7 @@ public class DeluserbindTest {
     private static String mobile;
     private static String nickname;
     private static String idcard;
-    private static String pass_md5_str = "11111111";
+    private static String upass = "11111111";
     private static MyBdbUtil myBdbUtil = new MyBdbUtil();
 
     @BeforeClass
@@ -48,7 +48,7 @@ public class DeluserbindTest {
         String mobilencode = URLEncoder.encode("mobile=" + mobile, "UTF-8");
         String nicknameencode = URLEncoder.encode("nickname=" + nickname, "UTF-8");
         String idcardencode = URLEncoder.encode("idcard=" + idcard, "UTF-8");
-        AccInterface.testAdduser("&uname=" + uname + "&upass=" + pass_md5_str);
+        AccInterface.testAdduser("&uname=" + uname + "&upass=" + upass);
         AccInterface.testUserbind("&uname=" + uname + "&key=" + emailencode +
                 "&key=" + mobilencode + "&key="  + nicknameencode + "&key="  + idcardencode);
         sleep(1000);
@@ -87,7 +87,7 @@ public class DeluserbindTest {
     public static boolean checkDelBindKey(String uname, String keytp, String key) throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
         String response = AccInterface.testDelUserbind("&uname=" + uname + "&key=" + keytp);
         boolean checkresponse = MyCheckUtil.checkResponse(response,uname,keytp,"1");
-        boolean checknotexist = MyCheckUtil.checkNotExist(uname,pass_md5_str,keytp,key);
+        boolean checknotexist = MyCheckUtil.checkNotExist(uname,upass,keytp,key);
         boolean checknotindex = MyCheckUtil.checkNotIndex(uname,keytp,key);
         boolean result = checkresponse && checknotexist && checknotindex;
         return result;

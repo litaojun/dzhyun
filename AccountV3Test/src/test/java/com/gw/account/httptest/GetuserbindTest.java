@@ -15,7 +15,7 @@ import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by song on 2015/3/6.
+ * Created by Hihiri on 2015/3/6.
  */
 public class GetuserbindTest {
     private static final Log LOG = LogFactory.getLog(GetuserbindTest.class);
@@ -31,7 +31,7 @@ public class GetuserbindTest {
     private static String idcard_15;
     private static String idcard_15_x;
     private static String idcard_15_X;
-    private static String pass_md5_str = "11111111";
+    private static String upass = "11111111";
 
     @BeforeClass
     public static void globalInit() throws IOException, SAXException, InterruptedException {
@@ -53,7 +53,7 @@ public class GetuserbindTest {
         String mobilencode = URLEncoder.encode("mobile=" + mobile, "UTF-8");
         String truenameencode = URLEncoder.encode("truename=" + truename, "UTF-8");
         String nicknameencode = URLEncoder.encode("nickname=" + nickname, "UTF-8");
-        AccInterface.testAdduser("&uname=" + uname + "&upass=" + pass_md5_str);
+        AccInterface.testAdduser("&uname=" + uname + "&upass=" + upass);
         AccInterface.testUserbind("&uname=" + uname + "&key="  + emailencode + "&key=" + mobilencode
                 + "&key=" + truenameencode + "&key=" + nicknameencode);
         sleep(1000);
@@ -94,7 +94,7 @@ public class GetuserbindTest {
         unameforidcard = "Test" + "测试" + number;
         String idcardencode = URLEncoder.encode("idcard=" + idcard, "UTF-8");
         String params = "&uname=" + unameforidcard + "&key=" + idcardencode;
-        AccInterface.testAdduser("&uname=" + unameforidcard + "&upass=" + pass_md5_str);
+        AccInterface.testAdduser("&uname=" + unameforidcard + "&upass=" + upass);
         AccInterface.testUserbind(params);
         sleep(1000);
     }

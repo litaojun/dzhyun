@@ -1,26 +1,17 @@
 package com.gw.account.httptest;
-import java.io.IOException;
 
+import com.meterware.httpunit.GetMethodWebRequest;
+import com.meterware.httpunit.PostMethodWebRequest;
+import com.meterware.httpunit.WebConversation;
+import com.meterware.httpunit.WebResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 //
-import com.meterware.httpunit.GetMethodWebRequest;
-import com.meterware.httpunit.WebConversation;
-import com.meterware.httpunit.WebRequest;
-import com.meterware.httpunit.WebResponse;
-import com.meterware.servletunit.InvocationContext;
-import com.meterware.servletunit.ServletRunner;
-import com.meterware.servletunit.ServletUnitClient;
-
-import junit.framework.Assert;
-import junit.framework.TestCase;
 
 
 
@@ -47,18 +38,18 @@ public class AccInterface {
 		WebConversation web = new WebConversation();
 
 	//	System.out.println("Request:"+urlparam.trim());
-		LOG.debug("RequestPararms:"+urlparam.trim());
+//		LOG.debug("RequestPararms:"+urlparam.trim());
 		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();  
-		LOG.debug("Request:" + urlparam.trim());
+//		LOG.debug("Request:" + urlparam.trim());
 //		String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser"+urlparam.trim();
-        LOG.debug("Url: "+ urlString);
+//        LOG.debug("Url: "+ urlString);
         LOG.debug("testAdduser: "+ urlString);
 		GetMethodWebRequest get = new GetMethodWebRequest(urlString);
 		WebResponse response = web.getResponse(get);
 	//	System.out.println("Response:" +response.getText());
-		LOG.debug("Response:" +response.getText());
+//		LOG.debug("Response:" +response.getText());
 	//	System.out.println("testAdduser: " +response.getText());
-		LOG.debug("Response:" +response.getText());
+//		LOG.debug("Response:" +response.getText());
         LOG.debug("testAdduser: " +response.getText());
 	    return response.getText();
 	}
@@ -206,6 +197,80 @@ public class AccInterface {
         return response.getText();
     }
 
+    public static String testAdduser365(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=adduser365"+urlparam.trim();
+        LOG.debug("adduser365: " + urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        LOG.debug("adduser365: " + response.getText());
+        return response.getText();
+    }
+
+    public static String testCheckuser(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=checkuser"+urlparam.trim();
+        LOG.debug("checkuser: " + urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        LOG.debug("checkuser: " + response.getText());
+        return response.getText();
+    }
+
+    public static String testCheckpass(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=checkpass"+urlparam.trim();
+        LOG.debug("checkpass: " + urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        LOG.debug("checkpass: " + response.getText());
+        return response.getText();
+    }
+
+    public static String testSendsms(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=sendsms"+urlparam.trim();
+        LOG.debug("sendsms: " + urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        LOG.debug("sendsms: " + response.getText());
+        return response.getText();
+    }
+
+    public static String testLotterbind(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/AccServlet.do?method=lotterbind"+urlparam.trim();
+        LOG.debug("lotterbind: " + urlString);
+        GetMethodWebRequest get = new GetMethodWebRequest(urlString);
+        WebResponse response = web.getResponse(get);
+        LOG.debug("lotterbind: " + response.getText());
+        return response.getText();
+    }
+
+    public static String testXcscbind(String params) throws IOException, SAXException {
+        WebConversation web = new WebConversation();
+        String urlString = "http://10.15.201.105/AccService/xcscbind";
+        LOG.debug("xcscbind: " + urlString);
+        PostMethodWebRequest post = new PostMethodWebRequest(urlString,new ByteArrayInputStream(params.getBytes()),"UTF-8");
+        WebResponse response = web.getResponse(post);
+        LOG.debug("xcscbind: " + response.getText());
+        return response.getText();
+    }
 
 	//5.updpass接口的构造方法
 	public static String Updpass(String casename, String unameinput, String upassinput) throws IOException,SAXException{
