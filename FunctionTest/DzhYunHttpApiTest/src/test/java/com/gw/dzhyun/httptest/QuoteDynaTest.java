@@ -154,12 +154,10 @@ public class QuoteDynaTest{
 	@Test
 	public void testOutputJson() throws SAXException, Exception
 	{
-		code="SH600000";
 		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&output=json";  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getQuoteDyna(urlString,type);
-		System.out.println(ret);
 		assertNotNull("错误：行情返回null",ret);
 		JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
 		assertNotNull("错误：股票数据为null",data);
