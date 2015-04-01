@@ -16,7 +16,7 @@ public class MyQuoteKlineUtil {
 	public static JSONObject getQuoteKlineByObjCode(String jsonstring,String objcode)
 	{
 		/*
-{"Qid":"","Err":0,"Counter":1,"Data":{"Id":21,"RepDataQuoteKlineSingle":[{"Obj":"SH600000","Data":[{"Time":1423013460,"High":1450,"Open":1450,"Low":1447,"Close":1449,"Volume":6.2936e+06,"Amount":9.12377e+09,"TickCount":1487,"Advance":0,"Decline":0}]},{"Obj":"SZ000001","Data":[{"Time":1423013460,"High":1403,"Open":1400,"Low":1400,"Close":1400,"Volume":2.6772e+06,"Amount":3.7507812e+09,"TickCount":805,"Advance":0,"Decline":0}]}]}}
+{"Qid":"","Err":0,"Counter":1,"Data":{"Id":21,"RepDataQuoteKlineSingle":[{"Obj":"SH600000","Data":[{"shiJian":365525873920,"kaiPanJia":1579,"zuiGaoJia":1592,"zuiDiJia":1575,"shouPanJia":1582,"chengJiaoLiang":24428302140,"chengJiaoE":38639438412800,"chengJiaoBiShu":680743}]}]}}
 		*/
 		JSONObject jsonUAResponse = JSON.parseObject(jsonstring);
 		//获取UAResponse的Data部分。

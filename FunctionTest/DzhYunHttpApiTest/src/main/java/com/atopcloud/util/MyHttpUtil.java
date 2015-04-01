@@ -61,4 +61,31 @@ public class MyHttpUtil {
 		return ret;
 	}
 
+	/**
+	 * 获取服务端数据。
+	 * @param url  请求URL
+	 * @param type 指定服务器返回的数据类型，json或pb
+	 * @return
+	 * @throws Exception
+	 * @throws SAXException
+	 */
+	public static String getData(String url,String type) throws Exception, SAXException
+	{
+		// WebConversation是HttpUnit的中心，您使用它来展开与HTTP相关的协议对话
+		WebConversation  	web = new WebConversation(); 
+		
+		//使用 WebRequest设置相关的请求参数
+		GetMethodWebRequest get = new GetMethodWebRequest(url);
+			
+		//WebConversation连接目的网页，然後得到回应WebResponse
+		WebResponse response = web.getResponse(get);  
+		
+		String ret=null;
+		if(type.equalsIgnoreCase("json"))
+		{
+			ret = response.getText();
+		}
+		return ret;
+	}
+	
 }
