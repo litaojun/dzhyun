@@ -25,6 +25,9 @@ import com.atopcloud.util.ByteBuffer2StringUtil;
 import com.atopcloud.util.MyConfigUtil;
 import com.atopcloud.util.MyHttpUtil;
 import com.atopcloud.util.PropertiesManager;
+import com.dzhyun.proto.Dzhoutput.QuoteDynaOutput;
+import com.dzhyun.proto.Dzhoutput.QuoteDynaSingle;
+import com.dzhyun.proto.Dzhua.UAResponse;
 import com.google.protobuf.ByteString;
 import com.googlecode.protobuf.format.JsonFormat;
 import com.gw.dzhyun.util.MyQuoteDynaUtil;
@@ -34,9 +37,7 @@ import com.meterware.httpunit.PostMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebResponse;
 
-import dzhyun.Dzhoutput.QuoteDynaOutput;
-import dzhyun.Dzhoutput.QuoteDynaSingle;
-import dzhyun.Dzhua.UAResponse;
+
 
 
 
@@ -71,7 +72,7 @@ public class QuoteDynaTest{
 	//变量
 	String ip = MyConfigUtil.getConfig("ip");
 	String port=MyConfigUtil.getConfig("port");
-	String code= "SH600000";    //沪深股代码
+	String code= "SH601519";    //沪深股代码
 	
 	/**
 	 * @throws java.lang.Exception
@@ -153,19 +154,16 @@ public class QuoteDynaTest{
 	@Test
 	public void testOutputJson() throws SAXException, Exception
 	{
-		///quote/dyna?obj=SH600000,SZ000001&field=time,lastclose&output=json
-		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&output=json";
+		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&output=json";  //每个测试方法需要修改
 		String type="json";
-		String ret =MyHttpUtil. getQuoteDyna(urlString,type);
-		System.out.println("返回："+ ret);
-		//正确性验证、及时性验证：与从行情服务器直接获取的数据对比，时间对比
-		//这部分先不做
-//		JSONObject jsonQD = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
-//		System.out.println("json 2 message!");
 		
+		String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+		assertNotNull("错误：股票数据为null",data);
 	}
 	
-	/**
+	/**下面这个注释方法不要删除，不过也不要编辑。
 	 * 带参数：out为pb
 	 * @throws Exception 
 	 * @throws SAXException 

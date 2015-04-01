@@ -1,0 +1,1173 @@
+2015-03-16 16:25:33,995 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162533&upass=11111111
+2015-03-16 16:25:33,998 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162533&upass=11111111
+2015-03-16 16:25:33,998 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162533&upass=11111111
+2015-03-16 16:25:33,998 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162533&upass=11111111
+2015-03-16 16:25:34,003 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1293313&result=0&uname=test????16162533
+2015-03-16 16:25:34,003 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1293313&result=0&uname=test????16162533
+2015-03-16 16:25:34,003 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1293313&result=0&uname=test????16162533
+2015-03-16 16:25:34,006 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162533&key=email%3DTest16162533%40126.com&key=mobile%3D18816162533&key=nickname%3DNick16162533&key=idcard%3D000000000016162533
+2015-03-16 16:25:34,017 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162533&email=Test16162533@126.com&mobile=18816162533&nickname=Nick16162533&idcard=000000000016162533
+2015-03-16 16:25:35,018 DEBUG [main] (AccInterface.java:188)     - testDelUserbind: http://10.15.201.105/AccService/AccServlet.do?method=deluserbind&uname=Test≤‚ ‘16162533&keytp=email
+2015-03-16 16:25:35,025 DEBUG [main] (AccInterface.java:191)     - testDelUserbind: 1&email=1&result=0&uname=Test????16162533
+2015-03-16 16:25:35,028 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162533) No data!
+2015-03-16 16:25:35,029 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162533) No data!
+2015-03-16 16:25:35,031 ERROR [main] (MyCheckUtil.java:129)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a: (k_1:Test16162533@126.com) No data!
+2015-03-16 16:25:35,034 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162535&upass=11111111
+2015-03-16 16:25:35,035 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162535&upass=11111111
+2015-03-16 16:25:35,036 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162535&upass=11111111
+2015-03-16 16:25:35,036 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162535&upass=11111111
+2015-03-16 16:25:35,040 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162535&usertid=1293321&result=0
+2015-03-16 16:25:35,041 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162535&usertid=1293321&result=0
+2015-03-16 16:25:35,041 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162535&usertid=1293321&result=0
+2015-03-16 16:25:35,042 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162535&key=email%3DTest16162535%40126.com&key=mobile%3D18816162535&key=nickname%3DNick16162535&key=idcard%3D000000000016162535
+2015-03-16 16:25:35,053 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162535&email=Test16162535@126.com&mobile=18816162535&nickname=Nick16162535&idcard=000000000016162535
+2015-03-16 16:25:36,055 DEBUG [main] (AccInterface.java:188)     - testDelUserbind: http://10.15.201.105/AccService/AccServlet.do?method=deluserbind&uname=Test≤‚ ‘16162535&keytp=email
+2015-03-16 16:25:36,060 DEBUG [main] (AccInterface.java:191)     - testDelUserbind: 1&result=0&uname=Test????16162535&email=1
+2015-03-16 16:25:36,061 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162535) No data!
+2015-03-16 16:25:36,063 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162535) No data!
+2015-03-16 16:25:36,065 ERROR [main] (MyCheckUtil.java:129)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a: (k_1:Test16162535@126.com) No data!
+2015-03-16 16:25:36,067 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162536&upass=11111111
+2015-03-16 16:25:36,067 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162536&upass=11111111
+2015-03-16 16:25:36,068 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162536&upass=11111111
+2015-03-16 16:25:36,068 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162536&upass=11111111
+2015-03-16 16:25:36,072 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162536&usertid=1293329
+2015-03-16 16:25:36,072 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162536&usertid=1293329
+2015-03-16 16:25:36,073 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162536&usertid=1293329
+2015-03-16 16:25:36,074 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162536&key=email%3DTest16162536%40126.com&key=mobile%3D18816162536&key=nickname%3DNick16162536&key=idcard%3D000000000016162536
+2015-03-16 16:25:36,084 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162536&email=Test16162536@126.com&mobile=18816162536&nickname=Nick16162536&idcard=000000000016162536
+2015-03-16 16:25:37,086 DEBUG [main] (AccInterface.java:188)     - testDelUserbind: http://10.15.201.105/AccService/AccServlet.do?method=deluserbind&uname=Test≤‚ ‘16162536&keytp=email
+2015-03-16 16:25:37,093 DEBUG [main] (AccInterface.java:191)     - testDelUserbind: 1&result=0&uname=Test????16162536&email=1
+2015-03-16 16:25:37,095 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162536) No data!
+2015-03-16 16:25:37,096 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162536) No data!
+2015-03-16 16:25:37,098 ERROR [main] (MyCheckUtil.java:129)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a: (k_1:Test16162536@126.com) No data!
+2015-03-16 16:25:37,100 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162537&upass=11111111
+2015-03-16 16:25:37,100 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162537&upass=11111111
+2015-03-16 16:25:37,100 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162537&upass=11111111
+2015-03-16 16:25:37,101 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162537&upass=11111111
+2015-03-16 16:25:37,105 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162537&usertid=1293337&result=0
+2015-03-16 16:25:37,105 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162537&usertid=1293337&result=0
+2015-03-16 16:25:37,105 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162537&usertid=1293337&result=0
+2015-03-16 16:25:37,106 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162537&key=email%3DTest16162537%40126.com&key=mobile%3D18816162537&key=nickname%3DNick16162537&key=idcard%3D000000000016162537
+2015-03-16 16:25:37,117 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162537&email=Test16162537@126.com&mobile=18816162537&nickname=Nick16162537&idcard=000000000016162537
+2015-03-16 16:25:38,118 DEBUG [main] (AccInterface.java:188)     - testDelUserbind: http://10.15.201.105/AccService/AccServlet.do?method=deluserbind&uname=Test≤‚ ‘16162537&keytp=
+2015-03-16 16:25:38,120 DEBUG [main] (AccInterface.java:191)     - testDelUserbind: -101&result=101&msg=keytp_bad
+2015-03-16 16:25:38,123 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162538&upass=11111111
+2015-03-16 16:25:38,123 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162538&upass=11111111
+2015-03-16 16:25:38,124 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162538&upass=11111111
+2015-03-16 16:25:38,124 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162538&upass=11111111
+2015-03-16 16:25:38,128 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162538&usertid=1293345
+2015-03-16 16:25:38,128 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162538&usertid=1293345
+2015-03-16 16:25:38,128 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162538&usertid=1293345
+2015-03-16 16:25:38,130 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162538&key=email%3DTest16162538%40126.com&key=mobile%3D18816162538&key=nickname%3DNick16162538&key=idcard%3D000000000016162538
+2015-03-16 16:25:38,140 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162538&email=Test16162538@126.com&mobile=18816162538&nickname=Nick16162538&idcard=000000000016162538
+2015-03-16 16:25:39,141 DEBUG [main] (AccInterface.java:188)     - testDelUserbind: http://10.15.201.105/AccService/AccServlet.do?method=deluserbind&uname=Test≤‚ ‘16162538&keytp=email
+2015-03-16 16:25:39,146 DEBUG [main] (AccInterface.java:191)     - testDelUserbind: 1&result=0&uname=Test????16162538&email=1
+2015-03-16 16:25:39,147 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162538) No data!
+2015-03-16 16:25:39,149 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162538) No data!
+2015-03-16 16:25:39,150 ERROR [main] (MyCheckUtil.java:129)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a: (k_1:Test16162538@126.com) No data!
+2015-03-16 16:25:39,160 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162539&upass=11111111
+2015-03-16 16:25:39,161 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162539&upass=11111111
+2015-03-16 16:25:39,161 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162539&upass=11111111
+2015-03-16 16:25:39,161 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162539&upass=11111111
+2015-03-16 16:25:39,166 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162539&usertid=1293353
+2015-03-16 16:25:39,166 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162539&usertid=1293353
+2015-03-16 16:25:39,166 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162539&usertid=1293353
+2015-03-16 16:25:39,168 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162539&key=email%3DTest16162539%40126.com&key=mobile%3D18816162539&key=truename%3DTrue%E6%B5%8B%E8%AF%9516162539&key=nickname%3DNick16162539
+2015-03-16 16:25:39,179 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162539&email=Test16162539@126.com&mobile=18816162539&truename=True≤‚ ‘16162539&nickname=Nick16162539
+2015-03-16 16:25:40,181 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162539&keytp=mobile
+2015-03-16 16:25:40,186 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162539&mobile=18816162539
+2015-03-16 16:25:40,188 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162539&keytp=
+2015-03-16 16:25:40,192 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162539&email=Test16162539@126.com&mobile=18816162539&truename=True≤‚ ‘16162539&nickname=Nick16162539
+2015-03-16 16:25:40,194 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162539&keytp=truename
+2015-03-16 16:25:40,200 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&uname=Test????16162539&truename=True≤‚ ‘16162539&result=0
+2015-03-16 16:25:40,202 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162539&keytp=email
+2015-03-16 16:25:40,205 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162539&email=Test16162539@126.com
+2015-03-16 16:25:40,207 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162540&upass=11111111
+2015-03-16 16:25:40,207 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162540&upass=11111111
+2015-03-16 16:25:40,207 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162540&upass=11111111
+2015-03-16 16:25:40,208 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162540&upass=11111111
+2015-03-16 16:25:40,212 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162540&usertid=1293361
+2015-03-16 16:25:40,212 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162540&usertid=1293361
+2015-03-16 16:25:40,212 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162540&usertid=1293361
+2015-03-16 16:25:40,213 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162540&key=idcard%3D000000016162539
+2015-03-16 16:25:40,219 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162540&idcard=000000016162539
+2015-03-16 16:25:41,221 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162540&keytp=idcard
+2015-03-16 16:25:41,224 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&uname=Test????16162540&idcard=000000016162539&result=0
+2015-03-16 16:25:41,227 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162541&upass=11111111
+2015-03-16 16:25:41,227 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162541&upass=11111111
+2015-03-16 16:25:41,227 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162541&upass=11111111
+2015-03-16 16:25:41,227 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162541&upass=11111111
+2015-03-16 16:25:41,248 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162541&usertid=1293369
+2015-03-16 16:25:41,248 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162541&usertid=1293369
+2015-03-16 16:25:41,248 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162541&usertid=1293369
+2015-03-16 16:25:41,249 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162541&key=idcard%3D000000000016162539
+2015-03-16 16:25:41,256 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162541&idcard=000000000016162539
+2015-03-16 16:25:42,258 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162541&keytp=idcard
+2015-03-16 16:25:42,262 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162541&idcard=000000000016162539
+2015-03-16 16:25:42,264 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162539&keytp=nickname
+2015-03-16 16:25:42,268 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162539&nickname=Nick16162539
+2015-03-16 16:25:42,270 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162542&upass=11111111
+2015-03-16 16:25:42,270 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162542&upass=11111111
+2015-03-16 16:25:42,271 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162542&upass=11111111
+2015-03-16 16:25:42,271 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162542&upass=11111111
+2015-03-16 16:25:42,275 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162542&usertid=1293377
+2015-03-16 16:25:42,276 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162542&usertid=1293377
+2015-03-16 16:25:42,276 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162542&usertid=1293377
+2015-03-16 16:25:42,277 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162542&key=idcard%3D00000016162539X
+2015-03-16 16:25:42,283 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162542&idcard=00000016162539X
+2015-03-16 16:25:43,291 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162542&keytp=idcard
+2015-03-16 16:25:43,295 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162542&idcard=00000016162539X
+2015-03-16 16:25:43,297 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162543&upass=11111111
+2015-03-16 16:25:43,297 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162543&upass=11111111
+2015-03-16 16:25:43,298 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162543&upass=11111111
+2015-03-16 16:25:43,298 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162543&upass=11111111
+2015-03-16 16:25:43,302 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162543&usertid=1293385
+2015-03-16 16:25:43,303 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162543&usertid=1293385
+2015-03-16 16:25:43,303 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162543&usertid=1293385
+2015-03-16 16:25:43,305 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162543&key=idcard%3D00000016162539x
+2015-03-16 16:25:43,313 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162543&idcard=00000016162539x&result=0
+2015-03-16 16:25:44,313 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162543&keytp=idcard
+2015-03-16 16:25:44,317 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162543&idcard=00000016162539x
+2015-03-16 16:25:44,319 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162544&upass=11111111
+2015-03-16 16:25:44,319 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162544&upass=11111111
+2015-03-16 16:25:44,319 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162544&upass=11111111
+2015-03-16 16:25:44,319 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162544&upass=11111111
+2015-03-16 16:25:44,323 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162544&usertid=1293393
+2015-03-16 16:25:44,323 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162544&usertid=1293393
+2015-03-16 16:25:44,324 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162544&usertid=1293393
+2015-03-16 16:25:44,324 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162544&key=idcard%3D00000000016162539X
+2015-03-16 16:25:44,333 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162544&idcard=00000000016162539X
+2015-03-16 16:25:45,333 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162544&keytp=idcard
+2015-03-16 16:25:45,337 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162544&idcard=00000000016162539X
+2015-03-16 16:25:45,338 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162545&upass=11111111
+2015-03-16 16:25:45,339 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162545&upass=11111111
+2015-03-16 16:25:45,339 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162545&upass=11111111
+2015-03-16 16:25:45,339 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162545&upass=11111111
+2015-03-16 16:25:45,343 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1293401&result=0&uname=test????16162545
+2015-03-16 16:25:45,344 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1293401&result=0&uname=test????16162545
+2015-03-16 16:25:45,344 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1293401&result=0&uname=test????16162545
+2015-03-16 16:25:45,344 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162545&key=idcard%3D00000000016162539x
+2015-03-16 16:25:45,351 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&idcard=00000000016162539x&result=0&uname=Test????16162545
+2015-03-16 16:25:46,352 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162545&keytp=idcard
+2015-03-16 16:25:46,357 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&uname=Test????16162545&idcard=00000000016162539x&result=0
+2015-03-16 16:25:46,364 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162546&upass=11111111
+2015-03-16 16:25:46,364 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162546&upass=11111111
+2015-03-16 16:25:46,364 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162546&upass=11111111
+2015-03-16 16:25:46,365 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162546&upass=11111111
+2015-03-16 16:25:46,370 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162546&usertid=1293210
+2015-03-16 16:25:46,371 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162546&usertid=1293210
+2015-03-16 16:25:46,372 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162546&usertid=1293210
+2015-03-16 16:25:46,374 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162546&key=email%3DTest16162546%40126.com&key=mobile%3D18816162546
+2015-03-16 16:25:46,381 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162546&email=Test16162546@126.com&mobile=18816162546
+2015-03-16 16:25:47,387 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162547&upass=11111111
+2015-03-16 16:25:47,387 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162547&upass=11111111
+2015-03-16 16:25:47,387 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162547&upass=11111111
+2015-03-16 16:25:47,388 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162547&upass=11111111
+2015-03-16 16:25:47,392 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1293218&result=0&uname=test????16162547
+2015-03-16 16:25:47,392 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1293218&result=0&uname=test????16162547
+2015-03-16 16:25:47,392 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1293218&result=0&uname=test????16162547
+2015-03-16 16:25:47,393 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162547&key=email%3DTest16162547%40126.com&key=mobile%3D18816162547
+2015-03-16 16:25:47,399 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162547&email=Test16162547@126.com&mobile=18816162547
+2015-03-16 16:25:48,408 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162548&upass=11111111
+2015-03-16 16:25:48,408 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162548&upass=11111111
+2015-03-16 16:25:48,409 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162548&upass=11111111
+2015-03-16 16:25:48,409 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162548&upass=11111111
+2015-03-16 16:25:48,414 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162548&usertid=1293226
+2015-03-16 16:25:48,415 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162548&usertid=1293226
+2015-03-16 16:25:48,415 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162548&usertid=1293226
+2015-03-16 16:25:48,416 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162548&key=email%3DTest16162548%40126.com&key=mobile%3D18816162548
+2015-03-16 16:25:48,424 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&email=Test16162548@126.com&mobile=18816162548&result=0&uname=Test????16162548
+2015-03-16 16:25:49,438 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162549&upass=11111111
+2015-03-16 16:25:49,439 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162549&upass=11111111
+2015-03-16 16:25:49,439 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162549&upass=11111111
+2015-03-16 16:25:49,440 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162549&upass=11111111
+2015-03-16 16:25:49,446 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162549&usertid=1293234
+2015-03-16 16:25:49,446 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162549&usertid=1293234
+2015-03-16 16:25:49,447 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162549&usertid=1293234
+2015-03-16 16:25:49,448 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162549&key=email%3DTest16162549%40126.com&key=mobile%3D18816162549
+2015-03-16 16:25:49,458 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162549&email=Test16162549@126.com&mobile=18816162549
+2015-03-16 16:25:50,463 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162550&upass=11111111
+2015-03-16 16:25:50,463 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162550&upass=11111111
+2015-03-16 16:25:50,464 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162550&upass=11111111
+2015-03-16 16:25:50,464 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162550&upass=11111111
+2015-03-16 16:25:50,469 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162550&usertid=1293242
+2015-03-16 16:25:50,470 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162550&usertid=1293242
+2015-03-16 16:25:50,470 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162550&usertid=1293242
+2015-03-16 16:25:50,471 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162550&key=email%3DTest16162550%40126.com&key=mobile%3D18816162550
+2015-03-16 16:25:50,479 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162550&email=Test16162550@126.com&mobile=18816162550&result=0
+2015-03-16 16:25:51,485 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162551&upass=11111111
+2015-03-16 16:25:51,486 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162551&upass=11111111
+2015-03-16 16:25:51,486 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162551&upass=11111111
+2015-03-16 16:25:51,486 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162551&upass=11111111
+2015-03-16 16:25:51,490 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162551&usertid=1293250
+2015-03-16 16:25:51,490 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162551&usertid=1293250
+2015-03-16 16:25:51,491 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162551&usertid=1293250
+2015-03-16 16:25:51,491 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162551&key=email%3DTest16162551%40126.com&key=mobile%3D18816162551
+2015-03-16 16:25:51,499 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162551&email=Test16162551@126.com&mobile=18816162551
+2015-03-16 16:25:52,506 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162552&upass=11111111
+2015-03-16 16:25:52,507 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162552&upass=11111111
+2015-03-16 16:25:52,507 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162552&upass=11111111
+2015-03-16 16:25:52,508 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162552&upass=11111111
+2015-03-16 16:25:52,514 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162552&usertid=1293258
+2015-03-16 16:25:52,514 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162552&usertid=1293258
+2015-03-16 16:25:52,514 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162552&usertid=1293258
+2015-03-16 16:25:52,515 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162552&key=email%3DTest16162552%40126.com&key=mobile%3D18816162552
+2015-03-16 16:25:52,525 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162552&email=Test16162552@126.com&mobile=18816162552
+2015-03-16 16:25:53,536 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162553&upass=11111111
+2015-03-16 16:25:53,537 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162553&upass=11111111
+2015-03-16 16:25:53,537 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162553&upass=11111111
+2015-03-16 16:25:53,537 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162553&upass=11111111
+2015-03-16 16:25:53,542 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162553&usertid=1293266
+2015-03-16 16:25:53,542 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162553&usertid=1293266
+2015-03-16 16:25:53,543 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162553&usertid=1293266
+2015-03-16 16:25:53,544 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162553&key=email%3DTest16162553%40126.com&key=mobile%3D18816162553
+2015-03-16 16:25:53,551 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162553&email=Test16162553@126.com&mobile=18816162553&result=0
+2015-03-16 16:25:54,557 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162554&upass=11111111
+2015-03-16 16:25:54,557 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162554&upass=11111111
+2015-03-16 16:25:54,558 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162554&upass=11111111
+2015-03-16 16:25:54,558 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162554&upass=11111111
+2015-03-16 16:25:54,563 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162554&usertid=1293274
+2015-03-16 16:25:54,563 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162554&usertid=1293274
+2015-03-16 16:25:54,563 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162554&usertid=1293274
+2015-03-16 16:25:54,565 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162554&key=email%3DTest16162554%40126.com&key=mobile%3D18816162554
+2015-03-16 16:25:54,572 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162554&email=Test16162554@126.com&mobile=18816162554
+2015-03-16 16:25:55,578 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162555&upass=11111111
+2015-03-16 16:25:55,578 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162555&upass=11111111
+2015-03-16 16:25:55,578 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162555&upass=11111111
+2015-03-16 16:25:55,578 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162555&upass=11111111
+2015-03-16 16:25:55,584 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162555&usertid=1293282
+2015-03-16 16:25:55,584 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162555&usertid=1293282
+2015-03-16 16:25:55,584 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162555&usertid=1293282
+2015-03-16 16:25:55,585 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162555&key=email%3DTest16162555%40126.com&key=mobile%3D18816162555
+2015-03-16 16:25:55,593 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162555&email=Test16162555@126.com&mobile=18816162555
+2015-03-16 16:25:56,602 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162556&upass=11111111
+2015-03-16 16:25:56,603 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162556&upass=11111111
+2015-03-16 16:25:56,604 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162556&upass=11111111
+2015-03-16 16:25:56,604 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162556&upass=11111111
+2015-03-16 16:25:56,609 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162556&usertid=1293290
+2015-03-16 16:25:56,610 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162556&usertid=1293290
+2015-03-16 16:25:56,610 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162556&usertid=1293290
+2015-03-16 16:25:56,612 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162556&key=email%3DTest16162556%40126.com&key=mobile%3D18816162556
+2015-03-16 16:25:56,619 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162556&email=Test16162556@126.com&mobile=18816162556
+2015-03-16 16:25:57,626 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162557&upass=11111111
+2015-03-16 16:25:57,627 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162557&upass=11111111
+2015-03-16 16:25:57,627 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162557&upass=11111111
+2015-03-16 16:25:57,627 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162557&upass=11111111
+2015-03-16 16:25:57,632 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162557&usertid=1293298
+2015-03-16 16:25:57,632 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162557&usertid=1293298
+2015-03-16 16:25:57,633 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162557&usertid=1293298
+2015-03-16 16:25:57,634 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162557&key=email%3DTest16162557%40126.com&key=mobile%3D18816162557
+2015-03-16 16:25:57,641 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162557&email=Test16162557@126.com&mobile=18816162557
+2015-03-16 16:25:58,647 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162558&upass=11111111
+2015-03-16 16:25:58,647 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162558&upass=11111111
+2015-03-16 16:25:58,647 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162558&upass=11111111
+2015-03-16 16:25:58,648 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162558&upass=11111111
+2015-03-16 16:25:58,652 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162558&usertid=1293306
+2015-03-16 16:25:58,653 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162558&usertid=1293306
+2015-03-16 16:25:58,653 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162558&usertid=1293306
+2015-03-16 16:25:58,654 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162558&key=email%3DTest16162558%40126.com&key=mobile%3D18816162558
+2015-03-16 16:25:58,661 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162558&email=Test16162558@126.com&mobile=18816162558
+2015-03-16 16:25:59,673 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162559&upass=11111111&key=email%3DTest16162559%40126.com&key=mobile%3D18816162559
+2015-03-16 16:25:59,673 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162559&upass=11111111&key=email%3DTest16162559%40126.com&key=mobile%3D18816162559
+2015-03-16 16:25:59,674 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162559&upass=11111111&key=email%3DTest16162559%40126.com&key=mobile%3D18816162559
+2015-03-16 16:25:59,674 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162559&upass=11111111&key=email%3DTest16162559%40126.com&key=mobile%3D18816162559
+2015-03-16 16:25:59,681 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162559&usertid=1293314
+2015-03-16 16:25:59,681 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162559&usertid=1293314
+2015-03-16 16:25:59,681 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162559&usertid=1293314
+2015-03-16 16:26:00,692 DEBUG [main] (AccInterface.java:146)     - testLogout: http://10.15.201.105/AccService/AccServlet.do?method=logout&uname=Test16162559@126.com
+2015-03-16 16:26:00,695 DEBUG [main] (AccInterface.java:149)     - testLogout: 1&result=0&uname=Test16162559@126.com
+2015-03-16 16:26:00,697 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162600&upass=11111111&key=email%3DTest16162600%40126.com&key=mobile%3D18816162600
+2015-03-16 16:26:00,697 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162600&upass=11111111&key=email%3DTest16162600%40126.com&key=mobile%3D18816162600
+2015-03-16 16:26:00,698 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162600&upass=11111111&key=email%3DTest16162600%40126.com&key=mobile%3D18816162600
+2015-03-16 16:26:00,698 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162600&upass=11111111&key=email%3DTest16162600%40126.com&key=mobile%3D18816162600
+2015-03-16 16:26:00,703 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162600&usertid=1293322
+2015-03-16 16:26:00,704 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162600&usertid=1293322
+2015-03-16 16:26:00,704 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162600&usertid=1293322
+2015-03-16 16:26:01,713 DEBUG [main] (AccInterface.java:146)     - testLogout: http://10.15.201.105/AccService/AccServlet.do?method=logout&uname=18000000000
+2015-03-16 16:26:01,720 DEBUG [main] (AccInterface.java:149)     - testLogout: 1&result=0&uname=18000000000
+2015-03-16 16:26:01,721 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162601&upass=11111111&key=email%3DTest16162601%40126.com&key=mobile%3D18816162601
+2015-03-16 16:26:01,721 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162601&upass=11111111&key=email%3DTest16162601%40126.com&key=mobile%3D18816162601
+2015-03-16 16:26:01,721 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162601&upass=11111111&key=email%3DTest16162601%40126.com&key=mobile%3D18816162601
+2015-03-16 16:26:01,721 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162601&upass=11111111&key=email%3DTest16162601%40126.com&key=mobile%3D18816162601
+2015-03-16 16:26:01,727 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162601&usertid=1293330&result=0
+2015-03-16 16:26:01,727 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162601&usertid=1293330&result=0
+2015-03-16 16:26:01,727 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162601&usertid=1293330&result=0
+2015-03-16 16:26:02,735 DEBUG [main] (AccInterface.java:146)     - testLogout: http://10.15.201.105/AccService/AccServlet.do?method=logout&uname=nnnnnnnn@126.com
+2015-03-16 16:26:02,738 DEBUG [main] (AccInterface.java:149)     - testLogout: 1&result=0&uname=nnnnnnnn@126.com
+2015-03-16 16:26:02,741 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162602&upass=11111111&key=email%3DTest16162602%40126.com&key=mobile%3D18816162602
+2015-03-16 16:26:02,741 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162602&upass=11111111&key=email%3DTest16162602%40126.com&key=mobile%3D18816162602
+2015-03-16 16:26:02,742 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162602&upass=11111111&key=email%3DTest16162602%40126.com&key=mobile%3D18816162602
+2015-03-16 16:26:02,742 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162602&upass=11111111&key=email%3DTest16162602%40126.com&key=mobile%3D18816162602
+2015-03-16 16:26:02,747 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162602&usertid=1293338&result=0
+2015-03-16 16:26:02,747 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162602&usertid=1293338&result=0
+2015-03-16 16:26:02,748 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162602&usertid=1293338&result=0
+2015-03-16 16:26:03,753 DEBUG [main] (AccInterface.java:146)     - testLogout: http://10.15.201.105/AccService/AccServlet.do?method=logout&uname=
+2015-03-16 16:26:03,757 DEBUG [main] (AccInterface.java:149)     - testLogout: -101&result=101&msg=uname_bad
+2015-03-16 16:26:03,758 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162603&upass=11111111&key=email%3DTest16162603%40126.com&key=mobile%3D18816162603
+2015-03-16 16:26:03,759 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162603&upass=11111111&key=email%3DTest16162603%40126.com&key=mobile%3D18816162603
+2015-03-16 16:26:03,759 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162603&upass=11111111&key=email%3DTest16162603%40126.com&key=mobile%3D18816162603
+2015-03-16 16:26:03,759 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162603&upass=11111111&key=email%3DTest16162603%40126.com&key=mobile%3D18816162603
+2015-03-16 16:26:03,763 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1293346&result=0&uname=test????16162603
+2015-03-16 16:26:03,764 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1293346&result=0&uname=test????16162603
+2015-03-16 16:26:03,764 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1293346&result=0&uname=test????16162603
+2015-03-16 16:26:04,771 DEBUG [main] (AccInterface.java:146)     - testLogout: http://10.15.201.105/AccService/AccServlet.do?method=logout&uname=18816162603
+2015-03-16 16:26:04,775 DEBUG [main] (AccInterface.java:149)     - testLogout: 1&result=0&uname=18816162603
+2015-03-16 16:26:04,778 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162604&upass=11111111&key=email%3DTest16162604%40126.com&key=mobile%3D18816162604
+2015-03-16 16:26:04,779 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162604&upass=11111111&key=email%3DTest16162604%40126.com&key=mobile%3D18816162604
+2015-03-16 16:26:04,779 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162604&upass=11111111&key=email%3DTest16162604%40126.com&key=mobile%3D18816162604
+2015-03-16 16:26:04,779 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162604&upass=11111111&key=email%3DTest16162604%40126.com&key=mobile%3D18816162604
+2015-03-16 16:26:04,784 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162604&usertid=1293354
+2015-03-16 16:26:04,785 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162604&usertid=1293354
+2015-03-16 16:26:04,785 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162604&usertid=1293354
+2015-03-16 16:26:05,793 DEBUG [main] (AccInterface.java:146)     - testLogout: http://10.15.201.105/AccService/AccServlet.do?method=logout&uname=Test≤‚ ‘16162604
+2015-03-16 16:26:05,797 DEBUG [main] (AccInterface.java:149)     - testLogout: 1&uname=Test????16162604&result=0
+2015-03-16 16:26:05,799 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162605&upass=11111111&key=email%3DTest16162605%40126.com&key=mobile%3D18816162605
+2015-03-16 16:26:05,799 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162605&upass=11111111&key=email%3DTest16162605%40126.com&key=mobile%3D18816162605
+2015-03-16 16:26:05,800 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162605&upass=11111111&key=email%3DTest16162605%40126.com&key=mobile%3D18816162605
+2015-03-16 16:26:05,800 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162605&upass=11111111&key=email%3DTest16162605%40126.com&key=mobile%3D18816162605
+2015-03-16 16:26:05,806 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1293362&result=0&uname=test????16162605
+2015-03-16 16:26:05,806 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1293362&result=0&uname=test????16162605
+2015-03-16 16:26:05,806 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1293362&result=0&uname=test????16162605
+2015-03-16 16:26:06,814 DEBUG [main] (AccInterface.java:146)     - testLogout: http://10.15.201.105/AccService/AccServlet.do?method=logout&uname=nnnnnnnn
+2015-03-16 16:26:06,818 DEBUG [main] (AccInterface.java:149)     - testLogout: 1&result=0&uname=nnnnnnnn
+2015-03-16 16:26:06,824 INFO  [main] (UpdpassTest.java:177)     - ======Case11:◊÷∂Œ√˚¥ÌŒÛ◊¢≤·=======
+2015-03-16 16:26:06,825 DEBUG [main] (AccInterface.java:227)     - Request:&un=lidb072004&upass=111111
+2015-03-16 16:26:06,829 DEBUG [main] (AccInterface.java:233)     - Response:-101&result=101&msg=uname_bad
+2015-03-16 16:26:06,830 INFO  [main] (UpdpassTest.java:107)     - ======Case4:÷–Œƒ”√ªß√˚√‹¬Î–ﬁ∏ƒ=======
+2015-03-16 16:26:06,832 DEBUG [main] (AccInterface.java:227)     - Request:&uname=ƒ„∫√&upass=111111
+2015-03-16 16:26:06,836 DEBUG [main] (AccInterface.java:233)     - Response:-2&result=2&msg=user_not_found&uname=???
+2015-03-16 16:26:06,837 INFO  [main] (UpdpassTest.java:157)     - ======Case9:–ﬁ∏ƒ≥…œ‡Õ¨µƒ√‹¬Î=======
+2015-03-16 16:26:06,838 DEBUG [main] (AccInterface.java:227)     - Request:&uname=lidb001&upass=1111111
+2015-03-16 16:26:06,841 DEBUG [main] (AccInterface.java:233)     - Response:-2&result=2&msg=user_not_found&uname=lidb001
+2015-03-16 16:26:06,842 INFO  [main] (UpdpassTest.java:137)     - ======Case7:»± ßKeytp–ﬁ∏ƒ=======
+2015-03-16 16:26:06,843 DEBUG [main] (AccInterface.java:227)     - Request:uname=15901620000&upass=123456&opass=111111
+2015-03-16 16:26:06,846 DEBUG [main] (AccInterface.java:233)     - Response:-103&result=103&msg=access_deny
+2015-03-16 16:26:06,847 INFO  [main] (UpdpassTest.java:118)     - ======Case5:»± ß”√ªß√˚–ﬁ∏ƒ=======
+2015-03-16 16:26:06,848 DEBUG [main] (AccInterface.java:227)     - Request:&upass=123456&opass=111111&keytp=mobile
+2015-03-16 16:26:06,850 DEBUG [main] (AccInterface.java:233)     - Response:-101&result=101&msg=uname_bad
+2015-03-16 16:26:06,851 INFO  [main] (UpdpassTest.java:128)     - ======Case6:»± ß–¬√‹¬Î–ﬁ∏ƒ=======
+2015-03-16 16:26:06,852 DEBUG [main] (AccInterface.java:227)     - Request:&uname=lidb&opass=111111&keytp=mobile
+2015-03-16 16:26:06,854 DEBUG [main] (AccInterface.java:233)     - Response:-101&result=101&msg=upass_bad
+2015-03-16 16:26:06,855 INFO  [main] (UpdpassTest.java:98)     - ======Case3:∑«±ÿÃÓ◊÷∂Œ»´≤ø’˝»∑ È–¥«Î«Ûemail(uname»°Œ®“ªkey)=======
+2015-03-16 16:26:06,856 DEBUG [main] (AccInterface.java:227)     - Request:&uname=15901620000@qq.com&upass=111111&opass=111111&keytp=email
+2015-03-16 16:26:06,859 DEBUG [main] (AccInterface.java:233)     - Response:-2&result=2&msg=user_not_found&uname=15901620000@qq.com
+2015-03-16 16:26:06,860 INFO  [main] (UpdpassTest.java:167)     - ======Case10:–ﬁ∏ƒ∫Û√‹¬Î51◊÷Ω⁄=======
+2015-03-16 16:26:06,861 DEBUG [main] (AccInterface.java:227)     - Request:&uname=lidb003&upass=lidb50000000000000000000000000000000000000000000001
+2015-03-16 16:26:06,864 DEBUG [main] (AccInterface.java:233)     - Response:-101&result=101&msg=upass_bad
+2015-03-16 16:26:06,864 INFO  [main] (UpdpassTest.java:146)     - ======Case8:»± ßkey◊÷∂Œ ±=======
+2015-03-16 16:26:06,865 DEBUG [main] (AccInterface.java:227)     - Request:&upass=111111&opass=123456&keytp=email
+2015-03-16 16:26:06,867 DEBUG [main] (AccInterface.java:233)     - Response:-101&result=101&msg=uname_bad
+2015-03-16 16:26:06,868 INFO  [main] (UpdpassTest.java:79)     - ======Case1:±ÿÃÓ◊÷∂Œ»´≤ø’˝»∑ È–¥«Î«Û=======
+2015-03-16 16:26:06,868 DEBUG [main] (AccInterface.java:227)     - Request:&uname=lidb&upass=111111
+2015-03-16 16:26:06,871 DEBUG [main] (AccInterface.java:233)     - Response:-2&result=2&msg=user_not_found&uname=lidb
+2015-03-16 16:26:06,872 INFO  [main] (UpdpassTest.java:89)     - ======Case2:∑«±ÿÃÓ◊÷∂Œ»´≤ø’˝»∑ È–¥«Î«Ûmobile(uname»°Œ®“ªkey)=======
+2015-03-16 16:26:06,873 DEBUG [main] (AccInterface.java:227)     - Request:&uname=15901110001&upass=111111&opass=111111&keytp=mobile
+2015-03-16 16:26:06,876 DEBUG [main] (AccInterface.java:233)     - Response:-2&result=2&msg=user_not_found&uname=15901110001
+2015-03-16 16:26:06,877 INFO  [main] (UpdpassTest.java:187)     - ======Case12:‘≠ º√‹¬Î¥ÌŒÛ–ﬁ∏ƒ=======
+2015-03-16 16:26:06,877 DEBUG [main] (AccInterface.java:227)     - Request:&uname=lidb004&upass=111111&opass=125556
+2015-03-16 16:26:06,880 DEBUG [main] (AccInterface.java:233)     - Response:-2&result=2&msg=user_not_found&uname=lidb004
+2015-03-16 16:26:06,891 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162606&upass=11111111
+2015-03-16 16:26:06,891 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162606&upass=11111111
+2015-03-16 16:26:06,892 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162606&upass=11111111
+2015-03-16 16:26:06,892 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162606&upass=11111111
+2015-03-16 16:26:06,897 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162606&usertid=1293370
+2015-03-16 16:26:06,898 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162606&usertid=1293370
+2015-03-16 16:26:06,898 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162606&usertid=1293370
+2015-03-16 16:26:07,899 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162607&upass=11111111
+2015-03-16 16:26:07,900 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162607&upass=11111111
+2015-03-16 16:26:07,901 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162607&upass=11111111
+2015-03-16 16:26:07,901 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162607&upass=11111111
+2015-03-16 16:26:07,907 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162607&usertid=1293378
+2015-03-16 16:26:07,908 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162607&usertid=1293378
+2015-03-16 16:26:07,909 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162607&usertid=1293378
+2015-03-16 16:26:08,911 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162606&key=idcard%3D00000016162606X
+2015-03-16 16:26:08,921 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162606&idcard=00000016162606X&result=0
+2015-03-16 16:26:08,923 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162607&key=idcard%3D00000016162606X&doflush=1
+2015-03-16 16:26:08,931 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162607&idcard=00000016162606X
+2015-03-16 16:26:08,933 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162606) No data!
+2015-03-16 16:26:08,936 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162606) No data!
+2015-03-16 16:26:08,937 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162607) No data!
+2015-03-16 16:26:08,939 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162607) No data!
+2015-03-16 16:26:08,940 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162606), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162607)
+2015-03-16 16:26:08,942 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162607), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162607)
+2015-03-16 16:26:08,943 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162606) No data!
+2015-03-16 16:26:08,944 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162607) No data!
+2015-03-16 16:26:08,945 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162608&upass=11111111
+2015-03-16 16:26:08,946 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162608&upass=11111111
+2015-03-16 16:26:08,946 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162608&upass=11111111
+2015-03-16 16:26:08,946 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162608&upass=11111111
+2015-03-16 16:26:08,952 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162608&usertid=1293386
+2015-03-16 16:26:08,952 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162608&usertid=1293386
+2015-03-16 16:26:08,953 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162608&usertid=1293386
+2015-03-16 16:26:09,953 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162609&upass=11111111
+2015-03-16 16:26:09,954 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162609&upass=11111111
+2015-03-16 16:26:09,954 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162609&upass=11111111
+2015-03-16 16:26:09,954 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162609&upass=11111111
+2015-03-16 16:26:09,959 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162609&usertid=1293394
+2015-03-16 16:26:09,959 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162609&usertid=1293394
+2015-03-16 16:26:09,959 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162609&usertid=1293394
+2015-03-16 16:26:10,960 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162608&key=idcard%3D00000016162608x
+2015-03-16 16:26:10,968 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&idcard=00000016162608x&result=0&uname=Test????16162608
+2015-03-16 16:26:10,969 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162609&key=idcard%3D00000016162608x&doflush=1
+2015-03-16 16:26:10,976 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162609&idcard=00000016162608x
+2015-03-16 16:26:10,982 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162608) No data!
+2015-03-16 16:26:10,984 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162608) No data!
+2015-03-16 16:26:10,985 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162609) No data!
+2015-03-16 16:26:10,987 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162609) No data!
+2015-03-16 16:26:10,989 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162608), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162609)
+2015-03-16 16:26:10,990 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162609), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162609)
+2015-03-16 16:26:10,991 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162608) No data!
+2015-03-16 16:26:10,991 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162609) No data!
+2015-03-16 16:26:10,994 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162610&upass=11111111
+2015-03-16 16:26:10,994 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162610&upass=11111111
+2015-03-16 16:26:10,994 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162610&upass=11111111
+2015-03-16 16:26:10,994 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162610&upass=11111111
+2015-03-16 16:26:10,999 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162610&usertid=1293402
+2015-03-16 16:26:10,999 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162610&usertid=1293402
+2015-03-16 16:26:11,000 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162610&usertid=1293402
+2015-03-16 16:26:12,000 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162612&upass=11111111
+2015-03-16 16:26:12,001 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162612&upass=11111111
+2015-03-16 16:26:12,001 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162612&upass=11111111
+2015-03-16 16:26:12,001 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162612&upass=11111111
+2015-03-16 16:26:12,011 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162612&usertid=1290411
+2015-03-16 16:26:12,011 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162612&usertid=1290411
+2015-03-16 16:26:12,011 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162612&usertid=1290411
+2015-03-16 16:26:13,011 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162610&key=idcard%3D00000000016162610X
+2015-03-16 16:26:13,019 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162610&idcard=00000000016162610X
+2015-03-16 16:26:13,019 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162612&key=idcard%3D00000000016162610X&doflush=1
+2015-03-16 16:26:13,027 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162612&idcard=00000000016162610X
+2015-03-16 16:26:13,028 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162610) No data!
+2015-03-16 16:26:13,030 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162610) No data!
+2015-03-16 16:26:13,032 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162612) No data!
+2015-03-16 16:26:13,033 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162612) No data!
+2015-03-16 16:26:13,035 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162610), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162612)
+2015-03-16 16:26:13,037 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162612), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162612)
+2015-03-16 16:26:13,038 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162610) No data!
+2015-03-16 16:26:13,040 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162612) No data!
+2015-03-16 16:26:13,042 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162613&upass=11111111
+2015-03-16 16:26:13,042 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162613&upass=11111111
+2015-03-16 16:26:13,042 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162613&upass=11111111
+2015-03-16 16:26:13,043 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162613&upass=11111111
+2015-03-16 16:26:13,047 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162613&usertid=1290419
+2015-03-16 16:26:13,047 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162613&usertid=1290419
+2015-03-16 16:26:13,047 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162613&usertid=1290419
+2015-03-16 16:26:14,048 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162614&upass=11111111
+2015-03-16 16:26:14,049 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162614&upass=11111111
+2015-03-16 16:26:14,049 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162614&upass=11111111
+2015-03-16 16:26:14,050 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162614&upass=11111111
+2015-03-16 16:26:14,054 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162614&usertid=1290427&result=0
+2015-03-16 16:26:14,054 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162614&usertid=1290427&result=0
+2015-03-16 16:26:14,054 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162614&usertid=1290427&result=0
+2015-03-16 16:26:15,056 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162613&key=idcard%3D00000000016162613x
+2015-03-16 16:26:15,063 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162613&idcard=00000000016162613x&result=0
+2015-03-16 16:26:15,065 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162614&key=idcard%3D00000000016162613x&doflush=1
+2015-03-16 16:26:15,075 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&idcard=00000000016162613x&result=0&uname=Test????16162614
+2015-03-16 16:26:15,076 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162613) No data!
+2015-03-16 16:26:15,078 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162613) No data!
+2015-03-16 16:26:15,079 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162614) No data!
+2015-03-16 16:26:15,080 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162614) No data!
+2015-03-16 16:26:15,082 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162613), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162614)
+2015-03-16 16:26:15,084 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162614), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162614)
+2015-03-16 16:26:15,084 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162613) No data!
+2015-03-16 16:26:15,085 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162614) No data!
+2015-03-16 16:26:15,087 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162615&upass=11111111
+2015-03-16 16:26:15,087 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162615&upass=11111111
+2015-03-16 16:26:15,087 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162615&upass=11111111
+2015-03-16 16:26:15,087 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162615&upass=11111111
+2015-03-16 16:26:15,092 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162615&usertid=1290435
+2015-03-16 16:26:15,092 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162615&usertid=1290435
+2015-03-16 16:26:15,093 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162615&usertid=1290435
+2015-03-16 16:26:16,097 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162616&upass=11111111
+2015-03-16 16:26:16,097 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162616&upass=11111111
+2015-03-16 16:26:16,097 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162616&upass=11111111
+2015-03-16 16:26:16,097 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162616&upass=11111111
+2015-03-16 16:26:16,101 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162616&usertid=1290443
+2015-03-16 16:26:16,102 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162616&usertid=1290443
+2015-03-16 16:26:16,102 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162616&usertid=1290443
+2015-03-16 16:26:17,103 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162615&key=idcard%3D000000016162615
+2015-03-16 16:26:17,111 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162615&idcard=000000016162615
+2015-03-16 16:26:17,113 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162616&key=idcard%3D000000016162615
+2015-03-16 16:26:17,117 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=idcard_key_dup&uname=Test????16162616
+2015-03-16 16:26:17,120 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162617&upass=11111111
+2015-03-16 16:26:17,120 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162617&upass=11111111
+2015-03-16 16:26:17,121 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162617&upass=11111111
+2015-03-16 16:26:17,121 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162617&upass=11111111
+2015-03-16 16:26:17,126 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162617&usertid=1290451
+2015-03-16 16:26:17,127 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162617&usertid=1290451
+2015-03-16 16:26:17,127 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162617&usertid=1290451
+2015-03-16 16:26:18,128 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162618&upass=11111111
+2015-03-16 16:26:18,128 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162618&upass=11111111
+2015-03-16 16:26:18,129 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162618&upass=11111111
+2015-03-16 16:26:18,129 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162618&upass=11111111
+2015-03-16 16:26:18,133 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162618&usertid=1290459
+2015-03-16 16:26:18,133 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162618&usertid=1290459
+2015-03-16 16:26:18,133 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162618&usertid=1290459
+2015-03-16 16:26:19,133 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162617&key=idcard%3D000000000016162617
+2015-03-16 16:26:19,141 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162617&idcard=000000000016162617&result=0
+2015-03-16 16:26:19,142 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162618&key=idcard%3D000000000016162617
+2015-03-16 16:26:19,148 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=idcard_key_dup&uname=Test????16162618
+2015-03-16 16:26:19,150 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162619&upass=11111111
+2015-03-16 16:26:19,150 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162619&upass=11111111
+2015-03-16 16:26:19,150 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162619&upass=11111111
+2015-03-16 16:26:19,151 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162619&upass=11111111
+2015-03-16 16:26:19,156 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162619&usertid=1290467
+2015-03-16 16:26:19,157 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162619&usertid=1290467
+2015-03-16 16:26:19,157 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162619&usertid=1290467
+2015-03-16 16:26:20,157 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162620&upass=11111111
+2015-03-16 16:26:20,158 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162620&upass=11111111
+2015-03-16 16:26:20,158 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162620&upass=11111111
+2015-03-16 16:26:20,158 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162620&upass=11111111
+2015-03-16 16:26:20,163 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162620&usertid=1290475
+2015-03-16 16:26:20,163 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162620&usertid=1290475
+2015-03-16 16:26:20,163 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162620&usertid=1290475
+2015-03-16 16:26:21,163 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162619&key=nickname%3DNick%E6%B5%8B%E8%AF%9516162619
+2015-03-16 16:26:21,169 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162619&nickname=Nick≤‚ ‘16162619&result=0
+2015-03-16 16:26:21,170 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162620&key=nickname%3DNick%E6%B5%8B%E8%AF%9516162619&doflush=1
+2015-03-16 16:26:21,177 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162620&nickname=Nick≤‚ ‘16162619
+2015-03-16 16:26:21,178 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162619) No data!
+2015-03-16 16:26:21,179 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162619) No data!
+2015-03-16 16:26:21,180 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162620) No data!
+2015-03-16 16:26:21,181 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162620) No data!
+2015-03-16 16:26:21,183 ERROR [main] (MyCheckUtil.java:129)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a: (k_9:Nick≤‚ ‘16162619) No data!
+2015-03-16 16:26:21,184 ERROR [main] (MyCheckUtil.java:129)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a: (k_9:Nick≤‚ ‘16162619) No data!
+2015-03-16 16:26:21,184 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162619) No data!
+2015-03-16 16:26:21,185 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162620) No data!
+2015-03-16 16:26:21,187 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162621&upass=11111111
+2015-03-16 16:26:21,187 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162621&upass=11111111
+2015-03-16 16:26:21,187 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162621&upass=11111111
+2015-03-16 16:26:21,187 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162621&upass=11111111
+2015-03-16 16:26:21,192 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1290483&result=0&uname=test????16162621
+2015-03-16 16:26:21,192 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1290483&result=0&uname=test????16162621
+2015-03-16 16:26:21,192 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1290483&result=0&uname=test????16162621
+2015-03-16 16:26:22,193 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162622&upass=11111111
+2015-03-16 16:26:22,194 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162622&upass=11111111
+2015-03-16 16:26:22,194 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162622&upass=11111111
+2015-03-16 16:26:22,194 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162622&upass=11111111
+2015-03-16 16:26:22,198 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162622&usertid=1290491
+2015-03-16 16:26:22,199 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162622&usertid=1290491
+2015-03-16 16:26:22,199 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162622&usertid=1290491
+2015-03-16 16:26:23,199 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162621&key=nickname%3DNick%E6%B5%8B%E8%AF%9516162621
+2015-03-16 16:26:23,205 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&nickname=Nick≤‚ ‘16162621&result=0&uname=Test????16162621
+2015-03-16 16:26:23,206 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162622&key=nickname%3DNick%E6%B5%8B%E8%AF%9516162621
+2015-03-16 16:26:23,211 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=nickname_key_dup&uname=Test????16162622
+2015-03-16 16:26:23,213 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162623&upass=11111111
+2015-03-16 16:26:23,213 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162623&upass=11111111
+2015-03-16 16:26:23,213 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162623&upass=11111111
+2015-03-16 16:26:23,214 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162623&upass=11111111
+2015-03-16 16:26:23,223 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162623&usertid=1290499
+2015-03-16 16:26:23,224 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162623&usertid=1290499
+2015-03-16 16:26:23,224 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162623&usertid=1290499
+2015-03-16 16:26:24,224 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162623&key=truename%3DTrue%E6%B5%8B%E8%AF%9516162623
+2015-03-16 16:26:24,232 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&truename=True≤‚ ‘16162623&result=0&uname=Test????16162623
+2015-03-16 16:26:24,232 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162623,truename,True≤‚ ‘16162623),1&truename=True≤‚ ‘16162623&result=0&uname=Test????16162623
+2015-03-16 16:26:24,233 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162623&keytp=truename
+2015-03-16 16:26:24,239 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162623&truename=True≤‚ ‘16162623
+2015-03-16 16:26:24,239 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162623,truename,True≤‚ ‘16162623),1&result=0&uname=Test????16162623&truename=True≤‚ ‘16162623
+2015-03-16 16:26:24,241 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162623) No data!
+2015-03-16 16:26:24,243 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162623) No data!
+2015-03-16 16:26:24,244 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162623) No data!
+2015-03-16 16:26:24,246 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162624&upass=11111111
+2015-03-16 16:26:24,246 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162624&upass=11111111
+2015-03-16 16:26:24,247 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162624&upass=11111111
+2015-03-16 16:26:24,247 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162624&upass=11111111
+2015-03-16 16:26:24,253 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162624&usertid=1290507
+2015-03-16 16:26:24,254 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162624&usertid=1290507
+2015-03-16 16:26:24,254 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162624&usertid=1290507
+2015-03-16 16:26:25,254 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162625&upass=11111111
+2015-03-16 16:26:25,255 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162625&upass=11111111
+2015-03-16 16:26:25,255 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162625&upass=11111111
+2015-03-16 16:26:25,256 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162625&upass=11111111
+2015-03-16 16:26:25,260 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162625&usertid=1290515
+2015-03-16 16:26:25,261 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162625&usertid=1290515
+2015-03-16 16:26:25,261 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162625&usertid=1290515
+2015-03-16 16:26:26,261 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162624&key=mobile%3D18816162624
+2015-03-16 16:26:26,268 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162624&mobile=18816162624
+2015-03-16 16:26:26,269 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162625&key=mobile%3D18816162624
+2015-03-16 16:26:26,271 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=mobile_key_dup&uname=Test????16162625
+2015-03-16 16:26:26,273 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162626&upass=11111111
+2015-03-16 16:26:26,273 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162626&upass=11111111
+2015-03-16 16:26:26,273 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162626&upass=11111111
+2015-03-16 16:26:26,273 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162626&upass=11111111
+2015-03-16 16:26:26,277 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162626&usertid=1290523&result=0
+2015-03-16 16:26:26,277 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162626&usertid=1290523&result=0
+2015-03-16 16:26:26,277 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162626&usertid=1290523&result=0
+2015-03-16 16:26:27,280 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162626&key=email%3DTest16162626%40126.comttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt%40126.com
+2015-03-16 16:26:27,283 DEBUG [main] (AccInterface.java:163)     - testUserbind: -105&result=105&msg=email_error
+2015-03-16 16:26:27,285 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162627&upass=11111111
+2015-03-16 16:26:27,285 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162627&upass=11111111
+2015-03-16 16:26:27,286 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162627&upass=11111111
+2015-03-16 16:26:27,286 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162627&upass=11111111
+2015-03-16 16:26:27,290 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162627&usertid=1290531
+2015-03-16 16:26:27,290 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162627&usertid=1290531
+2015-03-16 16:26:27,291 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162627&usertid=1290531
+2015-03-16 16:26:28,292 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162628&upass=11111111
+2015-03-16 16:26:28,293 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162628&upass=11111111
+2015-03-16 16:26:28,294 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162628&upass=11111111
+2015-03-16 16:26:28,294 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162628&upass=11111111
+2015-03-16 16:26:28,300 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162628&usertid=1290539
+2015-03-16 16:26:28,301 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162628&usertid=1290539
+2015-03-16 16:26:28,301 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162628&usertid=1290539
+2015-03-16 16:26:29,301 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162627&key=email%3DTest16162627%40126.com
+2015-03-16 16:26:29,308 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162627&email=Test16162627@126.com
+2015-03-16 16:26:29,311 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162628&key=email%3DTest16162627%40126.com
+2015-03-16 16:26:29,314 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=email_key_dup&uname=Test????16162628
+2015-03-16 16:26:29,317 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162629&upass=11111111
+2015-03-16 16:26:29,318 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162629&upass=11111111
+2015-03-16 16:26:29,318 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162629&upass=11111111
+2015-03-16 16:26:29,318 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162629&upass=11111111
+2015-03-16 16:26:29,324 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162629&usertid=1290547&result=0
+2015-03-16 16:26:29,325 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162629&usertid=1290547&result=0
+2015-03-16 16:26:29,325 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162629&usertid=1290547&result=0
+2015-03-16 16:26:30,325 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162630&upass=11111111
+2015-03-16 16:26:30,326 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162630&upass=11111111
+2015-03-16 16:26:30,327 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162630&upass=11111111
+2015-03-16 16:26:30,327 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162630&upass=11111111
+2015-03-16 16:26:30,333 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162630&usertid=1290555
+2015-03-16 16:26:30,334 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162630&usertid=1290555
+2015-03-16 16:26:30,334 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162630&usertid=1290555
+2015-03-16 16:26:31,337 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162629&key=email%3DTest16162629%40126.com
+2015-03-16 16:26:31,349 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162629&email=Test16162629@126.com&result=0
+2015-03-16 16:26:31,351 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162630&key=email%3DTest16162629%40126.com&doflush=1
+2015-03-16 16:26:31,362 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162630&email=Test16162629@126.com
+2015-03-16 16:26:31,364 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162629) No data!
+2015-03-16 16:26:31,366 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162629) No data!
+2015-03-16 16:26:31,367 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162630) No data!
+2015-03-16 16:26:31,370 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162630) No data!
+2015-03-16 16:26:31,372 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162629), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162630)
+2015-03-16 16:26:31,374 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162630), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162630)
+2015-03-16 16:26:31,375 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162629) No data!
+2015-03-16 16:26:31,376 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162630) No data!
+2015-03-16 16:26:31,378 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162631&upass=11111111
+2015-03-16 16:26:31,378 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162631&upass=11111111
+2015-03-16 16:26:31,379 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162631&upass=11111111
+2015-03-16 16:26:31,379 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162631&upass=11111111
+2015-03-16 16:26:31,383 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162631&usertid=1290563
+2015-03-16 16:26:31,383 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162631&usertid=1290563
+2015-03-16 16:26:31,383 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162631&usertid=1290563
+2015-03-16 16:26:32,385 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162631&key=mobile%3D1881616263111111
+2015-03-16 16:26:32,389 DEBUG [main] (AccInterface.java:163)     - testUserbind: -104&result=104&msg=mobile_error
+2015-03-16 16:26:32,391 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162632&upass=11111111
+2015-03-16 16:26:32,391 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162632&upass=11111111
+2015-03-16 16:26:32,392 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162632&upass=11111111
+2015-03-16 16:26:32,392 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162632&upass=11111111
+2015-03-16 16:26:32,397 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162632&usertid=1290571
+2015-03-16 16:26:32,397 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162632&usertid=1290571
+2015-03-16 16:26:32,397 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162632&usertid=1290571
+2015-03-16 16:26:33,399 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162633&upass=11111111
+2015-03-16 16:26:33,400 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162633&upass=11111111
+2015-03-16 16:26:33,400 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162633&upass=11111111
+2015-03-16 16:26:33,401 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162633&upass=11111111
+2015-03-16 16:26:33,409 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162633&usertid=1290579
+2015-03-16 16:26:33,410 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162633&usertid=1290579
+2015-03-16 16:26:33,410 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162633&usertid=1290579
+2015-03-16 16:26:34,412 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162632&key=idcard%3D00000016162632X
+2015-03-16 16:26:34,420 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162632&idcard=00000016162632X
+2015-03-16 16:26:34,421 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162633&key=idcard%3D00000016162632X
+2015-03-16 16:26:34,428 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=idcard_key_dup&uname=Test????16162633
+2015-03-16 16:26:34,431 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162634&upass=11111111
+2015-03-16 16:26:34,432 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162634&upass=11111111
+2015-03-16 16:26:34,432 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162634&upass=11111111
+2015-03-16 16:26:34,432 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162634&upass=11111111
+2015-03-16 16:26:34,437 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162634&usertid=1290587
+2015-03-16 16:26:34,437 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162634&usertid=1290587
+2015-03-16 16:26:34,437 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162634&usertid=1290587
+2015-03-16 16:26:35,439 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162635&upass=11111111
+2015-03-16 16:26:35,442 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162635&upass=11111111
+2015-03-16 16:26:35,442 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162635&upass=11111111
+2015-03-16 16:26:35,443 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162635&upass=11111111
+2015-03-16 16:26:35,448 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162635&usertid=1290595&result=0
+2015-03-16 16:26:35,449 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162635&usertid=1290595&result=0
+2015-03-16 16:26:35,449 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162635&usertid=1290595&result=0
+2015-03-16 16:26:36,450 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162634&key=idcard%3D00000016162634x
+2015-03-16 16:26:36,457 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162634&idcard=00000016162634x&result=0
+2015-03-16 16:26:36,458 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162635&key=idcard%3D00000016162634x
+2015-03-16 16:26:36,462 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=idcard_key_dup&uname=Test????16162635
+2015-03-16 16:26:36,463 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162636&upass=11111111
+2015-03-16 16:26:36,463 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162636&upass=11111111
+2015-03-16 16:26:36,463 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162636&upass=11111111
+2015-03-16 16:26:36,464 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162636&upass=11111111
+2015-03-16 16:26:36,468 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162636&usertid=1290603
+2015-03-16 16:26:36,468 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162636&usertid=1290603
+2015-03-16 16:26:36,468 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162636&usertid=1290603
+2015-03-16 16:26:37,470 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162637&upass=11111111
+2015-03-16 16:26:37,471 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162637&upass=11111111
+2015-03-16 16:26:37,472 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162637&upass=11111111
+2015-03-16 16:26:37,472 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162637&upass=11111111
+2015-03-16 16:26:37,477 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162637&usertid=1290611
+2015-03-16 16:26:37,478 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162637&usertid=1290611
+2015-03-16 16:26:37,478 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162637&usertid=1290611
+2015-03-16 16:26:38,479 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162636&key=idcard%3D00000000016162636X
+2015-03-16 16:26:38,486 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162636&idcard=00000000016162636X
+2015-03-16 16:26:38,487 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162637&key=idcard%3D00000000016162636X
+2015-03-16 16:26:38,491 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=idcard_key_dup&uname=Test????16162637
+2015-03-16 16:26:38,492 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162638&upass=11111111
+2015-03-16 16:26:38,492 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162638&upass=11111111
+2015-03-16 16:26:38,492 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162638&upass=11111111
+2015-03-16 16:26:38,492 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162638&upass=11111111
+2015-03-16 16:26:38,496 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162638&usertid=1290619
+2015-03-16 16:26:38,497 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162638&usertid=1290619
+2015-03-16 16:26:38,497 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162638&usertid=1290619
+2015-03-16 16:26:39,497 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162639&upass=11111111
+2015-03-16 16:26:39,497 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162639&upass=11111111
+2015-03-16 16:26:39,498 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162639&upass=11111111
+2015-03-16 16:26:39,499 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162639&upass=11111111
+2015-03-16 16:26:39,505 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162639&usertid=1290627&result=0
+2015-03-16 16:26:39,505 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162639&usertid=1290627&result=0
+2015-03-16 16:26:39,506 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162639&usertid=1290627&result=0
+2015-03-16 16:26:40,507 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162638&key=idcard%3D00000000016162638x
+2015-03-16 16:26:40,516 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162638&idcard=00000000016162638x
+2015-03-16 16:26:40,518 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162639&key=idcard%3D00000000016162638x
+2015-03-16 16:26:40,523 DEBUG [main] (AccInterface.java:163)     - testUserbind: -114&result=114&msg=idcard_key_dup&uname=Test????16162639
+2015-03-16 16:26:40,527 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162640&upass=11111111
+2015-03-16 16:26:40,528 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162640&upass=11111111
+2015-03-16 16:26:40,528 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162640&upass=11111111
+2015-03-16 16:26:40,528 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162640&upass=11111111
+2015-03-16 16:26:40,533 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162640&usertid=1290635
+2015-03-16 16:26:40,533 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162640&usertid=1290635
+2015-03-16 16:26:40,533 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162640&usertid=1290635
+2015-03-16 16:26:41,534 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162640&key=email%3DTest%E6%B5%8B%E8%AF%9516162640%40126.
+2015-03-16 16:26:41,537 DEBUG [main] (AccInterface.java:163)     - testUserbind: -105&result=105&msg=email_error
+2015-03-16 16:26:41,540 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162641&upass=11111111
+2015-03-16 16:26:41,540 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162641&upass=11111111
+2015-03-16 16:26:41,541 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162641&upass=11111111
+2015-03-16 16:26:41,541 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162641&upass=11111111
+2015-03-16 16:26:41,545 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162641&usertid=1290643
+2015-03-16 16:26:41,545 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162641&usertid=1290643
+2015-03-16 16:26:41,546 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162641&usertid=1290643
+2015-03-16 16:26:42,546 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162641&key=email%3D%40126.com
+2015-03-16 16:26:42,549 DEBUG [main] (AccInterface.java:163)     - testUserbind: -105&result=105&msg=email_error
+2015-03-16 16:26:42,551 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162642&upass=11111111
+2015-03-16 16:26:42,551 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162642&upass=11111111
+2015-03-16 16:26:42,552 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162642&upass=11111111
+2015-03-16 16:26:42,552 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162642&upass=11111111
+2015-03-16 16:26:42,556 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162642&usertid=1290651
+2015-03-16 16:26:42,557 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162642&usertid=1290651
+2015-03-16 16:26:42,557 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162642&usertid=1290651
+2015-03-16 16:26:43,557 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162642&key=email%3DTest%E6%B5%8B%E8%AF%9516162642%40126com
+2015-03-16 16:26:43,563 DEBUG [main] (AccInterface.java:163)     - testUserbind: -105&result=105&msg=email_error
+2015-03-16 16:26:43,566 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162643&upass=11111111
+2015-03-16 16:26:43,567 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162643&upass=11111111
+2015-03-16 16:26:43,567 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162643&upass=11111111
+2015-03-16 16:26:43,567 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162643&upass=11111111
+2015-03-16 16:26:43,572 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162643&usertid=1290659&result=0
+2015-03-16 16:26:43,572 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162643&usertid=1290659&result=0
+2015-03-16 16:26:43,572 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162643&usertid=1290659&result=0
+2015-03-16 16:26:44,573 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162643&key=email%3DTest16162643%40126.com
+2015-03-16 16:26:44,580 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162643&email=Test16162643@126.com
+2015-03-16 16:26:44,581 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162643,email,Test16162643@126.com),1&result=0&uname=Test????16162643&email=Test16162643@126.com
+2015-03-16 16:26:44,582 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162643&keytp=email
+2015-03-16 16:26:44,586 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162643&email=Test16162643@126.com
+2015-03-16 16:26:44,586 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162643,email,Test16162643@126.com),1&result=0&uname=Test????16162643&email=Test16162643@126.com
+2015-03-16 16:26:44,587 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=email&key=Test16162643@126.com
+2015-03-16 16:26:44,590 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&result=0&uname=test????16162643
+2015-03-16 16:26:44,590 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162643,email,Test16162643@126.com),1&result=0&uname=test????16162643
+2015-03-16 16:26:44,592 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162643) No data!
+2015-03-16 16:26:44,593 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162643) No data!
+2015-03-16 16:26:44,594 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162643), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162643)
+2015-03-16 16:26:44,595 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162643) No data!
+2015-03-16 16:26:44,597 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162644&upass=11111111
+2015-03-16 16:26:44,598 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162644&upass=11111111
+2015-03-16 16:26:44,598 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162644&upass=11111111
+2015-03-16 16:26:44,598 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162644&upass=11111111
+2015-03-16 16:26:44,603 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162644&usertid=1290667
+2015-03-16 16:26:44,604 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162644&usertid=1290667
+2015-03-16 16:26:44,604 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162644&usertid=1290667
+2015-03-16 16:26:45,605 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162645&upass=11111111
+2015-03-16 16:26:45,606 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162645&upass=11111111
+2015-03-16 16:26:45,607 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162645&upass=11111111
+2015-03-16 16:26:45,607 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162645&upass=11111111
+2015-03-16 16:26:45,613 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162645&usertid=1290675
+2015-03-16 16:26:45,614 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162645&usertid=1290675
+2015-03-16 16:26:45,615 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162645&usertid=1290675
+2015-03-16 16:26:46,615 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162644&key=truename%3DTrue%E6%B5%8B%E8%AF%9516162644
+2015-03-16 16:26:46,622 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162644&truename=True≤‚ ‘16162644
+2015-03-16 16:26:46,623 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162645&key=truename%3DTrue%E6%B5%8B%E8%AF%9516162644
+2015-03-16 16:26:46,629 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162645&truename=True≤‚ ‘16162644
+2015-03-16 16:26:46,632 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162646&upass=11111111
+2015-03-16 16:26:46,632 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162646&upass=11111111
+2015-03-16 16:26:46,633 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162646&upass=11111111
+2015-03-16 16:26:46,633 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162646&upass=11111111
+2015-03-16 16:26:46,638 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162646&usertid=1290683
+2015-03-16 16:26:46,639 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162646&usertid=1290683
+2015-03-16 16:26:46,640 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162646&usertid=1290683
+2015-03-16 16:26:47,641 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162646&key=mobile%3D18816162646
+2015-03-16 16:26:47,653 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162646&mobile=18816162646
+2015-03-16 16:26:47,654 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162646,mobile,18816162646),1&result=0&uname=Test????16162646&mobile=18816162646
+2015-03-16 16:26:47,655 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162646&keytp=mobile
+2015-03-16 16:26:47,658 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162646&mobile=18816162646
+2015-03-16 16:26:47,659 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162646,mobile,18816162646),1&result=0&uname=Test????16162646&mobile=18816162646
+2015-03-16 16:26:47,660 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=mobile&key=18816162646
+2015-03-16 16:26:47,663 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&result=0&uname=test????16162646
+2015-03-16 16:26:47,664 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162646,mobile,18816162646),1&result=0&uname=test????16162646
+2015-03-16 16:26:47,666 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162646) No data!
+2015-03-16 16:26:47,666 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162646) No data!
+2015-03-16 16:26:47,667 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162646), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162646)
+2015-03-16 16:26:47,668 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162646) No data!
+2015-03-16 16:26:47,670 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162647&upass=11111111
+2015-03-16 16:26:47,670 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162647&upass=11111111
+2015-03-16 16:26:47,670 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162647&upass=11111111
+2015-03-16 16:26:47,670 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162647&upass=11111111
+2015-03-16 16:26:47,677 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162647&usertid=1290691
+2015-03-16 16:26:47,677 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162647&usertid=1290691
+2015-03-16 16:26:47,677 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162647&usertid=1290691
+2015-03-16 16:26:48,677 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162647&key=email%3D
+2015-03-16 16:26:48,688 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162647
+2015-03-16 16:26:48,689 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162648&upass=11111111
+2015-03-16 16:26:48,689 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162648&upass=11111111
+2015-03-16 16:26:48,689 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162648&upass=11111111
+2015-03-16 16:26:48,690 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162648&upass=11111111
+2015-03-16 16:26:48,694 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1290699&result=0&uname=test????16162648
+2015-03-16 16:26:48,695 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1290699&result=0&uname=test????16162648
+2015-03-16 16:26:48,695 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1290699&result=0&uname=test????16162648
+2015-03-16 16:26:49,697 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162649&upass=11111111
+2015-03-16 16:26:49,698 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162649&upass=11111111
+2015-03-16 16:26:49,699 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162649&upass=11111111
+2015-03-16 16:26:49,699 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162649&upass=11111111
+2015-03-16 16:26:49,704 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162649&usertid=1290707
+2015-03-16 16:26:49,704 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162649&usertid=1290707
+2015-03-16 16:26:49,705 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162649&usertid=1290707
+2015-03-16 16:26:50,706 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162648&key=mobile%3D18816162648
+2015-03-16 16:26:50,715 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162648&mobile=18816162648
+2015-03-16 16:26:50,716 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162649&key=mobile%3D18816162648&doflush=1
+2015-03-16 16:26:50,727 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162649&mobile=18816162648
+2015-03-16 16:26:50,729 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162648) No data!
+2015-03-16 16:26:50,731 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162648) No data!
+2015-03-16 16:26:50,733 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162649) No data!
+2015-03-16 16:26:50,735 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162649) No data!
+2015-03-16 16:26:50,736 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162648), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162649)
+2015-03-16 16:26:50,738 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162649), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162649)
+2015-03-16 16:26:50,739 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162648) No data!
+2015-03-16 16:26:50,742 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162649) No data!
+2015-03-16 16:26:50,745 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162650&upass=11111111
+2015-03-16 16:26:50,746 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162650&upass=11111111
+2015-03-16 16:26:50,746 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162650&upass=11111111
+2015-03-16 16:26:50,746 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162650&upass=11111111
+2015-03-16 16:26:50,756 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162650&usertid=1290715
+2015-03-16 16:26:50,757 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162650&usertid=1290715
+2015-03-16 16:26:50,757 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162650&usertid=1290715
+2015-03-16 16:26:51,758 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162650&key=email%3DTest%E6%B5%8B%E8%AF%9516162650126.com
+2015-03-16 16:26:51,764 DEBUG [main] (AccInterface.java:163)     - testUserbind: -105&result=105&msg=email_error
+2015-03-16 16:26:51,765 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162651&upass=11111111
+2015-03-16 16:26:51,765 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162651&upass=11111111
+2015-03-16 16:26:51,766 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162651&upass=11111111
+2015-03-16 16:26:51,766 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162651&upass=11111111
+2015-03-16 16:26:51,771 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162651&usertid=1290723
+2015-03-16 16:26:51,771 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162651&usertid=1290723
+2015-03-16 16:26:51,771 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162651&usertid=1290723
+2015-03-16 16:26:52,773 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162651&key=nickname%3DNick%E6%B5%8B%E8%AF%9516162651ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+2015-03-16 16:26:52,780 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162651&nickname=Nick≤‚ ‘16162651ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+2015-03-16 16:26:52,781 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162652&upass=11111111
+2015-03-16 16:26:52,781 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162652&upass=11111111
+2015-03-16 16:26:52,781 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162652&upass=11111111
+2015-03-16 16:26:52,781 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162652&upass=11111111
+2015-03-16 16:26:52,785 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162652&usertid=1290727&result=0
+2015-03-16 16:26:52,785 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162652&usertid=1290727&result=0
+2015-03-16 16:26:52,786 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162652&usertid=1290727&result=0
+2015-03-16 16:26:53,786 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162652&key=idcard%3D00000000016162652x
+2015-03-16 16:26:53,799 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162652&idcard=00000000016162652x
+2015-03-16 16:26:53,799 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162652,idcard,00000000016162652x),1&result=0&uname=Test????16162652&idcard=00000000016162652x
+2015-03-16 16:26:53,800 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162652&keytp=idcard
+2015-03-16 16:26:53,809 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162652&idcard=00000000016162652x
+2015-03-16 16:26:53,809 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162652,idcard,00000000016162652x),1&result=0&uname=Test????16162652&idcard=00000000016162652x
+2015-03-16 16:26:53,810 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=idcard&key=00000000016162652x
+2015-03-16 16:26:53,813 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&result=0&uname=test????16162652
+2015-03-16 16:26:53,813 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162652,idcard,00000000016162652x),1&result=0&uname=test????16162652
+2015-03-16 16:26:53,814 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162652) No data!
+2015-03-16 16:26:53,816 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162652) No data!
+2015-03-16 16:26:53,818 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162652), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162652)
+2015-03-16 16:26:53,818 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162652) No data!
+2015-03-16 16:26:53,820 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162653&upass=11111111
+2015-03-16 16:26:53,820 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162653&upass=11111111
+2015-03-16 16:26:53,820 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162653&upass=11111111
+2015-03-16 16:26:53,821 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162653&upass=11111111
+2015-03-16 16:26:53,825 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162653&usertid=1290735
+2015-03-16 16:26:53,825 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162653&usertid=1290735
+2015-03-16 16:26:53,825 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162653&usertid=1290735
+2015-03-16 16:26:54,825 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162653&key=idcard%3D000000000016162653
+2015-03-16 16:26:54,832 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162653&idcard=000000000016162653
+2015-03-16 16:26:54,832 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162653,idcard,000000000016162653),1&result=0&uname=Test????16162653&idcard=000000000016162653
+2015-03-16 16:26:54,833 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162653&keytp=idcard
+2015-03-16 16:26:54,836 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162653&idcard=000000000016162653
+2015-03-16 16:26:54,837 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162653,idcard,000000000016162653),1&result=0&uname=Test????16162653&idcard=000000000016162653
+2015-03-16 16:26:54,837 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=idcard&key=000000000016162653
+2015-03-16 16:26:54,840 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&result=0&uname=test????16162653
+2015-03-16 16:26:54,841 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162653,idcard,000000000016162653),1&result=0&uname=test????16162653
+2015-03-16 16:26:54,842 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162653) No data!
+2015-03-16 16:26:54,843 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162653) No data!
+2015-03-16 16:26:54,844 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162653), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162653)
+2015-03-16 16:26:54,845 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162653) No data!
+2015-03-16 16:26:54,847 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162654&upass=11111111
+2015-03-16 16:26:54,848 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162654&upass=11111111
+2015-03-16 16:26:54,848 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162654&upass=11111111
+2015-03-16 16:26:54,848 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162654&upass=11111111
+2015-03-16 16:26:54,852 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162654&usertid=1290739
+2015-03-16 16:26:54,853 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162654&usertid=1290739
+2015-03-16 16:26:54,853 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162654&usertid=1290739
+2015-03-16 16:26:55,853 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162654&key=mobile%3D28816162654
+2015-03-16 16:26:55,857 DEBUG [main] (AccInterface.java:163)     - testUserbind: -104&result=104&msg=mobile_error
+2015-03-16 16:26:55,859 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162655&upass=11111111
+2015-03-16 16:26:55,860 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162655&upass=11111111
+2015-03-16 16:26:55,860 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162655&upass=11111111
+2015-03-16 16:26:55,860 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162655&upass=11111111
+2015-03-16 16:26:55,867 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1290743&result=0&uname=test????16162655
+2015-03-16 16:26:55,867 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1290743&result=0&uname=test????16162655
+2015-03-16 16:26:55,868 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1290743&result=0&uname=test????16162655
+2015-03-16 16:26:56,868 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162655&key=mobile%3D188161626t
+2015-03-16 16:26:56,871 DEBUG [main] (AccInterface.java:163)     - testUserbind: -104&result=104&msg=mobile_error
+2015-03-16 16:26:56,874 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162656&upass=11111111
+2015-03-16 16:26:56,874 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162656&upass=11111111
+2015-03-16 16:26:56,875 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162656&upass=11111111
+2015-03-16 16:26:56,875 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162656&upass=11111111
+2015-03-16 16:26:56,880 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162656&usertid=1290751
+2015-03-16 16:26:56,880 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162656&usertid=1290751
+2015-03-16 16:26:56,880 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162656&usertid=1290751
+2015-03-16 16:26:57,880 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162656&key=idcard%3D0t0000000016162656
+2015-03-16 16:26:57,888 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162656&idcard=0t0000000016162656
+2015-03-16 16:26:57,889 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162657&upass=11111111
+2015-03-16 16:26:57,889 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162657&upass=11111111
+2015-03-16 16:26:57,889 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162657&upass=11111111
+2015-03-16 16:26:57,889 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162657&upass=11111111
+2015-03-16 16:26:57,894 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162657&usertid=1290759&result=0
+2015-03-16 16:26:57,894 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162657&usertid=1290759&result=0
+2015-03-16 16:26:57,894 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162657&usertid=1290759&result=0
+2015-03-16 16:26:58,894 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162657&key=nickname%3DNick%E6%B5%8B%E8%AF%9516162657
+2015-03-16 16:26:58,900 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162657&nickname=Nick≤‚ ‘16162657
+2015-03-16 16:26:58,900 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162657,nickname,Nick≤‚ ‘16162657),1&result=0&uname=Test????16162657&nickname=Nick≤‚ ‘16162657
+2015-03-16 16:26:58,901 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162657&keytp=nickname
+2015-03-16 16:26:58,904 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162657&nickname=Nick≤‚ ‘16162657
+2015-03-16 16:26:58,904 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162657,nickname,Nick≤‚ ‘16162657),1&result=0&uname=Test????16162657&nickname=Nick≤‚ ‘16162657
+2015-03-16 16:26:58,905 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=nickname&key=Nick≤‚ ‘16162657
+2015-03-16 16:26:58,908 DEBUG [main] (AccInterface.java:205)     - findunamebykey: -2&result=2&msg=user_not_found
+2015-03-16 16:26:58,909 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162657,nickname,Nick≤‚ ‘16162657),-2&result=2&msg=user_not_found
+2015-03-16 16:26:58,910 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162657) No data!
+2015-03-16 16:26:58,911 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162657) No data!
+2015-03-16 16:26:58,913 ERROR [main] (MyCheckUtil.java:129)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a: (k_9:Nick≤‚ ‘16162657) No data!
+2015-03-16 16:26:58,914 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162657) No data!
+2015-03-16 16:26:58,915 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162658&upass=11111111
+2015-03-16 16:26:58,916 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162658&upass=11111111
+2015-03-16 16:26:58,916 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162658&upass=11111111
+2015-03-16 16:26:58,916 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162658&upass=11111111
+2015-03-16 16:26:58,920 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162658&usertid=1290763
+2015-03-16 16:26:58,920 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162658&usertid=1290763
+2015-03-16 16:26:58,920 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162658&usertid=1290763
+2015-03-16 16:26:59,921 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162658&key=nickname%3D
+2015-03-16 16:26:59,927 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162658
+2015-03-16 16:26:59,929 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162659&upass=11111111
+2015-03-16 16:26:59,929 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162659&upass=11111111
+2015-03-16 16:26:59,930 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162659&upass=11111111
+2015-03-16 16:26:59,930 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162659&upass=11111111
+2015-03-16 16:26:59,935 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162659&usertid=1290767
+2015-03-16 16:26:59,935 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162659&usertid=1290767
+2015-03-16 16:26:59,935 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162659&usertid=1290767
+2015-03-16 16:27:00,935 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162659&key=idcard%3D00000000016162659x
+2015-03-16 16:27:00,946 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162659&idcard=00000000016162659x&result=0
+2015-03-16 16:27:00,946 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162659,idcard,00000000016162659x),1&uname=Test????16162659&idcard=00000000016162659x&result=0
+2015-03-16 16:27:00,948 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162659&keytp=idcard
+2015-03-16 16:27:00,955 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&idcard=00000000016162659x&result=0&uname=Test????16162659
+2015-03-16 16:27:00,955 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162659,idcard,00000000016162659x),1&idcard=00000000016162659x&result=0&uname=Test????16162659
+2015-03-16 16:27:00,956 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=idcard&key=00000000016162659x
+2015-03-16 16:27:00,962 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&uname=test????16162659&result=0
+2015-03-16 16:27:00,963 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162659,idcard,00000000016162659x),1&uname=test????16162659&result=0
+2015-03-16 16:27:00,964 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162659) No data!
+2015-03-16 16:27:00,966 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162659) No data!
+2015-03-16 16:27:00,967 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162659), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162659)
+2015-03-16 16:27:00,967 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162659) No data!
+2015-03-16 16:27:00,969 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162700&upass=11111111
+2015-03-16 16:27:00,970 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162700&upass=11111111
+2015-03-16 16:27:00,970 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162700&upass=11111111
+2015-03-16 16:27:00,970 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162700&upass=11111111
+2015-03-16 16:27:00,978 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162700&usertid=1290771
+2015-03-16 16:27:00,979 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162700&usertid=1290771
+2015-03-16 16:27:00,979 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162700&usertid=1290771
+2015-03-16 16:27:01,979 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162700&key=idcard%3D00000000016162700x
+2015-03-16 16:27:01,986 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162700&idcard=00000000016162700x
+2015-03-16 16:27:01,986 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162700,idcard,00000000016162700x),1&result=0&uname=Test????16162700&idcard=00000000016162700x
+2015-03-16 16:27:01,987 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162700&keytp=idcard
+2015-03-16 16:27:01,990 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162700&idcard=00000000016162700x
+2015-03-16 16:27:01,990 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162700,idcard,00000000016162700x),1&result=0&uname=Test????16162700&idcard=00000000016162700x
+2015-03-16 16:27:01,991 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=idcard&key=00000000016162700x
+2015-03-16 16:27:01,994 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&result=0&uname=test????16162700
+2015-03-16 16:27:01,994 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162700,idcard,00000000016162700x),1&result=0&uname=test????16162700
+2015-03-16 16:27:01,996 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162700) No data!
+2015-03-16 16:27:01,997 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162700) No data!
+2015-03-16 16:27:01,999 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162700), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162700)
+2015-03-16 16:27:02,000 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162700) No data!
+2015-03-16 16:27:02,002 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162702&upass=11111111
+2015-03-16 16:27:02,003 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162702&upass=11111111
+2015-03-16 16:27:02,003 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162702&upass=11111111
+2015-03-16 16:27:02,003 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162702&upass=11111111
+2015-03-16 16:27:02,007 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162702&usertid=1290779&result=0
+2015-03-16 16:27:02,007 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162702&usertid=1290779&result=0
+2015-03-16 16:27:02,008 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162702&usertid=1290779&result=0
+2015-03-16 16:27:03,009 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162702&key=idcard%3D00000000016162702x
+2015-03-16 16:27:03,016 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162702&idcard=00000000016162702x
+2015-03-16 16:27:03,017 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162702,idcard,00000000016162702x),1&result=0&uname=Test????16162702&idcard=00000000016162702x
+2015-03-16 16:27:03,018 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162702&keytp=idcard
+2015-03-16 16:27:03,021 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&result=0&uname=Test????16162702&idcard=00000000016162702x
+2015-03-16 16:27:03,022 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162702,idcard,00000000016162702x),1&result=0&uname=Test????16162702&idcard=00000000016162702x
+2015-03-16 16:27:03,023 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=idcard&key=00000000016162702x
+2015-03-16 16:27:03,026 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&result=0&uname=test????16162702
+2015-03-16 16:27:03,026 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162702,idcard,00000000016162702x),1&result=0&uname=test????16162702
+2015-03-16 16:27:03,028 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162702) No data!
+2015-03-16 16:27:03,028 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162702) No data!
+2015-03-16 16:27:03,030 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162702), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162702)
+2015-03-16 16:27:03,031 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162702) No data!
+2015-03-16 16:27:03,033 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162703&upass=11111111
+2015-03-16 16:27:03,033 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162703&upass=11111111
+2015-03-16 16:27:03,033 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162703&upass=11111111
+2015-03-16 16:27:03,034 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162703&upass=11111111
+2015-03-16 16:27:03,038 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162703&usertid=1290787
+2015-03-16 16:27:03,038 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162703&usertid=1290787
+2015-03-16 16:27:03,038 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162703&usertid=1290787
+2015-03-16 16:27:04,041 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162703&key=idcard%3D00000000016162703x
+2015-03-16 16:27:04,050 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&idcard=00000000016162703x&result=0&uname=Test????16162703
+2015-03-16 16:27:04,051 ERROR [main] (MyCheckUtil.java:41)     - checkUserbind:(Test≤‚ ‘16162703,idcard,00000000016162703x),1&idcard=00000000016162703x&result=0&uname=Test????16162703
+2015-03-16 16:27:04,053 DEBUG [main] (AccInterface.java:174)     - testGetUserbind: http://10.15.201.105/AccService/AccServlet.do?method=getuserbind&uname=Test≤‚ ‘16162703&keytp=idcard
+2015-03-16 16:27:04,057 DEBUG [main] (AccInterface.java:177)     - testGetUserbind: 1&idcard=00000000016162703x&result=0&uname=Test????16162703
+2015-03-16 16:27:04,058 ERROR [main] (MyCheckUtil.java:50)     - checkGetUserbind:(Test≤‚ ‘16162703,idcard,00000000016162703x),1&idcard=00000000016162703x&result=0&uname=Test????16162703
+2015-03-16 16:27:04,059 DEBUG [main] (AccInterface.java:202)     - findunamebykey: http://10.15.201.105/AccService/AccServlet.do?method=findunamebykey&keytp=idcard&key=00000000016162703x
+2015-03-16 16:27:04,063 DEBUG [main] (AccInterface.java:205)     - findunamebykey: 1&uname=test????16162703&result=0
+2015-03-16 16:27:04,064 ERROR [main] (MyCheckUtil.java:60)     - checkFindUnamebyKey:(Test≤‚ ‘16162703,idcard,00000000016162703x),1&uname=test????16162703&result=0
+2015-03-16 16:27:04,066 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162703) No data!
+2015-03-16 16:27:04,068 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162703) No data!
+2015-03-16 16:27:04,071 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162703), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162703)
+2015-03-16 16:27:04,073 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162703) No data!
+2015-03-16 16:27:04,076 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162704&upass=11111111
+2015-03-16 16:27:04,076 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162704&upass=11111111
+2015-03-16 16:27:04,076 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162704&upass=11111111
+2015-03-16 16:27:04,077 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162704&upass=11111111
+2015-03-16 16:27:04,082 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162704&usertid=1290795&result=0
+2015-03-16 16:27:04,083 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162704&usertid=1290795&result=0
+2015-03-16 16:27:04,083 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162704&usertid=1290795&result=0
+2015-03-16 16:27:05,085 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162704&key=idcard%3D
+2015-03-16 16:27:05,090 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162704
+2015-03-16 16:27:05,093 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162705&upass=11111111
+2015-03-16 16:27:05,093 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162705&upass=11111111
+2015-03-16 16:27:05,093 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162705&upass=11111111
+2015-03-16 16:27:05,094 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162705&upass=11111111
+2015-03-16 16:27:05,098 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162705&usertid=1290799
+2015-03-16 16:27:05,099 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162705&usertid=1290799
+2015-03-16 16:27:05,100 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162705&usertid=1290799
+2015-03-16 16:27:06,101 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162705&key=idcard%3D0000000016162705
+2015-03-16 16:27:06,109 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162705&idcard=0000000016162705
+2015-03-16 16:27:06,112 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162706&upass=11111111
+2015-03-16 16:27:06,112 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162706&upass=11111111
+2015-03-16 16:27:06,113 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162706&upass=11111111
+2015-03-16 16:27:06,113 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162706&upass=11111111
+2015-03-16 16:27:06,118 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162706&usertid=1290803
+2015-03-16 16:27:06,118 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162706&usertid=1290803
+2015-03-16 16:27:06,118 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162706&usertid=1290803
+2015-03-16 16:27:07,119 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162706&key=mobile%3D
+2015-03-16 16:27:07,124 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162706
+2015-03-16 16:27:07,127 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162707&upass=11111111
+2015-03-16 16:27:07,128 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162707&upass=11111111
+2015-03-16 16:27:07,129 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162707&upass=11111111
+2015-03-16 16:27:07,129 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162707&upass=11111111
+2015-03-16 16:27:07,134 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162707&usertid=1290811
+2015-03-16 16:27:07,134 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162707&usertid=1290811
+2015-03-16 16:27:07,135 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162707&usertid=1290811
+2015-03-16 16:27:08,135 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162707&key=email%3DTest%E6%B5%8B%E8%AF%9516162707%40.com
+2015-03-16 16:27:08,142 DEBUG [main] (AccInterface.java:163)     - testUserbind: -105&result=105&msg=email_error
+2015-03-16 16:27:08,144 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162708&upass=11111111
+2015-03-16 16:27:08,144 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162708&upass=11111111
+2015-03-16 16:27:08,144 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162708&upass=11111111
+2015-03-16 16:27:08,145 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162708&upass=11111111
+2015-03-16 16:27:08,152 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162708&usertid=1290823
+2015-03-16 16:27:08,152 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162708&usertid=1290823
+2015-03-16 16:27:08,153 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162708&usertid=1290823
+2015-03-16 16:27:09,153 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162708&key=idcard%3D00000000016162708t
+2015-03-16 16:27:09,162 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162708&idcard=00000000016162708t
+2015-03-16 16:27:09,164 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162709&upass=11111111
+2015-03-16 16:27:09,164 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162709&upass=11111111
+2015-03-16 16:27:09,165 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162709&upass=11111111
+2015-03-16 16:27:09,165 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162709&upass=11111111
+2015-03-16 16:27:09,171 DEBUG [main] (AccInterface.java:59)     - Response:1&uname=test????16162709&usertid=1290835&result=0
+2015-03-16 16:27:09,171 DEBUG [main] (AccInterface.java:61)     - Response:1&uname=test????16162709&usertid=1290835&result=0
+2015-03-16 16:27:09,172 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&uname=test????16162709&usertid=1290835&result=0
+2015-03-16 16:27:10,174 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162709&key=mobile%3D188161627
+2015-03-16 16:27:10,177 DEBUG [main] (AccInterface.java:163)     - testUserbind: -104&result=104&msg=mobile_error
+2015-03-16 16:27:10,181 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162710&upass=11111111
+2015-03-16 16:27:10,182 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162710&upass=11111111
+2015-03-16 16:27:10,182 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162710&upass=11111111
+2015-03-16 16:27:10,182 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162710&upass=11111111
+2015-03-16 16:27:10,187 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162710&usertid=1290843
+2015-03-16 16:27:10,188 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162710&usertid=1290843
+2015-03-16 16:27:10,188 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162710&usertid=1290843
+2015-03-16 16:27:11,190 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162711&upass=11111111
+2015-03-16 16:27:11,190 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162711&upass=11111111
+2015-03-16 16:27:11,191 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162711&upass=11111111
+2015-03-16 16:27:11,191 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162711&upass=11111111
+2015-03-16 16:27:11,196 DEBUG [main] (AccInterface.java:59)     - Response:1&usertid=1290847&result=0&uname=test????16162711
+2015-03-16 16:27:11,197 DEBUG [main] (AccInterface.java:61)     - Response:1&usertid=1290847&result=0&uname=test????16162711
+2015-03-16 16:27:11,198 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&usertid=1290847&result=0&uname=test????16162711
+2015-03-16 16:27:12,199 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162710&key=idcard%3D000000016162710
+2015-03-16 16:27:12,206 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162710&idcard=000000016162710
+2015-03-16 16:27:12,219 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162711&key=idcard%3D000000016162710&doflush=1
+2015-03-16 16:27:12,229 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162711&idcard=000000016162710
+2015-03-16 16:27:12,231 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162710) No data!
+2015-03-16 16:27:12,233 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162710) No data!
+2015-03-16 16:27:12,235 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162711) No data!
+2015-03-16 16:27:12,236 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162711) No data!
+2015-03-16 16:27:12,238 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162710), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162711)
+2015-03-16 16:27:12,240 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162711), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162711)
+2015-03-16 16:27:12,241 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162710) No data!
+2015-03-16 16:27:12,242 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162711) No data!
+2015-03-16 16:27:12,244 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162712&upass=11111111
+2015-03-16 16:27:12,244 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162712&upass=11111111
+2015-03-16 16:27:12,244 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162712&upass=11111111
+2015-03-16 16:27:12,244 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162712&upass=11111111
+2015-03-16 16:27:12,249 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162712&usertid=1290855
+2015-03-16 16:27:12,249 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162712&usertid=1290855
+2015-03-16 16:27:12,249 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162712&usertid=1290855
+2015-03-16 16:27:13,251 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162713&upass=11111111
+2015-03-16 16:27:13,251 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162713&upass=11111111
+2015-03-16 16:27:13,252 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162713&upass=11111111
+2015-03-16 16:27:13,252 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162713&upass=11111111
+2015-03-16 16:27:13,259 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162713&usertid=1290867
+2015-03-16 16:27:13,259 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162713&usertid=1290867
+2015-03-16 16:27:13,259 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162713&usertid=1290867
+2015-03-16 16:27:14,260 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162712&key=idcard%3D000000000016162712
+2015-03-16 16:27:14,269 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162712&idcard=000000000016162712
+2015-03-16 16:27:14,270 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162713&key=idcard%3D000000000016162712&doflush=1
+2015-03-16 16:27:14,283 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&uname=Test????16162713&idcard=000000000016162712&result=0
+2015-03-16 16:27:14,284 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162712) No data!
+2015-03-16 16:27:14,286 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162712) No data!
+2015-03-16 16:27:14,287 ERROR [main] (MyCheckUtil.java:71)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162713) No data!
+2015-03-16 16:27:14,289 WARN  [main] (MyCheckUtil.java:85)     - checkExistredis.clients.jedis.BinaryJedis@30bd648a: (ukey:test≤‚ ‘16162713) No data!
+2015-03-16 16:27:14,291 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162712), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162713)
+2015-03-16 16:27:14,292 ERROR [main] (MyCheckUtil.java:134)     - checkIndexredis.clients.jedis.BinaryJedis@30bd648a:(Test≤‚ ‘16162713), unameSaved:(testÔøΩÔøΩÔøΩÔøΩ16162713)
+2015-03-16 16:27:14,294 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162712) No data!
+2015-03-16 16:27:14,295 ERROR [main] (MyCheckUtil.java:163)     - checkUidredis.clients.jedis.BinaryJedis@30bd648a: (u:test≤‚ ‘16162713) No data!
+2015-03-16 16:27:14,298 DEBUG [main] (AccInterface.java:50)     - RequestPararms:&uname=Test≤‚ ‘16162714&upass=11111111
+2015-03-16 16:27:14,299 DEBUG [main] (AccInterface.java:52)     - Request:&uname=Test≤‚ ‘16162714&upass=11111111
+2015-03-16 16:27:14,299 DEBUG [main] (AccInterface.java:54)     - Url: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162714&upass=11111111
+2015-03-16 16:27:14,299 DEBUG [main] (AccInterface.java:55)     - testAdduser: http://10.15.201.105/AccService/AccServlet.do?method=adduser&uname=Test≤‚ ‘16162714&upass=11111111
+2015-03-16 16:27:14,307 DEBUG [main] (AccInterface.java:59)     - Response:1&result=0&uname=test????16162714&usertid=1290879
+2015-03-16 16:27:14,307 DEBUG [main] (AccInterface.java:61)     - Response:1&result=0&uname=test????16162714&usertid=1290879
+2015-03-16 16:27:14,307 DEBUG [main] (AccInterface.java:62)     - testAdduser: 1&result=0&uname=test????16162714&usertid=1290879
+2015-03-16 16:27:15,308 DEBUG [main] (AccInterface.java:160)     - testUserbind: http://10.15.201.105/AccService/AccServlet.do?method=userkeybind&uname=Test≤‚ ‘16162714&key=truename%3DTrue%E6%B5%8B%E8%AF%9516162714ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+2015-03-16 16:27:15,314 DEBUG [main] (AccInterface.java:163)     - testUserbind: 1&result=0&uname=Test????16162714&truename=True≤‚ ‘16162714ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+2015-03-16 16:27:15,318 INFO  [main] (UsergetTest.java:77)     - ======Case3:≤È’“÷–Œƒ”√ªß√˚=======
+2015-03-16 16:27:15,318 DEBUG [main] (AccInterface.java:95)     - Request:&uname=ƒ„∫√&gettp=12288&passmd5=&exreq={"ver":"1.0"}
+2015-03-16 16:27:15,323 DEBUG [main] (AccInterface.java:99)     - Response:-2&result=2&msg=user_not_found&uname=???
+2015-03-16 16:27:15,324 INFO  [main] (UsergetTest.java:85)     - ======Case4:»± ß”√ªß√˚ ±≤È’“=======
+2015-03-16 16:27:15,325 DEBUG [main] (AccInterface.java:95)     - Request:&gettp=12288&passmd5=&exreq={"ver":"1.0"}
+2015-03-16 16:27:15,328 DEBUG [main] (AccInterface.java:99)     - Response:-101&result=101&msg=uname_bad
+2015-03-16 16:27:15,330 INFO  [main] (UsergetTest.java:69)     - ======Case2:∑«±ÿÃÓ◊÷∂Œ»´≤ø’˝»∑ È–¥«Î«Û=======
+2015-03-16 16:27:15,331 DEBUG [main] (AccInterface.java:95)     - Request:&uname=lidb&gettp=12288&passmd5=111111&exreq={"ver":"1.0"}
+2015-03-16 16:27:15,335 DEBUG [main] (AccInterface.java:99)     - Response:-2&result=2&msg=user_not_found&uname=lidb
+2015-03-16 16:27:15,336 INFO  [main] (UsergetTest.java:104)     - ======Case6:∑«±ÿÃÓ◊÷∂Œ»´≤ø È–¥«Î«Û£¨√‹¬Î¥ÌŒÛ=======
+2015-03-16 16:27:15,337 DEBUG [main] (AccInterface.java:95)     - Request:&uname=lidb&gettp=12288&passmd5=123457&exreq={"ver":"1.0"}
+2015-03-16 16:27:15,339 DEBUG [main] (AccInterface.java:99)     - Response:-2&result=2&msg=user_not_found&uname=lidb
+2015-03-16 16:27:15,340 INFO  [main] (UsergetTest.java:137)     - ======Case10:◊÷∂Œ√˚¥ÌŒÛ£¨”√ªß√˚¥ÌŒÛ=======
+2015-03-16 16:27:15,341 DEBUG [main] (AccInterface.java:95)     - Request:&ume=lidb&passmd5=123456&exreq={"ver":"1.0"}
+2015-03-16 16:27:15,343 DEBUG [main] (AccInterface.java:99)     - Response:-101&result=101&msg=uname_bad
+2015-03-16 16:27:15,344 INFO  [main] (UsergetTest.java:129)     - ======Case9:◊÷∂Œ√˚¥ÌŒÛ£¨∑«±ÿÃÓ¥ÌŒÛ=======
+2015-03-16 16:27:15,345 DEBUG [main] (AccInterface.java:95)     - Request:&uname=lidb&pad5=123456&exreq={"ver":"1.0"}
+2015-03-16 16:27:15,349 DEBUG [main] (AccInterface.java:99)     - Response:-2&result=2&msg=user_not_found&uname=lidb
+2015-03-16 16:27:15,350 INFO  [main] (UsergetTest.java:61)     - ======Case1:ªÒ»°“ª∏ˆ≤ª¥Ê‘⁄”√ªßµƒ–≈œ¢=======
+2015-03-16 16:27:15,350 DEBUG [main] (AccInterface.java:95)     - Request:&uname=johnnyoo
+2015-03-16 16:27:15,353 DEBUG [main] (AccInterface.java:99)     - Response:-2&result=2&msg=user_not_found&uname=johnnyoo
+2015-03-16 16:27:15,354 INFO  [main] (UsergetTest.java:112)     - ======Case7:∑«±ÿÃÌ◊÷∂Œ»± ß=======
+2015-03-16 16:27:15,355 DEBUG [main] (AccInterface.java:95)     - Request:&uname=lidb&gettp=12288
+2015-03-16 16:27:15,357 DEBUG [main] (AccInterface.java:99)     - Response:-2&result=2&msg=user_not_found&uname=lidb

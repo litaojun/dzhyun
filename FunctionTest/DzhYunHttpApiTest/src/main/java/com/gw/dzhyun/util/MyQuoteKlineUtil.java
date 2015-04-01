@@ -3,8 +3,7 @@ package com.gw.dzhyun.util;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-
-import dzhyun.Dzhoutput.QuoteDyna;
+import com.dzhyun.proto.Dzhoutput.QuoteDyna;
 
 public class MyQuoteKlineUtil {
 	
