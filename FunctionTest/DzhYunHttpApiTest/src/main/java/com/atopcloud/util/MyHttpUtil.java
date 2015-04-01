@@ -2,15 +2,14 @@ package com.atopcloud.util;
 
 import org.xml.sax.SAXException;
 
+import com.dzhyun.proto.Dzhoutput.QuoteDynaOutput;
+import com.dzhyun.proto.Dzhoutput.QuoteDynaSingle;
+import com.dzhyun.proto.Dzhua.UAResponse;
 import com.google.protobuf.ByteString;
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.PostMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebResponse;
-
-import dzhyun.Dzhoutput.QuoteDynaOutput;
-import dzhyun.Dzhoutput.QuoteDynaSingle;
-import dzhyun.Dzhua.UAResponse;
 
 /**
  * 封装发送http请求的方法。
@@ -39,7 +38,7 @@ public class MyHttpUtil {
 		//WebConversation连接目的网页，然後得到回应WebResponse
 		WebResponse response = web.getResponse(get);  
 		
-		String ret="";
+		String ret=null;
 		if(type.equalsIgnoreCase("json"))
 		{
 			ret = response.getText();

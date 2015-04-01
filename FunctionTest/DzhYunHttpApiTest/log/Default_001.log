@@ -270,3 +270,192 @@ INFO:   2015-03-09_19:14:27    recv a heartbeat and ready to send the packet. se
 INFO:   2015-03-09_19:14:42    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1028.
 INFO:   2015-03-09_19:14:57    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1028.
 INFO:   2015-03-09_19:15:12    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1028.
+INFO:   2015-03-10_20:49:25    TryConnectSqts: alib[10.15.44.251:54026] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-10_20:49:26    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-10_20:49:26    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 1032
+INFO:   2015-03-10_20:49:26    CreateRecvPacketThread success.
+INFO:   2015-03-10_20:49:26    create root proxy success. root proxy seq[1]
+INFO:   2015-03-10_20:49:41    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-10_20:49:41    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-10_20:49:42    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-10_20:49:57    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-10_20:50:12    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-10_20:54:01    TryConnectSqts: alib[10.15.44.251:55262] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-10_20:54:01    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-10_20:54:01    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-10_20:54:01    CreateRecvPacketThread success.
+INFO:   2015-03-10_20:54:01    create root proxy success. root proxy seq[1]
+INFO:   2015-03-10_20:54:01    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-10_20:54:01    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+ERROR:  2015-03-10_20:54:07    RecvData: select no read event. errno:0
+ERROR:  2015-03-10_20:54:07    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-10_20:54:07    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-10_21:01:42    TryConnectSqts: alib[10.15.44.251:57208] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-10_21:01:42    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-10_21:01:42    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-10_21:01:42    CreateRecvPacketThread success.
+INFO:   2015-03-10_21:01:42    create root proxy success. root proxy seq[1]
+INFO:   2015-03-10_21:01:42    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-10_21:01:42    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+ERROR:  2015-03-10_21:01:48    RecvData: select no read event. errno:0
+ERROR:  2015-03-10_21:01:48    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-10_21:01:49    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-11_15:54:12    TryConnectSqts: alib[10.15.44.251:61373] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_15:54:12    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_15:54:12    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-11_15:54:12    CreateRecvPacketThread success.
+INFO:   2015-03-11_15:54:12    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_15:54:12    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_15:54:12    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_15:55:13    TryConnectSqts: alib[10.15.44.251:61622] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_15:55:13    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_15:55:13    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-11_15:55:13    CreateRecvPacketThread success.
+INFO:   2015-03-11_15:55:13    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_15:55:13    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_15:55:13    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+ERROR:  2015-03-11_15:55:19    RecvData: select no read event. errno:0
+ERROR:  2015-03-11_15:55:19    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-11_15:55:19    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-11_16:10:21    TryConnectSqts: alib[10.15.44.251:51398] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_16:10:21    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_16:10:21    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 1032
+INFO:   2015-03-11_16:10:21    CreateRecvPacketThread success.
+INFO:   2015-03-11_16:10:21    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_16:10:21    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_16:10:21    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_16:10:36    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:10:51    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:11:06    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:11:21    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:11:36    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:11:51    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:12:06    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:12:21    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:12:36    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:12:51    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:13:06    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:13:21    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:13:36    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+INFO:   2015-03-11_16:13:51    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:1032.
+ERROR:  2015-03-11_16:13:53    RecvData: select no read event. errno:0
+ERROR:  2015-03-11_16:13:53    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-11_16:13:53    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-11_16:19:30    TryConnectSqts: alib[10.15.44.251:53648] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_16:19:30    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_16:19:30    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-11_16:19:30    CreateRecvPacketThread success.
+INFO:   2015-03-11_16:19:30    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_16:19:30    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_16:19:30    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+ERROR:  2015-03-11_16:19:33    RecvData: select no read event. errno:0
+ERROR:  2015-03-11_16:19:33    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-11_16:19:33    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-11_16:20:33    TryConnectSqts: alib[10.15.44.251:53909] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_16:20:33    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_16:20:33    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-11_16:20:33    CreateRecvPacketThread success.
+INFO:   2015-03-11_16:20:33    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_16:20:33    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_16:20:33    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+ERROR:  2015-03-11_16:20:36    RecvData: recv failed. errno:10038
+ERROR:  2015-03-11_16:20:36    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-11_16:20:37    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-11_18:00:35    TryConnectSqts: alib[10.15.44.251:50314] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_18:00:35    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_18:00:35    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-11_18:00:35    CreateRecvPacketThread success.
+INFO:   2015-03-11_18:00:35    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_18:00:35    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-11_18:00:35    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+ERROR:  2015-03-11_18:00:36    RecvData: recv failed. errno:10038
+ERROR:  2015-03-11_18:00:36    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-11_18:00:36    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-11_18:00:39    TryConnectSqts: alib[10.15.44.251:50332] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_18:00:39    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_18:00:39    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 704
+INFO:   2015-03-11_18:00:39    CreateRecvPacketThread success.
+INFO:   2015-03-11_18:00:39    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_18:00:39    send a Async req success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0] req seq[1]
+INFO:   2015-03-11_18:00:39    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[1]
+ERROR:  2015-03-11_18:00:49    RecvData: select no read event. errno:0
+ERROR:  2015-03-11_18:00:49    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-11_18:00:49    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-11_18:04:58    TryConnectSqts: alib[10.15.44.251:51409] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-11_18:04:58    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-11_18:04:58    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-11_18:04:58    CreateRecvPacketThread success.
+INFO:   2015-03-11_18:04:58    create root proxy success. root proxy seq[1]
+INFO:   2015-03-11_18:04:58    send a Async req success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0] req seq[1]
+INFO:   2015-03-11_18:04:58    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[1]
+INFO:   2015-03-11_18:05:13    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:664.
+INFO:   2015-03-11_18:05:28    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:664.
+ERROR:  2015-03-11_18:05:28    RecvData: select no read event. errno:0
+ERROR:  2015-03-11_18:05:28    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-11_18:05:28    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-12_09:57:12    TryConnectSqts: alib[10.15.44.251:51628] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-12_09:57:12    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-12_09:57:12    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-12_09:57:12    CreateRecvPacketThread success.
+INFO:   2015-03-12_09:57:12    create root proxy success. root proxy seq[1]
+INFO:   2015-03-12_09:57:12    send a Async req success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0] req seq[1]
+INFO:   2015-03-12_09:57:12    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[1]
+INFO:   2015-03-12_09:57:27    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:664.
+INFO:   2015-03-12_09:57:42    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:664.
+ERROR:  2015-03-12_09:57:43    RecvData: select no read event. errno:0
+ERROR:  2015-03-12_09:57:43    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-12_09:57:44    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-12_10:04:42    TryConnectSqts: alib[10.15.44.251:53459] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-12_10:04:42    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-12_10:04:42    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-12_10:04:42    CreateRecvPacketThread success.
+INFO:   2015-03-12_10:04:42    create root proxy success. root proxy seq[1]
+INFO:   2015-03-12_10:04:42    send a Async req success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=-1&response_mode=0&async_response_mode=0] req seq[1]
+INFO:   2015-03-12_10:04:42    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[1]
+INFO:   2015-03-12_10:04:45    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[2]
+INFO:   2015-03-12_10:04:48    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[3]
+INFO:   2015-03-12_10:04:51    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[4]
+INFO:   2015-03-12_10:04:54    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[5]
+INFO:   2015-03-12_10:04:57    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[6]
+INFO:   2015-03-12_10:05:00    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[7]
+INFO:   2015-03-12_10:05:03    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[8]
+INFO:   2015-03-12_10:05:06    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[9]
+INFO:   2015-03-12_10:05:09    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[10]
+INFO:   2015-03-12_10:05:12    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[11]
+INFO:   2015-03-12_10:05:13    CancelProxy: Send req[1].proxy seq[1] and parent proxy seq[-1]
+ERROR:  2015-03-12_10:05:13    RecvData: select no read event. errno:0
+ERROR:  2015-03-12_10:05:13    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-12_10:05:13    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-12_10:06:21    TryConnectSqts: alib[10.15.44.251:53863] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-12_10:06:21    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-12_10:06:21    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-12_10:06:21    CreateRecvPacketThread success.
+INFO:   2015-03-12_10:06:21    create root proxy success. root proxy seq[1]
+INFO:   2015-03-12_10:06:21    send a Async req success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=5&response_mode=0&async_response_mode=0] req seq[1]
+INFO:   2015-03-12_10:06:21    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[1]
+INFO:   2015-03-12_10:06:21    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[2]
+INFO:   2015-03-12_10:06:24    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[3]
+INFO:   2015-03-12_10:06:27    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[4]
+INFO:   2015-03-12_10:06:30    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[5]
+INFO:   2015-03-12_10:06:46    recv a heartbeat and ready to send the packet. server[10.15.108.76:5184].socket:664.
+ERROR:  2015-03-12_10:06:52    RecvData: select no read event. errno:0
+ERROR:  2015-03-12_10:06:52    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-12_10:06:52    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-12_10:08:11    TryConnectSqts: alib[10.15.44.251:54357] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-12_10:08:11    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-12_10:08:11    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-12_10:08:11    CreateRecvPacketThread success.
+INFO:   2015-03-12_10:08:11    create root proxy success. root proxy seq[1]
+INFO:   2015-03-12_10:08:11    SyncReqData: SendAskReq success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+INFO:   2015-03-12_10:08:11    SyncReqData: recv a sync req's response. State[1] request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=1&response_mode=0&async_response_mode=0]
+ERROR:  2015-03-12_10:08:12    RecvData: select no read event. errno:0
+ERROR:  2015-03-12_10:08:12    RecvDataHeadBody RecvData failed. retlen:-1
+WARING: 2015-03-12_10:08:12    DestroyRootProxy: connect exit ip:10.15.108.76:5184 socket:-1
+INFO:   2015-03-12_11:10:55    TryConnectSqts: alib[10.15.44.251:53646] and sqts[10.15.108.76:5184] ESTABLISHED
+INFO:   2015-03-12_11:10:55    TryConnectSqts: connect sqts[10.15.108.76:5184] success
+INFO:   2015-03-12_11:10:55    CreateRootProxy: dzhappuser3 login [10.15.108.76:5184] success. socket: 664
+INFO:   2015-03-12_11:10:55    CreateRecvPacketThread success.
+INFO:   2015-03-12_11:10:55    create root proxy success. root proxy seq[1]
+INFO:   2015-03-12_11:10:55    send a Async req success. request[service=quote&type=dyna&field=&where=obj=SH601519&start=-1&count=1&response_times=-1&response_mode=0&async_response_mode=0] req seq[1]
+INFO:   2015-03-12_11:10:55    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[1]
+INFO:   2015-03-12_11:10:57    DealAsyncReqRes: recv response of req in proxy. pkgType[4] datalen[601]. proxy seq[1] req seq[1] res seq[2]
