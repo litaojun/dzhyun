@@ -1,5 +1,7 @@
 package com.gw.account.httptest;
 
+import com.gw.account.utils.MyCheckUtil;
+import com.gw.account.utils.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
@@ -7,73 +9,36 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.net.URLEncoder;
+import java.net.URLDecoder;
 import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Hihiri on 2015/3/27.
- */
+* Created by Hihiri on 2015/3/27.
+*/
 public class CheckpassTest {
     private static final Log LOG = LogFactory.getLog(CheckpassTest.class);
-    private static String uname;
-    private static String email;
-    private static String mobile;
-    private static String lotterid;
-    private static String deviceid;
-    private static String pushid;
+    private static User user = new User();
     private static String nlotterid;
-    private static String truename;
-    private static String nickname;
-    private static String idcard;
-    private static String qqid;
-    private static String lcb;
-    private static String wxid;
-    //private static String bankcard;
-    //private static String
-    private static String xcid;
-    private static String upass = "11111111";
 
     @BeforeClass
-    public static void globalInit() throws IOException, SAXException {
-        SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
-        String number = df.format(new Date());
-        uname = "Test" + "测试_" + number;
-        email = "Test" + number + "@126.com";
-        mobile = "188" + number;
-        lotterid = "Lotter" + number;
-        deviceid = "Device" + number;
-        pushid = "Push" + number;
-        nlotterid = "Nlotter" + number;
-        truename = "True" + "测试" + number;
-        nickname = "Nick" + "测试_" + number;
-        idcard = String.format("%018d", Long.parseLong(number));
-        qqid = "qq" + number;
-        lcb = "lcb" + number;
-        wxid = "wx" + number;
-        xcid= "xc" + number;
-        AccInterface.testAdduser("&uname=" + uname + "&upass=" + upass);
-        bindKey(uname,"email",email);
-        bindKey(uname,"mobile",mobile);
-        bindKey(uname,"lotterid",lotterid);
-        bindKey(uname,"deviceid",deviceid);
-        bindKey(uname,"pushid",pushid);
-        bindKey(uname,"nlotterid",nlotterid);
-        bindKey(uname,"truename",truename);
-        bindKey(uname,"nickname",nickname);
-        bindKey(uname,"idcard",idcard);
-        bindKey(uname,"qqid",qqid);
-        bindKey(uname,"lcb",lcb);
-        bindKey(uname,"wxid",wxid);
-        bindKey(uname,"xcid",xcid);
-    }
-
-    public static void bindKey(String uname, String keytp, String key) throws IOException, SAXException {
-        String keyencode = URLEncoder.encode(keytp + "=" + key, "UTF-8");
-        AccInterface.testUserbind("&uname=" + uname + "&key=" + keyencode);
+    public static void globalInit() throws IOException, SAXException, InterruptedException {
+        MyCheckUtil.initialize();
+        user.createUser();
+        MyCheckUtil.bindKey(user.getUname(),"email",user.getEmail());
+        MyCheckUtil.bindKey(user.getUname(),"mobile",user.getMobile());
+        String response = AccInterface.testLotterbind("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid());
+        MyCheckUtil.bindKey(user.getUname(),"deviceid",user.getDeviceid());
+//        MyCheckUtil.bindKey(user.getUname(),"pushid",pushid); 单独不可以绑定
+        nlotterid = MyCheckUtil.getValueFromResponse(response,"nlotterid");
+        MyCheckUtil.bindKey(user.getUname(),"truename",user.getTruename());
+        MyCheckUtil.bindKey(user.getUname(),"nickname",user.getNickname());
+        MyCheckUtil.bindKey(user.getUname(),"idcard",user.getIdcard());
+        MyCheckUtil.bindKey(user.getUname(),"qqid",user.getQqid());
+        MyCheckUtil.bindKey(user.getUname(),"lcb",user.getLcb());
+        MyCheckUtil.bindKey(user.getUname(),"wxid",user.getWxid());
+        MyCheckUtil.bindKey(user.getUname(),"xcid",user.getXcid());
     }
 
     //=================================正确key和密码=======================================
@@ -85,7 +50,7 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectUnameandUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + uname + "&passmd5=" + MyCheckUtil.encodePassword(upass);
+        String params = "&uname=" + user.getUname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8"));
         String response = AccInterface.testCheckpass(params);
         boolean result = response.contains("result=0");
         assertTrue("正确用户名和密码作为参数，不返回用户名",result);
@@ -99,9 +64,9 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectUnameandUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + uname + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&runame=1";
+        String params = "&uname=" + user.getUname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = MyCheckUtil.checkResponseSolo(response, "uname", uname);
+        boolean result = response.contains("result=0") && MyCheckUtil.checkResponseSolo(response, "uname", user.getUname().toLowerCase());
         assertTrue("正确用户名和密码作为参数，返回用户名",result);
     }
 
@@ -113,7 +78,7 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectEmailandUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + email + "&passmd5=" + MyCheckUtil.encodePassword(upass);
+        String params = "&uname=" + user.getEmail() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8"));
         String response = AccInterface.testCheckpass(params);
         boolean result = response.contains("result=0");
         assertTrue("正确邮箱和密码作为参数，不返回用户名",result);
@@ -127,9 +92,9 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectEmailandUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + email + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&runame=1";
+        String params = "&uname=" + user.getEmail() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = MyCheckUtil.checkResponse(response, uname, "email", email);
+        boolean result = MyCheckUtil.checkResponseSolo(response,"uname",user.getUname().toLowerCase());
         assertTrue("正确邮箱和密码作为参数，返回用户名",result);
     }
 
@@ -141,7 +106,7 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectMobileandUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + mobile + "&passmd5=" + MyCheckUtil.encodePassword(upass);
+        String params = "&uname=" + user.getMobile() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8"));
         String response = AccInterface.testCheckpass(params);
         boolean result = response.contains("result=0");
         assertTrue("正确手机和密码作为参数，不返回用户名",result);
@@ -155,9 +120,9 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectMobileandUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + mobile + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&runame=1";
+        String params = "&uname=" + user.getMobile() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = MyCheckUtil.checkResponse(response, uname, "mobile", mobile);
+        boolean result = MyCheckUtil.checkResponseSolo(response,"uname",user.getUname().toLowerCase());
         assertTrue("正确手机和密码作为参数，返回用户名",result);
     }
 
@@ -169,7 +134,7 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectLotteridandUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&keytp=lotterid";
+        String params = "&uname=" + user.getLotterid() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=lotterid";
         String response = AccInterface.testCheckpass(params);
         boolean result = response.contains("result=0");
         assertTrue("正确彩票账户和密码作为参数，不返回用户名",result);
@@ -183,9 +148,9 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectLotteridandUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "keytp=lotterid&runame=1";
+        String params = "&uname=" + user.getLotterid() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=lotterid&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = MyCheckUtil.checkResponse(response,uname,"lotterid",lotterid);
+        boolean result = response.contains("result=0");
         assertTrue("正确彩票账户和密码作为参数，返回用户名",result);
     }
 
@@ -197,7 +162,7 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectNicknameandUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + nickname + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&keytp=nickname";
+        String params = "&uname=" + user.getNickname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=nickname";
         String response = AccInterface.testCheckpass(params);
         boolean result = response.contains("result=0");
         assertTrue("正确昵称和密码作为参数，不返回用户名",result);
@@ -211,9 +176,9 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectNicknameandUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + nickname + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "keytp=nickname&runame=1";
+        String params = "&uname=" + user.getNickname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=nickname&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = MyCheckUtil.checkResponse(response,uname,"nickname",nickname);
+        boolean result = response.contains("result=0") && MyCheckUtil.checkResponseSolo(response,"uname",user.getUname().toLowerCase());
         assertTrue("正确昵称和密码作为参数，返回用户名",result);
     }
 
@@ -225,7 +190,7 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectIdcardandUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + idcard + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&keytp=idcard";
+        String params = "&uname=" + user.getIdcard() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=idcard";
         String response = AccInterface.testCheckpass(params);
         boolean result = response.contains("result=0");
         assertTrue("正确身份证号码和密码作为参数，不返回用户名",result);
@@ -239,9 +204,9 @@ public class CheckpassTest {
      */
     @Test
     public void testCorrectIdcardandUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + idcard + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "keytp=idcard&runame=1";
+        String params = "&uname=" + user.getIdcard() + "&passmd5=" + MyCheckUtil.encodeMD5(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=idcard&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = MyCheckUtil.checkResponse(response,uname,"idcard",idcard);
+        boolean result = response.contains("result=0") && MyCheckUtil.checkResponseSolo(response,"uname",user.getUname().toLowerCase());
         assertTrue("正确身份证号码和密码作为参数，返回用户名",result);
     }
 
@@ -254,9 +219,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongUname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + uname + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass);
+        String params = "&uname=" + user.getUname() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8"));
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误用户名作为参数，不返回用户名",result);
     }
 
@@ -268,9 +233,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongUnameRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + uname + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&runame=1";
+        String params = "&uname=" + user.getUname() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误用户名作为参数，返回用户名",result);
     }
 
@@ -282,9 +247,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongEmail() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + email + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass);
+        String params = "&uname=" + user.getEmail() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8"));
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误邮箱作为参数，不返回用户名",result);
     }
 
@@ -296,9 +261,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongEmailRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + email + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&runame=1";
+        String params = "&uname=" + user.getEmail() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误邮箱作为参数，返回用户名",result);
     }
 
@@ -310,9 +275,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongMobile() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + mobile + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass);
+        String params = "&uname=" + user.getMobile() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8"));
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误手机作为参数，不返回用户名",result);
     }
 
@@ -324,9 +289,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongMobileRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + mobile + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&runame=1";
+        String params = "&uname=" + user.getMobile() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误手机作为参数，返回用户名",result);
     }
 
@@ -338,9 +303,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongLotterid() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&keytp=lotterid";
+        String params = "&uname=" + user.getLotterid() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=lotterid";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误彩票账户作为参数，不返回用户名",result);
     }
 
@@ -352,9 +317,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongLotteridRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "keytp=lotterid&runame=1";
+        String params = "&uname=" + user.getLotterid() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "keytp=lotterid&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误彩票账户作为参数，返回用户名",result);
     }
 
@@ -366,9 +331,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongNickname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + nickname + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&keytp=nickname";
+        String params = "&uname=" + user.getNickname() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=nickname";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误昵称作为参数，不返回用户名",result);
     }
 
@@ -380,9 +345,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongNicknameRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + nickname + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "keytp=nickname&runame=1";
+        String params = "&uname=" + user.getNickname() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "keytp=nickname&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误昵称作为参数，返回用户名",result);
     }
 
@@ -394,9 +359,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongIdcard() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + idcard + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "&keytp=idcard";
+        String params = "&uname=" + user.getIdcard() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=idcard";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误身份证号码作为参数，不返回用户名",result);
     }
 
@@ -408,9 +373,9 @@ public class CheckpassTest {
      */
     @Test
     public void testWrongIdcardRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + idcard + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "keytp=idcard&runame=1";
+        String params = "&uname=" + user.getIdcard() + "wrong" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "keytp=idcard&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("错误身份证号码作为参数，返回用户名",result);
     }
 
@@ -423,9 +388,9 @@ public class CheckpassTest {
      */
     @Test
     public void testUnameWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + uname + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong");
+        String params = "&uname=" + user.getUname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong");
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确用户名错误密码作为参数，不返回用户名",result);
     }
 
@@ -437,9 +402,9 @@ public class CheckpassTest {
      */
     @Test
     public void testUnameWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + uname + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "&runame=1";
+        String params = "&uname=" + user.getUname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确用户名错误密码作为参数，返回用户名",result);
     }
 
@@ -451,9 +416,9 @@ public class CheckpassTest {
      */
     @Test
     public void testEmailWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + email + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong");
+        String params = "&uname=" + user.getEmail() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong");
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确邮箱错误密码作为参数，不返回用户名",result);
     }
 
@@ -465,9 +430,9 @@ public class CheckpassTest {
      */
     @Test
     public void testEmailWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + email + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "&runame=1";
+        String params = "&uname=" + user.getEmail() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确邮箱错误密码作为参数，返回用户名",result);
     }
 
@@ -479,9 +444,9 @@ public class CheckpassTest {
      */
     @Test
     public void testMobileWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + mobile + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong");
+        String params = "&uname=" + user.getMobile() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong");
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确手机错误密码作为参数，不返回用户名",result);
     }
 
@@ -493,9 +458,9 @@ public class CheckpassTest {
      */
     @Test
     public void testMobileWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + mobile + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "&runame=1";
+        String params = "&uname=" + user.getMobile() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确手机错误密码作为参数，返回用户名",result);
     }
 
@@ -507,9 +472,9 @@ public class CheckpassTest {
      */
     @Test
     public void testLotteridWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "&keytp=lotterid";
+        String params = "&uname=" + user.getLotterid() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "&keytp=lotterid";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确彩票账户错误密码作为参数，不返回用户名",result);
     }
 
@@ -521,9 +486,9 @@ public class CheckpassTest {
      */
     @Test
     public void testLotteridWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "keytp=lotterid&runame=1";
+        String params = "&uname=" + user.getLotterid() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "keytp=lotterid&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确彩票账户错误密码作为参数，返回用户名",result);
     }
 
@@ -535,9 +500,9 @@ public class CheckpassTest {
      */
     @Test
     public void testNicknameWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + nickname + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "&keytp=nickname";
+        String params = "&uname=" + user.getNickname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "&keytp=nickname";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确昵称错误密码作为参数，不返回用户名",result);
     }
 
@@ -549,9 +514,9 @@ public class CheckpassTest {
      */
     @Test
     public void testNicknameWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + nickname + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "keytp=nickname&runame=1";
+        String params = "&uname=" + user.getNickname() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "keytp=nickname&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确昵称错误密码作为参数，返回用户名",result);
     }
 
@@ -563,9 +528,9 @@ public class CheckpassTest {
      */
     @Test
     public void testIdcardWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + idcard + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "&keytp=idcard";
+        String params = "&uname=" + user.getIdcard() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "&keytp=idcard";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确身份证号码错误密码作为参数，不返回用户名",result);
     }
 
@@ -577,9 +542,9 @@ public class CheckpassTest {
      */
     @Test
     public void testIdcardWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + idcard + "&passmd5=" + MyCheckUtil.encodePassword(upass + "wrong") + "keytp=idcard&runame=1";
+        String params = "&uname=" + user.getIdcard() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8") + "wrong") + "keytp=idcard&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确身份证号码错误密码作为参数，返回用户名",result);
     }
 
@@ -592,9 +557,9 @@ public class CheckpassTest {
      */
     @Test
     public void testNullUname() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + "" + "&passmd5=" + MyCheckUtil.encodePassword(upass);
+        String params = "&uname=" + "" + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8"));
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=101") && response.contains("msg=uname_bad");
         assertTrue("空用户名和正确密码作为参数，不返回用户名",result);
     }
 
@@ -607,9 +572,9 @@ public class CheckpassTest {
      */
     @Test
     public void testUnameNullUpass() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + uname + "&passmd5=" + "";
+        String params = "&uname=" + user.getUname() + "&passmd5=" + "";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=101") && response.contains("msg=passmd5_bad");
         assertTrue("正确用户名和空密码作为参数，不返回用户名",result);
     }
 
@@ -622,24 +587,24 @@ public class CheckpassTest {
      */
     @Test
     public void testLotteridNullKeytp() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "";
+        String params = "&uname=" + user.getLotterid() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
+        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("正确彩票账户和密码作为参数，未指定keytp，不返回用户名",result);
     }
 
     //=================================使用其他用户绑定唯一key，runame不为1=======================================
     /**
-     * 正确彩票账户和密码作为参数，runame不为1
+     * 正确彩票账户和密码作为参数，runame不为1，为其他值
      * @throws NoSuchAlgorithmException
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testLotteridRunameNot1() throws NoSuchAlgorithmException, IOException, SAXException {
-        String params = "&uname=" + lotterid + "&passmd5=" + MyCheckUtil.encodePassword(upass) + "keytp=lotterid&runame=2";
+        String params = "&uname=" + user.getLotterid() + "&passmd5=" + MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")) + "&keytp=lotterid&runame=2";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=0");
-        assertTrue("正确彩票账户和密码作为参数，runame不为1",result);
+        boolean result = response.contains("result=0") && !response.contains("uname");
+        assertTrue("正确彩票账户和密码作为参数，runame不为1，为其他值",result);
     }
 }

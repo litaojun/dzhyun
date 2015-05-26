@@ -12,6 +12,7 @@ public class KeyIdCast {
     public static void initialize() {
         keyidtokey.clear();
         keytokeyid.clear();
+        putCast(0,"v3name");
         putCast(1, "email");
         putCast(2,"mobile");
         putCast(3,"lotterid");

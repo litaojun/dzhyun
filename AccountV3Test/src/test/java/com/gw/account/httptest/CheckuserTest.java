@@ -1,12 +1,12 @@
 package com.gw.account.httptest;
 
+import com.gw.account.utils.MyCheckUtil;
+import com.gw.account.utils.User;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static org.junit.Assert.assertTrue;
 
@@ -14,14 +14,12 @@ import static org.junit.Assert.assertTrue;
  * Created by Hihiri on 2015/3/27.
  */
 public class CheckuserTest {
-    private static String uname;
+    private static User user = new User();
 
     @BeforeClass
-    public void globalInit() throws IOException, SAXException {
-        SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
-        String number = df.format(new Date());
-        uname = "Test" + "测试_" + number;
-        AccInterface.testAdduser("&uname=" + uname);
+    public static void globalInit() throws IOException, SAXException, InterruptedException {
+        MyCheckUtil.initialize();
+        user.createUser();
     }
 
     /**
@@ -31,9 +29,8 @@ public class CheckuserTest {
      */
     @Test
     public void testCheckCorrectUser() throws IOException, SAXException {
-        String response = AccInterface.testCheckuser("&uname=" + uname);
-        String getuname = MyCheckUtil.getValueFromResponse(response,"uname");
-        boolean result = response.contains("result=0") && getuname.equals(uname.toLowerCase());
+        String response = AccInterface.testCheckuser("&uname=" + user.getUname());
+        boolean result = response.contains("result=0") && MyCheckUtil.checkResponseSolo(response,"uname",user.getUname().toLowerCase());
         assertTrue("正确用户名作为参数验证用户",result);
     }
 
@@ -44,8 +41,8 @@ public class CheckuserTest {
      */
     @Test
     public void testCheckWrongUser() throws IOException, SAXException {
-        String response = AccInterface.testCheckuser("&uname=wrong" + uname);
-        boolean result = response.contains("result=114");
+        String response = AccInterface.testCheckuser("&uname=" + user.getUname() + "wrong");
+        boolean result = response.contains("result=2");
         assertTrue("错误用户名作为参数验证用户",result);
     }
 
@@ -57,7 +54,7 @@ public class CheckuserTest {
     @Test
     public void testCheckNullUser() throws IOException, SAXException {
         String response = AccInterface.testCheckuser("&uname=" + "");
-        boolean result = response.contains("result=114");
+        boolean result = response.contains("result=101");
         assertTrue("空用户名作为参数验证用户",result);
     }
 }
