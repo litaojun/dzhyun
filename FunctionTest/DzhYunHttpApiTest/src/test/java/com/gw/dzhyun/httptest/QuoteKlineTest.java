@@ -67,7 +67,7 @@ public class QuoteKlineTest {
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
-		assertNotNull("错误：行情返回null",ret);
+		assertNotNull("错误：行情返回null",ret);  
 		JSONObject data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
 		assertNotNull("错误：股票k线为null",data);
 	}
