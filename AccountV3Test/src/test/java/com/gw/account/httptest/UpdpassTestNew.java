@@ -337,5 +337,4 @@ public class UpdpassTestNew {
         boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
         assertTrue("空keytp修改密码",result);
     }
-
 }

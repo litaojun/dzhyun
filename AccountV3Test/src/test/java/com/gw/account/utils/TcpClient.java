@@ -33,6 +33,7 @@ public class TcpClient implements Closeable {
     private final static short USERLOGINREQ = 0x3001;
     private final static short USERGETREQ   = 0x300A;
     private final static short ADDUSEREXREQ = 0x3101;
+    private final static short UPDPASSREQ   = 0x1004;
 
     private SocketChannel conn = null;
     private ByteBuffer rb      = null;
@@ -80,6 +81,11 @@ public class TcpClient implements Closeable {
 
     public String userlogin(String json) {
         send(USERLOGINREQ, (short) 2, json);
+        return read();
+    }
+
+    public String updpass(String json) {
+        send(UPDPASSREQ, (short) 3, json);
         return read();
     }
 

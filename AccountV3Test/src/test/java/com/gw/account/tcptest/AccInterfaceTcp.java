@@ -40,4 +40,17 @@ public class AccInterfaceTcp {
         LOG.debug("usergetTCP: " + response);
         return response;
     }
+
+    public static String testUpdpassTcp(String params) throws IOException, SAXException {
+        StringBuffer sb = new StringBuffer();
+        sb.append(params);
+        String urlparam = sb.toString();
+        LOG.debug("updpassTCP: " + urlparam);
+        TcpClient client = new TcpClient();
+        client.open(serverIP, serverPort);
+        String response = client.updpass(urlparam);
+        client.close();
+        LOG.debug("updpassTCP: " + response);
+        return response;
+    }
 }

@@ -3,6 +3,7 @@ package com.gw.account.utils;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class User {
         Date date = new Date();
         number = df.format(date);
         uname = "Test" + "测试_" + number;
-        upass = URLEncoder.encode("Ww123!@#$%^*()_+-=[];',./?<>`~","UTF-8");
+        upass = "Ww123!@#$%^*()_+-=[];',./?<>`~";
         email = "Test" + number + "@126.com";
         mobile = "188" + number;
         lotterid = "Ltr" + number;
@@ -72,7 +73,7 @@ public class User {
         subbank = "支行名称";
         ylmobile = "188" + number;
         checkstatus = "2";
-        usertid = MyCheckUtil.addUser(uname, upass);
+        usertid = MyCheckUtil.addUser(uname,getURLupass());
         opendate = dfy.format(date);
         opentype = "Type" + "测试_" + number;
         source = "Source" + "测试_" + number;
@@ -90,6 +91,10 @@ public class User {
 
     public String getUpass() {
         return upass;
+    }
+
+    public String getURLupass() throws UnsupportedEncodingException {
+        return URLEncoder.encode(upass,"UTF-8");
     }
 
     public String getEmail() {

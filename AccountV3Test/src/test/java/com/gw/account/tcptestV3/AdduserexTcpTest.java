@@ -1,4 +1,4 @@
-package com.gw.account.tcptest;
+package com.gw.account.tcptestV3;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.gw.account.tcptest.AccInterfaceTcp;
 import com.gw.account.utils.MyCheckUtil;
 import com.gw.account.utils.User;
 import org.apache.commons.logging.Log;
