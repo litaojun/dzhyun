@@ -16,7 +16,6 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.security.NoSuchAlgorithmException;
 
 import static org.junit.Assert.assertTrue;
@@ -50,6 +49,7 @@ public class UsergetTcpTest {
 
     /**
      * 用户名请求
+     *
      * @throws IOException
      * @throws SAXException
      * @throws java.security.NoSuchAlgorithmException
@@ -62,12 +62,13 @@ public class UsergetTcpTest {
                 )
         );
         String response = AccInterfaceTcp.testUsergetTcp(request);
-        boolean result = checkALL(null,response);
+        boolean result = checkALL(null, response);
         assertTrue("用户名请求", result);
     }
 
     /**
      * 用户名密码请求
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -81,12 +82,13 @@ public class UsergetTcpTest {
                 )
         );
         String response = AccInterfaceTcp.testUsergetTcp(request);
-        boolean result = checkALL(null,response);
+        boolean result = checkALL(null, response);
         assertTrue("用户名密码请求", result);
     }
 
     /**
      * 用户名请求exreq
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -96,22 +98,23 @@ public class UsergetTcpTest {
 //        String exreq = "{\"keys\":[\"email\",\"mobile\",\"lotterid\",\"deviceid\",\"pushid\",\"nlotterid\",\"truename\",\"nickname\"," +
 //                "\"idcard\",\"qqid\",\"lcb\",\"wxid\",\"xcid\"]}";
         ImmutableMap exreq = ImmutableMap.of(
-                "keys", ImmutableList.of("email","mobile","lotterid","nlotterid","truename",
-                        "nickname","idcard","qqid","lcb","wxid","xcid")
+                "keys", ImmutableList.of("email", "mobile", "lotterid", "nlotterid", "truename",
+                        "nickname", "idcard", "qqid", "lcb", "wxid", "xcid")
         );
         String request = JSON.toJSONString(
                 ImmutableMap.of(
-                        "uname",user.getUname(),
-                        "exreq",exreq
+                        "uname", user.getUname(),
+                        "exreq", exreq
                 )
         );
         String response = AccInterfaceTcp.testUsergetTcp(request);
-        boolean result = checkALL(exreq,response);
+        boolean result = checkALL(exreq, response);
         assertTrue("用户名请求exresp", result);
     }
 
     /**
      * 用户名请求exreq,keytp
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -121,8 +124,8 @@ public class UsergetTcpTest {
 //        String exreq = "{\"keys\":[\"email\",\"mobile\",\"lotterid\",\"deviceid\",\"pushid\",\"nlotterid\",\"truename\",\"nickname\"," +
 //                "\"idcard\",\"qqid\",\"lcb\",\"wxid\",\"xcid\"],\"keytp\":\"mobile\"}";
         ImmutableMap exreq = ImmutableMap.of(
-                "keys", ImmutableList.of("email","mobile","lotterid","nlotterid","truename",
-                        "nickname","idcard","qqid","lcb","wxid","xcid"),
+                "keys", ImmutableList.of("email", "mobile", "lotterid", "nlotterid", "truename",
+                        "nickname", "idcard", "qqid", "lcb", "wxid", "xcid"),
                 "keytp", "mobile"
         );
         String request = JSON.toJSONString(
@@ -132,24 +135,24 @@ public class UsergetTcpTest {
                 )
         );
         String response = AccInterfaceTcp.testUsergetTcp(request);
-        boolean result = checkALL(exreq,response);
+        boolean result = checkALL(exreq, response);
         assertTrue("用户名请求exresp", result);
     }
 
     public boolean checkALL(ImmutableMap exreq, String response) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response, "iResult", "0");
-        boolean checkupass = MyCheckUtil.checkJsonResponseSolo(response, "pass_md5_str", MyCheckUtil.encodePassword(URLDecoder.decode(user.getUpass(), "UTF-8")));
+        boolean checkupass = MyCheckUtil.checkJsonResponseSolo(response, "pass_md5_str", MyCheckUtil.encodePassword(user.getUpass()));
         boolean checkkeys = true;
         boolean checkrealuname = true;
-        if (exreq!=null && exreq.containsKey("keys")) {
+        if (exreq != null && exreq.containsKey("keys")) {
             ImmutableList keys = (ImmutableList) exreq.get("keys");
             JSONObject exrespget = JSON.parseObject(MyCheckUtil.getValueFromJsonResponse(response, "exresp"));
             JSONArray keysget = exrespget.getJSONArray("keys");
             String realunameget = exrespget.getString("realuname");
-            for (int i=0; i<keys.size(); i++) {
+            for (int i = 0; i < keys.size(); i++) {
                 boolean exist = false;
-                for (int j=0; j<keysget.size(); j++) {
-                    for(String key:keysget.getJSONObject(j).keySet())
+                for (int j = 0; j < keysget.size(); j++) {
+                    for (String key : keysget.getJSONObject(j).keySet())
                         if (keys.get(i).equals(key)) {
                             exist = true;
                             break;

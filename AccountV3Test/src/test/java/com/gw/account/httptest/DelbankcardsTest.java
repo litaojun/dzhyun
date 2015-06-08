@@ -29,32 +29,32 @@ public class DelbankcardsTest {
     @Before
     public void setUp() throws IOException, SAXException, InterruptedException {
         user.createUser();
-        MyCheckUtil.bindKey(user.getUname(),"idcard",user.getIdcard());
-        MyCheckUtil.bindKey(user.getUname(),"truename",user.getTruename());
+        MyCheckUtil.bindKey(user.getUname(), "idcard", user.getIdcard());
+        MyCheckUtil.bindKey(user.getUname(), "truename", user.getTruename());
         AddbankcardsTest.initBankidtobankcard();
-        AddbankcardsTest.addBankcards(user,1);
+        AddbankcardsTest.addBankcards(user, 1);
     }
 
     /**
      * 依次删除所有银行卡，并验证正确性
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testDelBankcards() throws IOException, SAXException {
         boolean result = true;
-        for (String key:AddbankcardsTest.getBankidtobankcard().keySet()) {
+        for (String key : AddbankcardsTest.getBankidtobankcard().keySet()) {
             String response = AccInterface.testDelbankcards("&uname=" + user.getUname() + "&bankcardid=" + key);
-            result = result && checkALL(response,key);
+            result = result && checkALL(response, key);
         }
-        assertTrue("依次删除所有银行卡，并验证正确性",result);
+        assertTrue("依次删除所有银行卡，并验证正确性", result);
     }
 
-
-
-    public boolean checkALL(String reponse,String bankcardid) throws InvalidProtocolBufferException {
-        boolean checkresult = MyCheckUtil.checkResponseSolo(reponse,"result","0");
-        boolean checkuname = MyCheckUtil.checkResponseSolo(reponse,"uname",user.getUname());
+    //=================================校验方法=======================================
+    public boolean checkALL(String reponse, String bankcardid) throws InvalidProtocolBufferException {
+        boolean checkresult = MyCheckUtil.checkResponseSolo(reponse, "result", "0");
+        boolean checkuname = MyCheckUtil.checkResponseSolo(reponse, "uname", user.getUname());
         boolean checkdelbank = MyCheckUtil.checkDelBank(user.getUsertid(), bankcardid);
         boolean result = checkresult && checkuname && checkdelbank;
         return result;

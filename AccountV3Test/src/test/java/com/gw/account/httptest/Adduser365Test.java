@@ -33,8 +33,10 @@ public class Adduser365Test {
     }
 
     //=================================正确注册=======================================
+
     /**
      * 无参数
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -42,11 +44,12 @@ public class Adduser365Test {
     @Test
     public void testCorrect() throws IOException, SAXException, NoSuchAlgorithmException {
         boolean result = checkALL("");
-        assertTrue("无参数",result);
+        assertTrue("无参数", result);
     }
 
     /**
      * 正确手机号作为参数
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -54,11 +57,12 @@ public class Adduser365Test {
     @Test
     public void testCorrectMobile() throws IOException, SAXException, NoSuchAlgorithmException {
         boolean result = checkALL("&mobile=" + user.getMobile());
-        assertTrue("正确手机号作为参数注册",result);
+        assertTrue("正确手机号作为参数注册", result);
     }
 
     /**
      * 正确手机号和密码作为参数
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -66,11 +70,13 @@ public class Adduser365Test {
     @Test
     public void testCorrectMobileandUpass() throws IOException, SAXException, NoSuchAlgorithmException {
         boolean result = checkALL("&mobile=" + user.getMobile() + "&upass=" + user.getUpass());
-        assertTrue("正确手机号和密码作为参数注册",result);
+        assertTrue("正确手机号和密码作为参数注册", result);
     }
 
+    //=================================校验方法=======================================
     /**
      * 验证返回值里的基本信息在库中是否存在
+     *
      * @param params
      * @return
      * @throws InvalidProtocolBufferException
@@ -80,22 +86,22 @@ public class Adduser365Test {
         String response = AccInterface.testAdduser365(params);
         boolean checkcode = MyCheckUtil.getCode(response) == 1;
         boolean checkresult = response.contains("result=0");
-        String getusertid = MyCheckUtil.getValueFromResponse(response,"usertid");
+        String getusertid = MyCheckUtil.getValueFromResponse(response, "usertid");
         String getuname = MyCheckUtil.getValueFromResponse(response, "uname");
         boolean checkuname = getuname.matches("lvt" + "\\d{6}");
-        String getupass = MyCheckUtil.getValueFromResponse(response,"upass");
+        String getupass = MyCheckUtil.getValueFromResponse(response, "upass");
         boolean checkupass = true;
-        if (params.contains("upass") && !MyCheckUtil.getValueFromResponse(params,"upass").equals("")) {
+        if (params.contains("upass") && !MyCheckUtil.getValueFromResponse(params, "upass").equals("")) {
             checkupass = getupass.equals(user.getUpass());
         } else {
             checkupass = getupass.matches("\\d{6}");
         }
         boolean udb = MyCheckUtil.checkU(getusertid, getupass);
         boolean ukeyunamedb = MyCheckUtil.checkUkey(getusertid, "v3name", getuname);
-        boolean indexunamedb = MyCheckUtil.checkIndex(getusertid,"v3name",getuname);
+        boolean indexunamedb = MyCheckUtil.checkIndex(getusertid, "v3name", getuname);
         boolean ukeymobiledb = true;
         boolean indexmobiledb = true;
-        if (params.contains("mobile") && !MyCheckUtil.getValueFromResponse(params,"mobile").equals("")) {
+        if (params.contains("mobile") && !MyCheckUtil.getValueFromResponse(params, "mobile").equals("")) {
             ukeymobiledb = MyCheckUtil.checkUkey(getusertid, "mobile", user.getMobile());
             indexmobiledb = MyCheckUtil.checkIndex(getusertid, "mobile", user.getMobile());
         }
@@ -106,8 +112,10 @@ public class Adduser365Test {
     }
 
     //=================================错误注册=======================================
+
     /**
      * 手机号超过15字节
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -125,6 +133,7 @@ public class Adduser365Test {
 
     /**
      * 密码超过50字节
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -142,6 +151,7 @@ public class Adduser365Test {
 
     /**
      * 手机号为空
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -149,11 +159,12 @@ public class Adduser365Test {
     @Test
     public void testNullMobile() throws IOException, SAXException, NoSuchAlgorithmException {
         boolean result = checkALL("&mobile=" + "");
-        assertTrue("手机号为空注册",result);
+        assertTrue("手机号为空注册", result);
     }
 
     /**
      * 密码为空
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException

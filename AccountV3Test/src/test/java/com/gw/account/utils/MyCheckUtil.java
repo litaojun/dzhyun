@@ -7,7 +7,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.gw.account.core.Bankinfo;
 import com.gw.account.core.Userinfo;
 import com.gw.account.httptest.AccInterface;
-import com.gw.account.httptest.KeyIdCast;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.PropertyConfigurator;
@@ -47,45 +46,6 @@ public class MyCheckUtil {
     }
 
     //=================================验证接口=======================================
-
-    /**
-     * 绑定key并验证返回uname和key，返回错误则打印uname、key和返回信息
-     *
-     * @param uname
-     * @param keytp
-     * @param key
-     * @return
-     * @throws IOException
-     * @throws SAXException
-     */
-    public static boolean checkUserbind(String uname, String keytp, String key) throws IOException, SAXException {
-        String response = bindKey(uname, keytp, key);
-        boolean result = checkResponseNoResult(response, uname, keytp, key);
-        if (!result) {
-            LOG.error("checkUserbind:(" + uname + "," + keytp + "," + key + ")," + response);
-        }
-        return result;
-    }
-
-    /**
-     * 验证getUserbind的返回
-     *
-     * @param uname
-     * @param keytp
-     * @param key
-     * @return
-     * @throws IOException
-     * @throws SAXException
-     */
-    public static boolean checkGetUserbind(String uname, String keytp, String key) throws IOException, SAXException {
-        String response = AccInterface.testGetUserbind("&uname=" + uname + "&keytp=" + keytp);
-        boolean result = checkResponseNoResult(response, uname, keytp, key);
-        if (!result) {
-            LOG.error("checkGetUserbind:(" + uname + "," + keytp + "," + key + ")," + response);
-        }
-        return result;
-    }
-
     /**
      * 验证findUnamebyKey的返回
      *
@@ -98,8 +58,8 @@ public class MyCheckUtil {
      */
     public static boolean checkFindUnamebyKey(String uname, String keytp, String key) throws IOException, SAXException {
         String response = AccInterface.testFindUnamebyKey("&keytp=" + keytp + "&key=" + key);
-        String getuname = getValueFromResponse(response, "uname");
-        boolean result = response.contains("result=0") && getuname.equals(uname.toLowerCase());
+        boolean result = response.contains("result=0")
+                && getValueFromResponse(response, "uname").equals(uname.toLowerCase());
         if (!result) {
             LOG.error("checkFindUnamebyKey:(" + uname + "," + keytp + "," + key + ")," + response);
         }
@@ -486,8 +446,8 @@ public class MyCheckUtil {
         }
         return result;
     }
-    //=================================工具方法=======================================
 
+    //=================================工具方法=======================================
     /**
      * 从response中提取keytp的值
      *
@@ -513,34 +473,6 @@ public class MyCheckUtil {
     public static boolean checkResponseSolo(String response, String keytp, String key) {
         String getkey = getValueFromResponse(response, keytp);
         boolean result = getkey.equals(key);
-        return result;
-    }
-
-    /**
-     * 验证response中的uname、key是否等于传入的值，验证result是否等于0
-     *
-     * @param response
-     * @param uname
-     * @param keytp
-     * @param key
-     * @return
-     */
-    public static boolean checkResponse(String response, String uname, String keytp, String key) {
-        boolean result = checkResponseSolo(response, "result", "0") && checkResponseSolo(response, "uname", uname) && checkResponseSolo(response, keytp, key);
-        return result;
-    }
-
-    /**
-     * 验证response中的uname、key是否等于传入的值，验证code是否等于1
-     *
-     * @param response
-     * @param uname
-     * @param keytp
-     * @param key
-     * @return
-     */
-    public static boolean checkResponseNoResult(String response, String uname, String keytp, String key) {
-        boolean result = getCode(response) == 1 && checkResponseSolo(response, "uname", uname) && checkResponseSolo(response, keytp, key);
         return result;
     }
 
@@ -584,21 +516,6 @@ public class MyCheckUtil {
     }
 
     /**
-     * 验证JSON的response中的uname、mobile和key是否等于传入的值，验证result是否等于0
-     *
-     * @param response
-     * @param uname
-     * @param keytp
-     * @param key
-     * @return
-     */
-    public static boolean checkJsonResponse(String response, String uname, String keytp, String key) {
-        boolean result = checkJsonResponseSolo(response, "result", "0") && checkJsonResponseSolo(response, "uname", uname)
-                && checkJsonResponseSolo(response, keytp, key);
-        return result;
-    }
-
-    /**
      * 新建用户，从response中提取usertid并返回
      *
      * @param uname
@@ -631,6 +548,7 @@ public class MyCheckUtil {
 
     /**
      * 将upass做MD5处理
+     *
      * @param password
      * @return
      * @throws NoSuchAlgorithmException
@@ -650,8 +568,8 @@ public class MyCheckUtil {
     }
 
     public static String encodeMD5(String string) {
-        char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6',
-                '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+        char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6',
+                '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         try {
             MessageDigest mdinst = MessageDigest.getInstance("MD5");
             byte[] md = mdinst.digest(string.getBytes());

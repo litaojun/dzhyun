@@ -15,19 +15,6 @@ public class AccInterfaceTcp {
     private static String serverIP = "10.15.201.106";
     private static int serverPort = 32226;
 
-    public static String testAdduserexTcp(String params) throws IOException, SAXException {
-        StringBuffer sb = new StringBuffer();
-        sb.append(params);
-        String urlparam = sb.toString();
-        LOG.debug("AdduserexTCP: " + urlparam);
-        TcpClient client = new TcpClient();
-        client.open(serverIP, serverPort);
-        String response = client.adduserex(urlparam);
-        client.close();
-        LOG.debug("AdduserexTCP: " + response);
-        return response;
-    }
-
     public static String testUsergetTcp(String params) throws IOException, SAXException {
         StringBuffer sb = new StringBuffer();
         sb.append(params);
@@ -38,19 +25,6 @@ public class AccInterfaceTcp {
         String response = client.userget(urlparam);
         client.close();
         LOG.debug("usergetTCP: " + response);
-        return response;
-    }
-
-    public static String testUpdpassTcp(String params) throws IOException, SAXException {
-        StringBuffer sb = new StringBuffer();
-        sb.append(params);
-        String urlparam = sb.toString();
-        LOG.debug("updpassTCP: " + urlparam);
-        TcpClient client = new TcpClient();
-        client.open(serverIP, serverPort);
-        String response = client.updpass(urlparam);
-        client.close();
-        LOG.debug("updpassTCP: " + response);
         return response;
     }
 }

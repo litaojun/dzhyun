@@ -33,13 +33,14 @@ public class AddbankcardsTest {
     @Before
     public void setUp() throws IOException, SAXException, InterruptedException {
         user.createUser();
-        MyCheckUtil.bindKey(user.getUname(),"idcard",user.getIdcard());
-        MyCheckUtil.bindKey(user.getUname(),"truename",user.getTruename());
+        MyCheckUtil.bindKey(user.getUname(), "idcard", user.getIdcard());
+        MyCheckUtil.bindKey(user.getUname(), "truename", user.getTruename());
         bankidtobankcard.clear();
     }
 
     /**
      * 填写所有字段添加银行卡
+     *
      * @throws IOException
      * @throws SAXException
      * @throws InterruptedException
@@ -61,18 +62,19 @@ public class AddbankcardsTest {
 //        String bankcardid = MyCheckUtil.getValueFromResponse(response,"bankcardid");
 //        bankidtobankcard.put(bankcardid,keyvalue);
         boolean result = checkALL(keyvalue);
-        assertTrue("填写所有字段添加银行卡",result);
+        assertTrue("填写所有字段添加银行卡", result);
     }
 
+    //=================================校验方法=======================================
     public boolean checkALL(JSONObject keyvalue) throws IOException, SAXException, InterruptedException {
         String response = turnandAdd(keyvalue);
-        bankcardid = MyCheckUtil.getValueFromResponse(response,"bankcardid");
+        bankcardid = MyCheckUtil.getValueFromResponse(response, "bankcardid");
         boolean checkresult = MyCheckUtil.checkResponseSolo(response, "result", "0");
         boolean checkuname = MyCheckUtil.checkResponseSolo(response, "uname", user.getUname());
-        boolean checkbankcardno = MyCheckUtil.checkResponseSolo(response,"bankcardno",user.getBankcardno());
+        boolean checkbankcardno = MyCheckUtil.checkResponseSolo(response, "bankcardno", user.getBankcardno());
         boolean checkbankcardid = bankcardid != null;
-        bankidtobankcard.put(bankcardid,keyvalue);
-        boolean resultdb = MyCheckUtil.checkBank(user.getUsertid(),bankidtobankcard);
+        bankidtobankcard.put(bankcardid, keyvalue);
+        boolean resultdb = MyCheckUtil.checkBank(user.getUsertid(), bankidtobankcard);
         boolean result = checkresult && checkuname && checkbankcardno && checkbankcardid && resultdb;
         return result;
     }
@@ -97,7 +99,7 @@ public class AddbankcardsTest {
         return response;
     }
 
-    public static void addBankcards(User user,int number) throws IOException, SAXException, InterruptedException {
+    public static void addBankcards(User user, int number) throws IOException, SAXException, InterruptedException {
         SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
         JSONObject keyvalue = new JSONObject();
         keyvalue.put("uname", user.getUname());
@@ -117,7 +119,7 @@ public class AddbankcardsTest {
         keyvalue.put("checkstatus", user.getCheckstatus());
         String response = AddbankcardsTest.turnandAdd(keyvalue);
         String bankcardid = MyCheckUtil.getValueFromResponse(response, "bankcardid");
-        bankidtobankcard.put(bankcardid,keyvalue);
+        bankidtobankcard.put(bankcardid, keyvalue);
     }
 
     public static void initBankidtobankcard() {

@@ -1,4 +1,4 @@
-package com.gw.account.tcptestV3;
+package com.gw.account.httptestV3;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -22,10 +22,10 @@ import java.security.NoSuchAlgorithmException;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Hihiri on 2015/4/7.
+ * Created by Hihiri on 2015/6/2.
  */
-public class AdduserexTcpTest {
-    private static final Log LOG = LogFactory.getLog(AdduserexTcpTest.class);
+public class AdduserexTest {
+    private static final Log LOG = LogFactory.getLog(AdduserexTest.class);
     private User user = new User();
 
     @BeforeClass
@@ -50,7 +50,7 @@ public class AdduserexTcpTest {
                         "gensfx", "rand"
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("只填帐号后缀生成方式：rand", result);
     }
@@ -67,7 +67,7 @@ public class AdduserexTcpTest {
                         "sfxlen", "12"
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("只填帐号后缀生成方式：rand,string", result);
     }
@@ -83,7 +83,7 @@ public class AdduserexTcpTest {
                         "onlyuname", "true"
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "result", "0")
                 && MyCheckUtil.getValueFromJsonResponse(response, "uname") != null;
         assertTrue("为true时，不做真正注册，仅生成帐号名", result);
@@ -105,7 +105,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试email", result);
     }
@@ -126,7 +126,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试mobile", result);
     }
@@ -147,7 +147,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试lotterid", result);
     }
@@ -168,7 +168,7 @@ public class AdduserexTcpTest {
 //                        "upass", user.getUpass()
 //                )
 //        );
-//        String response = AccInterfaceTcp.testAdduserexTcp(request);
+//        String response = AccInterface.testAdduserex(request);
 //        boolean result = checkALL(request, response);
 //        assertTrue("测试lotterid", result);
 //    }
@@ -189,7 +189,7 @@ public class AdduserexTcpTest {
 //                        "upass", upass
 //                )
 //        );
-//        String response = AccInterfaceTcp.testAdduserexTcp(request);
+//        String response = AccInterface.testAdduserex(request);
 //        boolean result = checkALL(request,response);
 //        assertTrue("测试pushid", result);
 //    }
@@ -210,7 +210,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试truename", result);
     }
@@ -231,7 +231,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试nickname", result);
     }
@@ -252,7 +252,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试idcard", result);
     }
@@ -273,7 +273,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试qqid", result);
     }
@@ -294,7 +294,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试lcb", result);
     }
@@ -315,7 +315,7 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试wxid", result);
     }
@@ -336,11 +336,178 @@ public class AdduserexTcpTest {
                         "upass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
+        String response = AccInterface.testAdduserex(request);
         boolean result = checkALL(request, response);
         assertTrue("测试xcid", result);
     }
 
+    //=================================重复key注册=======================================
+
+    /**
+     * 测试重复email注册
+     *
+     * @throws IOException
+     * @throws SAXException
+     */
+    @Test
+    public void testDuplicateEmail() throws IOException, SAXException, NoSuchAlgorithmException {
+        String request = JSON.toJSONString(
+                ImmutableMap.of(
+                        "gensfx", "seq",
+                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
+                )
+        );
+        String responsepre = AccInterface.testAdduserex(request);
+        String response = AccInterface.testAdduserex(request);
+        boolean result = MyCheckUtil.checkJsonResponseSolo(response, "result", "114")
+                && MyCheckUtil.checkJsonResponseSolo(response, "msg", "key_dup");
+        assertTrue("测试重复email注册", result);
+    }
+
+    //=================================重复key强制注册=======================================
+
+    /**
+     * 测试重复email强制注册
+     *
+     * @throws IOException
+     * @throws SAXException
+     */
+    @Test
+    public void testForceDuplicateEmail() throws IOException, SAXException, NoSuchAlgorithmException {
+        String requestpre = JSON.toJSONString(
+                ImmutableMap.of(
+                        "gensfx", "seq",
+                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
+                )
+        );
+        String responsepre = AccInterface.testAdduserex(requestpre);
+        boolean resultpre = checkALL(requestpre, responsepre);
+        String request = JSON.toJSONString(
+                ImmutableMap.of(
+                        "gensfx", "seq",
+                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail(), "flush", true))
+                )
+        );
+        String response = AccInterface.testAdduserex(request);
+        boolean resultforce = checkALL(request, response);
+        boolean resultaft = !checkALL(requestpre, responsepre);
+        boolean result = resultpre && resultforce && resultaft;
+        assertTrue("测试重复email强制注册", result);
+    }
+
+    //=================================绑定冲突findback返回账号名密码=======================================
+
+    /**
+     * 测试重复email，不返回失败，返回反查到的帐号名、密码
+     *
+     * @throws IOException
+     * @throws SAXException
+     */
+    @Test
+    public void testDuplicateEmailFindback() throws IOException, SAXException, NoSuchAlgorithmException {
+        String requestpre = JSON.toJSONString(
+                ImmutableMap.of(
+                        "gensfx", "seq",
+                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
+                )
+        );
+        String responsepre = AccInterface.testAdduserex(requestpre);
+        boolean resultpre = checkALL(requestpre, responsepre);
+        String request = JSON.toJSONString(
+                ImmutableMap.of(
+                        "gensfx", "seq",
+                        "findback", true,
+                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
+                )
+        );
+        String response = AccInterface.testAdduserex(request);
+        boolean resultback = MyCheckUtil.checkJsonResponseSolo(response, "uname", MyCheckUtil.getValueFromJsonResponse(responsepre, "uname"))
+                && MyCheckUtil.checkJsonResponseSolo(response, "upass", MyCheckUtil.getValueFromJsonResponse(responsepre, "upass"));
+        boolean result = resultpre && resultback;
+        assertTrue("测试重复email，不返回失败，返回反查到的帐号名、密码", result);
+    }
+
+    //=================================错误注册=======================================
+
+    /**
+     * 测试超过20字节prefix
+     *
+     * @throws IOException
+     * @throws SAXException
+     */
+    @Test
+    public void testLongPrefix() throws IOException, SAXException {
+        String longprefix = user.getPrefix();
+        while (longprefix.length() <= 20) {
+            longprefix += "t";
+        }
+        String response = AccInterface.testAdduserex(JSON.toJSONString(
+                ImmutableMap.of(
+                        "prefix", longprefix,
+                        "gensfx", "seq"
+                )
+        ));
+        boolean result = MyCheckUtil.getValueFromJsonResponse(response, "result").equals("101") &&
+                MyCheckUtil.getValueFromJsonResponse(response, "msg").equals("prefix_bad");
+        assertTrue("测试超过20字节prefix", result);
+    }
+
+    /**
+     * 测试错误gen
+     *
+     * @throws IOException
+     * @throws SAXException
+     */
+    @Test
+    public void testWrongGen() throws IOException, SAXException {
+        String response = AccInterface.testAdduserex(JSON.toJSONString(
+                ImmutableMap.of(
+                        "gensfx", "ttt"
+                )
+        ));
+        boolean result = MyCheckUtil.getValueFromJsonResponse(response, "result").equals("101") &&
+                MyCheckUtil.getValueFromJsonResponse(response, "msg").equals("parameter_error");
+        assertTrue("测试错误gen", result);
+    }
+
+    /**
+     * 测试空prefix
+     *
+     * @throws IOException
+     * @throws SAXException
+     */
+    @Test
+    public void testNullPrefix() throws IOException, SAXException, NoSuchAlgorithmException {
+        String request = JSON.toJSONString(
+                ImmutableMap.of(
+                        "prefix", "",
+                        "gensfx", "seq"
+                )
+        );
+        String response = AccInterface.testAdduserex(request);
+        boolean result = checkALL(request, response);
+        assertTrue("测试空prefix", result);
+    }
+
+    /**
+     * 测试空gen
+     *
+     * @throws IOException
+     * @throws SAXException
+     */
+    @Test
+    public void testNullGen() throws IOException, SAXException {
+        String response = AccInterface.testAdduserex(JSON.toJSONString(
+                ImmutableMap.of(
+                        "gensfx", ""
+                )
+        ));
+        boolean result = MyCheckUtil.getValueFromJsonResponse(response, "result").equals("101") &&
+                MyCheckUtil.getValueFromJsonResponse(response, "msg").equals("gensfx_bad");
+        assertTrue("测试空gen", result);
+    }
+
+    //=================================校验方法=======================================
     public boolean checkALL(String request, String response) throws InvalidProtocolBufferException, NoSuchAlgorithmException, UnsupportedEncodingException {
 //        boolean checkcode = MyCheckUtil.getCode(response) == 1;
         boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response, "result", "0");
@@ -396,171 +563,5 @@ public class AdduserexTcpTest {
         }
         boolean result = checkresult && checkuname && checkupass && checkudb && checkkey && checkukeydb && checkindexdb;
         return result;
-    }
-
-    //=================================重复key注册=======================================
-
-    /**
-     * 测试重复email注册
-     *
-     * @throws IOException
-     * @throws SAXException
-     */
-    @Test
-    public void testDuplicateEmail() throws IOException, SAXException, NoSuchAlgorithmException {
-        String request = JSON.toJSONString(
-                ImmutableMap.of(
-                        "gensfx", "seq",
-                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
-                )
-        );
-        String responsepre = AccInterfaceTcp.testAdduserexTcp(request);
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
-        boolean result = MyCheckUtil.checkJsonResponseSolo(response, "result", "114")
-                && MyCheckUtil.checkJsonResponseSolo(response, "msg", "key_dup");
-        assertTrue("测试重复email注册", result);
-    }
-
-    //=================================重复key强制注册=======================================
-
-    /**
-     * 测试重复email强制注册
-     *
-     * @throws IOException
-     * @throws SAXException
-     */
-    @Test
-    public void testForceDuplicateEmail() throws IOException, SAXException, NoSuchAlgorithmException {
-        String requestpre = JSON.toJSONString(
-                ImmutableMap.of(
-                        "gensfx", "seq",
-                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
-                )
-        );
-        String responsepre = AccInterfaceTcp.testAdduserexTcp(requestpre);
-        boolean resultpre = checkALL(requestpre, responsepre);
-        String request = JSON.toJSONString(
-                ImmutableMap.of(
-                        "gensfx", "seq",
-                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail(), "flush", true))
-                )
-        );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
-        boolean resultforce = checkALL(request, response);
-        boolean resultaft = !checkALL(requestpre, responsepre);
-        boolean result = resultpre && resultforce && resultaft;
-        assertTrue("测试重复email强制注册", result);
-    }
-
-    //=================================绑定冲突findback返回账号名密码=======================================
-
-    /**
-     * 测试重复email，不返回失败，返回反查到的帐号名、密码
-     *
-     * @throws IOException
-     * @throws SAXException
-     */
-    @Test
-    public void testDuplicateEmailFindback() throws IOException, SAXException, NoSuchAlgorithmException {
-        String requestpre = JSON.toJSONString(
-                ImmutableMap.of(
-                        "gensfx", "seq",
-                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
-                )
-        );
-        String responsepre = AccInterfaceTcp.testAdduserexTcp(requestpre);
-        boolean resultpre = checkALL(requestpre, responsepre);
-        String request = JSON.toJSONString(
-                ImmutableMap.of(
-                        "gensfx", "seq",
-                        "findback", true,
-                        "keys", ImmutableList.of(ImmutableMap.of("email", user.getEmail()))
-                )
-        );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
-        boolean resultback = MyCheckUtil.checkJsonResponseSolo(response, "uname", MyCheckUtil.getValueFromJsonResponse(responsepre, "uname"))
-                && MyCheckUtil.checkJsonResponseSolo(response, "upass", MyCheckUtil.getValueFromJsonResponse(responsepre, "upass"));
-        boolean result = resultpre && resultback;
-        assertTrue("测试重复email，不返回失败，返回反查到的帐号名、密码", result);
-    }
-
-    //=================================错误注册=======================================
-
-    /**
-     * 测试超过20字节prefix
-     *
-     * @throws IOException
-     * @throws SAXException
-     */
-    @Test
-    public void testLongPrefix() throws IOException, SAXException {
-        String longprefix = user.getPrefix();
-        while (longprefix.length() <= 20) {
-            longprefix += "t";
-        }
-        String response = AccInterfaceTcp.testAdduserexTcp(JSON.toJSONString(
-                ImmutableMap.of(
-                        "prefix", longprefix,
-                        "gensfx", "seq"
-                )
-        ));
-        boolean result = MyCheckUtil.getValueFromJsonResponse(response, "result").equals("101") &&
-                MyCheckUtil.getValueFromJsonResponse(response, "msg").equals("prefix_bad");
-        assertTrue("测试超过20字节prefix", result);
-    }
-
-    /**
-     * 测试错误gen
-     *
-     * @throws IOException
-     * @throws SAXException
-     */
-    @Test
-    public void testWrongGen() throws IOException, SAXException {
-        String response = AccInterfaceTcp.testAdduserexTcp(JSON.toJSONString(
-                ImmutableMap.of(
-                        "gensfx", "ttt"
-                )
-        ));
-        boolean result = MyCheckUtil.getValueFromJsonResponse(response, "result").equals("101") &&
-                MyCheckUtil.getValueFromJsonResponse(response, "msg").equals("parameter_error");
-        assertTrue("测试错误gen", result);
-    }
-
-    /**
-     * 测试空prefix
-     *
-     * @throws IOException
-     * @throws SAXException
-     */
-    @Test
-    public void testNullPrefix() throws IOException, SAXException, NoSuchAlgorithmException {
-        String request = JSON.toJSONString(
-                ImmutableMap.of(
-                        "prefix", "",
-                        "gensfx", "seq"
-                )
-        );
-        String response = AccInterfaceTcp.testAdduserexTcp(request);
-        boolean result = checkALL(request, response);
-        assertTrue("测试空prefix", result);
-    }
-
-    /**
-     * 测试空gen
-     *
-     * @throws IOException
-     * @throws SAXException
-     */
-    @Test
-    public void testNullGen() throws IOException, SAXException {
-        String response = AccInterfaceTcp.testAdduserexTcp(JSON.toJSONString(
-                ImmutableMap.of(
-                        "gensfx", ""
-                )
-        ));
-        boolean result = MyCheckUtil.getValueFromJsonResponse(response, "result").equals("101") &&
-                MyCheckUtil.getValueFromJsonResponse(response, "msg").equals("gensfx_bad");
-        assertTrue("测试空gen", result);
     }
 }

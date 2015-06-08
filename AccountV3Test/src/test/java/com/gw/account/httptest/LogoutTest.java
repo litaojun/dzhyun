@@ -14,7 +14,6 @@ import java.io.IOException;
 import static org.junit.Assert.assertTrue;
 
 
-
 public class LogoutTest {
     private static final Log LOG = LogFactory.getLog(LogoutTest.class);
     private User user = new User();
@@ -37,78 +36,85 @@ public class LogoutTest {
 
     /**
      * 正常账号名退出
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testCorrectUnamelogout() throws IOException, SAXException {
         String string = AccInterface.testLogout("&uname=" + user.getUname());
-        assertTrue("正常账号名退出,msg: " + string , string.contains("result=0"));
+        assertTrue("正常账号名退出,msg: " + string, string.contains("result=0"));
     }
 
     /**
      * 正常邮箱退出
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testCorrectEmaillogout() throws IOException, SAXException {
         String string = AccInterface.testLogout("&uname=" + user.getEmail());
-        assertTrue("正常邮箱退出,msg: " + string , string.contains("result=0"));
+        assertTrue("正常邮箱退出,msg: " + string, string.contains("result=0"));
     }
 
     /**
      * 正常手机退出
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testCorrectMobilelogout() throws IOException, SAXException {
         String string = AccInterface.testLogout("&uname=" + user.getMobile());
-        assertTrue("正常手机退出,msg: " + string , string.contains("result=0"));
+        assertTrue("正常手机退出,msg: " + string, string.contains("result=0"));
     }
 
     /**
      * 退出账号名不存在
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testNotExistUnamelogout() throws IOException, SAXException {
         String string = AccInterface.testLogout("&uname=" + uname_NotExist);
-        assertTrue("退出账号名不存在,msg: " + string , string.contains("result=0"));
+        assertTrue("退出账号名不存在,msg: " + string, string.contains("result=0"));
     }
 
     /**
      * 退出邮箱不存在
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testNotExistEmaillogout() throws IOException, SAXException {
         String string = AccInterface.testLogout("&uname=" + email_NotExist);
-        assertTrue("退出邮箱不存在,msg: " + string , string.contains("result=0"));
+        assertTrue("退出邮箱不存在,msg: " + string, string.contains("result=0"));
     }
 
     /**
      * 退出手机不存在
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testNotExistMobilelogout() throws IOException, SAXException {
         String string = AccInterface.testLogout("&uname=" + mobile_NotExist);
-        assertTrue("退出手机不存在,msg: " + string , string.contains("result=0"));
+        assertTrue("退出手机不存在,msg: " + string, string.contains("result=0"));
     }
 
     /**
      * 退出用户名为空
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testNullUnamelogout() throws IOException, SAXException {
         String string = AccInterface.testLogout("&uname=" + "");
-        assertTrue("退出用户名为空,msg: " + string , string.contains("result=101"));
+        assertTrue("退出用户名为空,msg: " + string, string.contains("result=101"));
     }
 }

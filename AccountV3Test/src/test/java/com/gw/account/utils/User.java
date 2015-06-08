@@ -73,7 +73,7 @@ public class User {
         subbank = "支行名称";
         ylmobile = "188" + number;
         checkstatus = "2";
-        usertid = MyCheckUtil.addUser(uname,getURLupass());
+        usertid = MyCheckUtil.addUser(uname, getURLupass());
         opendate = dfy.format(date);
         opentype = "Type" + "测试_" + number;
         source = "Source" + "测试_" + number;
@@ -94,7 +94,7 @@ public class User {
     }
 
     public String getURLupass() throws UnsupportedEncodingException {
-        return URLEncoder.encode(upass,"UTF-8");
+        return URLEncoder.encode(upass, "UTF-8");
     }
 
     public String getEmail() {

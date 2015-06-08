@@ -1,9 +1,8 @@
-package com.gw.account.tcptestV3;
+package com.gw.account.httptestV3;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.gw.account.httptest.AccInterface;
 import com.gw.account.utils.MyCheckUtil;
 import com.gw.account.utils.User;
 import org.apache.commons.logging.Log;
@@ -19,10 +18,10 @@ import java.security.NoSuchAlgorithmException;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Hihiri on 2015/5/27.
+ * Created by Hihiri on 2015/6/4.
  */
-public class UpdpassTcpTest {
-    private static final Log LOG = LogFactory.getLog(UpdpassTcpTest.class);
+public class UpdpassTest {
+    private static final Log LOG = LogFactory.getLog(UpdpassTest.class);
     private User user = new User();
     private String upass = "22222222";
 
@@ -54,7 +53,7 @@ public class UpdpassTcpTest {
                         "opass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("用户名修改密码", result);
     }
@@ -75,7 +74,7 @@ public class UpdpassTcpTest {
                         "opass", MyCheckUtil.encodePassword(user.getUpass())
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("用户名修改密码，MD5", result);
     }
@@ -98,7 +97,7 @@ public class UpdpassTcpTest {
                         "keytp", "email"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试email修改密码", result);
     }
@@ -121,7 +120,7 @@ public class UpdpassTcpTest {
                         "keytp", "mobile"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试mobile修改密码", result);
     }
@@ -135,7 +134,7 @@ public class UpdpassTcpTest {
      */
     @Test
     public void testLotterid() throws IOException, SAXException, NoSuchAlgorithmException {
-        AccInterface.testLotterbind("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid());
+        com.gw.account.httptest.AccInterface.testLotterbind("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid());
         String request = JSON.toJSONString(
                 ImmutableMap.of(
                         "uname", user.getLotterid(),
@@ -144,7 +143,7 @@ public class UpdpassTcpTest {
                         "keytp", "lotterid"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试lotterid修改密码", result);
     }
@@ -195,7 +194,7 @@ public class UpdpassTcpTest {
                         "keytp", "nickname"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试nickname修改密码", result);
     }
@@ -218,7 +217,7 @@ public class UpdpassTcpTest {
                         "keytp", "idcard"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试idcard修改密码", result);
     }
@@ -241,7 +240,7 @@ public class UpdpassTcpTest {
                         "keytp", "qqid"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试qqid修改密码", result);
     }
@@ -264,7 +263,7 @@ public class UpdpassTcpTest {
                         "keytp", "lcb"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试lcb修改密码", result);
     }
@@ -287,7 +286,7 @@ public class UpdpassTcpTest {
                         "keytp", "wxid"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试wxid修改密码", result);
     }
@@ -310,7 +309,7 @@ public class UpdpassTcpTest {
                         "keytp", "xcid"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("测试xcid修改密码", result);
     }
@@ -333,7 +332,7 @@ public class UpdpassTcpTest {
                         "keytp", ""
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = checkALL(response);
         assertTrue("空keytp修改密码", result);
     }
@@ -362,7 +361,7 @@ public class UpdpassTcpTest {
                         "upass", upass
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "msg", "opass_bad")
                 && JSON.parseObject(response).getIntValue("result") == 101;
         assertTrue("用户名修改密码，无opass", result);
@@ -383,7 +382,7 @@ public class UpdpassTcpTest {
                         "opass", ""
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "msg", "opass_bad")
                 && JSON.parseObject(response).getIntValue("result") == 101;
         assertTrue("空旧密码修改密码", result);
@@ -404,7 +403,7 @@ public class UpdpassTcpTest {
                         "opass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "msg", "user_not_found")
                 && JSON.parseObject(response).getIntValue("result") == 2
                 && MyCheckUtil.checkJsonResponseSolo(response, "uname", user.getUname() + "wrong");
@@ -426,7 +425,7 @@ public class UpdpassTcpTest {
                         "opass", user.getUpass() + "wrong"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "msg", "password_error")
                 && JSON.parseObject(response).getIntValue("result") == 59
                 && MyCheckUtil.checkJsonResponseSolo(response, "uname", user.getUname());
@@ -451,7 +450,7 @@ public class UpdpassTcpTest {
                         "keytp", "email" + "wrong"
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "msg", "key_not_found")
                 && JSON.parseObject(response).getIntValue("result") == 113
                 && MyCheckUtil.checkJsonResponseSolo(response, "uname", user.getEmail());
@@ -473,7 +472,7 @@ public class UpdpassTcpTest {
                         "opass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "msg", "uname_bad")
                 && JSON.parseObject(response).getIntValue("result") == 101;
         assertTrue("空用户名修改密码", result);
@@ -494,7 +493,7 @@ public class UpdpassTcpTest {
                         "opass", user.getUpass()
                 )
         );
-        String response = AccInterfaceTcp.testUpdpassTcp(request);
+        String response = AccInterface.testUpdpass(request);
         boolean result = MyCheckUtil.checkJsonResponseSolo(response, "msg", "upass_bad")
                 && JSON.parseObject(response).getIntValue("result") == 101;
         assertTrue("空密码修改密码", result);

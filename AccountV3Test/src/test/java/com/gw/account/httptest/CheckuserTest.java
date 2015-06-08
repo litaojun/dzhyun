@@ -24,18 +24,20 @@ public class CheckuserTest {
 
     /**
      * 正确用户名作为参数验证用户
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testCheckCorrectUser() throws IOException, SAXException {
         String response = AccInterface.testCheckuser("&uname=" + user.getUname());
-        boolean result = response.contains("result=0") && MyCheckUtil.checkResponseSolo(response,"uname",user.getUname().toLowerCase());
-        assertTrue("正确用户名作为参数验证用户",result);
+        boolean result = response.contains("result=0") && MyCheckUtil.checkResponseSolo(response, "uname", user.getUname().toLowerCase());
+        assertTrue("正确用户名作为参数验证用户", result);
     }
 
     /**
      * 错误用户名作为参数验证用户
+     *
      * @throws IOException
      * @throws SAXException
      */
@@ -43,11 +45,12 @@ public class CheckuserTest {
     public void testCheckWrongUser() throws IOException, SAXException {
         String response = AccInterface.testCheckuser("&uname=" + user.getUname() + "wrong");
         boolean result = response.contains("result=2");
-        assertTrue("错误用户名作为参数验证用户",result);
+        assertTrue("错误用户名作为参数验证用户", result);
     }
 
     /**
      * 空用户名作为参数验证用户
+     *
      * @throws IOException
      * @throws SAXException
      */
@@ -55,6 +58,6 @@ public class CheckuserTest {
     public void testCheckNullUser() throws IOException, SAXException {
         String response = AccInterface.testCheckuser("&uname=" + "");
         boolean result = response.contains("result=101");
-        assertTrue("空用户名作为参数验证用户",result);
+        assertTrue("空用户名作为参数验证用户", result);
     }
 }

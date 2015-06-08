@@ -31,13 +31,13 @@ public class TcpClient implements Closeable {
     });
 
     private final static short USERLOGINREQ = 0x3001;
-    private final static short USERGETREQ   = 0x300A;
+    private final static short USERGETREQ = 0x300A;
     private final static short ADDUSEREXREQ = 0x3101;
-    private final static short UPDPASSREQ   = 0x1004;
+    private final static short UPDPASSREQ = 0x1004;
 
     private SocketChannel conn = null;
-    private ByteBuffer rb      = null;
-    private ByteBuffer wb      = null;
+    private ByteBuffer rb = null;
+    private ByteBuffer wb = null;
 
     public TcpClient() {
         rb = ByteBuffer.allocate(16 * 1024);
@@ -75,7 +75,7 @@ public class TcpClient implements Closeable {
     }
 
     public String adduserex(String json) {
-        send(ADDUSEREXREQ, (short)3, json);
+        send(ADDUSEREXREQ, (short) 3, json);
         return read();
     }
 

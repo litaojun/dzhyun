@@ -38,17 +38,19 @@ public class UpdextraTest {
 
     /**
      * 测试新建用户是否为默认权限
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testDefUR() throws IOException, SAXException, InterruptedException {
-        boolean result = checkALL("","");
+        boolean result = checkALL("", "");
         assertTrue("测试新建用户是否为默认权限", result);
     }
 
     /**
      * 将新建用户的权限赋值为115权限
+     *
      * @throws IOException
      * @throws SAXException
      */
@@ -56,10 +58,11 @@ public class UpdextraTest {
     public void testUpdextra115() throws IOException, SAXException {
         String request = "&uname=" + user.getUname() + "&uMarket=" + uMarket_115 + "&extrabuf=" + extrabuf_115;
         String response = AccInterface.testUpdextra(request);
-        boolean result = checkALL(request,response);
+        boolean result = checkALL(request, response);
         assertTrue("更新为115权限", result);
     }
 
+    //=================================校验方法=======================================
     public boolean checkALL(String request, String response) throws InvalidProtocolBufferException {
         boolean result = true;
         if (response != "") {
@@ -70,14 +73,14 @@ public class UpdextraTest {
         }
         boolean checkdb = true;
         if (request.contains("uMarket")) {
-            String uMarketwr = MyCheckUtil.getValueFromResponse(request,"uMarket");
-            String extrabufwr = MyCheckUtil.getValueFromResponse(request,"extrabuf");
+            String uMarketwr = MyCheckUtil.getValueFromResponse(request, "uMarket");
+            String extrabufwr = MyCheckUtil.getValueFromResponse(request, "extrabuf");
             JSONObject valuewr = new JSONObject();
             valuewr.put("uMarket", uMarketwr);
             valuewr.put("extrabuf", extrabufwr);
-            checkdb = MyCheckUtil.checkUR(user.getUname(),valuewr);
+            checkdb = MyCheckUtil.checkUR(user.getUname(), valuewr);
         } else {
-            checkdb = MyCheckUtil.checkUR(user.getUname(),null);
+            checkdb = MyCheckUtil.checkUR(user.getUname(), null);
         }
         result = result && checkdb;
         return result;

@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.net.URLDecoder;
 import java.security.NoSuchAlgorithmException;
 
 import static org.junit.Assert.assertTrue;
@@ -30,14 +29,15 @@ public class DeluserbindTest {
     @Before
     public void setUp() throws IOException, SAXException, InterruptedException {
         user.createUser();
-        MyCheckUtil.bindKey(user.getUname(),"email",user.getEmail());
-        MyCheckUtil.bindKey(user.getUname(),"mobile",user.getMobile());
-        MyCheckUtil.bindKey(user.getUname(),"nickname",user.getNickname());
-        MyCheckUtil.bindKey(user.getUname(),"idcard",user.getIdcard());
+        MyCheckUtil.bindKey(user.getUname(), "email", user.getEmail());
+        MyCheckUtil.bindKey(user.getUname(), "mobile", user.getMobile());
+        MyCheckUtil.bindKey(user.getUname(), "nickname", user.getNickname());
+        MyCheckUtil.bindKey(user.getUname(), "idcard", user.getIdcard());
     }
 
     /**
      * 删除邮箱绑定
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -45,12 +45,13 @@ public class DeluserbindTest {
      */
     @Test
     public void testDelBindEmail() throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
-        boolean result = checkDelBindKey(user.getUname(),"email",user.getEmail());
+        boolean result = checkDelBindKey(user.getUname(), "email", user.getEmail());
         assertTrue("删除邮箱绑定", result);
     }
 
     /**
      * 删除手机绑定
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -58,12 +59,13 @@ public class DeluserbindTest {
      */
     @Test
     public void testDelBindMobile() throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
-        boolean result = checkDelBindKey(user.getUname(),"mobile",user.getMobile());
+        boolean result = checkDelBindKey(user.getUname(), "mobile", user.getMobile());
         assertTrue("删除手机绑定", result);
     }
 
     /**
      * 删除昵称绑定
+     *
      * @throws IOException
      * @throws SAXException
      * @throws NoSuchAlgorithmException
@@ -71,12 +73,13 @@ public class DeluserbindTest {
      */
     @Test
     public void testDelBindNickname() throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
-        boolean result = checkDelBindKey(user.getUname(),"nickname",user.getNickname());
+        boolean result = checkDelBindKey(user.getUname(), "nickname", user.getNickname());
         assertTrue("删除昵称绑定", result);
     }
 
     /**
      * 删除身份证绑定
+     *
      * @throws IOException
      * @throws SAXException
      * @throws InterruptedException
@@ -84,27 +87,30 @@ public class DeluserbindTest {
      */
     @Test
     public void testDelBindIdcard() throws IOException, SAXException, InterruptedException, NoSuchAlgorithmException {
-        boolean result = checkDelBindKey(user.getUname(),"idcard",user.getIdcard());
+        boolean result = checkDelBindKey(user.getUname(), "idcard", user.getIdcard());
         assertTrue("删除身份证绑定", result);
     }
 
     /**
      * 删除参数为空的绑定信息
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testDelBindNull() throws IOException, SAXException {
         String result = AccInterface.testDelUserbind("&uname=" + user.getUname() + "&key=");
-        assertTrue("删除参数为空的绑定信息,msg: " + result , result.contains("result=101"));
+        assertTrue("删除参数为空的绑定信息,msg: " + result, result.contains("result=101"));
     }
 
     public static boolean checkDelBindKey(String uname, String keytp, String key) throws IOException, SAXException, NoSuchAlgorithmException, InterruptedException {
         String response = AccInterface.testDelUserbind("&uname=" + user.getUname() + "&key=" + keytp);
-        boolean checkresponse = MyCheckUtil.checkResponse(response,user.getUname(),keytp,"1");
-        boolean checku = MyCheckUtil.checkU(user.getUsertid(), URLDecoder.decode(user.getUpass(),"UTF-8"));
+        boolean checkresponse = MyCheckUtil.checkResponseSolo(response, "result", "0")
+                && MyCheckUtil.checkResponseSolo(response, "uname", uname)
+                && MyCheckUtil.checkResponseSolo(response, keytp, "1");
+        boolean checku = MyCheckUtil.checkU(user.getUsertid(), user.getUpass());
         boolean checknotukey = MyCheckUtil.checkNotUkey(user.getUsertid(), keytp, key);
-        boolean checknotindex = MyCheckUtil.checkNotIndex(user.getUsertid(),keytp,key);
+        boolean checknotindex = MyCheckUtil.checkNotIndex(user.getUsertid(), keytp, key);
         boolean result = checkresponse && checku && checknotukey && checknotindex;
         return result;
     }

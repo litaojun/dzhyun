@@ -45,7 +45,7 @@ public class Aes {
             return null;
         }
     }
-    
+
     public static String encrypt(String data, String key) {
         return crypt(Cipher.ENCRYPT_MODE, "AES/ECB/PKCS5Padding", data, key);
     }
@@ -75,7 +75,7 @@ public class Aes {
             return null;
         }
     }
-    
+
 //    public static void main(String[] args) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException{
 //
 //    	/*String s = "201405190907379178n2";

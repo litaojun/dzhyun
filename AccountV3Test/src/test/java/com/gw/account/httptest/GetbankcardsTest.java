@@ -17,8 +17,8 @@ import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertTrue;
 
 /**
-* Created by song on 2015/5/7.
-*/
+ * Created by song on 2015/5/7.
+ */
 public class GetbankcardsTest {
     private static final Log LOG = LogFactory.getLog(GetbankcardsTest.class);
     private String AES_KEY = "dzhCard20219988!";
@@ -40,57 +40,61 @@ public class GetbankcardsTest {
 
     /**
      * 添加一张银行卡，查询银行卡
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testUname() throws IOException, SAXException {
         String response = AccInterface.testGetbankcards("&uname=" + user.getUname());
-        boolean result = checkALL(response, AddbankcardsTest.getBankidtobankcard(),"",0);
+        boolean result = checkALL(response, AddbankcardsTest.getBankidtobankcard(), "", 0);
         assertTrue("添加一张银行卡，查询银行卡", result);
     }
 
     /**
      * 增加两张卡，查询全部银行卡
+     *
      * @throws InterruptedException
      * @throws SAXException
      * @throws IOException
      */
     @Test
     public void testUnameTwobanks() throws InterruptedException, SAXException, IOException {
-        AddbankcardsTest.addBankcards(user,2);
+        AddbankcardsTest.addBankcards(user, 2);
         sleep(1000);
         String response = AccInterface.testGetbankcards("&uname=" + user.getUname());
-        boolean result = checkALL(response, AddbankcardsTest.getBankidtobankcard(),"",0);
+        boolean result = checkALL(response, AddbankcardsTest.getBankidtobankcard(), "", 0);
         assertTrue("增加两张卡，查询全部银行卡", result);
     }
 
     /**
      * 增加两张卡，分别查询两张银行卡
+     *
      * @throws InterruptedException
      * @throws SAXException
      * @throws IOException
      */
     @Test
     public void testUnameandBankcardid() throws InterruptedException, SAXException, IOException {
-        AddbankcardsTest.addBankcards(user,2);
+        AddbankcardsTest.addBankcards(user, 2);
         boolean result = true;
-        for (String key:AddbankcardsTest.getBankidtobankcard().keySet()) {
+        for (String key : AddbankcardsTest.getBankidtobankcard().keySet()) {
             String response = AccInterface.testGetbankcards("&uname=" + user.getUname() + "&bankcardid=" + key);
-            result = result && checkALL(response, AddbankcardsTest.getBankidtobankcard(), key,0);
+            result = result && checkALL(response, AddbankcardsTest.getBankidtobankcard(), key, 0);
         }
         assertTrue("增加两张卡，分别查询两张银行卡", result);
     }
 
     /**
      * 查询带星号的银行卡和手机号
+     *
      * @throws IOException
      * @throws SAXException
      */
     @Test
     public void testMask() throws IOException, SAXException {
         String response = AccInterface.testGetmaskbankcards("&uname=" + user.getUname());
-        boolean result = checkALL(response, AddbankcardsTest.getBankidtobankcard(),"",1);
+        boolean result = checkALL(response, AddbankcardsTest.getBankidtobankcard(), "", 1);
         assertTrue("查询带星号的银行卡和手机号", result);
     }
 
@@ -101,10 +105,10 @@ public class GetbankcardsTest {
         JSONArray jsonArrayget = JSONArray.parseArray(MyCheckUtil.getValueFromResponse(response, "bankinfos"));
         boolean checkbankcards = true;
         if (bankcardid != "") {
-            checkbankcards = checkBankcardsSolo(bankidtobankcard, jsonArrayget, bankcardid,mask);
+            checkbankcards = checkBankcardsSolo(bankidtobankcard, jsonArrayget, bankcardid, mask);
         } else {
-            for (String key:bankidtobankcard.keySet()) {
-                boolean checkbankcardssolo = checkBankcardsSolo(bankidtobankcard,jsonArrayget,key,mask);
+            for (String key : bankidtobankcard.keySet()) {
+                boolean checkbankcardssolo = checkBankcardsSolo(bankidtobankcard, jsonArrayget, key, mask);
                 checkbankcards = checkbankcards && checkbankcardssolo;
             }
         }
@@ -112,10 +116,10 @@ public class GetbankcardsTest {
         return result;
     }
 
-    public boolean checkBankcardsSolo(JSONObject bankidtobankcard,JSONArray jsonArrayget, String bankcardid, int mask) {
+    public boolean checkBankcardsSolo(JSONObject bankidtobankcard, JSONArray jsonArrayget, String bankcardid, int mask) {
         JSONObject jsonObject = bankidtobankcard.getJSONObject(bankcardid);
         JSONObject jsonObjectget = new JSONObject();
-        for (int i=0; i<jsonArrayget.size(); i++) {
+        for (int i = 0; i < jsonArrayget.size(); i++) {
             jsonObjectget = jsonArrayget.getJSONObject(i);
             if (bankcardid.equals(jsonObjectget.getString("bankcardid")))
                 break;
@@ -124,25 +128,25 @@ public class GetbankcardsTest {
             if (key.equals("uname"))
                 continue;
             String value = jsonObject.getString(key);
-            if (key.equals("bankcardno") && mask>0) {
-                String f4 = value.substring(0,4);
-                String t4 = value.substring(value.length()-4,value.length());
+            if (key.equals("bankcardno") && mask > 0) {
+                String f4 = value.substring(0, 4);
+                String t4 = value.substring(value.length() - 4, value.length());
                 String stars = "";
-                for (int i=0; i<10; i++)
+                for (int i = 0; i < 10; i++)
                     stars += "*";
                 value = f4 + stars + t4;
             }
-            if (key.equals("mobile") && mask>0) {
-                String f4 = value.substring(0,4);
-                String t3 = value.substring(value.length()-3,value.length());
+            if (key.equals("mobile") && mask > 0) {
+                String f4 = value.substring(0, 4);
+                String t3 = value.substring(value.length() - 3, value.length());
                 String stars = "";
-                for (int i=0; i<4; i++)
+                for (int i = 0; i < 4; i++)
                     stars += "*";
                 value = f4 + stars + t3;
             }
             if (value.equals(jsonObjectget.getString(key))
-                    || mask>0 && key.equals("bankcardno") && value.equals(jsonObjectget.getString(key))
-                    || mask>0 && key.equals("mobile") && value.equals(jsonObjectget.getString(key))
+                    || mask > 0 && key.equals("bankcardno") && value.equals(jsonObjectget.getString(key))
+                    || mask > 0 && key.equals("mobile") && value.equals(jsonObjectget.getString(key))
                     || key.equals("ylmobile") && value.equals(jsonObjectget.getString("recallmobile"))) {
                 continue;
             } else {

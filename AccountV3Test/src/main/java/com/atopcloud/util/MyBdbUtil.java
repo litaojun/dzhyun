@@ -4,6 +4,7 @@ package com.atopcloud.util;
  * @author Administrator
  *
  */
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,26 +19,23 @@ import redis.clients.jedis.ShardedJedisPool;
 import redis.clients.jedis.SortingParams;
 
 public class MyBdbUtil {
-    private  Jedis jedis;//非切片额客户端连接
-    
-    public MyBdbUtil()
-    {   
-    	
-    	jedis = new Jedis("10.15.108.4", 10001);
-    	
+    private Jedis jedis;//非切片额客户端连接
+
+    public MyBdbUtil() {
+
+        jedis = new Jedis("10.15.108.4", 10001);
+
     }
-    
-    
-    public  String getValue(String key)
-    {   
-    	
-    	String value = null;
-    	value= jedis.get(key);
+
+
+    public String getValue(String key) {
+
+        String value = null;
+        value = jedis.get(key);
         return value;
     }
 
-    public Jedis getJedis()
-    {
-    	return this.jedis;
+    public Jedis getJedis() {
+        return this.jedis;
     }
 }
