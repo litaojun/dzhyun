@@ -13,7 +13,7 @@ public class MyQuoteKlineUtil {
 	 * @param objcode
 	 * @return JSONObject
 	 */
-	public static JSONObject getQuoteKlineByObjCode(String jsonstring,String objcode)
+	public static JSONArray getQuoteKlineByObjCode(String jsonstring,String objcode)
 	{
 		/*
 {"Qid":"","Err":0,"Counter":1,"Data":{"Id":21,"RepDataQuoteKlineSingle":[{"Obj":"SH600000","Data":[{"shiJian":365525873920,"kaiPanJia":1579,"zuiGaoJia":1592,"zuiDiJia":1575,"shouPanJia":1582,"chengJiaoLiang":24428302140,"chengJiaoE":38639438412800,"chengJiaoBiShu":680743}]}]}}
@@ -31,8 +31,8 @@ public class MyQuoteKlineUtil {
 			if(obj.equalsIgnoreCase(objcode))
 			{
 				//GET QuoteDyna
-				JSONObject jsonQD = jsonQDS.getJSONObject("Data");//QuoteDyna
-				System.out.println(jsonQD.toJSONString());
+				JSONArray jsonQD = jsonQDS.getJSONArray("Data");//QuoteDyna
+				//System.out.println(jsonQD.toJSONString());
 				return jsonQD;
 			}
 		}
