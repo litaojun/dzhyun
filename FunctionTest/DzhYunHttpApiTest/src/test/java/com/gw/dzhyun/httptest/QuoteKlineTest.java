@@ -16,6 +16,15 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 
+
+
+
+
+import com.alibaba.fastjson.JSONObject;
+import com.atopcloud.util.MyConfigUtil;
+import com.atopcloud.util.MyHttpUtil;
+import com.gw.dzhyun.util.MyQuoteDynaUtil;
+import com.gw.dzhyun.util.MyQuoteKlineUtil;
 //
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
@@ -25,7 +34,11 @@ import com.meterware.httpunit.WebResponse;
  *
  */
 public class QuoteKlineTest {
-
+	//变量
+	String ip = MyConfigUtil.getConfig("ip");
+	String port=MyConfigUtil.getConfig("port");
+	String code= "SH601519";    //沪深股代码
+	String period= "1day";    
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -43,13 +56,20 @@ public class QuoteKlineTest {
 	}
 
 	/**
-	 * 
-	 * @throws IOException
-	 * @throws SAXException
+	 * 测试1日K线，股票代码是SH600000。
+	 * @throws Exception 
 	 */
 	@Test
-	public void testxxx() throws IOException, SAXException {
-		fail("这个方法还未实现");
+	public void testOneDayKLine() throws Exception {
+		code="SH600000";
+		///quote/kline?obj=SH600000&period=1day
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);  
+		JSONObject data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
 	}
 	
 	
