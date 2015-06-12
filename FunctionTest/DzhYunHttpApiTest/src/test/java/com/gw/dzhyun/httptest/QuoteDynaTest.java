@@ -55,6 +55,7 @@ import com.meterware.httpunit.WebResponse;
 
 
 
+
 //io
 import java.io.BufferedReader;
 import java.io.File;
@@ -73,6 +74,7 @@ public class QuoteDynaTest{
 	String ip = MyConfigUtil.getConfig("ip");
 	String port=MyConfigUtil.getConfig("port");
 	String code= "SH601519";    //沪深股代码
+	
 	
 	/**
 	 * @throws java.lang.Exception
@@ -152,16 +154,186 @@ public class QuoteDynaTest{
 	 * @throws SAXException 
 	 */
 	@Test
-	public void testOutputJson() throws SAXException, Exception
+	public void testOutputJsonFirst() throws SAXException, Exception
 	{
-		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&output=json";  //每个测试方法需要修改
+		code = "SH600761";
+		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,ZuiXinJia" + "&output=json";  //每个测试方法需要修改
+        System.out.println(urlString);
 		String type="json";
+		///quote/dyna?obj=SH600000,SZ000001&field=shiJian,zuiXinJia&output=json
+		//ip:port在config中修改
 		
 		String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+		System.out.println(ret);
 		assertNotNull("错误：行情返回null",ret);
 		JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
 		assertNotNull("错误：股票数据为null",data);
 	}
+	
+	@Test
+	public void testOutputJsonSecond() throws SAXException, Exception
+	{
+		code = "SH600761";
+		String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,KaiPanJia" + "&output=json";  //每个测试方法需要修改
+		String type="json";
+		///quote/dyna?obj=SH600666&field=shiJian,kaiPanJia&output=json
+		//ip:port在config中修改
+		
+		String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+		System.out.println(ret);
+		assertNotNull("错误：行情返回null",ret);
+		JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+		assertNotNull("错误：股票数据为null",data);
+	}
+
+    @Test
+    public void testOutputJsonThird() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,ZuiGaoJia" + "&output=json";  //每个测试方法需要修改
+        String type="json";
+        ///quote/dyna?obj=SH600666&field=shiJian,zuiGaoJia&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+    @Test
+    public void testOutputJsonFourth() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,ZuiXinJia,KaiPanJia,ZuiGaoJia" + "&output=json";  //每个测试方法需要修改
+        String type="json";
+        ///quote/dyna?obj=SH600666&field=shiJian,zuiXinJia,kaiPanJia,zuiGaoJia&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+    @Test
+    public void testOutputJsonFifth() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ZuoShou" + "&output=json";  //每个测试方法需要修改
+        String type="json";
+        ///quote/dyna?obj=SH600666&field=shiJian,zuoShou&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+
+    @Test
+    public void testOutputJsonSixth() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,ZuiXinJia,ZhangDie,ZhangFu,ZhenFu" + "&output=json";  //每个测试方法需要修改
+        String type="json";
+        ///quote/dyna?obj=SH600666&field=shiJian,zuiXinJia,zhangDie,zhangFu,zhenFu&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+    @Test
+    public void testOutputJsonSeventh() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,ChengJiaoLiang,ChengJiaoE" + "&output=json";  //每个测试方法需要修改
+        String type="json";
+        ///quote/dyna?obj=SH600666&field=shiJian,chengJiaoLiang,chengJiaoE&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+    @Test
+    public void testOutputJsonEigth() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,XianShou,ZongChengJiaoBiShu" + "&output=json";  //每个测试方法需要修改
+        String type="json";
+        ///quote/dyna?obj=SH600666&field=shiJian,xianShou,zongChengJiaoBiShu&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+    @Test
+    public void testOutputJsonNinth() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,XianShou,ZongChengJiaoBiShu" + "&output=json";  //每个测试方法需要修改
+        String type="json";
+        ///quote/dyna?obj=SH600666&field=shiJian,xianShou,zongChengJiaoBiShu&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+
+    @Test
+    public void testOutputJsonTenth() throws SAXException, Exception
+    {
+        code = "SH600761";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code + "&field=ShiJian,NeiPan,WaiPan" + "&output=json";  //每个测试方法需要修改
+        System.out.println(urlString);
+        String type="json";
+        ///quote/dyna?obj=SH600000,SZ000001&field=shiJian,neiPan,waiPan&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
+    @Test
+    public void testOutputJsonEleventh() throws SAXException, Exception
+    {
+        code = "SZ000752";
+        String urlString = "http://" + ip + ":" +port + "/quote/dyna?obj=" + code  + "&output=json";  //每个测试方法需要修改
+        System.out.println(urlString);
+        String type="json";
+        ///quote/dyna?obj=SH600000,SZ000001&field=shiJian,neiPan,waiPan&output=json
+        //ip:port在config中修改
+
+        String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+        System.out.println(ret);
+        assertNotNull("错误：行情返回null",ret);
+        JSONObject data = MyQuoteDynaUtil.getQuoteDynaByObjCode(ret, code);
+        assertNotNull("错误：股票数据为null",data);
+    }
+
 	
 	/**下面这个注释方法不要删除，不过也不要编辑。
 	 * 带参数：out为pb
