@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -34,7 +35,11 @@ public class TcpClient implements Closeable {
     private final static short USERGETREQ = 0x300A;
     private final static short ADDUSEREXREQ = 0x3101;
     private final static short UPDPASSREQ = 0x1004;
-
+    private final static short UserBindREQ = 0x3103;
+    private final static short DelUserBindREQ = 0x3105;
+    private final static short ServLoginREQ=0x3000;
+    private final static short KickOffREQ=0x3003;
+    
     private SocketChannel conn = null;
     private ByteBuffer rb = null;
     private ByteBuffer wb = null;
@@ -80,7 +85,7 @@ public class TcpClient implements Closeable {
     }
 
     public String userlogin(String json) {
-        send(USERLOGINREQ, (short) 2, json);
+        send(USERLOGINREQ, (short) 3, json);
         return read();
     }
 
@@ -88,7 +93,24 @@ public class TcpClient implements Closeable {
         send(UPDPASSREQ, (short) 3, json);
         return read();
     }
-
+    public String UserBind(String json) {
+        send(UserBindREQ , (short) 3, json);
+        return read();
+    }
+    public String DelUserBind(String json) {
+        send(DelUserBindREQ , (short) 3, json);
+        return read();
+    }
+    public String ServLogin(String json) {
+        send(ServLoginREQ , (short) 3, json);
+        return read();
+    }
+    public String kickOff(String json) {
+        send(KickOffREQ , (short) 3, json);
+        return read();
+    }
+    
+    
     public void send(short type, short version, String body) {
         wb.putShort((short) 0x0ABA);
         if (version == 2) {
@@ -148,17 +170,20 @@ public class TcpClient implements Closeable {
         }
     }
 
+    
+    /*
     public static void main(String args[]) {
         TcpClient client = new TcpClient();
         try {
             client.open("10.15.201.106", 32226);
             String req = JSON.toJSONString(
                     M(
-                            "uname", "qqww12",
+                            "uname", "testcrmv3001",
                             "gettp", 12288,
                             "keys", L("email", "mobile")
                     )
             );
+            //testcrmv3001&upass=111111
             System.out.println(req);
             String resp = client.userget(req);
             System.out.println(resp);
@@ -176,7 +201,107 @@ public class TcpClient implements Closeable {
             client.close();
         }
     }
+    */
+    
 
+    public static void main(String args[]) {
+        TcpClient client = new TcpClient();
+        //TcpClient client2 = new TcpClient();
+        try {
+        	client.open("10.15.201.106", 32226);
+            //servLogin v2
+            String req = JSON.toJSONString(
+                     M(
+             				"netid" ,(int)(Math.random()*10000000),
+             				"pid" ,(int)(Math.random()*10000),
+             				"tid" , 9001,
+             				"lastMsgID" , (int)(Math.random()*10000)
+                     )
+             );
+             System.out.println(req);
+            String resp = client.ServLogin(req);
+             System.out.println("servLogin msg:"+resp);
+                        
+            //login v3
+             req = JSON.toJSONString(
+                    M(
+            				"uname" , "testcrmv3007",
+            				"upass" , "111111",
+            				"uMarket" ,"4",
+            				"appid","0.0-1"
+                    )
+            );
+            System.out.println(req);
+             resp = client.userlogin(req);
+            System.out.println("login msg:"+resp);
+
+
+            
+
+        } finally {
+            client.close();
+            //client2.close();
+        }
+    }
+
+    /**
+     * V3 servlogin
+     * @param v3user
+     * @return
+     * @throws InterruptedException 
+     */
+    public  String myServLogin(String v3host,int v3port,int tid,int netid,int pid) throws InterruptedException {
+        String req = JSON.toJSONString(
+                 M(
+         				"netid" ,netid,
+         				"pid" ,pid,
+         				"tid" , tid,
+         				"lastMsgID" , (int)(Math.random()*10000)
+                 )
+         );
+         System.out.println(req);
+        String resp = this.ServLogin(req);
+         System.out.println("servLogin msg:"+resp);
+                        
+        return resp;
+        
+    }
+
+    public  String myLogin(String v3host,int v3port,String uname,String pwd,String uMarket,int userpos) throws InterruptedException {
+       String req = JSON.toJSONString(
+                M(
+        				"uname" , uname,//"testcrmv3007",
+        				"upass" , pwd,//"111111",
+        				"uMarket" ,uMarket,//"4",
+        				"appid","0.0-1",
+        				"userpos",userpos
+                )
+        );
+        System.out.println(req);
+         String resp = this.userlogin(req);
+        System.out.println("login msg:"+resp);
+                        
+        return resp;
+    }
+    
+    public  String myKickoff(String v3host,int v3port,String uname,String pwd,String kickMarket,int userpos,int currpos,int netid,int pid) throws InterruptedException {
+        String req = JSON.toJSONString(
+                 M(         				
+                		 "uname",uname,
+                		 "kickMarket",kickMarket,
+                		 "userpos" ,userpos,
+                		 "currpos",currpos,
+                		 "netid" ,netid,
+                		 "pid",pid
+                		 )
+         );
+         System.out.println(req);
+          String resp = this.kickOff(req);
+         System.out.println("kickoff msg:"+resp);
+                         
+         return resp;
+     }
+    
     private String getEncoding(short version) {
         return version == 2 ? "gbk" : "utf-8";
     }
