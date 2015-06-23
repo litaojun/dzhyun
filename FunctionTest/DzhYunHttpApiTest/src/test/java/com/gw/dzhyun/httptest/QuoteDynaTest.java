@@ -30,12 +30,14 @@ import com.dzhyun.proto.Dzhoutput.QuoteDynaSingle;
 import com.dzhyun.proto.Dzhua.UAResponse;
 import com.google.protobuf.ByteString;
 import com.googlecode.protobuf.format.JsonFormat;
+import com.gw.dzhyun.util.MyQuoteDynaUtil;
 //import com.gw.dzhyun.util.MyQuoteDynaUtil;
 //http unit
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.PostMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebResponse;
+
 
 
 
