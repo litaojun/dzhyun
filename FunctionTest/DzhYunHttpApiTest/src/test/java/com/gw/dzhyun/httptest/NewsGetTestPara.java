@@ -82,7 +82,7 @@ public class NewsGetTestPara extends GetTestJson {
 	@Test
 	public void testMulStockNinetype() throws SAXException, Exception
 	{
-		 System.out.println("222222222222222222222222222222222222222");
+		 //System.out.println("222222222222222222222222222222222222222");
 		// TODO Auto-generated method stub
 			JSONObject data = this.getJSONObject(this.code,this.type);
 			if(this.retcode==0)
