@@ -1,9 +1,29 @@
 package com.gw.account.tcptestV3;
-import com.gw.account.utils.*;;
+import com.gw.account.utils.*;
 
 public class User_tobe_kickoffed  extends Thread{
 
+	private String  usrname;
+	private String  message;
+public String getMessage() {
+		return message;
+	}
 
+
+public User_tobe_kickoffed(String s){
+	usrname=s;
+}
+
+@Override
+public void run() {
+	try {
+		doAction(usrname);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+	
 	@SuppressWarnings("resource")
 	public String doAction(String usrname) throws InterruptedException
 	{
@@ -14,8 +34,8 @@ public class User_tobe_kickoffed  extends Thread{
     	//client_servlogin 9000
         TcpClient client_servlogin9000 = new TcpClient();
         int tid = 9000;
-        int  netid=1;
-        int pid=1;
+        int  netid=8;
+        int pid=8;
         try {
         	client_servlogin9000.open(v3host, v3port);
         	client_servlogin9000.myServLogin(v3host, v3port, tid, netid, pid);
@@ -61,17 +81,34 @@ public class User_tobe_kickoffed  extends Thread{
         //判断是否被踢
         String msg = null;
         String msg2 = null;
-		if (!(msg2=client_servlogin9000.read()).isEmpty()) {
+        msg2=client_servlogin9000.read();
+        int i=0;
+        while(msg2.isEmpty())
+        {
+        	System.out.println("*************");
+        	msg2=client_servlogin9000.read();
+        	System.out.println("msg2:"+msg2);
+        	i++;
+        	if (i>50){
+        		break;
+        	}
+        	
+        }
+		/*if (msg2 !=null) {
 		    msg=msg2;
-			//System.out.println("receive kick off msg:" + msg2);
+			System.out.println("receive kick off msg:" + msg2);
+		    
 		} else {
 			msg="no data received";
 			//System.out.println("no data received");
-		}
-        		
+		}*/
+		/*Thread.sleep(20000);*/
+      // System.out.println("***************************"); 		
         		
         client_servlogin9001.close();
+        message=msg;
 		return msg;
+		
 	}
  
 }

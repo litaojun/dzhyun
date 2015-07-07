@@ -65,17 +65,18 @@ public class KickoffTcpTest {
 	 * @throws NoSuchAlgorithmException
 	 */
 	@Test
-	public String testKickOffMsg(String name) throws  InterruptedException {
+	public void testKickOffMsg(String name) throws  InterruptedException {
 		System.out
 				.println("***********************验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息************************");
-		User_tobe_kickoffed vhq1 = new User_tobe_kickoffed();
-		User_to_kickoff vhq2 = new User_to_kickoff();
+		User_tobe_kickoffed vhq1 = new User_tobe_kickoffed(name);
+		User_to_kickoff vhq2 = new User_to_kickoff(name);
 
-		String msg;
-		new Thread(msg=vhq1.doAction(name)).start();	
-		new Thread(vhq2.doAction(name)).start();	
+		//String msg;
+		vhq1.start();	
+		vhq2.start();	
 
-      return msg;
+
+      //return msg;
 	}
 	
 	// =================================正常测试=======================================
