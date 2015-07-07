@@ -39,7 +39,7 @@ public class TcpClient implements Closeable {
     private final static short DelUserBindREQ = 0x3105;
     private final static short ServLoginREQ=0x3000;
     private final static short KickOffREQ=0x3003;
-    
+    private final static short LOGOUTREQ=0x3007;
     private SocketChannel conn = null;
     private ByteBuffer rb = null;
     private ByteBuffer wb = null;
@@ -89,6 +89,9 @@ public class TcpClient implements Closeable {
         return read();
     }
 
+    public void  logout(String json) {
+        send(LOGOUTREQ, (short) 2, json);
+    }
     public String updpass(String json) {
         send(UPDPASSREQ, (short) 3, json);
         return read();
@@ -259,31 +262,41 @@ public class TcpClient implements Closeable {
          				"lastMsgID" , (int)(Math.random()*10000)
                  )
          );
-         System.out.println(req);
         String resp = this.ServLogin(req);
-         System.out.println("servLogin msg:"+resp);
                         
         return resp;
         
     }
 
-    public  String myLogin(String v3host,int v3port,String uname,String pwd,String uMarket,int userpos) throws InterruptedException {
+    public  String myLogin(String v3host,int v3port,String uname,String pwd,String uMarket,int userpos,String appid,String idlow,String idhigh) throws InterruptedException {
        String req = JSON.toJSONString(
                 M(
         				"uname" , uname,//"testcrmv3007",
         				"upass" , pwd,//"111111",
         				"uMarket" ,uMarket,//"4",
-        				"appid","0.0-1",
-        				"userpos",userpos
+        				"userpos",userpos,
+        				"appid",appid,//"0.0-1"	
+        				"dwComputerIDLow",idlow,
+        				"dwComputerIDHigh",idhigh			
                 )
         );
-        System.out.println(req);
          String resp = this.userlogin(req);
-        System.out.println("login msg:"+resp);
                         
         return resp;
     }
-    
+    public  void myLogOut(String v3host,int v3port,String uname,String uMarket,int userpos,int netid,int pid,String appid) throws InterruptedException {
+        String req = JSON.toJSONString(
+                 M(
+         				"uname" , uname,//"testcrmv3007",
+         				"uMarket" ,uMarket,//"4",
+         				"userpos",userpos,
+         				"netid",netid,
+         				"pid",pid,
+         				"appid",appid//"0.0-1"
+                 )
+         );
+          this.logout(req);
+     }
     public  String myKickoff(String v3host,int v3port,String uname,String pwd,String kickMarket,int userpos,int currpos,int netid,int pid) throws InterruptedException {
         String req = JSON.toJSONString(
                  M(         				
@@ -335,7 +348,7 @@ public class TcpClient implements Closeable {
         }
     }
 
-    private static Map<String, Object> M(Object... args) {
+    public static Map<String, Object> M(Object... args) {
         Map<String, Object> result = new TreeMap<String, Object>();
         String key = "";
         for (int i = 0; i < args.length; ++i) {

@@ -43,10 +43,14 @@ public class User {
     private String opentype;
     private String source;
     private String prefix;
+    private String reqdata;
+    private String termfp;
+    private String idcard_15_x;
+
 
     public void createUser() throws IOException, SAXException, InterruptedException {
         SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
-        SimpleDateFormat dfy = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+        SimpleDateFormat dfy = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
         Date date = new Date();
         number = df.format(date);
         uname = "Test" + "测试_" + number;
@@ -78,10 +82,15 @@ public class User {
         opentype = "Type" + "测试_" + number;
         source = "Source" + "测试_" + number;
         prefix = "pre";
+        reqdata ="reqdata"+"测试_"+number;
+        termfp="k_29:321421351346345::4383f801b2a4f489d52fd3384672c0e6:3";
+        idcard_15_x = String.format("%014d", Long.parseLong(number))+ "x";
         sleep(1000);
     }
 
-    public String getUsertid() {
+
+
+	public String getUsertid() {
         return usertid;
     }
 
@@ -200,4 +209,16 @@ public class User {
     public String getPrefix() {
         return prefix;
     }
+    public String getreqdata() {
+        return reqdata;
+    }
+
+    public String getTermfp() {
+		return termfp;
+	}
+
+	public String getIdcard_15_x() {
+		return idcard_15_x;
+	}
+
 }

@@ -1,181 +1,551 @@
 package com.gw.account.tcptestV3;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.protobuf.InvalidProtocolBufferException;
-import com.gw.account.utils.MyCheckUtil;
-import com.gw.account.utils.User;
+import static org.junit.Assert.assertTrue;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg1;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg2;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg3;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg4;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg5;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg6;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg7;
+import com.gw.account.tcptestV3.kickoff.ReceiveKickOffMsg8;
+import com.gw.account.tcptestV3.kickoff.UserDifAppid_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserDifAppid_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserDif_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserEightLogin_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserFirstLogin_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserFiveLogin_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserLogoutError_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserLogoutError_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserLogout_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserLogout_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserMoreAppidMap_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserMoreAppidMap_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserMoreNotConflict_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserMoreNotConflict_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserMoreNotConflict_tobe1_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserMoreNotConflict_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserMorelogoutError_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserMorelogout_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserMorelogout_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserNotConflict_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.UserNotConflict_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserTwoLoginAppIdDif_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserTwoUmarktConflict_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.UserTwoUmarktNotConflict_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.VirtualHqUserMore_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.VirtualHqUserMore_tobe_kickoffed;
+import com.gw.account.tcptestV3.kickoff.VirtualHqUser_to_kickoff_others;
+import com.gw.account.tcptestV3.kickoff.VirtualHqUser_tobe_kickoffed;
 
-import static org.junit.Assert.assertTrue;
+
 
 /**
- * Created by zhangchaoxu on 2015/6/8.
+ * @author zhangchaoxu 2015/6/18
+ * 
  */
 public class KickoffTcpTest {
-	private User user = new User();
-
-	@BeforeClass
-	public static void globalInit() {
-		MyCheckUtil.initialize();
-	}
-
-	@Before
-	public void setUp() throws IOException, SAXException, InterruptedException {
-		user.createUser();
-	}
-
-	// =================================正常测试=======================================
-    /**
-     * 验证用户第一次登录不被踢出，市场位存在库中
-     * @throws IOException
-     * @throws SAXException
-     * @throws NoSuchAlgorithmException
-     */
+	
+	
+	// =================================性能测试脚本=======================================
+	
+	/**
+	 * 验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息
+	 * @return 
+	 * @return kickoffmsg
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
 	@Test
-	public void testFNormal() throws IOException, SAXException,
-			NoSuchAlgorithmException, InterruptedException {
-		String request1= JSON.toJSONString(ImmutableMap.of(
-				
-					"netid" ,(int)(Math.random()*10000000),
-					"pid" ,(int)(Math.random()*10000),
-					"tid" , 9001,
-					"lastMsgID" , (int)(Math.random()*10000)
-				));
-		String request2 = JSON.toJSONString(ImmutableMap.of(
-				"uname" , user.getUname(),
-				"upass" , user.getUpass(),
-				"uMarket" ,"1",
-				"appid","0.0-1"
-				));
-		String response=AccInterfaceTcp.testLoginAndServLogin(request1,request2);
-		String uMarket = MyCheckUtil.getValueFromJsonResponse(request2,
-				"uMarket");
-		boolean checkKickoffexists=MyCheckUtil.checkKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-		StringBuilder rspuMarket=MyCheckUtil.getKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-    	boolean checkuMarket=rspuMarket.toString().contains(uMarket);
-		boolean result = MyCheckUtil.checkJsonResponseSolo(response, "result",
-				"0");
-		assertTrue("验证新用户登录", result&&checkuMarket&&checkKickoffexists);
-	}
-    /**
-     * 验证用户第二次登录,Umarkt不重复,两个市场位都存在
-     * @throws IOException
-     * @throws SAXException
-     * @throws NoSuchAlgorithmException
-     */
-	@Test
-	public void testSNormal() throws IOException, SAXException,
-			NoSuchAlgorithmException, InterruptedException {
-		String request1= JSON.toJSONString(ImmutableMap.of(
-				"netid" ,(int)(Math.random()*10000000),
-				"pid" ,(int)(Math.random()*10000),
-				"tid" , 9001,
-				"lastMsgID" , (int)(Math.random()*10000)
-				));
-		String request2 = JSON.toJSONString(ImmutableMap.of(
-				"uname" , user.getUname(),
-				"upass" , user.getUpass(),
-				"uMarket" ,"1",
-				"appid","0.0-1"
-				));
-		String request3 = JSON.toJSONString(ImmutableMap.of(
-				"uname" , user.getUname(),
-				"upass" , user.getUpass(),
-				"uMarket" ,"8",
-				"appid","0.0-1"
-				));
-		@SuppressWarnings("unused")
-		String response12=AccInterfaceTcp.testLoginAndServLogin(request1,request2);
-		String response13=AccInterfaceTcp.testLoginAndServLogin(request1,request3);
-		String uMarket2 = MyCheckUtil.getValueFromJsonResponse(request2,
-				"uMarket");
-		String uMarket3 = MyCheckUtil.getValueFromJsonResponse(request3,
-				"uMarket");	
-		//检查2个请求市场位存在
-		boolean checkKickoffexists=MyCheckUtil.checkKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-		StringBuilder rspuMarket=MyCheckUtil.getKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-		boolean checkuMarket=rspuMarket.toString().contains(uMarket3)&&rspuMarket.toString().contains(uMarket2);
-		
-		boolean result = MyCheckUtil.checkJsonResponseSolo(response13, "result",
-				"0");
-		assertTrue("验证用户第二次登录,Umarkt不重复", result&&checkuMarket&&checkKickoffexists);
-	}
-	 /**
-     * 验证Umarkt重复登录，登录成功，删除以前的市场位，只保存当前市场位及相关信息
-     * @throws IOException
-     * @throws SAXException
-     * @throws NoSuchAlgorithmException
-     */
-	@Test
-	public void testKickNormal() throws IOException, SAXException,
-			NoSuchAlgorithmException, InterruptedException {
-		String[] array = new String[]{"12", "14","20"};
-		String request1= JSON.toJSONString(ImmutableMap.of(
-				"netid" ,(int)(Math.random()*10000000),
-				"pid" ,(int)(Math.random()*10000),
-				"tid" , 9001,
-				"lastMsgID" , (int)(Math.random()*10000)
-				));
-		String request2 = JSON.toJSONString(ImmutableMap.of(
-				"uname" , user.getUname(),
-				"upass" , user.getUpass(),
-				"uMarket" ,"4",
-				"appid","0.0-1"
-				));
-		String request3 = JSON.toJSONString(ImmutableMap.of(
-				"uname" , user.getUname(),
-				"upass" , user.getUpass(),
-				"uMarket" ,"8",
-				"appid","0.0-1"
-				));
-		String request4 = JSON.toJSONString(ImmutableMap.of(
-				"uname" , user.getUname(),
-				"upass" , user.getUpass(),
-				"uMarket" ,array[MyCheckUtil.GetRandomNum(0, 4)],
-				"appid","0.0-1"
-				));
-		@SuppressWarnings("unused")
-		String response12=AccInterfaceTcp.testLoginAndServLogin(request1,request2);
-		@SuppressWarnings("unused")
-		String response13=AccInterfaceTcp.testLoginAndServLogin(request1,request3);
-		String uMarket2 = MyCheckUtil.getValueFromJsonResponse(request2,
-				"uMarket");
-		String uMarket3 = MyCheckUtil.getValueFromJsonResponse(request3,
-				"uMarket");	
-		String uMarket4 = MyCheckUtil.getValueFromJsonResponse(request4,
-				"uMarket");	
-		//检查市场位存在
-		boolean checkKickoffexists=MyCheckUtil.checkKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-		StringBuilder rspuMarket=MyCheckUtil.getKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-		boolean checkuMarket=rspuMarket.toString().contains(uMarket3)&&rspuMarket.toString().contains(uMarket3);
-		//重新发送请求，执行踢人操作
-		String response14=AccInterfaceTcp.testLoginAndServLogin(request1,request4);
-		boolean result = MyCheckUtil.checkJsonResponseSolo(response14, "result",
-				"0");
-		//检查踢人后，原市场位不存在，新请求的市场位存在
-		boolean checkKickoffexists1=MyCheckUtil.checkKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-		StringBuilder rspuMarket1=MyCheckUtil.getKeyexists("s:u:list:0.0-1_"+user.getUsertid());
-		boolean checkuMarketExsits=rspuMarket1.toString().contains(uMarket4);
-		boolean checkuMarketNexsits=!rspuMarket1.toString().contains(uMarket3)&&!rspuMarket1.toString().contains(uMarket2);
-		assertTrue("验证用户第二次登录,Umarkt不重复",result&&checkuMarket&&checkKickoffexists&&checkKickoffexists1&&checkuMarketExsits&&checkuMarketNexsits);
+	public String testKickOffMsg(String name) throws  InterruptedException {
+		System.out
+				.println("***********************验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息************************");
+		User_tobe_kickoffed vhq1 = new User_tobe_kickoffed();
+		User_to_kickoff vhq2 = new User_to_kickoff();
+
+		String msg;
+		new Thread(msg=vhq1.doAction(name)).start();	
+		new Thread(vhq2.doAction(name)).start();	
+
+      return msg;
 	}
 	
+	// =================================正常测试=======================================
+		/**
+		 * 验证用户第一次登录，不踢
+		 * @return no data received
+		 * @throws IOException
+		 * @throws SAXException
+		 * @throws NoSuchAlgorithmException
+		 */
+		@Test
+		public void testOneLinkFirstLoginNotKickoff() throws IOException,
+				SAXException, NoSuchAlgorithmException, InterruptedException {
+			System.out
+					.println("**********************验证用户第一次登录，不踢************************");
+			UserFirstLogin_tobe_kickoffed vhq1 = new UserFirstLogin_tobe_kickoffed();
+	        //启动线程
+			
+			vhq1.start();		
+
+			Thread.sleep(1000);
+			vhq1.join();
+			boolean testkick = true;
+			assertTrue("验证用户第一次登录，不踢", testkick);
+		}
+		/**
+		 * 验证不同用户登录，不踢
+		 * @return no data received
+		 * @throws IOException
+		 * @throws SAXException
+		 * @throws NoSuchAlgorithmException
+		 */
+		@Test
+		public void testTwoLinkTwoLoginDifUserNotKicKoff() throws IOException,
+				SAXException, NoSuchAlgorithmException, InterruptedException {
+			System.out
+					.println("***********************验证不同用户登录，不踢************************");
+			VirtualHqUser_tobe_kickoffed vhq1 = new VirtualHqUser_tobe_kickoffed();
+			UserDif_to_kickoff_others vhq2 = new UserDif_to_kickoff_others();
+
+			vhq1.start();
+			Thread.sleep(1500);
+			vhq2.start();
+			Thread.sleep(1000);
+			vhq1.join();
+			vhq2.join();
+
+			boolean testkick = true;
+			assertTrue("验证不同用户登录，不踢", testkick);
+
+		}
+	/**
+	 * 验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息
+	 * @return kickoffmsg
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testTwolinkTwoLoginKickOffMsg() throws  InterruptedException {
+		System.out
+				.println("***********************验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息************************");
+		VirtualHqUser_tobe_kickoffed vhq1 = new VirtualHqUser_tobe_kickoffed();
+		VirtualHqUser_to_kickoff_others vhq2 = new VirtualHqUser_to_kickoff_others();
+
+		vhq1.start();;
+		Thread.sleep(1500);
+		vhq2.start();;	
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+
+	}
+	/**
+	 * 验证用户第二次登录,Umarkt不冲突,不踢
+	 * @return no data received
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testTwoLinkTwoLoginNotConfictNotKickoff() throws InterruptedException {
+		System.out
+				.println("***********************验证用户第二次登录,Umarkt不冲突，不踢************************");
+		UserNotConflict_tobe_kickoffed vhq1 = new UserNotConflict_tobe_kickoffed();
+		UserNotConflict_to_kickoff_others vhq2 = new UserNotConflict_to_kickoff_others();
+
+		vhq1.start();
+		// 捕获无消息返回时抛出的异常
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证用户第二次登录,Umarkt不冲突，不踢", testkick);
+
+	}
+	
+	/**
+	 * 验证两个链接appid不同，不踢
+	 * @return no data reveived
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testTwoLinkTwoLoginDifAppid() throws IOException, SAXException,
+			NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("***********************验证两个链接appid不同，不踢************************");
+		UserDifAppid_tobe_kickoffed vhq1 = new UserDifAppid_tobe_kickoffed();
+		UserDifAppid_to_kickoff_others vhq2 = new UserDifAppid_to_kickoff_others();
+
+		vhq1.start();
+	
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("*验证appid不同，不踢", testkick);
+
+	}
+	
+	/**
+	 * 验证LogOut参数传入正确退出，不踢
+	 * @return no data received
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testTwoLinkNormalLogOut() throws IOException, SAXException,
+			NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("**********************验证LogOut参数传入正确退出，不踢************************");
+		UserLogout_tobe_kickoffed vhq1 = new UserLogout_tobe_kickoffed();
+		UserLogout_to_kickoff_others vhq2 = new UserLogout_to_kickoff_others();
+
+		vhq1.start();
+	
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证LogOut参数传入正确退出，不踢", testkick);
+
+	}
+	
+	/**
+	 * 验证LogOut传入错误参数，收到踢人消息
+	 * @return kickoffmsg
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testTwoLinkErrorLogOut() throws IOException, SAXException,
+			NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("**********************验证LogOut传入错误参数，收到踢人消息************************");
+		UserLogoutError_tobe_kickoffed vhq1 = new UserLogoutError_tobe_kickoffed();
+		UserLogoutError_to_kickoff_others vhq2 = new UserLogoutError_to_kickoff_others();
+		vhq1.start();
+	
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证LogOut传入错误参数，收到踢人消息", testkick);
+
+	}
+	
+	/**
+	 * 验证同一链接8个login,收到8條踢人消息
+	 * @return 8条kickoffmsg
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testOneLinkNormalEightLogin() throws IOException, SAXException,
+			NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("**********************验证同一链接8个login,收到8條踢人消息************************");
+		UserEightLogin_tobe_kickoffed vhq1 = new UserEightLogin_tobe_kickoffed();
+
+		vhq1.start();
+	
+
+		Thread.sleep(1000);
+		vhq1.join();
+		boolean testkick = true;
+		assertTrue("验证同一链接8个login,收到8個踢人消息", testkick);
+	}
+	/**
+	 * 验证同一链接5个login,收到8條踢人消息,有3条消息是上一个链接的踢人消息，根据返回消息的userpos识别（用户第一次登陆的话只收到5条踢人消息）
+	 * @return 5条kickoff msg
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	
+	public void testOneLinkNormalFiveLogin() throws IOException, SAXException,
+			NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("**********************验证同一链接5个login,收到8條踢人消息,有3条消息是上一个链接的踢人消息，根据返回消息的userpos识别（用户第一次登陆的话只收到5条踢人消息）************************");
+		UserFiveLogin_tobe_kickoffed vhq1 = new UserFiveLogin_tobe_kickoffed();
+
+		vhq1.start();
+	
+
+		Thread.sleep(1000);
+		vhq1.join();
+		boolean testkick = true;
+		assertTrue("验证同一链接5个login,收到8條踢人消息,有3条消息是上一个链接的踢人消息，根据返回消息的userpos识别", testkick);
+	}
+	/**
+	 * 验证八個链接8个login,收到8個踢人消息
+	 * @return kickoffmsg
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testEightLinkNormalEightLogin() throws IOException,
+			SAXException, NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("***********************验证八個链接8个login,收到8個踢人消息************************");
+		VirtualHqUserMore_tobe_kickoffed vhq1 = new VirtualHqUserMore_tobe_kickoffed();
+		VirtualHqUserMore_to_kickoff_others vhq2 = new VirtualHqUserMore_to_kickoff_others();
+
+		vhq1.start();
+
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证八個链接8个login,收到8個踢人消息", testkick);
+
+	}
+	
+	/**
+	 * 验证八個链接8个login,umarkt不衝突，不踢
+	 * @return 8个 no data received
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testEightLinkEightLoginNotConflict() throws IOException,
+			SAXException, NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("***********************验证八個链接8个login,umarkt不衝突，不踢,收到8条no data received************************");
+		UserMoreNotConflict_tobe_kickoffed vhq1 = new UserMoreNotConflict_tobe_kickoffed();
+		UserMoreNotConflict_to_kickoff_others vhq2 = new UserMoreNotConflict_to_kickoff_others();
+
+		vhq1.start();
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证八個链接8个login,umarkt不衝突，不踢", testkick);
+
+	}
+
+	/**
+	 * 验证同一链接2个login,AppId不同，不踢
+	 * @return no data reveived
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testOneLinkTwoLoginAppidDif() throws IOException, SAXException,
+			NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("********************** 验证同一链接2个login,AppId不同，不踢************************");
+		UserTwoLoginAppIdDif_tobe_kickoffed vhq1 = new UserTwoLoginAppIdDif_tobe_kickoffed();
+
+		vhq1.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		boolean testkick = true;
+		assertTrue(" 验证同一链接2个login,AppId不同，不踢", testkick);
+	}
+
+	/**
+	 * 验证同一链接2个login,umarkt不冲突，不踢
+	 * @return no data reveived
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testOneLinkTwoLoginUmarktNotConflict() throws IOException,
+			SAXException, NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("********************** 验证同一链接2个login,umarkt不冲突，不踢************************");
+		UserTwoUmarktNotConflict_tobe_kickoffed vhq1 = new UserTwoUmarktNotConflict_tobe_kickoffed();
+
+		vhq1.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		boolean testkick = true;
+		assertTrue(" 验证同一链接2个login,umarkt不冲突，不踢", testkick);
+	}
+
+	/**
+	 * 验证同一链接2个login,umarkt冲突，踢
+	 * @return Kickoffmsg
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testOneLinkTwoLoginUmarkConflict() throws IOException,
+			SAXException, NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("********************** 验证同一链接2个login,umarkt冲突，踢************************");
+		UserTwoUmarktConflict_tobe_kickoffed vhq1 = new UserTwoUmarktConflict_tobe_kickoffed();
+
+		vhq1.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		boolean testkick = true;
+		assertTrue(" 验证同一链接2个login,umarkt冲突，踢", testkick);
+	}
+	/**
+	 * 验证八個链接8个login,appid不同，不踢
+	 *
+	 * @return no data receive
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testEightLinkEightLoginAppIdDif() throws IOException,
+			SAXException, NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("***********************验证八個链接8个login,appid不同，不踢************************");
+		UserMoreNotConflict_tobe1_kickoffed vhq1 = new UserMoreNotConflict_tobe1_kickoffed();
+		UserMoreNotConflict_kickoff_others vhq2 = new UserMoreNotConflict_kickoff_others();
+
+		vhq1.start();
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证八個链接8个login,appid不同，不踢", testkick);
+
+	}
+
+	/**
+	 * 验证在etcd中配置后，appid映射问题，正常踢
+	 * @return kickoff receivemsg,8条
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testtEightLinkEightLoginMap() throws IOException, SAXException,
+			NoSuchAlgorithmException, InterruptedException {
+		System.out.println("***********************验证在etcd中配置后，appid映射问题，正常踢，收到8条踢人消息************************");
+		UserMoreAppidMap_tobe_kickoffed vhq1 = new UserMoreAppidMap_tobe_kickoffed();
+		UserMoreAppidMap_kickoff_others vhq2 = new UserMoreAppidMap_kickoff_others();
+
+		vhq1.start();
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证在etcd中配置后，appid映射问题，正常踢", testkick);
+
+	}
+	/**
+	 * 验证八個链接8个login，logout，不踢
+	 * @return no data receive
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testEightLinkEightLoginlogout() throws IOException,
+			SAXException, NoSuchAlgorithmException, InterruptedException {
+		System.out
+				.println("***********************验证八個链接8个login，logout，不踢************************");
+		UserMorelogout_tobe_kickoffed vhq1 = new UserMorelogout_tobe_kickoffed();
+		UserMorelogout_kickoff_others vhq2 = new UserMorelogout_kickoff_others();
+
+		vhq1.start();
+		Thread.sleep(1500);
+		vhq2.start();
+		Thread.sleep(1000);
+		vhq1.join();
+		vhq2.join();
+
+		boolean testkick = true;
+		assertTrue("验证八個链接8个login，logout，不踢", testkick);
+
+	}
+
+	/**
+	 * 验证八個链接8个login，logout部分正确，收到4条踢人消息
+	 * @return no data receive
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws NoSuchAlgorithmException
+	 */
+	@Test
+	public void testEightLinkEightLoginErrorlogout() throws IOException,
+			SAXException, NoSuchAlgorithmException, InterruptedException {
+		System.out.println("*********************** 验证八個链接8个login，logout部分正确，收到5条踢人消息（14567）************************");
+		UserMorelogoutError_tobe_kickoffed vhq1 = new UserMorelogoutError_tobe_kickoffed();
+		//UserMorelogoutError_kickoff_others vhq2 = new UserMorelogoutError_kickoff_others();
+		ReceiveKickOffMsg1 vhq3 = new ReceiveKickOffMsg1();
+		ReceiveKickOffMsg2 vhq4 = new ReceiveKickOffMsg2();
+		ReceiveKickOffMsg3 vhq5 = new ReceiveKickOffMsg3();
+		ReceiveKickOffMsg4 vhq6 = new ReceiveKickOffMsg4();
+		ReceiveKickOffMsg5 vhq7 = new ReceiveKickOffMsg5();
+		ReceiveKickOffMsg6 vhq8 = new ReceiveKickOffMsg6();
+		ReceiveKickOffMsg7 vhq9 = new ReceiveKickOffMsg7();
+		ReceiveKickOffMsg8 vhq0 = new ReceiveKickOffMsg8();
+		vhq1.start();
+				vhq3.start();
+				vhq4.start();
+				vhq5.start();
+				vhq6.start();
+				vhq7.start();
+				vhq8.start();
+				vhq9.start();
+				vhq0.start();
+				Thread.sleep(1000);
+		vhq1.join();
+		//vhq2.join();
+		vhq3.join();
+		vhq4.join();
+		vhq5.join();
+		vhq6.join();
+		vhq7.join();
+		vhq8.join();
+		vhq9.join();
+		vhq0.join();
+		Thread.sleep(1000);
+		boolean testkick = true;
+		assertTrue("验证八個链接8个login，logout部分正确，收到5条踢人消息（14567)", testkick);
+
+	}
 }

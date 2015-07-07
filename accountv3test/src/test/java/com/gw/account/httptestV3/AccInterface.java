@@ -47,5 +47,31 @@ public class AccInterface {
         return response.getText();
     }
 
-
+    public static String testUserbind(String params) throws IOException, SAXException {
+        WebConversation web = new WebConversation();
+        String urlString = serverIP + "AccService/userbind";
+        LOG.debug("userbind: " + urlString + "," + params);
+        PostMethodWebRequest post = new PostMethodWebRequest(urlString, new ByteArrayInputStream(params.getBytes()), "UTF-8");
+        WebResponse response = web.getResponse(post);
+        LOG.debug("userbind: " + response.getText());
+        return response.getText();
+    }
+    public static String testDelUserbind(String params) throws IOException, SAXException {
+        WebConversation web = new WebConversation();
+        String urlString = serverIP + "AccService/deluserbind";
+        LOG.debug("deluserbind: " + urlString + "," + params);
+        PostMethodWebRequest post = new PostMethodWebRequest(urlString, new ByteArrayInputStream(params.getBytes()), "UTF-8");
+        WebResponse response = web.getResponse(post);
+        LOG.debug("deluserbind: " + response.getText());
+        return response.getText();
+    }
+    public static String testUserGet(String params) throws IOException, SAXException {
+        WebConversation web = new WebConversation();
+        String urlString = serverIP + "AccService/userget";
+        LOG.debug("userget: " + urlString + "," + params);
+        PostMethodWebRequest post = new PostMethodWebRequest(urlString, new ByteArrayInputStream(params.getBytes()), "UTF-8");
+        WebResponse response = web.getResponse(post);
+        LOG.debug("userget: " + response.getText());
+        return response.getText();
+    }
 }

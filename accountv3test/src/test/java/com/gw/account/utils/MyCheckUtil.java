@@ -3,23 +3,28 @@ package com.gw.account.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.gw.account.core.Bankinfo;
 import com.gw.account.core.Userinfo;
 import com.gw.account.httptest.AccInterface;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.PropertyConfigurator;
 import org.xml.sax.SAXException;
+
 import redis.clients.jedis.BinaryJedis;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -31,6 +36,8 @@ public class MyCheckUtil {
     private static final Log LOG = LogFactory.getLog(MyCheckUtil.class);
     private static BinaryJedis database1 = new BinaryJedis("10.15.201.107", 22121);  //twemproxy1
     private static BinaryJedis database2 = new BinaryJedis("10.15.201.108", 22121);  //twemproxy2
+    private static BinaryJedis database4 = new BinaryJedis("10.15.108.3", 22121);  //twemproxy2
+    private static BinaryJedis database5 = new BinaryJedis("10.15.108.4", 22121);  //twemproxy2
     private static BinaryJedis database3 = new BinaryJedis("10.15.108.5", 10001);    //BDB
     private static List<BinaryJedis> checklist = new ArrayList<BinaryJedis>();
 
@@ -41,7 +48,7 @@ public class MyCheckUtil {
     public static void initialize() {
         PropertyConfigurator.configure("config/log4j.properties");
         checklist.clear();
-        checklist.add(database3);
+        checklist.add(database4);
         KeyIdCast.initialize();
     }
 
@@ -102,7 +109,50 @@ public class MyCheckUtil {
         }
         return result;
     }
-
+    /**
+     * 验证踢人接口数据在redis库中存在
+     *@author zhangchaoxu
+     * @param uname
+     * @return
+     * @throws InvalidProtocolBufferException
+     * @throws NoSuchAlgorithmException
+     */
+    public static boolean checkKeyexists(String  uname) throws InvalidProtocolBufferException, NoSuchAlgorithmException {
+    	boolean resultsolo = false;
+    	  for (BinaryJedis databasesolo : checklist) {
+        Map<byte[], byte[]> u = databasesolo.hgetAll(uname.getBytes());
+        for(Map.Entry<byte[], byte[]> entry : u.entrySet()){
+        	String key=new String(entry.getKey(), Charset.forName("utf-8"));
+        	  if (key!=null) {
+        		  resultsolo = true;
+          }
+        } 
+      }    
+		return resultsolo;
+    }
+    /**
+     * 取出用户下所有的key
+     *@author zhangchaoxu
+     * @param uname
+     * @return
+     * @throws InvalidProtocolBufferException
+     * @throws NoSuchAlgorithmException
+     */
+    public static StringBuilder getKeyexists(String  uname) throws InvalidProtocolBufferException, NoSuchAlgorithmException {
+    	String key = null;
+    	 StringBuilder sb = new StringBuilder();
+    	  for (BinaryJedis databasesolo : checklist) {
+        Map<byte[], byte[]> u = databasesolo.hgetAll(uname.getBytes());
+       
+        for(Map.Entry<byte[], byte[]> entry : u.entrySet()){
+        	 key=new String(entry.getKey(), Charset.forName("utf-8"));
+        	 sb.append(key);
+          }   
+      }    
+		return sb;
+    }
+    
+  
     /**
      * 验证uname、upass在所有库中是否存储错误
      *
@@ -488,7 +538,19 @@ public class MyCheckUtil {
         String value = jsonreponse.getString(keytp);
         return value;
     }
-
+    /**
+     * 获取数组中的随机数
+     *
+     * @param response
+     * @param keytp
+     * @return
+     */
+    public static int GetRandomNum(int Min, int Max)
+    {
+        int Range = Max - Min;
+        double Rand = Math.random();
+        return (int)(Min + Math.round(Rand * Range));
+    }
     /**
      * 从JSON的response中提取keys的值
      *
@@ -497,7 +559,8 @@ public class MyCheckUtil {
      */
     public static JSONArray getKeysFromJsonResponse(String response) {
         JSONObject jsonreponse = JSONObject.parseObject(response);
-        JSONArray value = (JSONArray) jsonreponse.get("keys");
+        System.out.println(jsonreponse);
+        JSONArray value =  jsonreponse.getJSONArray("keys");
         return value;
     }
 
@@ -645,5 +708,5 @@ public class MyCheckUtil {
         }
         return map;
     }
-
+   
 }

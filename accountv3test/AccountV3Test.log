@@ -70,3 +70,6 @@
 2015-06-17 17:20:46,409 DEBUG [main] (AccInterface.java:52)     - testAdduser: 1&uname=Test测试_17172046&usertid=1624783140&result=0
 2015-06-17 17:20:47,533 DEBUG [main] (AccInterface.java:33)     - adduserex: http://10.15.108.4:8080/AccService/adduserex,{"gensfx":"rand"}
 2015-06-17 17:20:47,543 DEBUG [main] (AccInterface.java:36)     - adduserex: {"keys":[],"req":null,"result":0,"uname":"214238","upass":"1678347e637f0cb1718e8fd9530300e3","usertid":1624783144}
+2015-07-03 13:27:22,239 DEBUG [main] (AccInterface.java:45)     - testAdduser: http://10.15.108.4:8080/AccService/AccServlet.do?method=adduser&uname=Test测试_03132722&upass=Ww123%21%40%23%24%25%5E*%28%29_%2B-%3D%5B%5D%3B%27%2C.%2F%3F%3C%3E%60%7E
+2015-07-03 13:27:22,457 DEBUG [main] (AccInterface.java:52)     - testAdduser: 1&uname=Test测试_03132722&usertid=1635061804&result=0
+2015-07-03 13:27:23,549 DEBUG [main] (AccInterfaceTcp.java:127)     - LogOut: {"uname":"zhangchaoxu"}
