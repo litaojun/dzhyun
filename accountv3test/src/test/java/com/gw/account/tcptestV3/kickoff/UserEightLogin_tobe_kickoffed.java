@@ -18,13 +18,13 @@ public class UserEightLogin_tobe_kickoffed extends Thread {
 	@SuppressWarnings("resource")
 	public void doAction() {
 		String v3host = "10.15.201.106";
-		int v3port = 32229;
+		int v3port = 32226;
 		client_servlogin9000 = new TcpClient();
 		int tid = 9000;
 		int netid = (int) (Math.random() * 10000000);
 		int pid = (int) (Math.random() * 10000);
-		String uname = "zhangchaoxu333";
-		String pwd = "zcx123456";
+		String uname = "kickoffUser1";
+		String pwd = "zxcvbnm";
 		String uMarket1 = "1";
 		String uMarket2 = "2";
 		String uMarket3 = "4";

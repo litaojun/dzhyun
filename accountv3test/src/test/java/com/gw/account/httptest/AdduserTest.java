@@ -71,10 +71,15 @@ public class AdduserTest {
         String curtimeuname = MyCurrentTime.MyTime();
         String uname = "lidb" + curtimeuname + "";
         String accresult = AccInterface.testAdduser("&uname=" + uname + "&upass=" + upass + "");
+        System.out.println(accresult);
         assertTrue("True", accresult.contains("result=0"));
         String Myuid = MyUid.Uid(accresult);
         MyRedisUtil myredis = new MyRedisUtil();
-        String myredisuid = myredis.getValue("uid:" + Myuid + "");
+        String myredisuid = myredis.getValue("u:" + Myuid + "");
+        byte[] myredisuid1= myredisuid.getBytes("GBK");
+        String s2 = new String(myredisuid1, "UTF-8");
+       
+        System.out.println(s2);
         //校验redis中的uid对应的用户名是否正确
         assertEquals(myredisuid, uname);
 //		MyBdbUtil  mybdb = new MyBdbUtil();		

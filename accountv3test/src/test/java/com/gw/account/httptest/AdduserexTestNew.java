@@ -221,9 +221,11 @@ public class AdduserexTestNew {
      */
     @Test
     public void testLongPrefix() throws IOException, SAXException {
+    	String prefix="zhangchaoxu";
         while (prefix.length() <= 20) {
             prefix += "t";
         }
+        System.out.println(prefix);
         String response = AccInterface.testAdduserexNew("&prefix=" + prefix + "&gen=seq");
         boolean result = response.contains("result=101") && response.contains("msg=prefix_bad");
         assertTrue("测试超过20字节prefix", result);
@@ -308,6 +310,8 @@ public class AdduserexTestNew {
         String getuname = MyCheckUtil.getValueFromResponse(response, "uname");
         boolean checkuname = getuname.matches(prefix + "\\d+") || getuname.matches("\\d+");
         String getupass = MyCheckUtil.getValueFromResponse(response, "upass");
+        System.out.println(getupass);
+        System.out.println(user.getUpass());
         boolean checkupass = getupass.equals(user.getUpass()) || getupass.matches("\\d{6}");
         boolean checkkey = true;
         if (keytp != "") {
@@ -319,6 +323,12 @@ public class AdduserexTestNew {
             }
         }
         boolean result = checkcode && checkresult && checkusertid && checkuname && checkupass && checkkey;
+        System.out.println(checkcode);
+        System.out.println(checkresult);
+        System.out.println(checkusertid);
+        System.out.println(checkuname);
+        System.out.println(checkupass);
+        System.out.println(checkkey);
         return result;
     }
 }

@@ -13,10 +13,10 @@ public class MyUid {
         int uid = resUid.indexOf("usertid");
         int unm = resUid.indexOf("uname");
         int res = resUid.indexOf("result");
-
-
+        
         if (uid > unm && uid > res) {
             String myresuid = resUid.substring(resUid.lastIndexOf("usertid=") + 8);
+            System.out.println(myresuid);
             return myresuid;
         } else {
             int num = resUid.indexOf("usertid=");

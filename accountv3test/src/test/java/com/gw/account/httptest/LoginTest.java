@@ -22,7 +22,7 @@ public class LoginTest {
     private User user = new User();
     private static String uname_NotExist = "nnnnnnnn";
     private static String email_NotExist = "nnnnnnnn@126.com";
-    private static String mobile_NotExist = "18000000000";
+    private static String mobile_NotExist = "18888888888";
     private static String upass_Wrong = "22222222";
 
     @BeforeClass
@@ -142,7 +142,8 @@ public class LoginTest {
     @Test
     public void testEmailWrongPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + user.getEmail() + "&upass=" + upass_Wrong);
-        assertTrue("邮箱登录密码错误,msg: " + string, string.contains("result=2"));
+        System.out.println(string);
+        assertTrue("邮箱登录密码错误,msg: " + string, string.contains("result=59"));
     }
 
     /**
@@ -154,7 +155,7 @@ public class LoginTest {
     @Test
     public void testMobileWrongPasswordlogin() throws IOException, SAXException {
         String string = AccInterface.testLogin("&uname=" + user.getMobile() + "&upass=" + upass_Wrong);
-        assertTrue("手机登录密码错误,msg: " + string, string.contains("result=2"));
+        assertTrue("手机登录密码错误,msg: " + string, string.contains("result=59"));
     }
 
     /**

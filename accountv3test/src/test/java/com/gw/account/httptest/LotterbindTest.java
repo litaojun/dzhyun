@@ -159,6 +159,9 @@ public class LotterbindTest {
         boolean result1 = checkALL("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid());
         boolean result2 = checkALL("&uname=" + user_dup.getUname() + "&lotterid=" + user.getLotterid() + "&doflush=1");
         boolean result = result1 && result2 && checkForce();
+        System.out.println(result1);
+        System.out.println(result2);
+        System.out.println(checkForce());
         assertTrue("强制绑定lotterid", result);
     }
 
@@ -246,8 +249,8 @@ public class LotterbindTest {
      */
     public boolean checkALL(String params) throws IOException, SAXException, NoSuchAlgorithmException {
         String response = AccInterface.testLotterbind(params);
-        boolean checkcode = MyCheckUtil.getCode(response) == 1;
         boolean checkresult = MyCheckUtil.checkResponseSolo(response, "result", "0");
+        boolean checkcode = MyCheckUtil.getCode(response) == 1;
         boolean checkuname = MyCheckUtil.checkResponseSolo(response, "uname", user.getUname());
         String getlotterid = MyCheckUtil.getValueFromResponse(response, "lotterid");
         String getnlotterid = MyCheckUtil.getValueFromResponse(response, "nlotterid");

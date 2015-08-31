@@ -17,7 +17,7 @@ public class UserLogoutError_tobe_kickoffed  extends Thread{
 	public void doAction() 
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
     	client_servlogin9000 = new TcpClient();
         int tid = 9000;
         int  netid=3;

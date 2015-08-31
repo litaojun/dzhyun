@@ -55,15 +55,15 @@ public class KickoffTcpTest {
 	
 	
 	// =================================性能测试脚本=======================================
-	
-	/**
+	/*
+	*//**
 	 * 验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息
 	 * @return 
 	 * @return kickoffmsg
 	 * @throws IOException
 	 * @throws SAXException
 	 * @throws NoSuchAlgorithmException
-	 */
+	 *//*
 	@Test
 	public void testKickOffMsg(String name) throws  InterruptedException {
 		System.out
@@ -78,7 +78,7 @@ public class KickoffTcpTest {
 
       //return msg;
 	}
-	
+	*/
 	// =================================正常测试=======================================
 		/**
 		 * 验证用户第一次登录，不踢

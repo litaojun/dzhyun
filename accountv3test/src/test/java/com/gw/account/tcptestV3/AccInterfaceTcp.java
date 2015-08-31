@@ -19,7 +19,7 @@ import java.net.Socket;
 public class AccInterfaceTcp {
 	private static final Log LOG = LogFactory.getLog(AccInterfaceTcp.class);
 	private static String serverIP = "10.15.201.106";
-	private static int serverPort = 32229;
+	private static int serverPort = 32226;
 
 	public static String testAdduserexTcp(String params) throws IOException,
 			SAXException {

@@ -13,7 +13,7 @@ public class UserFirstLogin_tobe_kickoffed extends Thread {
 	@SuppressWarnings("resource")
 	public  void doAction() {
 		String v3host = "10.15.201.106";
-		int v3port = 32229;
+		int v3port = 32226;
 		// 建立9000链接
 		client_servlogin9000 = new TcpClient();
 		int tid = 9000;

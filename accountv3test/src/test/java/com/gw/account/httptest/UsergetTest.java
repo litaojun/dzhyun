@@ -102,9 +102,9 @@ public class UsergetTest {
         log.info("======Case6:非必填字段全部书写请求，密码错误=======");
         String curtimeuname = MyCurrentTime.MyTime();
         String uname = "lili" + curtimeuname + "";
-        String accresult1 = AccInterface.testAdduser("&uname=" + uname + "&upass=123456");
+        AccInterface.testAdduser("&uname=" + uname + "&upass=123456");
         String accresult = AccInterface.testUserget("&uname=" + uname + "&gettp=12288&passmd5=123457&exreq={\"ver\":\"1.0\"}");
-        assertTrue("True", accresult.contains("result=59"));
+        assertTrue("True", accresult.contains("msg=password_error"));
     }
 
     @Test

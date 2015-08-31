@@ -1063,7 +1063,7 @@ public class FindunameTest {
     //Case3.2.19:参数逻辑及边界值（mobile）
     public void testMustParamsMobile19() throws IOException, SAXException, ClassNotFoundException, InterruptedException {
         String keytp = "mobile";
-        String key = "13673991659";
+        String key = "18516509519";
         String params = keytpval + keytp + keyval + key;
         //请求输入
         Thread.sleep(1001);
@@ -1083,6 +1083,7 @@ public class FindunameTest {
         Thread.sleep(1001);
         System.out.println("======Case3.3.1:参数逻辑及边界值（idcard）=======");
         String accresult = AccInterface.testFindunamebykey(params);
+        System.out.println(accresult);
         //校验返回值
         assertTrue("True", accresult.contains("result=2"));
     }

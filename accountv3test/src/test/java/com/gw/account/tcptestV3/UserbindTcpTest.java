@@ -680,8 +680,9 @@ public class UserbindTcpTest {
 		for (Map.Entry<String, Object> entry : jsonArray.entrySet()) {
 			// System.out.println(String.format("%s:%s",entry.getKey(),entry.getValue()));
 			if ("keys".equals(entry.getKey())) {
-				JSONArray array = JSONArray.parseArray((String) entry
-						.getValue());
+				System.out.println("entry.getValue()"+entry.getValue());
+				JSONArray array = JSONArray.parseArray((String) entry.getValue());
+				System.out.println(array);
 				for (Object o : array) {
 					JSONObject keysjson = JSONObject.parseObject(o.toString());
 					if (keysjson.get("email") != null) {

@@ -447,7 +447,7 @@ public class CheckpassTest {
     public void testEmailWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
         String params = "&uname=" + user.getEmail() + "&passmd5=" + MyCheckUtil.encodePassword(user.getUpass() + "wrong");
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确邮箱错误密码作为参数，不返回用户名", result);
     }
 
@@ -462,7 +462,7 @@ public class CheckpassTest {
     public void testEmailWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
         String params = "&uname=" + user.getEmail() + "&passmd5=" + MyCheckUtil.encodePassword(user.getUpass() + "wrong") + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确邮箱错误密码作为参数，返回用户名", result);
     }
 
@@ -477,7 +477,7 @@ public class CheckpassTest {
     public void testMobileWrongUpass() throws NoSuchAlgorithmException, IOException, SAXException {
         String params = "&uname=" + user.getMobile() + "&passmd5=" + MyCheckUtil.encodePassword(user.getUpass() + "wrong");
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确手机错误密码作为参数，不返回用户名", result);
     }
 
@@ -492,7 +492,7 @@ public class CheckpassTest {
     public void testMobileWrongUpassRuname() throws NoSuchAlgorithmException, IOException, SAXException {
         String params = "&uname=" + user.getMobile() + "&passmd5=" + MyCheckUtil.encodePassword(user.getUpass() + "wrong") + "&runame=1";
         String response = AccInterface.testCheckpass(params);
-        boolean result = response.contains("result=2") && response.contains("msg=user_not_found");
+        boolean result = response.contains("result=59") && response.contains("msg=password_error");
         assertTrue("正确手机错误密码作为参数，返回用户名", result);
     }
 
