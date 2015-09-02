@@ -373,7 +373,7 @@ public class MyCheckUtil {
             String RightBufdb = userRight.getRightStr();
             long uMarket = Long.parseLong(keyvalue.getString("uMarket"));
             String extrabuf = keyvalue.getString("extrabuf");
-            resultsolo = Marketdb == uMarket && RightBufdb.equals(extrabuf);
+            resultsolo = Marketdb == uMarket ||RightBufdb.equals(extrabuf);
         }
         return resultsolo;
     }

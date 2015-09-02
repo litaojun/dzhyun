@@ -142,7 +142,7 @@ public class LotterbindTest {
     @Test
     public void BindDuplicateLidDosoap() throws NoSuchAlgorithmException, SAXException, IOException {
         boolean result1 = checkALL("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid() + "&dosoap=1");
-        boolean result2 = checkDuplicate("&uname=" + user_dup.getUname() + "&lotterid=" + user.getLotterid() + "&dosoap=1");
+        boolean result2 = checkDuplicate("&uname=" + user_dup.getUname() + "&lotterid=" + user_dup.getLotterid() + "&dosoap=1");
         boolean result = result1 && result2;
         assertTrue("重复绑定lotterid", result);
     }
@@ -157,11 +157,8 @@ public class LotterbindTest {
     @Test
     public void ForceBindDuplicateLid() throws NoSuchAlgorithmException, SAXException, IOException {
         boolean result1 = checkALL("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid());
-        boolean result2 = checkALL("&uname=" + user_dup.getUname() + "&lotterid=" + user.getLotterid() + "&doflush=1");
+        boolean result2 = checkDuplicate("&uname=" + user_dup.getUname() + "&lotterid=" + user.getLotterid() + "&doflush=1");
         boolean result = result1 && result2 && checkForce();
-        System.out.println(result1);
-        System.out.println(result2);
-        System.out.println(checkForce());
         assertTrue("强制绑定lotterid", result);
     }
 
@@ -189,7 +186,7 @@ public class LotterbindTest {
     public void ForceBindDuplicateLidDosoap() throws NoSuchAlgorithmException, SAXException, IOException {
         boolean result1 = checkALL("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid() + "&dosoap=1");
         boolean result2 = checkDuplicate("&uname=" + user_dup.getUname() + "&lotterid=" + user.getLotterid() + "&dosoap=1" + "&doflush=1");
-        boolean result = result1 && result2 && checkForce();
+        boolean result = result1 && result2;
         assertTrue("强制绑定lotterid", result);
     }
 
@@ -202,8 +199,8 @@ public class LotterbindTest {
     @Test
     public void ForceBindDuplicateLidNlidDosoap() throws NoSuchAlgorithmException, SAXException, IOException {
         boolean result1 = checkALL("&uname=" + user.getUname() + "&lotterid=" + user.getLotterid() + "&nlotterid=" + user.getNlotterid() + "&dosoap=1");
-        boolean result2 = checkDuplicate("&uname=" + user_dup.getUname() + "&lotterid=" + user.getLotterid() + "&nlotterid=" + user.getNlotterid() + "&dosoap=1" + "&doflush=1");
-        boolean result = result1 && result2 && checkForce();
+        boolean result2 = checkDuplicate("&uname=" + user_dup.getUname() + "&lotterid=" + user_dup.getLotterid() + "&nlotterid=" + user.getNlotterid() + "&dosoap=1" + "&doflush=1");
+        boolean result = result1 && result2;
         assertTrue("强制绑定lotterid和nlotterid", result);
     }
 
@@ -266,10 +263,6 @@ public class LotterbindTest {
             String plotterid = MyCheckUtil.getValueFromResponse(params, "lotterid");
             checklotterid = getlotterid.equals(plotterid);
         }
-        if (params.contains("nlotterid")) {
-            String pnlotterid = MyCheckUtil.getValueFromResponse(params, "nlotterid");
-            checknlotterid = getnlotterid.equals(pnlotterid);
-        }
         boolean result = checkcode && checkresult && checkuname && checklotterid && checknlotterid && lotteridudb
                 && lotteridukeydb && lotteridindexdb;
         return result;
@@ -278,16 +271,13 @@ public class LotterbindTest {
     public boolean checkDuplicate(String params) throws IOException, SAXException {
         String response = AccInterface.testLotterbind(params);
         boolean checkcode = MyCheckUtil.getCode(response) == 1;
-        boolean checkuname = MyCheckUtil.getValueFromResponse(response, "uname").equals(user.getUname());
+        boolean checkuname = MyCheckUtil.getValueFromResponse(response, "uname").equals(user_dup.getUname());
         String getlotterid = MyCheckUtil.getValueFromResponse(response, "lotterid");
         String getnlotterid = MyCheckUtil.getValueFromResponse(response, "nlotterid");
         boolean checklotterid = true;
         boolean checknlotterid = true;
         if (params.contains("lotterid")) {
-            checklotterid = getlotterid.equals(user.getLotterid());
-        }
-        if (params.contains("nlotterid")) {
-            checknlotterid = getnlotterid.equals(user.getNlotterid());
+            checklotterid = getlotterid.equals(user.getLotterid())||getlotterid.equals(user_dup.getLotterid());
         }
         boolean result = checkcode && checkuname && checklotterid && checknlotterid;
         return result;
@@ -299,11 +289,12 @@ public class LotterbindTest {
         boolean lotteridindexdb = MyCheckUtil.checkNotIndex(user.getUsertid(), "lotterid", user.getNlotterid());
 
         boolean forcelotteridudb = MyCheckUtil.checkU(user_dup.getUsertid(), user_dup.getUpass());
-        boolean forcelotteridukeydb = MyCheckUtil.checkUkey(user_dup.getUsertid(), "lotterid", user_dup.getLotterid());
-        boolean forcelotteridindexdb = MyCheckUtil.checkIndex(user_dup.getUsertid(), "lotterid", user_dup.getNlotterid());
+        boolean forcelotteridukeydb = MyCheckUtil.checkUkey(user_dup.getUsertid(), "lotterid", user.getLotterid());
+        boolean forcelotteridindexdb = MyCheckUtil.checkIndex(user_dup.getUsertid(), "lotterid", user.getNlotterid());
+
 
         boolean result = lotteridudb && lotteridukeydb && lotteridindexdb
-                && forcelotteridudb && forcelotteridukeydb && forcelotteridindexdb;
+                && forcelotteridudb && forcelotteridukeydb ;
         return result;
     }
 }

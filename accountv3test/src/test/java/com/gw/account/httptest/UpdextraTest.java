@@ -71,6 +71,7 @@ public class UpdextraTest {
                     MyCheckUtil.checkResponseSolo(response, "uname", user.getUname());
             result = checkresult && checkuname;
         }
+        
         boolean checkdb = true;
         if (request.contains("uMarket")) {
             String uMarketwr = MyCheckUtil.getValueFromResponse(request, "uMarket");
