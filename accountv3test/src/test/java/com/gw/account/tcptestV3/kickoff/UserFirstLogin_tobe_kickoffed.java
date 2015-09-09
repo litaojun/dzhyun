@@ -3,7 +3,8 @@ package com.gw.account.tcptestV3.kickoff;
 import com.gw.account.utils.*;
 
 /**
- * @author zhangchaoxu 此类验证用户第一次login时，不踢
+ * @author zhangchaoxu 
+ * 此类验证用户第一次login时，不踢
  */
 public class UserFirstLogin_tobe_kickoffed extends Thread {
 
@@ -11,7 +12,7 @@ public class UserFirstLogin_tobe_kickoffed extends Thread {
 	String msg = null;
 
 	@SuppressWarnings("resource")
-	public  void doAction() {
+	public  String  doAction() {
 		String v3host = "10.15.201.106";
 		int v3port = 32226;
 		// 建立9000链接
@@ -61,12 +62,15 @@ public class UserFirstLogin_tobe_kickoffed extends Thread {
 
 		// 判断9000链接是否收到踢人消息
 		String msg = null;
+		String msg1=null;
 		if (!(msg=client_servlogin9000.read()).isEmpty()) {
 		
-			System.out.println("receive kick off msg:" + msg);
+			msg1=msg;
 		} else {
-			System.out.println("no data received");
+			msg1="no data received";
 		}
+		
+		return msg1;
 
 		 
 	}

@@ -22,7 +22,7 @@ public class UserNotConflict_to_kickoff_others  extends Thread{
 	public void doAction() throws InterruptedException
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
     	
     	//client_servlogin 9000
         TcpClient client_servlogin9000 = new TcpClient();
@@ -59,14 +59,14 @@ public class UserNotConflict_to_kickoff_others  extends Thread{
         }
         
         //login on 9001
-        String[] arrayuname= new String[]{"zhangchaoxu222","13501559805","zhangchaoxu222@qq.com"};
+      /*  String[] arrayuname= new String[]{"zhangchaoxu222","13501559805","zhangchaoxu222@qq.com"};
         String[] arrayumarkt = new String[]{"12","4"};
         int[] arrayusrpos=new int[]{12,4};
-        String uname=arrayuname[MyCheckUtil.GetRandomNum(0, 2)];
-        //String uname="testcrmv3007";
-		String pwd= "zcx123456";
-		String uMarket=arrayumarkt[MyCheckUtil.GetRandomNum(0, 1)];
-		int usrpos=arrayusrpos[MyCheckUtil.GetRandomNum(0, 1)];
+        String uname=arrayuname[MyCheckUtil.GetRandomNum(0, 2)];*/
+        String uname="kickoffUser5";
+      	String pwd= "zxcvbnm";
+		String uMarket="12";
+		int usrpos=12;
 		String appid="0.0-1";
 		String idlow="2222";
 		String idhigh="2222";
@@ -77,7 +77,7 @@ public class UserNotConflict_to_kickoff_others  extends Thread{
 			e.printStackTrace();
 		}
 
-        Thread.sleep(10000);
+        Thread.sleep(1000);
         client_servlogin9000.close();
         client_servlogin9001.close();
 //        System.out.println("kick off others has finished! ");

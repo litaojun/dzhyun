@@ -3,7 +3,7 @@ import com.gw.account.utils.*;;
 
 public class VirtualHqUser_tobe_kickoffed  extends Thread{
 
-	public void run() {
+/*	public void run() {
 		try {
 			doAction();
 		} catch (InterruptedException e) {
@@ -12,12 +12,12 @@ public class VirtualHqUser_tobe_kickoffed  extends Thread{
 		}//("10.15.201.106", 32226);
 		
 	}
-
+*/
 	@SuppressWarnings("resource")
-	public void doAction() throws InterruptedException
+	public String doAction() throws InterruptedException
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
 
     	
     	//client_servlogin 9000
@@ -54,8 +54,8 @@ public class VirtualHqUser_tobe_kickoffed  extends Thread{
         	
         }
         
-        String uname="zhangchaoxu33333";
-		String pwd= "zcx123456";
+        String uname="kickoffUser1";
+		String pwd= "zxcvbnm";
 		String uMarket="4";
 		int usrpos=4;
 		String appid="0.0-1";
@@ -66,18 +66,31 @@ public class VirtualHqUser_tobe_kickoffed  extends Thread{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+        
+        
+        String uname1="kickoffUser2";
+		String appid1="0.0-1";
+		String idlow1="2222";
+		String idhigh1="2222";
+        try {
+        	client_servlogin9001.myLogin(v3host, v3port, uname1, pwd, uMarket,usrpos,appid1,idlow1,idhigh1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 
         //判断是否被踢
         String msg = null;
+		String msg1=null;
 		if (!(msg=client_servlogin9000.read()).isEmpty()) {
 		
-			System.out.println("receive kick off msg:" + msg);
+			msg1=msg;
 		} else {
-			System.out.println("no data received");
+			msg1="no data received";
 		}
-        		
-        		
-        client_servlogin9001.close();
+		
+		return msg1;
 	}
  
 }

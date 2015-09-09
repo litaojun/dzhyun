@@ -2,7 +2,10 @@ package com.gw.account.tcptestV3.kickoff;
 import com.gw.account.utils.*;;
 
 public class UserDifAppid_tobe_kickoffed  extends Thread{
-
+	String message;
+	public String getMessage() {
+		return message;
+	}
 	public void run() {
 		try {
 			doAction();
@@ -14,10 +17,10 @@ public class UserDifAppid_tobe_kickoffed  extends Thread{
 	}
 
 	@SuppressWarnings("resource")
-	public void doAction() throws InterruptedException
+	public String doAction() throws InterruptedException
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
 
     	
     	//client_servlogin 9000
@@ -54,8 +57,8 @@ public class UserDifAppid_tobe_kickoffed  extends Thread{
         	
         }
         
-        String uname="zhangxiaosan";
-		String pwd= "zcx123456";
+        String uname="kickoffUser9";
+		String pwd= "zxcvbnm";
 		String uMarket="4";
 		int usrpos=4;
 		String appid="0.0-1";
@@ -69,15 +72,16 @@ public class UserDifAppid_tobe_kickoffed  extends Thread{
 
         //判断是否被踢
         String msg = null;
-		if (!(msg=client_servlogin9000.read()).isEmpty()) {
-		
-			System.out.println("receive kick off msg:" + msg);
-		} else {
-			System.out.println("no data received");
-		}
-        		
-        		
-        client_servlogin9001.close();
+     		String msg1=null;
+     		if (!(msg=client_servlogin9000.read()).isEmpty()) {
+     		
+     			msg1=msg;
+     		} else {
+     			msg1="no data received";
+     		}
+     		
+     		message=msg1;
+     		return msg1;
 	}
  
 }

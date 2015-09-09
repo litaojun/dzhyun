@@ -6,6 +6,11 @@ public class UserNotConflict_tobe_kickoffed  extends Thread{
 
 	private TcpClient client_servlogin9000;
 	String msg=null;
+	String message;
+
+	public String getMessage() {
+		return message;
+	}
 
 	public void run() {
 	
@@ -14,10 +19,10 @@ public class UserNotConflict_tobe_kickoffed  extends Thread{
 	}
 
 	@SuppressWarnings("resource")
-	public void doAction() 
+	public String  doAction() 
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
 		//建立9000链接
     	client_servlogin9000 = new TcpClient();
         int tid = 9000;
@@ -51,10 +56,9 @@ public class UserNotConflict_tobe_kickoffed  extends Thread{
         }
         
         //9001链接登录
-        String[] arrayuname= new String[]{"zhangchaoxu222","13501559805","zhangchaoxu222@qq.com"};
-        String uname=arrayuname[MyCheckUtil.GetRandomNum(0, 2)];
-        //String uname="testcrmv3007";
-		String pwd= "zcx123456";
+  
+        String uname="kickoffUser5";
+		String pwd= "zxcvbnm";
 		String uMarket="1";
 		int usrpos=4;
 		String appid="0.0-1";
@@ -67,17 +71,20 @@ public class UserNotConflict_tobe_kickoffed  extends Thread{
 		}
 
         //判断9000是否收到踢人消息
-       String msg=null;
-        if(!(msg =client_servlogin9000.read() ).isEmpty())
-        {
-        	System.out.println("receive kick off msg:"+msg);
-        }
-        else{
-        	 System.out.println("no data received");
-        }
-        client_servlogin9001.close();
+        String msg = null;
+		String msg1=null;
+		if (!(msg=client_servlogin9000.read()).isEmpty()) {
+		
+			msg1=msg;
+		} else {
+			msg1="no data received";
+		}
+		
+		message=msg1;
+		return msg1;
      
 	}
+
 
  
 }

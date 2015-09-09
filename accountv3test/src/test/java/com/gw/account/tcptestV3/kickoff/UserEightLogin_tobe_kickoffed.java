@@ -8,11 +8,9 @@ public class UserEightLogin_tobe_kickoffed extends Thread {
 
 	private TcpClient client_servlogin9000;
 	String msg = null;
-
-	public void run() {
-
-		doAction();
-
+	String message;
+	public String getMessage() {
+		return message;
 	}
 
 	@SuppressWarnings("resource")
@@ -23,7 +21,7 @@ public class UserEightLogin_tobe_kickoffed extends Thread {
 		int tid = 9000;
 		int netid = (int) (Math.random() * 10000000);
 		int pid = (int) (Math.random() * 10000);
-		String uname = "kickoffUser1";
+		String uname = "kickoffUser12";
 		String pwd = "zxcvbnm";
 		String uMarket1 = "1";
 		String uMarket2 = "2";
@@ -122,21 +120,20 @@ public class UserEightLogin_tobe_kickoffed extends Thread {
 		// 判断是否被踢
 		String msg = null;
 		if (!(msg = client_servlogin9000.read()).isEmpty()) {
-			System.out.println("receive kick off msg:" + msg);
 			int i = 0;
 			while (i <7) {
 				msg = client_servlogin9000.read();
-				System.out.println("receive kick off msg:" + msg);
+				message+=msg;
 				i++;
 			}
 		}
 
 		else {
-			System.out.println("no data received");
+			message="no data received";
 		}
 		
 		client_servlogin9001.close();
-
+		client_servlogin9000.close();
 	}
 
 }

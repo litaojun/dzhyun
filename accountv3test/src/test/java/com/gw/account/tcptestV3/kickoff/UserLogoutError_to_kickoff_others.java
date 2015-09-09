@@ -61,8 +61,8 @@ public class UserLogoutError_to_kickoff_others  extends Thread{
         //login on 9001
         String[] arrayumarkt = new String[]{"12","4"};
         int[] arrayusrpos=new int[]{12,4};
-        String uname="zhangchaoxu111";
-		String pwd= "111111";
+        String uname="kickoffUser11";
+		String pwd= "zxcvbnm";
 		String uMarket=arrayumarkt[MyCheckUtil.GetRandomNum(0, 1)];
 		int usrpos=arrayusrpos[MyCheckUtil.GetRandomNum(0, 1)];
 		String appid="0.0-1";
@@ -75,7 +75,7 @@ public class UserLogoutError_to_kickoff_others  extends Thread{
 			e.printStackTrace();
 		}
 
-        Thread.sleep(10000);
+        Thread.sleep(1000);
         client_servlogin9000.close();
         client_servlogin9001.close();
 //        System.out.println("kick off others has finished! ");

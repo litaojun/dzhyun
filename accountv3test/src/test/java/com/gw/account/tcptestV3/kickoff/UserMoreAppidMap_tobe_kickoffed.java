@@ -6,7 +6,10 @@ public class UserMoreAppidMap_tobe_kickoffed  extends Thread{
 
 	private TcpClient client_servlogin9000_1;
 	String msg=null;
-
+	String message;
+	public String getMessage() {
+		return message;
+	}
 	public void run() {
 	
 			doAction();
@@ -17,7 +20,7 @@ public class UserMoreAppidMap_tobe_kickoffed  extends Thread{
 	public void doAction() 
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
 		//第一個鏈接請求
     	client_servlogin9000_1 = new TcpClient();
         int tid = 9000;
@@ -259,8 +262,8 @@ public class UserMoreAppidMap_tobe_kickoffed  extends Thread{
         //login on 9001
         //第一個鏈接登錄
 
-        String uname="zhangchaoxu888";
-		String pwd= "zcx123456";
+        String uname="kickoffUser35";
+		String pwd= "zxcvbnm";
 		String uMarket1="1";
 		int usrpos1=1;
 		String appid1="0.0008";
@@ -334,85 +337,84 @@ public class UserMoreAppidMap_tobe_kickoffed  extends Thread{
         		} catch (InterruptedException e) {
         			e.printStackTrace();
         		}
-        //判断client_servlogin9000_1是否被踢
-       String msg1=null;
-        if(!(msg1 =client_servlogin9000_1.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_1 kick off msg:"+msg1);
-        }
-        else{
-        	throw new IllegalArgumentException("client_servlogin9000_1 no data received");   
-        }
-
-        //判断client_servlogin9000_2是否被踢
-        String msg2=null;
-        if(!(msg2 =client_servlogin9000_2.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_2 kick off msg:"+msg2);
-        }
-        else{
-        	throw new IllegalArgumentException("client_servlogin9000_2 no data received");   
-        }
-    
-        //判断client_servlogin9000_3是否被踢
-        String msg3=null;
-        if(!(msg3 =client_servlogin9000_3.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_3 kick off msg:"+msg3);
-        }
-        else{
-        	throw new IllegalArgumentException("client_servlogin9000_3 no data received");   
-        }
-  
-        //判断client_servlogin9000_4是否被踢
-        String msg4=null;
-        if(!(msg4 =client_servlogin9000_4.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_4 kick off msg:"+msg4);
-        }
-        else{
-        	throw new IllegalArgumentException("client_servlogin9000_4 no data received");    
-        }
-      
-        //判断client_servlogin9000_5是否被踢
-        String msg5=null;
-        if(!(msg5 =client_servlogin9000_5.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_5 kick off msg:"+msg5);
-        }
-        else{
-        	throw new IllegalArgumentException("client_servlogin9000_5 no data received");     
-        }
-     
-      //判断client_servlogin9000_6是否被踢
-        String msg6=null;
-        if(!(msg6 =client_servlogin9000_6.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_6 kick off msg:"+msg6);
-        }
-        else{
-        	throw new IllegalArgumentException("client_servlogin9000_6 no data received");    
-        }
-     
-        //判断client_servlogin9000_7是否被踢
-        String msg7=null;
-        if(!(msg7 =client_servlogin9000_7.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_7 kick off msg:"+msg7);
-        }
-        else{
-        	throw new IllegalArgumentException("client_servlogin9000_7 no data received");      
-        }
-       
-      //判断client_servlogin9000_8是否被踢
-        String msg8=null;
-        if(!(msg8 =client_servlogin9000_8.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_8 kick off msg:"+msg8);
-        }
-        else{
-        	 throw new IllegalArgumentException("client_servlogin9000_8 no data received");   
-        }
+                //判断client_servlogin9000_1是否被踢
+                String msg1=null;
+                 if(!(msg1 =client_servlogin9000_1.read() ).isEmpty())
+                 {
+                 	System.out.println("receive client_servlogin9000_1 kick off msg:"+msg1);
+                 }
+                 else{
+                 	System.out.println("client_servlogin9000_1 no data received");   
+                 }
+                 
+                 //判断client_servlogin9000_2是否被踢
+                 String msg2=null;
+                 if(!(msg2 =client_servlogin9000_2.read() ).isEmpty())
+                 {
+                 	System.out.println("receive client_servlogin9000_2 kick off msg:"+msg2);
+                 }
+                 else{
+                 	System.out.println("client_servlogin9000_2 no data received");   
+                 }
+                 //判断client_servlogin9000_3是否被踢
+                 String msg3=null;
+                 if(!(msg3 =client_servlogin9000_3.read() ).isEmpty())
+                 {
+                 	System.out.println("receive client_servlogin9000_3 kick off msg:"+msg3);
+                 }
+                 else{
+                 	System.out.println("client_servlogin9000_3 no data received");   
+                 }
+                 //判断client_servlogin9000_4是否被踢
+                 String msg4=null;
+                 if(!(msg4 =client_servlogin9000_4.read() ).isEmpty())
+                 {
+                 	System.out.println("receive client_servlogin9000_4 kick off msg:"+msg4);
+                 }
+                 else{
+                 	System.out.println("client_servlogin9000_4 no data received");   
+                 }
+                 //判断client_servlogin9000_5是否被踢
+                 String msg5=null;
+                 if(!(msg5 =client_servlogin9000_5.read() ).isEmpty())
+                 {
+                 	System.out.println("receive client_servlogin9000_5 kick off msg:"+msg5);
+                 }
+                 else{
+                 	System.out.println("client_servlogin9000_5 no data received");    
+                 }
+               //判断client_servlogin9000_6是否被踢
+                 String msg6=null;
+                 if(!(msg6 =client_servlogin9000_6.read() ).isEmpty())
+                 {
+                 	System.out.println("receive client_servlogin9000_6 kick off msg:"+msg6);
+                 }
+                 else{
+                 	System.out.println("client_servlogin9000_6 no data received");   
+                 }
+                 //判断client_servlogin9000_7是否被踢
+                 String msg7=null;
+                 if(!(msg7 =client_servlogin9000_7.read() ).isEmpty())
+                 {
+                 	
+         			message+=msg7;
+                 }
+                 else{
+                 	message="no data received"; 
+                 }
+               //判断client_servlogin9000_8是否被踢
+                 
+                 
+             	String msg8 = null;
+         		if (!(msg8 = client_servlogin9000_8.read()).isEmpty()) {
+         				
+         				message+=msg8;
+         			}
+         		else {
+         			message="no data received";
+         		}
+         		
+		
         client_servlogin9001_1.close(); 
         client_servlogin9001_2.close(); 
         client_servlogin9001_3.close(); 

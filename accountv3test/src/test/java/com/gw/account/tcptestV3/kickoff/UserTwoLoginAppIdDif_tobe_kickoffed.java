@@ -9,17 +9,16 @@ public class UserTwoLoginAppIdDif_tobe_kickoffed extends Thread {
 
 	private TcpClient client_servlogin9000;
 	String msg = null;
-
-	public void run() {
-
-		doAction();
-
+	String message;
+	public String getMessage() {
+		return message;
 	}
+	
 
 	@SuppressWarnings("resource")
-	public void doAction() {
+	public String doAction() {
 		String v3host = "10.15.201.106";
-		int v3port = 32229;
+		int v3port = 32226;
 		client_servlogin9000 = new TcpClient();
 		int tid = 9000;
 		int netid = (int) (Math.random() * 10000000);
@@ -57,8 +56,8 @@ public class UserTwoLoginAppIdDif_tobe_kickoffed extends Thread {
 		 * String[]{"zhangxiaosan","13501559803","zhangchaoxu@qq.com"}; String
 		 * uname=arrayuname[MyCheckUtil.GetRandomNum(0, 2)];
 		 */
-		String uname = "zhangchaoxu777";
-		String pwd = "zcx123456";
+		String uname = "kickoffUser20";
+		String pwd = "zxcvbnm";
 		String uMarket1 = "1";
 		int usrpos1 = 1;
 		String appid1 = "0.0-1";
@@ -86,16 +85,17 @@ public class UserTwoLoginAppIdDif_tobe_kickoffed extends Thread {
 			e.printStackTrace();
 		}
 		// 判断是否被踢
-		String msg = null;
-		if (!(msg = client_servlogin9000.read()).isEmpty()) {
-			System.out.println("receive kick off msg:" + msg);
-		}
-
-		else {
-			System.out.println("no data received");
-		}
-		client_servlogin9000.close();
-		client_servlogin9001.close();
+		   String msg = null;
+    		String msg1=null;
+    		if (!(msg=client_servlogin9000.read()).isEmpty()) {
+    		System.out.println(msg);
+    			msg1=msg;
+    		} else {
+    			msg1="no data received";
+    		}
+    		
+    		message=msg1;
+    		return msg1;
 
 	}
 

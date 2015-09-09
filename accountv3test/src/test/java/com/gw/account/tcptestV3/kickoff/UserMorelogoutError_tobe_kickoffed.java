@@ -26,7 +26,7 @@ public class UserMorelogoutError_tobe_kickoffed  extends Thread{
 	public void doAction() 
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
 		 //第一個鏈接請求
         TcpClient client_servlogin9001_1 = new TcpClient();
         int  netid1=1;
@@ -47,8 +47,8 @@ public class UserMorelogoutError_tobe_kickoffed  extends Thread{
         //login on 9001
         //第一個鏈接登錄
 
-        String uname="zhangchaoxu00022";
-		String pwd="zcx123456";
+        String uname="kickoffUser38";
+		String pwd="zxcvbnm";
 		String uMarket1="1";
 		int usrpos1=1;
 		String appid="0.0-1";

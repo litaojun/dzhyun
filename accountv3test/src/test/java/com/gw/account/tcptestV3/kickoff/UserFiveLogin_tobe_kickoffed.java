@@ -8,17 +8,14 @@ public class UserFiveLogin_tobe_kickoffed extends Thread {
 
 	private TcpClient client_servlogin9000;
 	String msg = null;
-
-	public void run() {
-
-		doAction();
-
+	String message;
+	public String getMessage() {
+		return message;
 	}
-
 	@SuppressWarnings("resource")
 	public void doAction() {
 		String v3host = "10.15.201.106";
-		int v3port = 32229;
+		int v3port = 32226;
 		client_servlogin9000 = new TcpClient();
 		int tid = 9000;
 		int netid = 1;
@@ -56,8 +53,8 @@ public class UserFiveLogin_tobe_kickoffed extends Thread {
 		 * String[]{"zhangxiaosan","13501559803","zhangchaoxu@qq.com"}; String
 		 * uname=arrayuname[MyCheckUtil.GetRandomNum(0, 2)];
 		 */
-		String uname = "13501559807";
-		String pwd = "zcx123456";
+		String uname = "kickoffUser16";
+		String pwd = "zxcvbnm";
 		String uMarket1 = "1";
 		String uMarket2 = "2";
 		String uMarket3 = "4";
@@ -125,21 +122,20 @@ public class UserFiveLogin_tobe_kickoffed extends Thread {
 		// 判断是否被踢
 		String msg = null;
 		if (!(msg = client_servlogin9000.read()).isEmpty()) {
-			System.out.println("receive kick off msg:" + msg);
 			int i = 0;
 			while (i < 7) {
 				msg = client_servlogin9000.read();
-				System.out.println("receive kick off msg:" + msg);
+				message+=msg;
 				i++;
 			}
 		}
 
 		else {
-			System.out.println("no data received");
+			message="no data received";
 		}
 
 		client_servlogin9001.close();
-
+		client_servlogin9000.close();
 	}
 
 }

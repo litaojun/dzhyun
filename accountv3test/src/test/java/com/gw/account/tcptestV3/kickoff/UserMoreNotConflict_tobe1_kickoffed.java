@@ -6,6 +6,10 @@ public class UserMoreNotConflict_tobe1_kickoffed  extends Thread{
 
 	private TcpClient client_servlogin9000_1;
 	String msg=null;
+	String message;
+	public String getMessage() {
+		return message;
+	}
 
 	public void run() {
 	
@@ -17,7 +21,7 @@ public class UserMoreNotConflict_tobe1_kickoffed  extends Thread{
 	public void doAction() 
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
 		//第一個鏈接請求
     	client_servlogin9000_1 = new TcpClient();
         int tid = 9000;
@@ -259,8 +263,8 @@ public class UserMoreNotConflict_tobe1_kickoffed  extends Thread{
         //login on 9001
         //第一個鏈接登錄
 
-        String uname="zhangchaoxu77777";
-		String pwd= "zcx123456";
+        String uname="kickoffUser33";
+		String pwd= "zxcvbnm";
 		String uMarket1="1";
 		int usrpos1=1;
 		String appid="0.0-1";
@@ -398,21 +402,23 @@ public class UserMoreNotConflict_tobe1_kickoffed  extends Thread{
         String msg7=null;
         if(!(msg7 =client_servlogin9000_7.read() ).isEmpty())
         {
-        	System.out.println("receive client_servlogin9000_7 kick off msg:"+msg7);
+        	
+			message+=msg7;
         }
         else{
-        	System.out.println("client_servlogin9000_7 no data received");    
+        	message="no data received"; 
         }
        
       //判断client_servlogin9000_8是否被踢
-        String msg8=null;
-        if(!(msg8 =client_servlogin9000_8.read() ).isEmpty())
-        {
-        	System.out.println("receive client_servlogin9000_8 kick off msg:"+msg8);
-        }
-        else{
-        	System.out.println("client_servlogin9000_8 no data received");   
-        }
+    	String msg8 = null;
+		if (!(msg8 = client_servlogin9000_8.read()).isEmpty()) {
+				
+				message+=msg8;
+			}
+		else {
+			message="no data received";
+		}
+		
         client_servlogin9001_1.close();
         client_servlogin9001_2.close();
         client_servlogin9001_3.close();

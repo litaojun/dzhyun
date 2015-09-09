@@ -1,9 +1,11 @@
 package com.gw.account.tcptestV3;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+
+import junit.framework.Assert;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -53,32 +55,6 @@ import com.gw.account.tcptestV3.kickoff.VirtualHqUser_tobe_kickoffed;
  */
 public class KickoffTcpTest {
 	
-	
-	// =================================性能测试脚本=======================================
-	/*
-	*//**
-	 * 验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息
-	 * @return 
-	 * @return kickoffmsg
-	 * @throws IOException
-	 * @throws SAXException
-	 * @throws NoSuchAlgorithmException
-	 *//*
-	@Test
-	public void testKickOffMsg(String name) throws  InterruptedException {
-		System.out
-				.println("***********************验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息************************");
-		User_tobe_kickoffed vhq1 = new User_tobe_kickoffed(name);
-		User_to_kickoff vhq2 = new User_to_kickoff(name);
-
-		//String msg;
-		vhq1.start();	
-		vhq2.start();	
-
-
-      //return msg;
-	}
-	*/
 	// =================================正常测试=======================================
 		/**
 		 * 验证用户第一次登录，不踢
@@ -92,15 +68,9 @@ public class KickoffTcpTest {
 				SAXException, NoSuchAlgorithmException, InterruptedException {
 			System.out
 					.println("**********************验证用户第一次登录，不踢************************");
-			UserFirstLogin_tobe_kickoffed vhq1 = new UserFirstLogin_tobe_kickoffed();
-	        //启动线程
-			
-			vhq1.start();		
-
-			Thread.sleep(1000);
-			vhq1.join();
-			boolean testkick = true;
-			assertTrue("验证用户第一次登录，不踢", testkick);
+		  UserFirstLogin_tobe_kickoffed vhq1 = new UserFirstLogin_tobe_kickoffed();	
+		  String result=vhq1.doAction();		
+          assertEquals("no data received", result);
 		}
 		/**
 		 * 验证不同用户登录，不踢
@@ -115,17 +85,10 @@ public class KickoffTcpTest {
 			System.out
 					.println("***********************验证不同用户登录，不踢************************");
 			VirtualHqUser_tobe_kickoffed vhq1 = new VirtualHqUser_tobe_kickoffed();
-			UserDif_to_kickoff_others vhq2 = new UserDif_to_kickoff_others();
 
-			vhq1.start();
-			Thread.sleep(1500);
-			vhq2.start();
-			Thread.sleep(1000);
-			vhq1.join();
-			vhq2.join();
-
-			boolean testkick = true;
-			assertTrue("验证不同用户登录，不踢", testkick);
+			String result=vhq1.doAction();		
+	        assertEquals("no data received", result);
+			
 
 		}
 	/**
@@ -139,15 +102,16 @@ public class KickoffTcpTest {
 	public void testTwolinkTwoLoginKickOffMsg() throws  InterruptedException {
 		System.out
 				.println("***********************验证同一个用户（手机号，邮箱，用户名）9000链接获取到踢人消息************************");
-		VirtualHqUser_tobe_kickoffed vhq1 = new VirtualHqUser_tobe_kickoffed();
 		VirtualHqUser_to_kickoff_others vhq2 = new VirtualHqUser_to_kickoff_others();
 
-		vhq1.start();;
-		Thread.sleep(1500);
-		vhq2.start();;	
-		Thread.sleep(1000);
-		vhq1.join();
-		vhq2.join();
+		String result=vhq2.doAction();		
+	   if (result.contains("kickoffuser1")){
+		 assertEquals("1", "1");
+	   }else{
+		 assertEquals("1", "2");
+	   }
+        
+
 
 
 	}
@@ -172,9 +136,8 @@ public class KickoffTcpTest {
 		Thread.sleep(1000);
 		vhq1.join();
 		vhq2.join();
-
-		boolean testkick = true;
-		assertTrue("验证用户第二次登录,Umarkt不冲突，不踢", testkick);
+       String result=vhq1.getMessage();
+       assertEquals("no data received", result);
 
 	}
 	
@@ -195,15 +158,14 @@ public class KickoffTcpTest {
 
 		vhq1.start();
 	
-		Thread.sleep(1500);
+		Thread.sleep(1000);
 		vhq2.start();
 		Thread.sleep(1000);
 		vhq1.join();
 		vhq2.join();
 
-		boolean testkick = true;
-		assertTrue("*验证appid不同，不踢", testkick);
-
+		String result=vhq1.getMessage();
+	    assertEquals("no data received", result);
 	}
 	
 	/**
@@ -229,8 +191,8 @@ public class KickoffTcpTest {
 		vhq1.join();
 		vhq2.join();
 
-		boolean testkick = true;
-		assertTrue("验证LogOut参数传入正确退出，不踢", testkick);
+		String result=vhq1.getMessage();
+	    assertEquals("no data received", result);
 
 	}
 	
@@ -248,6 +210,7 @@ public class KickoffTcpTest {
 				.println("**********************验证LogOut传入错误参数，收到踢人消息************************");
 		UserLogoutError_tobe_kickoffed vhq1 = new UserLogoutError_tobe_kickoffed();
 		UserLogoutError_to_kickoff_others vhq2 = new UserLogoutError_to_kickoff_others();
+		
 		vhq1.start();
 	
 		Thread.sleep(1500);
@@ -256,32 +219,53 @@ public class KickoffTcpTest {
 		vhq1.join();
 		vhq2.join();
 
-		boolean testkick = true;
-		assertTrue("验证LogOut传入错误参数，收到踢人消息", testkick);
+		String result=vhq1.getMessage();		
+		   if (result.contains("kickoffuser11")){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+		   }
 
 	}
 	
-	/**
-	 * 验证同一链接8个login,收到8條踢人消息
-	 * @return 8条kickoffmsg
-	 * @throws IOException
-	 * @throws SAXException
-	 * @throws NoSuchAlgorithmException
-	 */
-	@Test
+	
+	 /**
+		 * 判断字符串中某字符出现的次数
+		 */
+	 public static int getCount(String str,String sub)  
+    {  
+        int index = 0;  
+        int count = 0;  
+        while((index = str.indexOf(sub,index))!=-1)  
+        {  
+      
+            index = index + sub.length();  
+            count++;  
+        }  
+        return count;  
+    }
+	 
+	 /**
+		 * 验证同一链接8个login,收到8條踢人消息
+		 * @return 8条kickoffmsg
+		 * @throws IOException
+		 * @throws SAXException
+		 * @throws NoSuchAlgorithmException
+		 */
+	 @Test
 	public void testOneLinkNormalEightLogin() throws IOException, SAXException,
 			NoSuchAlgorithmException, InterruptedException {
 		System.out
 				.println("**********************验证同一链接8个login,收到8條踢人消息************************");
 		UserEightLogin_tobe_kickoffed vhq1 = new UserEightLogin_tobe_kickoffed();
-
-		vhq1.start();
-	
-
-		Thread.sleep(1000);
-		vhq1.join();
-		boolean testkick = true;
-		assertTrue("验证同一链接8个login,收到8個踢人消息", testkick);
+		vhq1.doAction();
+		String result=vhq1.getMessage();		
+		int count=getCount(result,"kickoffuser12");
+		   if (count>=7){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+		   }
 	}
 	/**
 	 * 验证同一链接5个login,收到8條踢人消息,有3条消息是上一个链接的踢人消息，根据返回消息的userpos识别（用户第一次登陆的话只收到5条踢人消息）
@@ -297,14 +281,16 @@ public class KickoffTcpTest {
 		System.out
 				.println("**********************验证同一链接5个login,收到8條踢人消息,有3条消息是上一个链接的踢人消息，根据返回消息的userpos识别（用户第一次登陆的话只收到5条踢人消息）************************");
 		UserFiveLogin_tobe_kickoffed vhq1 = new UserFiveLogin_tobe_kickoffed();
-
-		vhq1.start();
-	
-
-		Thread.sleep(1000);
-		vhq1.join();
-		boolean testkick = true;
-		assertTrue("验证同一链接5个login,收到8條踢人消息,有3条消息是上一个链接的踢人消息，根据返回消息的userpos识别", testkick);
+		vhq1.doAction();
+		String result=vhq1.getMessage();	
+		
+		int count=getCount(result,"kickoffuser16");
+		
+		   if (count>=7){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+		   }
 	}
 	/**
 	 * 验证八個链接8个login,收到8個踢人消息
@@ -328,10 +314,13 @@ public class KickoffTcpTest {
 		Thread.sleep(1000);
 		vhq1.join();
 		vhq2.join();
-
-		boolean testkick = true;
-		assertTrue("验证八個链接8个login,收到8個踢人消息", testkick);
-
+		String result=vhq1.getMessage();		
+		int count=getCount(result,"kickoffuser30");
+		   if (count==2){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+		   }
 	}
 	
 	/**
@@ -356,11 +345,15 @@ public class KickoffTcpTest {
 		vhq1.join();
 		vhq2.join();
 
-		boolean testkick = true;
-		assertTrue("验证八個链接8个login,umarkt不衝突，不踢", testkick);
-
+		String result=vhq1.getMessage();
+	    int count=getCount(result,"no data received");
+		
+		   if (count==1){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
 	}
-
+ }
 	/**
 	 * 验证同一链接2个login,AppId不同，不踢
 	 * @return no data reveived
@@ -375,11 +368,10 @@ public class KickoffTcpTest {
 				.println("********************** 验证同一链接2个login,AppId不同，不踢************************");
 		UserTwoLoginAppIdDif_tobe_kickoffed vhq1 = new UserTwoLoginAppIdDif_tobe_kickoffed();
 
-		vhq1.start();
-		Thread.sleep(1000);
-		vhq1.join();
-		boolean testkick = true;
-		assertTrue(" 验证同一链接2个login,AppId不同，不踢", testkick);
+		vhq1.doAction();
+
+		String result=vhq1.getMessage();
+	    assertEquals("no data received", result);
 	}
 
 	/**
@@ -396,11 +388,10 @@ public class KickoffTcpTest {
 				.println("********************** 验证同一链接2个login,umarkt不冲突，不踢************************");
 		UserTwoUmarktNotConflict_tobe_kickoffed vhq1 = new UserTwoUmarktNotConflict_tobe_kickoffed();
 
-		vhq1.start();
-		Thread.sleep(1000);
-		vhq1.join();
-		boolean testkick = true;
-		assertTrue(" 验证同一链接2个login,umarkt不冲突，不踢", testkick);
+		vhq1.doAction();
+
+		String result=vhq1.getMessage();
+	    assertEquals("no data received", result);
 	}
 
 	/**
@@ -416,12 +407,14 @@ public class KickoffTcpTest {
 		System.out
 				.println("********************** 验证同一链接2个login,umarkt冲突，踢************************");
 		UserTwoUmarktConflict_tobe_kickoffed vhq1 = new UserTwoUmarktConflict_tobe_kickoffed();
-
-		vhq1.start();
-		Thread.sleep(1000);
-		vhq1.join();
-		boolean testkick = true;
-		assertTrue(" 验证同一链接2个login,umarkt冲突，踢", testkick);
+       vhq1.doAction();
+		String result=vhq1.getMessage();		
+		int count=getCount(result,"kickoffuser32");
+		   if (count==1){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+		   }
 	}
 	/**
 	 * 验证八個链接8个login,appid不同，不踢
@@ -446,10 +439,15 @@ public class KickoffTcpTest {
 		vhq1.join();
 		vhq2.join();
 
-		boolean testkick = true;
-		assertTrue("验证八個链接8个login,appid不同，不踢", testkick);
-
+		String result=vhq1.getMessage();
+	    int count=getCount(result,"no data received");
+		
+		   if (count==1){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
 	}
+ }
 
 	/**
 	 * 验证在etcd中配置后，appid映射问题，正常踢
@@ -472,9 +470,13 @@ public class KickoffTcpTest {
 		vhq1.join();
 		vhq2.join();
 
-		boolean testkick = true;
-		assertTrue("验证在etcd中配置后，appid映射问题，正常踢", testkick);
-
+		String result=vhq1.getMessage();		
+		int count=getCount(result,"kickoffuser35");
+		   if (count==2){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+		   }
 	}
 	/**
 	 * 验证八個链接8个login，logout，不踢
@@ -498,9 +500,14 @@ public class KickoffTcpTest {
 		vhq1.join();
 		vhq2.join();
 
-		boolean testkick = true;
-		assertTrue("验证八個链接8个login，logout，不踢", testkick);
-
+		String result=vhq1.getMessage();
+	    int count=getCount(result,"no data received");
+		
+		   if (count==1){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+	}
 	}
 
 	/**
@@ -545,8 +552,30 @@ public class KickoffTcpTest {
 		vhq9.join();
 		vhq0.join();
 		Thread.sleep(1000);
-		boolean testkick = true;
-		assertTrue("验证八個链接8个login，logout部分正确，收到5条踢人消息（14567)", testkick);
+		
+		
+		String result1=vhq3.getMessage1();	
+		int count=getCount(result1,"kickoffuser38");
+		String result2=vhq4.getMessage2();
+		int count2=getCount(result2,"no data received");
+		String result3=vhq5.getMessage3();		
+		int count3=getCount(result3,"no data received");
+		String result4=vhq6.getMessage4();	
+		int count4=getCount(result4,"kickoffuser38");
+		String result5=vhq7.getMessage5();		
+		int count5=getCount(result5,"kickoffuser38");
+		String result6=vhq8.getMessage6();		
+		int count6=getCount(result6,"kickoffuser38");
+		String result7=vhq9.getMessage7();		
+		int count7=getCount(result7,"kickoffuser38");
+		String result8=vhq0.getMessage8();
+		int count8=getCount(result8,"no data received");
+		
+		   if (count==1&&count2==1&&count3==1&&count4==1&&count5==1&&count6==1&&count7==1&&count8==1){
+			 assertEquals("1", "1");
+		   }else{
+			 assertEquals("1", "2");
+		   }
 
 	}
 }

@@ -6,7 +6,10 @@ public class UserLogoutError_tobe_kickoffed  extends Thread{
 
 	private TcpClient client_servlogin9000;
 	String msg=null;
-
+	String message;
+	public String getMessage() {
+		return message;
+	}
 	public void run() {
 	
 			doAction();
@@ -14,7 +17,7 @@ public class UserLogoutError_tobe_kickoffed  extends Thread{
 	}
 
 	@SuppressWarnings("resource")
-	public void doAction() 
+	public String doAction() 
 	{
 		String v3host ="10.15.201.106";
 		int v3port=32226;
@@ -52,8 +55,8 @@ public class UserLogoutError_tobe_kickoffed  extends Thread{
         }
         
         //login on 9001
-        String uname="zhangchaoxu111";
-		String pwd= "111111";
+        String uname="kickoffUser11";
+		String pwd= "zxcvbnm";
 		String uMarket="4";
 		int usrpos=4;
 		int usrposerror=5;
@@ -73,17 +76,17 @@ public class UserLogoutError_tobe_kickoffed  extends Thread{
 
         //判断是否被踢
         
-       String msg=null;
-        if(!(msg =client_servlogin9000.read() ).isEmpty())
-        {
-        	System.out.println("receive kick off msg:"+msg);
-        }
-        else{
-        	 System.out.println("no data received");   
-        }
-        client_servlogin9001.close();
-     
+        String msg = null;
+ 		String msg1=null;
+ 		if (!(msg=client_servlogin9000.read()).isEmpty()) {
+ 		
+ 			msg1=msg;
+ 		} else {
+ 			msg1="no data received";
+ 		}
+ 		
+ 		message=msg1;
+ 		return msg1;
 	}
-
  
 }

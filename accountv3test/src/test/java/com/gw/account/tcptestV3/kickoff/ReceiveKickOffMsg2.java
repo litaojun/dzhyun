@@ -5,6 +5,10 @@ import com.gw.account.utils.*;;
 public class ReceiveKickOffMsg2  extends Thread{
 
 	private TcpClient client_servlogin9000_2;
+	String message;
+	public String getMessage2() {
+		return message;
+	}
 
 
 	public void run() {
@@ -17,7 +21,7 @@ public class ReceiveKickOffMsg2  extends Thread{
 	public void doAction() 
 	{
 		String v3host ="10.15.201.106";
-		int v3port=32229;
+		int v3port=32226;
 		//第一個鏈接請求
     	client_servlogin9000_2 = new TcpClient();
         int tid = 9000;
@@ -39,14 +43,12 @@ public class ReceiveKickOffMsg2  extends Thread{
         //判断client_servlogin9000_1是否被踢
     	String msg = null;
 		if (!(msg = client_servlogin9000_2.read()).isEmpty()) {
-			System.out.println("client_servlogin9000_2 receive kick off msg:" + msg);
-	
+			message+=msg;
 			
 		}
 		else {
-			System.out.println("client_servlogin9000_2 no data received");
+			message="no data received"; 
 		}
-
         
 	}
 }
