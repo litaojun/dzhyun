@@ -603,7 +603,7 @@ public class UserbindHttpTest {
 	/**
 	 * 验证keytp的lotterid为空
 	 */
-	@Test
+	/*@Test
 	public void testKeytplotteridnull() throws IOException, SAXException,
 			NoSuchAlgorithmException {
 		String request = JSON.toJSONString(ImmutableMap.of("uname", user.getUname(),
@@ -613,7 +613,7 @@ public class UserbindHttpTest {
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
 				"result", "101");
 		assertTrue("验证keytp的lotterid为空", checkresult);
-	}
+	}*/
 
 	// =================================工具方法=======================================
 
