@@ -113,6 +113,7 @@ public class UserbindTcpTest {
 		boolean result = MyCheckUtil.checkJsonResponseSolo(response, "result",
 				"0");
 		boolean checkresult = checkALL(request, response);
+		
 		assertTrue("新用户绑定理财宝、湘财资金、设备指纹验证", result && checkresult);
 	}
 
@@ -462,7 +463,7 @@ public class UserbindTcpTest {
 		assertTrue("验证keytp参数值手机号低于11位填写错误", checkresult);
 	}
 
-	// =======================身份证错误参数绑定=================
+	// =======================身份证错误参数绑定(可以绑定成功，非限制)=================
 	/**
 	 * 验证身份证非15或者18位
 	 */
@@ -475,7 +476,7 @@ public class UserbindTcpTest {
 				"reqdata", "zc21652"));
 		String response = AccInterfaceTcp.testUserBindTcp(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "104");
+				"result", "114");
 		assertTrue("验证身份证非15或者18位", checkresult);
 	}
 
@@ -490,7 +491,7 @@ public class UserbindTcpTest {
 				"3422251987041657RM")), "reqdata", "zc2152"));
 		String response = AccInterfaceTcp.testUserBindTcp(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "104");
+				"result", "114");
 		assertTrue("验证身份证非X绑定", checkresult);
 	}
 
@@ -505,7 +506,7 @@ public class UserbindTcpTest {
 				"342225198704X65714")), "reqdata", "zc2152"));
 		String response = AccInterfaceTcp.testUserBindTcp(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "104");
+				"result", "114");
 		assertTrue("验证身份证非末位X绑定", checkresult);
 	}
 
@@ -536,7 +537,7 @@ public class UserbindTcpTest {
 				"reqdata", "zc2152"));
 		String response = AccInterfaceTcp.testUserBindTcp(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "101");
+				"result", "0");
 		assertTrue("验证keys为空", checkresult);
 	}
 
@@ -680,9 +681,8 @@ public class UserbindTcpTest {
 		for (Map.Entry<String, Object> entry : jsonArray.entrySet()) {
 			// System.out.println(String.format("%s:%s",entry.getKey(),entry.getValue()));
 			if ("keys".equals(entry.getKey())) {
-				System.out.println("entry.getValue()"+entry.getValue());
-				JSONArray array = JSONArray.parseArray((String) entry.getValue());
-				System.out.println(array);
+
+				JSONArray array = JSON.parseArray(entry.getValue().toString());
 				for (Object o : array) {
 					JSONObject keysjson = JSONObject.parseObject(o.toString());
 					if (keysjson.get("email") != null) {

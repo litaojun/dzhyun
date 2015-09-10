@@ -475,7 +475,7 @@ public class UserbindHttpTest {
 				"reqdata", "zc21652"));
 		String response = AccInterface.testUserbind(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "104");
+				"result", "114");
 		assertTrue("验证身份证非15或者18位", checkresult);
 	}
 
@@ -490,7 +490,7 @@ public class UserbindHttpTest {
 				"3422251987041657RM")), "reqdata", "zc2152"));
 		String response = AccInterface.testUserbind(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "104");
+				"result", "114");
 		assertTrue("验证身份证非X绑定", checkresult);
 	}
 
@@ -505,7 +505,7 @@ public class UserbindHttpTest {
 				"342225198704X65714")), "reqdata", "zc2152"));
 		String response = AccInterface.testUserbind(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "104");
+				"result", "114");
 		assertTrue("验证身份证非末位X绑定", checkresult);
 	}
 
@@ -536,7 +536,7 @@ public class UserbindHttpTest {
 				"reqdata", "zc2152"));
 		String response = AccInterface.testUserbind(request);
 		boolean checkresult = MyCheckUtil.checkJsonResponseSolo(response,
-				"result", "101");
+				"result", "0");
 		assertTrue("验证keys为空", checkresult);
 	}
 
@@ -680,7 +680,7 @@ public class UserbindHttpTest {
 		for (Map.Entry<String, Object> entry : jsonArray.entrySet()) {
 			// System.out.println(String.format("%s:%s",entry.getKey(),entry.getValue()));
 			if ("keys".equals(entry.getKey())) {
-				JSONArray array = JSONArray.parseArray((String) entry.getValue());
+				JSONArray array = JSONArray.parseArray( entry.getValue().toString());
 				for (Object o : array) {
 					JSONObject keysjson = JSONObject.parseObject(o.toString());
 					if (keysjson.get("email") != null) {
