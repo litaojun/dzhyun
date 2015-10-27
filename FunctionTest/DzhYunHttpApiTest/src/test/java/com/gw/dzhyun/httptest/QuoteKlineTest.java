@@ -21,16 +21,22 @@ import org.xml.sax.SAXException;
 
 
 
+
+
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.atopcloud.util.MyConfigUtil;
 import com.atopcloud.util.MyHttpUtil;
 //import com.gw.dzhyun.util.MyQuoteDynaUtil;
 import com.gw.dzhyun.util.MyQuoteKlineUtil;
+import com.gw.dzhyun.util.TranYfloatMain;
+import com.gw.dzhyun.util.TranYfloatStatic;
 //
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebResponse;
+import com.gw.dzhyun.util.TranYfloatStatic;
+
 /**
  * @author Lizhiqiang
  *
@@ -46,6 +52,7 @@ public class QuoteKlineTest {
 	String field= "ShiJian,ZuiGaoJia,ZuiDiJia";
 	String begin_time= "20140101-000000";
 	String end_time= "20141231-000000";
+	String token="786e2c4c533d42bea313ce42decaee9d";
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -225,19 +232,26 @@ public class QuoteKlineTest {
 		code="SH600008";
 		//period取值1day、1min、5min
 		period= "1day";
-		start= "1";
+		start= "-1";
 		//count取值<=78，json格式
 		count= "1";
 		
-		//quote/kline?obj=SH600000&period=1day&start=-1&count=1
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		//quote/kline?obj=SH600008&period=1day&start=-1&count=1
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
 		assertNotNull("错误：行情返回null",ret);
-		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		/*JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
 		assertNotNull("错误：股票k线为null",data);
-		System.out.println(data);
+		System.out.println(data);*/
+		
+		assert(ret!=null);
+		System.out.println(ret+"\n");
+		
+		TranYfloatMain tym = new TranYfloatMain(ret,"RepDataQuoteKlineSingle");
+		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(tranjson+"\n");
 	}
 	
 	/**
@@ -254,7 +268,7 @@ public class QuoteKlineTest {
 		count= "78";
 		
 		//quote/kline?obj=SH600000&period=1day&start=-78&count=78
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -270,22 +284,26 @@ public class QuoteKlineTest {
 	 */
 	@Test
 	public void test1MinKLine() throws Exception {
-		code="SH600008";
+		code="SH600600";
 		//period取值1day、1min、5min
 		period= "1min";
-		start= "1";
+		start= "-1";
 		//count取值<=78，json格式
 		count= "1";
 		
 		//quote/kline?obj=SH600000&period=1min&start=-1&count=1
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
 		assertNotNull("错误：行情返回null",ret);
 		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
 		assertNotNull("错误：股票k线为null",data);
-		System.out.println(data);
+		System.out.println(data+"\n");
+		
+		//yfloat转换
+		JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+		System.out.println(jsonyfloatResponse);
 	}
 	
 	/**
@@ -302,7 +320,7 @@ public class QuoteKlineTest {
 		count= "78";
 		
 		//quote/kline?obj=SH600000&period=1min&start=-78&count=78
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -326,7 +344,7 @@ public class QuoteKlineTest {
 		count= "1";
 		
 		//quote/kline?obj=SH600000&period=5min&start=-1&count=1
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -350,7 +368,7 @@ public class QuoteKlineTest {
 		count= "78";
 		
 		//quote/kline?obj=SH600000&period=5min&start=-78&count=78
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -375,7 +393,7 @@ public class QuoteKlineTest {
 		field= "ShiJian,ZuiGaoJia,ZuiDiJia,ChengJiaoBiShu";
 		
 		//quote/kline?obj=SH600004&period=1day&start=-78&count=78&field=ShiJian,ZuiGaoJia,ChengJiaoBiShu
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&field=" + field;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&field=" + field+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -401,7 +419,7 @@ public class QuoteKlineTest {
 		field= "ShiJian,ZuiGaoJia,ZuiDiJia,ChengJiaoBiShu";
 		
 		//quote/kline?obj=SH600000&period=1min&start=-78&count=78&field=ShiJian,ZuiGaoJia,ChengJiaoBiShu
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&field=" + field;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&field=" + field+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -426,7 +444,7 @@ public class QuoteKlineTest {
 		field= "ShiJian,ZuiGaoJia,ZuiDiJia,ChengJiaoBiShu";
 		
 		//quote/kline?obj=SH600000&period=5min&start=-78&count=78&field=ShiJian,ZuiGaoJia,ChengJiaoBiShu
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&field=" + field;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&field=" + field+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -444,18 +462,25 @@ public class QuoteKlineTest {
 	public void testPeriodDayKLine() throws Exception {
 		code="SH600008";
 		period= "1day";
-		begin_time= "20150403-000000";
-		end_time= "20150403-230000";
+		begin_time= "20150622-000000";
+		end_time= "20150622-230000";
 		
 		//quote/kline?obj=SH600008&period=1day&begin_time=20150403-000000&end_time=20150403-173502
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
 		assertNotNull("错误：行情返回null",ret);
-		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		/*JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
 		assertNotNull("错误：股票k线为null",data);
-		System.out.println(data);
+		System.out.println(data);*/
+		
+		assert(ret!=null);
+		System.out.println(ret+"\n");
+		
+		TranYfloatMain tym = new TranYfloatMain(ret,"RepDataQuoteKlineSingle");
+		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(tranjson+"\n");
 	}
 	
 	/**
@@ -473,7 +498,7 @@ public class QuoteKlineTest {
 		count= "78";
 		
 		//quote/kline?obj=SH600008&period=1min&begin_time=20150403-000000&end_time=20150403-173502&start=-78&count=78
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -498,7 +523,7 @@ public class QuoteKlineTest {
 		count= "48";
 		
 		//quote/kline?obj=SH600008&period=5min&begin_time=20150410-000000&end_time=20150410-173502&start=-78&count=78
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -520,7 +545,7 @@ public class QuoteKlineTest {
 		begin_time= "20150403-000000";
 		end_time= "20150403-130000";
 		//quote/kline?obj=SH600008&period=1day&field=ShiJian,ZuiGaoJia,ChengJiaoBiShu&begin_time=20150403-000000&end_time=20150403-110000
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&field=" + field+  "&begin_time=" + begin_time + "&end_time=" + end_time;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&field=" + field+  "&begin_time=" + begin_time + "&end_time=" + end_time+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -546,7 +571,7 @@ public class QuoteKlineTest {
 		count= "78";
 		
 		//quote/kline?obj=SH600008&period=1min&field=ShiJian,ZuiGaoJia,ChengJiaoBiShu&begin_time=20150403-000000&end_time=20150403-110000&start=-78&count=78
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&field=" + field+  "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&field=" + field+  "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -572,7 +597,7 @@ public class QuoteKlineTest {
 		count= "48";
 		
 		//quote/kline?obj=SH600008&period=5min&field=ShiJian,ZuiGaoJia,ChengJiaoBiShu&begin_time=20150403-000000&end_time=20150403-110000&start=-78&count=78
-		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&field=" + field+  "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&field=" + field+  "&begin_time=" + begin_time + "&end_time=" + end_time+ "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);

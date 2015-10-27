@@ -14,6 +14,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
+
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.atopcloud.util.MyConfigUtil;
@@ -37,6 +38,7 @@ public class JpbTest {
 	String market= "SH";	//SH、SZ市场分类
 	String count= "1";
 	String delist= "0";		//0不过滤退市股票，1过滤，默认为1
+	String token="079cec7879e54d7d94a16454aea7e8bb";
 	
 	/**
 	 * @throws java.lang.Exception
@@ -61,12 +63,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t1estpyJpb() throws Exception {
+	public void t111estpyJpb() throws Exception {
 		input="p";
 		type= "0";
 		
 		//kbspirit?input=p&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -82,12 +84,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t2estQuanpinJpb() throws Exception {
+	public void t112estQuanpinJpb() throws Exception {
 		input="pfyh";
 		type= "0";
 		
 		//kbspirit?input=pfyh&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -103,12 +105,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t3estpcodeJpb() throws Exception {
+	public void t113estpcodeJpb() throws Exception {
 		input="6";
 		type= "0";
 		
 		//kbspirit?input=6&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -124,13 +126,13 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t4estcodeJpb() throws Exception {
+	public void t114estcodeJpb() throws Exception {
 		input="600000";
 		type= "0";
 		
 		//kbspirit?input=600000&type=0
 		//http://10.15.144.80/kbspirit?input=天晟新材&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -146,12 +148,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t5estmcodeJpb() throws Exception {
+	public void t115estmcodeJpb() throws Exception {
 		input="SH0";
 		type= "0";
 		
 		//kbspirit?input=SH0&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -167,12 +169,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t6estChineseJpb() throws Exception {
+	public void t116estChineseJpb() throws Exception {
 		input="重";
 		type= "0";
 		
 		//kbspirit?input=重&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -188,12 +190,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t7estfChineseJpb() throws Exception {
+	public void t117estfChineseJpb() throws Exception {
 		input="天晟新材";
 		type= "0";
 		
 		//kbspirit?input=天晟新材&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -204,17 +206,39 @@ public class JpbTest {
 	}
 	
 	/**
-	 * 1.2查询指标
+	 * 1.2.1查询指标---type=1
         input=MA&type=1
 	 * @throws Exception 
 	 */
 	@Test
-	public void t8estIndicatorJpb() throws Exception {
+	public void t121estIndicatorJpb() throws Exception {
 		input="MA";
+		type= "1";
+		count="2";
+		
+		//kbspirit?input=MA&type=1&count=2
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(ret);
+	}
+	
+	/**
+	 * 1.2.2查询指标
+        input=量&type=1,有些指标只有DaiMa，没有MingCheng
+	 * @throws Exception 
+	 */
+	@Test
+	public void t122estIndicatorJpb() throws Exception {
+		input="量";
 		type= "1";
 		
 		//kbspirit?input=MA&type=1
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -230,13 +254,13 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t9estSHJpb() throws Exception {
-		input="60";
+	public void t131estSHJpb() throws Exception {
+		input="602";
 		type= "0";
 		market="SH";
 				
-		//kbspirit?input=60&type=0&market=SH
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market;  //每个测试方法需要修改
+		//kbspirit?input=602&type=0&market=SH
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -252,13 +276,13 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t10estSZJpb() throws Exception {
-		input="60";
+	public void t132estSZJpb() throws Exception {
+		input="602";
 		type= "0";
 		market="SZ";
 				
 		//kbspirit?input=60&type=0&market=SZ
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -274,13 +298,13 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t11estSHSZJpb() throws Exception {
+	public void t133estSHSZJpb() throws Exception {
 		input="605";
 		type= "0";
 		market="SH,SZ";
 				
 		//kbspirit?input=605&type=0&market=SH,SZ
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -296,14 +320,14 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t12estcountJpb() throws Exception {
+	public void t141estcountJpb() throws Exception {
 		input="60";
 		type= "0";
 		market="SH,SZ";
-		count="22";
+		count="90";
 				
-		//kbspirit?input=60&type=0&market=SH&count=22
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&count=" + count;  //每个测试方法需要修改
+		//kbspirit?input=60&type=0&market=SH&count=90
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -319,12 +343,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t13est4lengthJpb() throws Exception {
+	public void t151est4lengthJpb() throws Exception {
 		input="0016";
 		type= "0";
 				
 		//kbspirit?input=0016&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -340,12 +364,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t14est5lengthJpb() throws Exception {
+	public void t152est5lengthJpb() throws Exception {
 		input="60151";
 		type= "0";
 				
 		//kbspirit?input=60151&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -361,12 +385,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t15estMultiPyJpb() throws Exception {
+	public void t161estMultiPyJpb() throws Exception {
 		input="ccdg";
 		type= "0";
 				
 		//kbspirit?input=z&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -381,12 +405,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t16estMultiPyJpb() throws Exception {
+	public void t162estMultiPyJpb() throws Exception {
 		input="zcdg";
 		type= "0";
 				
 		//kbspirit?input=z&type=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -401,13 +425,13 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t17estNdelistJpb() throws Exception {
+	public void t171estNdelistJpb() throws Exception {
 		input="SH601299";
 		type= "0";
 		delist="0";
 				
 		//kbspirit?input=SH601299&type=0&delist=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -423,13 +447,13 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t18estdelistJpb() throws Exception {
+	public void t172estdelistJpb() throws Exception {
 		input="SH601299";
 		type= "0";
 		delist="0";
 				
 		//kbspirit?input=SH601299&type=0&delist=0
-		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type;  //每个测试方法需要修改
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
@@ -439,4 +463,27 @@ public class JpbTest {
 		System.out.println(ret);
 	}
 	
+	/**
+	 * 2.1.1主题投资相关----type=2
+	 * 根据主题的首字母、主题中文名称(全或部分)、成分股完整代码查询主题
+        input=z&type=2
+	 * @throws Exception 
+	 */
+	@Test
+	public void t211estpyJpb() throws Exception {
+		input="z";
+		type= "2";
+		
+		//kbspirit?input=z&type=2
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
 }
+
