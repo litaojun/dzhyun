@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class DataCompare {
+	public DataCompare()
+	{
+		
+	}
 	public static int compareArrayList(ArrayList<String> srclist,ArrayList<String> dstlist)
 	{
 		if(srclist.size() != dstlist.size())

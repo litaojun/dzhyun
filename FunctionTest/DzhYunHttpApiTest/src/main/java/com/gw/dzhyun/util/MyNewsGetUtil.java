@@ -79,6 +79,22 @@ public class MyNewsGetUtil {
 		}
 		return jsonQDS;
 	}
+	public static JSONObject getIndicatorCalc(String jsonstring)
+	{
+		JSONObject jsonUAResponse = JSON.parseObject(jsonstring);
+		int retcode = jsonUAResponse.getIntValue("Err");
+		if(retcode != 0)
+			return null;
+		JSONObject jsonMSG = jsonUAResponse.getJSONObject("Data");   
+		//获取Data中的RepDataQuoteDynaSingle部分（这是个数组）
+		JSONArray jsonQDSArray = jsonMSG.getJSONArray("RepDataZhiBiaoShuChu");  //QuoteDynaSingle数组
+		if(jsonQDSArray==null || jsonQDSArray.equals(""))
+		{
+			//System.out.println("33333333333");
+			return null;
+		}
+		return jsonUAResponse;
+	}
 	public static JSONObject getNews(String jsonstring)
 	{
 		/*

@@ -31,13 +31,15 @@ public class MyHttpUtil {
 	{
 		// WebConversation是HttpUnit的中心，您使用它来展开与HTTP相关的协议对话
 		WebConversation  	web = new WebConversation(); 
-		
 		//使用 WebRequest设置相关的请求参数
 		GetMethodWebRequest get = new GetMethodWebRequest(url);
-			
 		//WebConversation连接目的网页，然後得到回应WebResponse
 		WebResponse response = web.getResponse(get);  
-		
+		if(response == null)
+		{
+			System.out.println("response=null");
+			assert(1==2);
+		}
 		String ret=null;
 		if(type.equalsIgnoreCase("json"))
 		{

@@ -1,5 +1,6 @@
 package com.gw.dzhyun.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 
 import org.xml.sax.SAXException;
@@ -14,6 +15,7 @@ public class TranYfloatMain {
 	public  Yfloat yf = new Yfloat();
 	private JSONArray delJsonArr = null;
 	JSONObject  delJson = null;
+	SimpleDateFormat format = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
 	/*
 	 * 构造函数，使用者传入json对象和对应的KEY，其中json为调用接口返回
 	 * ，根据接口不同，对应的key=RepDataZhiBiaoShuChu（指标计算），RepDataNewsInfoValue（新闻服务）等
@@ -21,7 +23,9 @@ public class TranYfloatMain {
 	public TranYfloatMain(JSONObject jsonobj,String key)
 	{
 		this.delJson = jsonobj;
-		this.delJsonArr = jsonobj.getJSONObject("Data").getJSONArray(key);
+		if(jsonobj.get("Data") instanceof JSONObject && jsonobj.getJSONObject("Data").containsKey(key))
+		   this.delJsonArr = jsonobj.getJSONObject("Data").getJSONArray(key);
+
 	}
 	/*
 	 * 构造函数，使用者传入字符串jsonstr对象和对应的KEY，其中jsonstr为调用接口返回字符串
@@ -90,7 +94,13 @@ public class TranYfloatMain {
 			if(yoj.getdp() == 0)
 			{
 				//System.out.println(String.format("key=%s,and value = %s 为long类型，需转换，转换后为%s",new String[]{key,obj.toString(),String.valueOf((long)yoj.getValue())}));
-				jsb.put(key, (long)yoj.getValue());
+				if(!key.equals("ShiJian"))
+				   jsb.put(key, (long)yoj.getValue());
+				else
+				{
+					//System.out.println(yoj.getValue());
+					jsb.put(key, format.format((long)yoj.getValue()*1000));
+				}
 			}
 			else
 			{
@@ -122,7 +132,14 @@ public class TranYfloatMain {
 				if(yoj.getdp() == 0)
 				{
 					//System.out.println(String.format("key=%s,and value = %s 为long类型，需转换，转换后为%s",new String[]{key,obj.toString(),String.valueOf((long)yoj.getValue())}));
-					jsbArr.set(num, (long)yoj.getValue());
+					//System.out.println("key="+key);
+					if(!key.equals("ShiJian"))
+					   jsbArr.set(num, (long )yoj.getValue());
+					else
+					{
+						//System.out.println("key="+key+ format.format((long)yoj.getValue()*1000));
+						jsbArr.set(num, format.format((long)yoj.getValue()));
+					}
 				}
 				else
 				{
@@ -136,6 +153,8 @@ public class TranYfloatMain {
     */
 	public JSONObject dealJsonArray()
 	{
+		if(this.delJsonArr==null)
+			return null;
 		for(int i=0;i<this.delJsonArr.size();i++)
 		{
 			JSONObject temp = this.delJsonArr.getJSONObject(i);

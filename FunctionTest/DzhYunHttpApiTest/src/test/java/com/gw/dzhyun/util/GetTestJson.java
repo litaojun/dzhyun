@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import org.xml.sax.SAXException;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.atopcloud.util.MyConfigUtil;
@@ -22,8 +23,9 @@ public class GetTestJson {
 	{
 		//System.out.println("this.code="+this.code+";this.type="+this.type);
 		this.setParaMap(code, type);
-		this.ret =MyHttpUtil. getQuoteDyna(urlString,"json");
-		//System.out.println("ret="+ret);
+		this.ret =MyHttpUtil.getQuoteDyna(urlString,"json");
+		//System.out.println("111111111");
+		System.out.println("ret="+ret);
 		assertNotNull("错误：行情返回null",ret);
 		JSONObject data = MyNewsGetUtil.getNewsGetByObjCode(ret);
 		return data;
@@ -35,11 +37,12 @@ public class GetTestJson {
 	public JSONObject sentHttpReq() throws SAXException, Exception
 	{
 		String urlstr = this.createReqUrlStr(this.classPara);
-		System.out.println("urlstr="+urlstr);
+		System.out.println("(\""+urlstr+"\","+"(\"SH600000\",\"MA\",\"1min\")),");
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
-		System.out.println("GetTestJson->sentHttpReq-retstr="+retstr);
+		//System.out.println("GetTestJson->sentHttpReq-retstr="+retstr);
 		assertNotNull("错误：行情返回null",retstr);
-		JSONObject data = MyNewsGetUtil.getNewsGetByObjCode(retstr);
+		JSONObject data = JSON.parseObject(retstr);
+		//JSONObject data = MyNewsGetUtil.getNewsGetByObjCode(retstr);
 		return data;
 	}
 	public String createReqUrlStr(String[] arr)
@@ -117,6 +120,16 @@ public class GetTestJson {
 		else
 			this.urlString = this.urlString.replace("&ERROR",error);
 		System.out.println(urlString);
+	}
+	public JSONObject tranYfloatToTime(String jsonstr,String key)
+	{
+		TranYfloatMain tym = new TranYfloatMain(jsonstr,key);
+		return tym.dealJsonArray();
+	}
+	public JSONObject tranYfloatToTime(JSONObject jsonstr,String key)
+	{
+		TranYfloatMain tym = new TranYfloatMain(jsonstr,key);
+		return tym.dealJsonArray();
 	}
 	public static void main(String[] args)
 	{

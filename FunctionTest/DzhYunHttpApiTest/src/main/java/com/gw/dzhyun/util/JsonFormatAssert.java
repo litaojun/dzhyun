@@ -20,22 +20,22 @@ public class JsonFormatAssert {
      public int assertJson(JSONObject a,String[] arr)
      {
   	      int retcode = 0;
-  	    System.out.println("litaojun0000000");
-  	      System.out.println("a.size()="+a.size());
+  	   // System.out.println("litaojun0000000");
+  	     // System.out.println("a.size()="+a.size());
   	      if(a.size() != arr.length)
   	    	 return 1;
-  	    System.out.println("litaojun1111111"+a.toJSONString());
+  	   // System.out.println("litaojun1111111"+a.toJSONString());
   	      for(int i=0;i<arr.length;i++)
   	      {
   	    	  if(!a.containsKey(arr[i]))
   	    	  {
-  	    		System.out.println("litaojun222222");
-  	    		 System.out.println("arr[i]="+arr[i]);
+  	    		//System.out.println("litaojun222222");
+  	    		// System.out.println("arr[i]="+arr[i]);
   	    		retcode = 1;
   	    		break;
   	    	  }
   	      }
-  	    System.out.println("litaojun333333");
+  	   // System.out.println("litaojun333333");
   	      return retcode;
      }
 	public static void main(String[] args) 

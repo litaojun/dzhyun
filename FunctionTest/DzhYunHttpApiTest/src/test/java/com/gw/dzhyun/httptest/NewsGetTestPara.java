@@ -91,6 +91,8 @@ public class NewsGetTestPara extends GetTestJson {
 				JSONArray jarr = this.getJSONArrayByString();
 				if(jarr!=null)
 				       assertSame(jsonAssert.assertJsonArray(jarr, new String[]{"ver","act","newsID","newsTitle"}),0);
+				else
+					  assert(1==2);
 			}
 			else
 				assertNull("错误：//股票数据为null",data);
@@ -103,7 +105,7 @@ public class NewsGetTestPara extends GetTestJson {
 	@Parameters 
 	public static Collection dateFeed() throws IOException
 	{
-      TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","Sheet1",9);
+      TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","新闻服务",9);
       return a.traveCollection();
 //		return Arrays.asList(new Object[][] { 
 //            {"SH600000","1",null,0},

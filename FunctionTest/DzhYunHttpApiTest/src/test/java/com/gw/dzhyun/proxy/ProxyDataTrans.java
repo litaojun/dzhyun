@@ -137,12 +137,8 @@ public class ProxyDataTrans {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		for(int i=0;i<10000;i++)
-		{
-			int tmp = getRandomInt(10);
-			if(tmp<0)
-				System.out.println("tmp="+tmp);
-		}
+		JedisOperator jrdor = new JedisOperator();
+		jrdor.getJredisList("A30ZI".getBytes(), 0, 100);
 	}
 
 }

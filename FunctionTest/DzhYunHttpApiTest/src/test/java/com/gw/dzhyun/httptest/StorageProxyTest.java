@@ -69,6 +69,10 @@ public class StorageProxyTest {
 	private JedisOperator jop = null ;
 	private ZmqProxySocket zmproxysocket = null;
 	private Dzhstorageproxy.StoreRequest  srequest = null;
+	public StorageProxyTest()
+	{
+		
+	}
 	@Before
 	public void init()
 	{
@@ -106,12 +110,14 @@ public class StorageProxyTest {
 		public int testOutputJsonxing(String code) throws SAXException,Exception
 		{
 			String urlString = "http://" + "10.15.144.80" + ":" +80 + "/quote/dyna?obj=" + code + "&output=json";  //每个测试方法需要修改
+			urlString ="http://10.15.144.80/indicator/calc?obj=" + code +"&name=ARBR&period=1min&start=1&count=33";
 			String type="json";
 			int retcode=0;
-			String ret =MyHttpUtil. getQuoteDyna(urlString,type);
+			String ret =MyHttpUtil.getQuoteDyna(urlString,type);
 			//System.out.println("ret="+ret);
 			//assertNotNull("错误：行情返回null",ret);
-			JSONObject data = MyNewsGetUtil.getNews(ret);
+			//JSONObject data = MyNewsGetUtil.getNews(ret);
+			JSONObject data = MyNewsGetUtil.getIndicatorCalc(ret);
 			if(data == null)
 			{
 				System.out.println("error code="+code);
