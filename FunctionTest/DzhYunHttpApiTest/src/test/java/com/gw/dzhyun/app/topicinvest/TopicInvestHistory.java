@@ -48,8 +48,8 @@ public class TopicInvestHistory {
 			String itkey = itor.next();
 			if(selfDataHash.containsKey(itkey))
 			{
-				float a = (float) selfDataHash.get(itkey);
-				float b = (float) interfDataHash.get(itkey);
+				float a = Float.valueOf(String.valueOf(selfDataHash.get(itkey)));
+				float b = Float.valueOf(String.valueOf(interfDataHash.get(itkey)));
 				float comr = a -b/100;
 				if(comr>0.01 || comr<-0.01)
 				{
@@ -127,10 +127,10 @@ public class TopicInvestHistory {
 		//System.out.println("urlstr="+urlstr+"\n");
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataTopicInvestHistory");
-		JSONObject tranjson = tym.dealJsonArray();
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataTopicInvestHistory");
+//		JSONObject tranjson = tym.dealJsonArray();
 		//System.out.println("initInterfaceKXianData="+tranjson+"\n");
-		this.itfData = this.tranInterfData(tranjson);
+		this.itfData = this.tranInterfData(data);
 	}
 	public JSONObject getZfresult()
 	{
@@ -395,11 +395,11 @@ public class TopicInvestHistory {
 	{
 		// TODO Auto-generated method stub
 		TopicInvestHistory tphistory = new TopicInvestHistory();
-		tphistory.initKxianJsonData("20150710-000000", "20151014-173502");
-		tphistory.initObjBsPrice("2015-07-13");
+		tphistory.initKxianJsonData("20150727-000000", "20151028-173502");
+		tphistory.initObjBsPrice("2015-07-28");
 		tphistory.jsObjZhangfu();
 		JSONObject rs = tphistory.getZfresult();
-		System.out.println("自己计算ID52的主题投资20150629~20150929时间的json数据="+rs);
+		System.out.println("自己计算ID52的主题投资20150728~20151028时间的json数据="+rs);
 		ArrayList<Object[]> a = tphistory.tranSelfData(rs);
 		//通过接口获取涨幅/topicinvest/history
 		tphistory.initInterfaceKXianData();
