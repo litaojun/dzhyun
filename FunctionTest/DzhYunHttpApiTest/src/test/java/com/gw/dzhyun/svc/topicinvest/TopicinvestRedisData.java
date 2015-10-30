@@ -66,6 +66,7 @@ public class TopicinvestRedisData {
 	{
 		IoBuffer ioBuffer = IoBuffer.allocate(1024);   
 		 ioBuffer.put(ktstr.getBytes());
+		 
 		 if(ktstr.equals("A60") || ktstr.equals("A70"))
 		 {
 			 System.out.println("A60 加个0吧 ");
