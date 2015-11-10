@@ -5,3 +5,5 @@ lib
 log
 resources
 config
+/.classpath
+/ - 副本.classpath
