@@ -33,7 +33,7 @@ public class SortTest {
 	String port=MyConfigUtil.getConfig("port");
 	String market= "SH";            //按市场分
 	String block= "股票\\\\地区板块\\\\北京市";           
-	String obj= "SH000001,SH000300,SH600600,SH900902,SZ000001,SZ200028,SZ399009,SZ002002,SZ300033,SZ300159";         //按个股分
+	String obj= "SH000001,SH000300,SH600600,SH900901,SZ000005,SZ200028,SZ399009,SO400005,SO430010,B$993060";         //按个股分
 	String field= "ZuiXinJia";		//排序的字段
 	String start= "0";
 	String count= "30";
@@ -77,12 +77,12 @@ public class SortTest {
 		assertNotNull("错误：排序返回null",ret);
 		JSONArray sort = MySortUtil.getsortByObj(ret);
 		assertNotNull("错误：排序返回null",sort);
-		/*System.out.println(sort+"\n");*/
+		System.out.println(sort+"\n");
 		
 		
 		//yfloat转换
-		JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
-		System.out.println(jsonyfloatResponse);
+		/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+		System.out.println(jsonyfloatResponse);*/
 		
 	}
 	
@@ -129,11 +129,11 @@ public class SortTest {
 		assertNotNull("错误：排序返回null",ret);
 		JSONArray sort = MySortUtil.getsortByObj(ret);
 		assertNotNull("错误：排序返回null",sort);
-		/*System.out.println(sort);*/
+		System.out.println(sort);
 		
 		//yfloat转换
-				JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
-				System.out.println(jsonyfloatResponse);
+				/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+				System.out.println(jsonyfloatResponse);*/
 	}
 	
 	/**
@@ -156,11 +156,11 @@ public class SortTest {
 		assertNotNull("错误：排序返回null",ret);
 		JSONArray sort = MySortUtil.getsortByObj(ret);
 		assertNotNull("错误：排序返回null",sort);
-		/*System.out.println(sort);*/
+		System.out.println(sort);
 		
 		//yfloat转换
-		JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
-		System.out.println(jsonyfloatResponse);
+		/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+		System.out.println(jsonyfloatResponse);*/
 	}
 	
 	/**
@@ -204,11 +204,11 @@ public class SortTest {
 		assertNotNull("错误：排序返回null",ret);
 		JSONArray sort = MySortUtil.getsortByObj(ret);
 		assertNotNull("错误：排序返回null",sort);
-		/*System.out.println(sort);*/
+		System.out.println(sort);
 		
 		//yfloat转换
-				JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
-				System.out.println(jsonyfloatResponse);
+				/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+				System.out.println(jsonyfloatResponse);*/
 	}
 	
 	/**
@@ -551,39 +551,39 @@ public class SortTest {
 		}
 			
 		/**
-		 * 3.1按个股查询排序(SH、SZ、SH,SZ)
-		     obj=SH600000&desc=true 降序
+		 * 3.2按个股查询排序(SH、SZ、SH,SZ)
+		     obj=SH600000&desc=false 升序
 		 * @throws Exception 
 		 */
 		@Test
 		public void t302estobjSOSort() throws Exception {
 				
-			String obj= "SO420058"; 
+			String obj= "SO400064"; 
 			String field= "ZuiXinJia";
 				
-			//sort/range?obj=SO420058&field=ZuiXinJia&desc=true
+			//sort/range?obj=SO400064&field=ZuiXinJia&desc=false
 				
-			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj=" + obj + "&field=" + field+ "&desc=" + desc + "&token=" + token;
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj=" + obj + "&field=" + field + "&token=" + token;
 			String type="json";
 				
 			String ret =MyHttpUtil. getData(urlString,type);
 			assertNotNull("错误：排序返回null",ret);
 			JSONArray sort = MySortUtil.getsortByObj(ret);
 			assertNotNull("错误：排序返回null",sort);
-			/*System.out.println(sort);*/
+			System.out.println(sort);
 			
 			//yfloat转换
-			JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
-			System.out.println(jsonyfloatResponse);
+			/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+			System.out.println(jsonyfloatResponse);*/
 		}
 		
 		/**
-		 * 3.2按个股查询排序(SH、SZ、SH,SZ)
+		 * 3.3按个股查询排序(SH、SZ、SH,SZ)
 	         obj=SH600000,SZ000001&desc=true 降序
 		 * @throws Exception 
 		 */
 		@Test
-		public void t302estobjSort() throws Exception {
+		public void t303estobjSort() throws Exception {
 				
 			String obj= "SH600000,SZ000001";    
 				
@@ -600,19 +600,19 @@ public class SortTest {
 		}
 		
 		/**
-		 * 3.3按个股查询排序(SH、SZ、SH,SZ)
-	         obj=SH600000,SZ000001&desc=false 升序
+		 * 3.4按个股查询排序(SH、SZ、SO、B$)
+	         obj=SH600000,SZ000001&desc缺省排序
 		 * @throws Exception 
 		 */
 		@Test
-		public void t303estobjAscSort() throws Exception {
+		public void t304estobjAscSort() throws Exception {
 				
-			String obj= "SH600000,SZ000001";  
-			String desc="false";
+			String obj= "SH600000,SZ000001,SO400002,B$998002";  
+			
 				
-			//sort/range?obj=SH600000,SZ000001&field=ZuiXinJia&desc=false
+			//sort/range?obj=SH600000,SZ000001,SO400002,B$998002&field=ZuiXinJia&desc=false
 				
-			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&desc=" + desc+ "&token=" + token;
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+  "&token=" + token;
 			String type="json";
 				
 			String ret =MyHttpUtil. getData(urlString,type);
@@ -622,28 +622,7 @@ public class SortTest {
 			System.out.println(sort);
 		}
 			
-		/**
-		 * 3.4按个股 desc缺省排序
-		      obj=SH600000,SZ000001 desc默认升序
-		 * @throws Exception 
-		 */
-		@Test
-		public void t304estobjdefaultSort() throws Exception {
-				
-			String obj= "SH600000,SZ000001";    
-				
-			//sort/range?obj=SH600000,SZ000001&field=ZuiXinJia 
-				
-			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field + "&token=" + token;
-			String type="json";
-				
-			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
-			JSONArray sort = MySortUtil.getsortByObj(ret);
-			assertNotNull("错误：排序返回null",sort);
-			System.out.println(sort);
-		}
-			
+		
 		/**
 		 * 3.5按个股 筛选前N条排序
 	        start=0&count=2 (排序前2条)
@@ -652,11 +631,11 @@ public class SortTest {
 		@Test
 		public void t305estobjcountSort() throws Exception {
 					
-			String obj= "SH600000,SH600600,SZ000001";
+			String obj= "SH600000,SO400002,SH600600,SZ000001";
 			String start= "0";
 			String count= "2";
 					
-			//sort/range?obj=SH600000,SH600600,SZ000001&field=ZuiXinJia&start=0&count=2
+			//sort/range?obj=SH600000,SO400002,SH600600,SZ000001&field=ZuiXinJia&start=0&count=2
 					
 			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+  "&start=" + start + "&count=" +count + "&token=" + token;
 			String type="json";
@@ -676,7 +655,7 @@ public class SortTest {
 		@Test
 		public void t306estobjcountSort() throws Exception {
 					
-			String obj= "SH600000,SH600600,SZ000001";
+			String obj= "SH600000,SH600600,SZ000001,B$998002";
 			String count= "2";
 					
 			//sort/range?obj=SH600000,SH600600,SZ000001&field=ZuiXinJia&desc=true&count=2
@@ -699,7 +678,7 @@ public class SortTest {
 		@Test
 		public void t307estobjcountSort() throws Exception {
 					
-			String obj= "SH600000,SH600600,SZ000001";
+			String obj= "SH600000,SH600600,SZ000001,SO430544,B$993074";
 			String start= "0";
 			String count= "0";
 					
@@ -723,7 +702,7 @@ public class SortTest {
 		@Test
 		public void t308estobjcountSort() throws Exception {
 					
-			String obj= "SH600000,SH600600,SZ000001";
+			String obj= "SH600638,SH600600,SZ000001,SO400002,B$993806";
 			String field= "ZuiXinJia";
 			String start= "0";
 					
@@ -778,16 +757,10 @@ public class SortTest {
 						
 			String ret =MyHttpUtil. getData(urlString,type);
 			assertNotNull("错误：排序返回null",ret);
-			/*JSONArray sort = MySortUtil.getsortByObj(ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
 			assertNotNull("错误：排序返回null",sort);
-			System.out.println(sort);*/	
+			System.out.println(sort);
 			
-			assert(ret!=null);
-			System.out.println(ret+"\n");
-			
-			TranYfloatMain tym = new TranYfloatMain(ret,"RepDataPaiXu");
-			JSONObject tranjson = tym.dealJsonArray();
-			System.out.println(tranjson+"\n");	
 		}
 		
 		/**
@@ -807,16 +780,9 @@ public class SortTest {
 						
 			String ret =MyHttpUtil. getData(urlString,type);
 			assertNotNull("错误：排序返回null",ret);
-			/*JSONArray sort = MySortUtil.getsortByObj(ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
 			assertNotNull("错误：排序返回null",sort);
-			System.out.println(sort);	*/
-			
-			assert(ret!=null);
-			System.out.println(ret+"\n");
-			
-			TranYfloatMain tym = new TranYfloatMain(ret,"RepDataPaiXu");
-			JSONObject tranjson = tym.dealJsonArray();
-			System.out.println(tranjson+"\n");	
+			System.out.println(sort);	
 			
 		}
 		
@@ -908,8 +874,8 @@ public class SortTest {
 			System.out.println(sort+"\n");
 			
 			//yfloat转换
-			JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
-			System.out.println(jsonyfloatResponse);
+			/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+			System.out.println(jsonyfloatResponse);*/
 		}
 		
 		/**
@@ -1105,16 +1071,10 @@ public class SortTest {
 						
 			String ret =MyHttpUtil. getData(urlString,type);
 			assertNotNull("错误：排序返回null",ret);
-			/*JSONArray sort = MySortUtil.getsortByObj(ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
 			assertNotNull("错误：排序返回null",sort);
-			System.out.println(sort);	*/
-			
-			assert(ret!=null);
-			System.out.println(ret+"\n");
-			
-			TranYfloatMain tym = new TranYfloatMain(ret,"RepDataPaiXu");
-			JSONObject tranjson = tym.dealJsonArray();
-			System.out.println(tranjson+"\n");	
+			System.out.println(sort);	
+				
 		}
 		
 		/**
@@ -1156,16 +1116,10 @@ public class SortTest {
 						
 			String ret =MyHttpUtil. getData(urlString,type);
 			assertNotNull("错误：排序返回null",ret);
-			/*JSONArray sort = MySortUtil.getsortByObj(ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
 			assertNotNull("错误：排序返回null",sort);
-			System.out.println(sort);	*/
+			System.out.println(sort);	
 			
-			assert(ret!=null);
-			System.out.println(ret+"\n");
-			
-			TranYfloatMain tym = new TranYfloatMain(ret,"RepDataPaiXu");
-			JSONObject tranjson = tym.dealJsonArray();
-			System.out.println(tranjson+"\n");
 		}
 		
 		/**
@@ -1185,16 +1139,10 @@ public class SortTest {
 						
 			String ret =MyHttpUtil. getData(urlString,type);
 			assertNotNull("错误：排序返回null",ret);
-			/*JSONArray sort = MySortUtil.getsortByObj(ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
 			assertNotNull("错误：排序返回null",sort);
-			System.out.println(sort);	*/
+			System.out.println(sort);	
 			
-			assert(ret!=null);
-			System.out.println(ret+"\n");
-			
-			TranYfloatMain tym = new TranYfloatMain(ret,"RepDataPaiXu");
-			JSONObject tranjson = tym.dealJsonArray();
-			System.out.println(tranjson+"\n");	
 		}
 		
 		/**
@@ -1221,14 +1169,182 @@ public class SortTest {
 		}
 		
 		/**
+		 * 3.10.16按个股 field排序,字段：动态行情
+	        field=ShiYingLv
+		 * @throws Exception 
+		 */
+		@Test
+		public void t3116estobjfieldSort() throws Exception {
+						
+			String field= "ShiYingLv";
+			String obj="SH000001,SH000300,SH600600,SH900901,SZ200028,SZ399009,B$993060,SO400005,SO400010,SZ000001,SZ000005,SO430010";
+						
+			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ShiYingLv
+						
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&token=" + token;
+			String type="json";
+						
+			String ret =MyHttpUtil. getData(urlString,type);
+			assertNotNull("错误：排序返回null",ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
+			assertNotNull("错误：排序返回null",sort);
+			System.out.println(sort);	
+			
+		}
+		
+		/**
+		 * 3.10.17按个股 field排序,字段：动态行情
+	        field=ShiJingLv
+		 * @throws Exception 
+		 */
+		@Test
+		public void t3117estobjfieldSort() throws Exception {
+						
+			String field= "ShiJingLv";
+			String obj="SH000001,SH000300,SZ399009,B$993060,SO400005,SO400006,SZ000018,SZ000001,SH900901,SH600600,SZ000029,SO430010";
+						
+			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ShiYingLv
+						
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&token=" + token;
+			String type="json";
+						
+			String ret =MyHttpUtil. getData(urlString,type);
+			assertNotNull("错误：排序返回null",ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
+			assertNotNull("错误：排序返回null",sort);
+			System.out.println(sort);	
+			
+		}
+		
+		/**
+		 * 3.10.18按个股 field排序,字段：动态行情
+	        field=ZongShiZhi
+		 * @throws Exception 
+		 */
+		@Test
+		public void t3118estobjfieldSort() throws Exception {
+						
+			String field= "ZongShiZhi";
+			String obj="SH000001,SH000300,SZ399009,B$993060,SO400005,SO400006,SZ000018,SZ000001,SH900901,SH600600,SZ000029,SO430010";
+						
+			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ShiYingLv
+						
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&token=" + token;
+			String type="json";
+						
+			String ret =MyHttpUtil. getData(urlString,type);
+			assertNotNull("错误：排序返回null",ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
+			assertNotNull("错误：排序返回null",sort);
+			System.out.println(sort);	
+			
+		}
+		
+		/**
+		 * 3.10.19按个股 field排序,字段：动态行情
+	        field=LiuTongShiZhi
+		 * @throws Exception 
+		 */
+		@Test
+		public void t3119estobjfieldSort() throws Exception {
+						
+			String field= "LiuTongShiZhi";
+			String obj="SH000001,SH000300,SZ399009,B$993060,SO400005,SO400006,SZ000018,SZ000001,SH900901,SH600600,SZ000029,SO430010";
+						
+			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ShiYingLv
+						
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&token=" + token;
+			String type="json";
+						
+			String ret =MyHttpUtil. getData(urlString,type);
+			assertNotNull("错误：排序返回null",ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
+			assertNotNull("错误：排序返回null",sort);
+			System.out.println(sort);	
+			
+		}
+		
+		/**
+		 * 3.10.20按个股 field排序,字段：动态行情
+	        field=WeiBi
+		 * @throws Exception 
+		 */
+		@Test
+		public void t3120estobjfieldSort() throws Exception {
+						
+			String field= "WeiBi";
+			String obj="SH000001,SH000300,SZ399009,B$993060,SO400005,SO400006,SZ000018,SZ000001,SH900901,SH600600,SZ000029,SO430010";
+						
+			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ShiYingLv
+						
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&token=" + token;
+			String type="json";
+						
+			String ret =MyHttpUtil. getData(urlString,type);
+			assertNotNull("错误：排序返回null",ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
+			assertNotNull("错误：排序返回null",sort);
+			System.out.println(sort);	
+			
+		}
+		
+		/**
+		 * 3.10.21按个股 field排序,字段：动态行情
+	        field=WeiCha
+		 * @throws Exception 
+		 */
+		@Test
+		public void t3121estobjfieldSort() throws Exception {
+						
+			String field= "WeiCha";
+			String obj="SH000001,SH000300,SZ399009,B$993060,SO400005,SO400006,SZ000018,SZ000001,SH900901,SH600600,SZ000029,SO430010";
+						
+			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ShiYingLv
+						
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&token=" + token;
+			String type="json";
+						
+			String ret =MyHttpUtil. getData(urlString,type);
+			assertNotNull("错误：排序返回null",ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
+			assertNotNull("错误：排序返回null",sort);
+			System.out.println(sort);	
+			
+		}
+		
+		/**
+		 * 3.10.22按个股 field排序,字段：动态行情
+	        field=FenZhongZhangFu5
+		 * @throws Exception 
+		 */
+		@Test
+		public void t3122estobjfieldSort() throws Exception {
+						
+			String field= "FenZhongZhangFu5";
+			String obj="SH000001,SH000300,SZ399009,B$993060,SO400005,SO400006,SZ000018,SZ000001,SH900901,SH600600,SZ000029,SO430010";
+						
+			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ShiYingLv
+						
+			String urlString = "http://" + ip + ":" +port + "/sort/range?&obj="  + obj + "&field=" + field+ "&token=" + token;
+			String type="json";
+						
+			String ret =MyHttpUtil. getData(urlString,type);
+			assertNotNull("错误：排序返回null",ret);
+			JSONArray sort = MySortUtil.getsortByObj(ret);
+			assertNotNull("错误：排序返回null",sort);
+			System.out.println(sort);	
+			
+		}
+		
+		/**
 		 * 3.11.01按个股 field排序,字段：买卖盘
 	        field=WeiTuoMaiRuJia1
 		 * @throws Exception 
 		 */
 		@Test
-		public void t31101estobjfieldSort() throws Exception {
+		public void t32101estobjfieldSort() throws Exception {
 						
-			String field= "ZuiXinJia";
+			String field= "WeiTuoMaiRuJia1";
 						
 			//sort/range?obj=SH000001,SH000300,SH600600,SH900901,SZ000001,SZ200028,SZ399009&field=ZhongWenJianCheng
 						
@@ -1253,7 +1369,7 @@ public class SortTest {
 		 * @throws Exception 
 		 */
 		@Test
-		public void t31102estobjfieldSort() throws Exception {
+		public void t32102estobjfieldSort() throws Exception {
 						
 			String field= "WeiTuoMaiChuJia1";
 						

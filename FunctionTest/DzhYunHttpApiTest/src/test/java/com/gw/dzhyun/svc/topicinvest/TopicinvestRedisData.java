@@ -1,6 +1,5 @@
 package com.gw.dzhyun.svc.topicinvest;
 import java.util.ArrayList;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -10,24 +9,6 @@ import org.apache.mina.core.buffer.IoBuffer;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.gw.dzhyun.proxy.JedisOperator;
-
-
-/*
- * http://dms.gw.com.cn/pages/viewpage.action?pageId=135299775
- * 从redis中读取主题投资采集数据
- * 主题投资在redis中有两种形式存储，
- * 第一种是通过单独KEY存储，KEY="TopicInvestData"+topicID，结构如下
- *  主题投资成份股数据 
-		message TopicInvestData{
-		 required int32 TopicInvestId = 1; //主题投资ID
-		 required string TopicInvestName = 2; //主题投资名称
-		 repeated string ComponentObj = 3; //主题投资成份股列表
-		}
-    对应的probuff结构的java类为Topicinvestdata（数据获取见该类的getTitdataFromRedisByKey函数）
- * 第二种，是将主题投资作为一个大的板块，主题投资下的热门板块做为一个子板块，存储在板块KEY对应的结构下，这样可以通过app.block.prop，app.block.obj服务接口获取主题投资的数据
- * 主题投资板块存储key= "BlockInfo"+999999，其value的probuff结构的java实现类为Topicinvestblock
- * 主题投资板块存储成分股存储KEY="BlockComponent"+topicID，其value的probuff结构的java实现类为Topicinvestblock
- */
 public class TopicinvestRedisData {
 //	private JedisOperator jed = new JedisOperator();
 //	private BlockStruct bstruct = null;
@@ -36,6 +17,51 @@ public class TopicinvestRedisData {
 	{
 
 	}
+//	public static  HashMap<String,BanKuaiShuXingInfo> tranMapBanKuaiShuXingToSeflClass(HashMap<String,Topicinvestblock.BanKuaiShuXing> bksxMap)
+//	{
+//		HashMap<String,BanKuaiShuXingInfo> retHamp = new HashMap<String,BanKuaiShuXingInfo>();
+//		Iterator<String> itr = bksxMap.keySet().iterator();
+//		while(itr.hasNext())
+//		{
+//			BanKuaiShuXingInfo bksinfo = new BanKuaiShuXingInfo();
+//			String key = itr.next();
+//			Topicinvestblock.BanKuaiShuXing bkx = bksxMap.get(key);
+//			bksinfo.setId(bkx.getId());
+//			bksinfo.setBanKuaiJiBie(bkx.getBanKuaiJiBie());
+//			bksinfo.setBaoHanZiBanKuaiGeShu(bkx.getBaoHanZiBanKuaiGeShu());
+//			bksinfo.setSuoShuFuBanKuai(bkx.getSuoShuFuBanKuai());
+//			bksinfo.setSuoShuGenBanKuai(bkx.getSuoShuGenBanKuai());
+//			retHamp.put(key, bksinfo);
+//			
+//		}
+//		return retHamp;
+//	}
+//	public static BanKuaiChengFenGuInfo tranBanKuaiChengFenGuToSelfClass(Topicinvestblock.BanKuaiChengFenGu bkcfg)
+//	{
+//		BanKuaiChengFenGuInfo bkcfginfo = new BanKuaiChengFenGuInfo();
+//		bkcfginfo.setBanKuaiId(bkcfg.getBanKuaiId());
+//		ArrayList<String> ass = new ArrayList<String>();
+//		for(int i=0;i<bkcfg.getChengFenGuObjCount();i++)
+//		{
+//			ass.add(bkcfg.getChengFenGuObj(i));
+//		}
+//		bkcfginfo.setChengFenGuObj(ass);
+//		return bkcfginfo;
+//	}
+//
+//	public static TopicInvestDataInfo tranTopicInvestDataToSelfClass(Topicinvestdata.TopicInvestData topicdata)
+//	{
+//		TopicInvestDataInfo tidata = new TopicInvestDataInfo();
+//		tidata.setTopicInvestId(topicdata.getTopicInvestId());
+//		tidata.setTopicInvestName(topicdata.getTopicInvestName());
+//		ArrayList<String> b = new ArrayList<String>();
+//		for(int i=0;i<topicdata.getComponentObjCount();i++)
+//		{
+//			b.add(topicdata.getComponentObj(i));
+//		}
+//		tidata.setComponentObj(b);
+//		return tidata;
+//	}
 	public byte[] getKeyBytes(String ktstr,int topicid)
 	{
 		IoBuffer ioBuffer = IoBuffer.allocate(1024);   
@@ -84,7 +110,13 @@ public class TopicinvestRedisData {
 			String topstr = bksx.getId()+ "$" +bksx.getSuoShuGenBanKuai()+ "$" + bksx.getSuoShuFuBanKuai()+ "$"+bksx.getBaoHanZiBanKuaiGeShu()+ "$"+bksx.getBanKuaiJiBie()+ "$" + bksx.getBanKuaiMingCheng() + "$"+ bksx.getQuanLuJingMingChengZhi() + "$"+ bksx.getQuanLuJingIdZhi();
 			System.out.println(topstr);
 		}
-
+//		for(byte[] curdata : data)
+//		{
+//		System.out.println("curdata="+curdata);
+//		Topicinvestblock.BanKuaiShuXing bksx = Topicinvestblock.BanKuaiShuXing.parseFrom(curdata);
+//		String topstr = bksx.getId() +bksx.getSuoShuGenBanKuai() + bksx.getSuoShuFuBanKuai()+bksx.getBaoHanZiBanKuaiGeShu()+bksx.getBanKuaiJiBie() + bksx.getBanKuaiMingCheng() + bksx.getQuanLuJingMingChengZhi() + bksx.getQuanLuJingIdZhi();
+//		System.out.println(topstr);
+//		}
 		return rethm;
 		
 	}
@@ -104,8 +136,8 @@ public class TopicinvestRedisData {
 	public static void main(String[] args) throws InvalidProtocolBufferException
 	{
 		TopicinvestRedisData trd = new TopicinvestRedisData();
-		trd.getTitdataFromRedisByKey(2210);
+		trd.getTitdataFromRedisByKey(52);
 		trd.getBanKuaiShuXingFromRedis(999999);
-		trd.getBanKcfgFromRedis(2210);
+		trd.getBanKcfgFromRedis(52);
 	}
 }

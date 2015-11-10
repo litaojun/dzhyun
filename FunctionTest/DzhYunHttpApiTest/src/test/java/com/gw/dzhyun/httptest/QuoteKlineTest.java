@@ -46,7 +46,7 @@ public class QuoteKlineTest {
 	String field= "ShiJian,ZuiGaoJia,ZuiDiJia";
 	String begin_time= "20140101-000000";
 	String end_time= "20141231-000000";
-	String token="786e2c4c533d42bea313ce42decaee9d";
+	String token="58cd20c8affb4013ae7f3301d420e245";
 	/**
 	 * @throws java.lang.Exception
 	 */
