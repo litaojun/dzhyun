@@ -16,7 +16,7 @@ public final class Topicinvestblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     boolean hasId();
@@ -24,7 +24,7 @@ public final class Topicinvestblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     long getId();
@@ -33,7 +33,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *根板块
+     *
      * </pre>
      */
     boolean hasSuoShuGenBanKuai();
@@ -41,7 +41,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *根板块
+     *
      * </pre>
      */
     long getSuoShuGenBanKuai();
@@ -50,7 +50,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *父板块
+     *
      * </pre>
      */
     boolean hasSuoShuFuBanKuai();
@@ -58,7 +58,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *父板块
+     *
      * </pre>
      */
     long getSuoShuFuBanKuai();
@@ -67,7 +67,7 @@ public final class Topicinvestblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *子板块个数
+     *
      * </pre>
      */
     boolean hasBaoHanZiBanKuaiGeShu();
@@ -75,7 +75,7 @@ public final class Topicinvestblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *子板块个数
+     *
      * </pre>
      */
     long getBaoHanZiBanKuaiGeShu();
@@ -84,7 +84,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *板块层级号
+     *
      * </pre>
      */
     boolean hasBanKuaiJiBie();
@@ -92,7 +92,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *板块层级号
+     *
      * </pre>
      */
     long getBanKuaiJiBie();
@@ -101,7 +101,7 @@ public final class Topicinvestblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *板块名称
+     *
      * </pre>
      */
     boolean hasBanKuaiMingCheng();
@@ -109,7 +109,7 @@ public final class Topicinvestblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *板块名称
+     *
      * </pre>
      */
     java.lang.String getBanKuaiMingCheng();
@@ -117,7 +117,7 @@ public final class Topicinvestblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *板块名称
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -127,7 +127,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *板块ID全路径
+     *
      * </pre>
      */
     boolean hasQuanLuJingIdZhi();
@@ -135,7 +135,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *板块ID全路径
+     *
      * </pre>
      */
     java.lang.String getQuanLuJingIdZhi();
@@ -143,7 +143,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *板块ID全路径
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -153,7 +153,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *板块名称全路径            
+     *
      * </pre>
      */
     boolean hasQuanLuJingMingChengZhi();
@@ -161,7 +161,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *板块名称全路径            
+     * 
      * </pre>
      */
     java.lang.String getQuanLuJingMingChengZhi();
@@ -169,7 +169,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *板块名称全路径            
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -316,7 +316,7 @@ public final class Topicinvestblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     public boolean hasId() {
@@ -326,7 +326,7 @@ public final class Topicinvestblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     public long getId() {
@@ -339,7 +339,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *根板块
+     *
      * </pre>
      */
     public boolean hasSuoShuGenBanKuai() {
@@ -349,7 +349,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *根板块
+     *
      * </pre>
      */
     public long getSuoShuGenBanKuai() {
@@ -362,7 +362,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *父板块
+     *
      * </pre>
      */
     public boolean hasSuoShuFuBanKuai() {
@@ -372,7 +372,7 @@ public final class Topicinvestblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *父板块
+     *
      * </pre>
      */
     public long getSuoShuFuBanKuai() {
@@ -385,7 +385,7 @@ public final class Topicinvestblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *子板块个数
+     *
      * </pre>
      */
     public boolean hasBaoHanZiBanKuaiGeShu() {
@@ -395,7 +395,7 @@ public final class Topicinvestblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *子板块个数
+     *
      * </pre>
      */
     public long getBaoHanZiBanKuaiGeShu() {
@@ -408,7 +408,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *板块层级号
+     *
      * </pre>
      */
     public boolean hasBanKuaiJiBie() {
@@ -418,7 +418,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *板块层级号
+     *
      * </pre>
      */
     public long getBanKuaiJiBie() {
@@ -431,7 +431,7 @@ public final class Topicinvestblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *板块名称
+     *
      * </pre>
      */
     public boolean hasBanKuaiMingCheng() {
@@ -441,7 +441,7 @@ public final class Topicinvestblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *板块名称
+     *
      * </pre>
      */
     public java.lang.String getBanKuaiMingCheng() {
@@ -462,7 +462,7 @@ public final class Topicinvestblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *板块名称
+     *
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -485,7 +485,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *板块ID全路径
+     *
      * </pre>
      */
     public boolean hasQuanLuJingIdZhi() {
@@ -495,7 +495,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *板块ID全路径
+     *
      * </pre>
      */
     public java.lang.String getQuanLuJingIdZhi() {
@@ -516,7 +516,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *板块ID全路径
+     *
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -539,7 +539,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *板块名称全路径            
+     *            
      * </pre>
      */
     public boolean hasQuanLuJingMingChengZhi() {
@@ -549,7 +549,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *板块名称全路径            
+     *            
      * </pre>
      */
     public java.lang.String getQuanLuJingMingChengZhi() {
@@ -570,7 +570,7 @@ public final class Topicinvestblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *板块名称全路径            
+     *            
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -1010,7 +1010,7 @@ public final class Topicinvestblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public boolean hasId() {
@@ -1020,7 +1020,7 @@ public final class Topicinvestblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public long getId() {
@@ -1030,7 +1030,7 @@ public final class Topicinvestblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public Builder setId(long value) {
@@ -1043,7 +1043,7 @@ public final class Topicinvestblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public Builder clearId() {
@@ -1058,7 +1058,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *根板块
+       *
        * </pre>
        */
       public boolean hasSuoShuGenBanKuai() {
@@ -1068,7 +1068,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *根板块
+       *
        * </pre>
        */
       public long getSuoShuGenBanKuai() {
@@ -1078,7 +1078,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *根板块
+       *
        * </pre>
        */
       public Builder setSuoShuGenBanKuai(long value) {
@@ -1091,7 +1091,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *根板块
+       *
        * </pre>
        */
       public Builder clearSuoShuGenBanKuai() {
@@ -1106,7 +1106,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *父板块
+       *
        * </pre>
        */
       public boolean hasSuoShuFuBanKuai() {
@@ -1116,7 +1116,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *父板块
+       *
        * </pre>
        */
       public long getSuoShuFuBanKuai() {
@@ -1126,7 +1126,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *父板块
+       *
        * </pre>
        */
       public Builder setSuoShuFuBanKuai(long value) {
@@ -1139,7 +1139,7 @@ public final class Topicinvestblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *父板块
+       *
        * </pre>
        */
       public Builder clearSuoShuFuBanKuai() {
@@ -1154,7 +1154,7 @@ public final class Topicinvestblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *子板块个数
+       *
        * </pre>
        */
       public boolean hasBaoHanZiBanKuaiGeShu() {
@@ -1164,7 +1164,7 @@ public final class Topicinvestblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *子板块个数
+       *
        * </pre>
        */
       public long getBaoHanZiBanKuaiGeShu() {
@@ -1174,7 +1174,7 @@ public final class Topicinvestblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *子板块个数
+       *
        * </pre>
        */
       public Builder setBaoHanZiBanKuaiGeShu(long value) {
@@ -1187,7 +1187,7 @@ public final class Topicinvestblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *子板块个数
+       *
        * </pre>
        */
       public Builder clearBaoHanZiBanKuaiGeShu() {
@@ -1202,7 +1202,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *板块层级号
+       *
        * </pre>
        */
       public boolean hasBanKuaiJiBie() {
@@ -1212,7 +1212,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *板块层级号
+       *
        * </pre>
        */
       public long getBanKuaiJiBie() {
@@ -1222,7 +1222,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *板块层级号
+       *
        * </pre>
        */
       public Builder setBanKuaiJiBie(long value) {
@@ -1235,7 +1235,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *板块层级号
+       *
        * </pre>
        */
       public Builder clearBanKuaiJiBie() {
@@ -1250,7 +1250,7 @@ public final class Topicinvestblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *板块名称
+       *
        * </pre>
        */
       public boolean hasBanKuaiMingCheng() {
@@ -1260,7 +1260,7 @@ public final class Topicinvestblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *板块名称
+       *
        * </pre>
        */
       public java.lang.String getBanKuaiMingCheng() {
@@ -1281,7 +1281,7 @@ public final class Topicinvestblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *板块名称
+       *
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -1301,7 +1301,7 @@ public final class Topicinvestblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *板块名称
+       *
        * </pre>
        */
       public Builder setBanKuaiMingCheng(
@@ -1318,7 +1318,7 @@ public final class Topicinvestblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *板块名称
+       *
        * </pre>
        */
       public Builder clearBanKuaiMingCheng() {
@@ -1331,7 +1331,7 @@ public final class Topicinvestblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *板块名称
+       *
        * </pre>
        */
       public Builder setBanKuaiMingChengBytes(
@@ -1350,7 +1350,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *板块ID全路径
+       *
        * </pre>
        */
       public boolean hasQuanLuJingIdZhi() {
@@ -1360,7 +1360,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *板块ID全路径
+       *
        * </pre>
        */
       public java.lang.String getQuanLuJingIdZhi() {
@@ -1381,7 +1381,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *板块ID全路径
+       *
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -1401,7 +1401,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *板块ID全路径
+       *
        * </pre>
        */
       public Builder setQuanLuJingIdZhi(
@@ -1418,7 +1418,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *板块ID全路径
+       *
        * </pre>
        */
       public Builder clearQuanLuJingIdZhi() {
@@ -1431,7 +1431,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *板块ID全路径
+       *
        * </pre>
        */
       public Builder setQuanLuJingIdZhiBytes(
@@ -1450,7 +1450,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *板块名称全路径            
+       *            
        * </pre>
        */
       public boolean hasQuanLuJingMingChengZhi() {
@@ -1460,7 +1460,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *板块名称全路径            
+       *            
        * </pre>
        */
       public java.lang.String getQuanLuJingMingChengZhi() {
@@ -1481,7 +1481,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *板块名称全路径            
+       *            
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -1501,7 +1501,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *板块名称全路径            
+       *            
        * </pre>
        */
       public Builder setQuanLuJingMingChengZhi(
@@ -1518,7 +1518,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *板块名称全路径            
+       *            
        * </pre>
        */
       public Builder clearQuanLuJingMingChengZhi() {
@@ -1531,7 +1531,7 @@ public final class Topicinvestblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *板块名称全路径            
+       *            
        * </pre>
        */
       public Builder setQuanLuJingMingChengZhiBytes(
@@ -1564,7 +1564,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     boolean hasBanKuaiId();
@@ -1572,7 +1572,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     long getBanKuaiId();
@@ -1581,7 +1581,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     com.google.protobuf.ProtocolStringList
@@ -1590,7 +1590,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     int getChengFenGuObjCount();
@@ -1598,7 +1598,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     java.lang.String getChengFenGuObj(int index);
@@ -1606,7 +1606,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -1727,7 +1727,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     public boolean hasBanKuaiId() {
@@ -1737,7 +1737,7 @@ public final class Topicinvestblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *板块ID
+     *
      * </pre>
      */
     public long getBanKuaiId() {
@@ -1750,7 +1750,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     public com.google.protobuf.ProtocolStringList
@@ -1761,7 +1761,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     public int getChengFenGuObjCount() {
@@ -1771,7 +1771,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     public java.lang.String getChengFenGuObj(int index) {
@@ -1781,7 +1781,7 @@ public final class Topicinvestblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *板块成份股
+     *
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -2061,7 +2061,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public boolean hasBanKuaiId() {
@@ -2071,7 +2071,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public long getBanKuaiId() {
@@ -2081,7 +2081,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public Builder setBanKuaiId(long value) {
@@ -2094,7 +2094,7 @@ public final class Topicinvestblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *板块ID
+       *
        * </pre>
        */
       public Builder clearBanKuaiId() {
@@ -2115,7 +2115,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public com.google.protobuf.ProtocolStringList
@@ -2126,7 +2126,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public int getChengFenGuObjCount() {
@@ -2136,7 +2136,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public java.lang.String getChengFenGuObj(int index) {
@@ -2146,7 +2146,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -2157,7 +2157,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public Builder setChengFenGuObj(
@@ -2174,7 +2174,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public Builder addChengFenGuObj(
@@ -2191,7 +2191,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public Builder addAllChengFenGuObj(
@@ -2206,7 +2206,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public Builder clearChengFenGuObj() {
@@ -2219,7 +2219,7 @@ public final class Topicinvestblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *板块成份股
+       *
        * </pre>
        */
       public Builder addChengFenGuObjBytes(

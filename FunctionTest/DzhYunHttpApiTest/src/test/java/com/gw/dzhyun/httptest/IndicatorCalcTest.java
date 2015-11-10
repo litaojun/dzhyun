@@ -33,26 +33,24 @@ public class IndicatorCalcTest extends GetTestJson
 		JSONObject sentHttpReq = this.sentHttpReq();
 		assert(sentHttpReq!=null);
 		System.out.println(sentHttpReq.toString()+"\n");
-		JSONObject tranjson = this.tranYfloatToTime(sentHttpReq, "RepDataZhiBiaoShuChu");
-		System.out.println(tranjson+"\n");
 	}
    
-	@ Test
-	public void testIndicatorCalctss() throws SAXException, Exception
-	{
-		JSONObject sentHttpReq = this.sentHttpReq();
-		assert(sentHttpReq!=null);
-		System.out.println(sentHttpReq.toString()+"\n");
-		TranYfloatMain tym = new TranYfloatMain(sentHttpReq,"RepDataZhiBiaoShuChu");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
-	}
+//	@ ig
+//	public void testIndicatorCalctss() throws SAXException, Exception
+//	{
+//		JSONObject sentHttpReq = this.sentHttpReq();
+//		assert(sentHttpReq!=null);
+//		System.out.println(sentHttpReq.toString()+"\n");
+////		TranYfloatMain tym = new TranYfloatMain(sentHttpReq,"RepDataZhiBiaoShuChu");
+////		JSONObject tranjson = tym.dealJsonArray();
+////		System.out.println(tranjson+"\n");
+//	}
 	
 	@Parameters 
 	public static Collection dateFeed() throws IOException
 	{
-		 TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标计算接口",63);
-		 //TestCaseManagr b = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标查询接口",19);
+		 //TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标计算接口",126);
+		 TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标查询接口",19);
 		 List allcoll =new LinkedList();
 		 allcoll.addAll(a.getCurList(new String[] {"obj","name","period","begin_time","end_time","start","count","parameter"}));
 		 //allcoll.addAll(b.getCurList(new String[] {"name","type","output"}));

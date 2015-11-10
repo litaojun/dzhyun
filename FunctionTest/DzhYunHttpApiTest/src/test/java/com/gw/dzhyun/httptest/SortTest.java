@@ -1,9 +1,4 @@
-/**
- *验证云平台提供的 http格式请求。
- *使用了HttpUnit工具和JUnit框架。
- *1）、junit是java单元测试框架
- *2）、HttpUnit作为junit的辅助工具，可以理解为api提供者。
- */
+
 package com.gw.dzhyun.httptest;
 
 import static org.junit.Assert.*;

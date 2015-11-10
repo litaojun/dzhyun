@@ -31,7 +31,7 @@ public class TopicInvestDao  extends BaseDao {
 		}
 		return list;
 	}
-	// 组装User对象
+
 		private String assembleUser(ResultSet result) {
 			try {
 				if (null != result) {

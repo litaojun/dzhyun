@@ -1,5 +1,4 @@
 package com.gw.dzhyun.proxy;
-
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -89,7 +88,7 @@ public class JedisOperator
 		return a;
 	}
 	
-	//通过新KEY规则中开头的12，10等过滤KEY
+
 	public ArrayList<String> filterKeys(String[] filter,ArrayList<String> als)
 	{
 		for(String curstr : als)
@@ -149,42 +148,6 @@ public class JedisOperator
 	}
 	public static void main(String[] args)
 	{
-		JedisOperator jed = new JedisOperator();
-		//ArrayList  al = jed.getJredisList("KXianDangri1minSZ399965",1,9);
-		String shgpCode = "SH600128";
-		String szgpCode = "SZ002323";
-		String[] ssparaStr = {"FenshiLishi","FenshiDangri",              
-                "KXianDangri1min","KXianDangri5min","KXianDangri1day",
-                "KXianLishi1min","KXianLishi5min","KXianLishi1day",   
-                "KXianDangri1min","KXianDangri5min","KXianDangri1day",
-                "KXianLishi1min","KXianLishi5min","KXianLishi1day",
-                "FenshiLishi","FenshiDangri"};  
-		String[]  paraStr = {"210SH@(\t","200SH@(\t","120SH@(\t","140SH@(\t","160SH@(\t","130SH@(\t","150SH@(\t",
-				         "170SH@(\t","\"120SZ\\x13\\t\\x00\"","\"140SZ\\x13\\t\\x00\"","\"160SZ\\x13\\t\\x00\"","\"130SZ\\x13\\t\\x00\"",
-				         "\"150SZ\\x13\\t\\x00\"","\"170SZ\\x13\\t\\x00\"","\"210SZ\\x13\\t\\x00\"","\"200SZ\\x13\\t\\x00\""};
-		//System.out.println(al.toString());
-//		for(int i = 0;i<paraStr.length;i++)
-//		{
-//			if(i<8)
-//				paraStr[i]+=shgpCode;
-//			else
-//				paraStr[i]+=szgpCode;
-//		}
-		//System.out.println(String.format("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n", paraStr));
-		for(String keystr:paraStr)
-		{
-				long a = jed.getJredisLLen(keystr);
-				System.out.println(keystr+".size="+a);
-		}
-		IntergeStringUtil a = new IntergeStringUtil();
-		String ts = a.intTOHexString(12537);
-		System.out.println("ts="+ts);
-		ArrayList ls = jed.getKeys("\"150SZ\\xb5\\x02\\x00\"");
-		ls = jed.getJredisList("\"150SZ\\xb5\\x02\\x00\"", 0, 5);
-		System.out.println(ls.size());
-		ls = jed.filterKeys(new String[]{"12","13","14","15","16","17","20","21"}, ls);
-		System.out.println(ls.size());
-		System.out.println(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", ls.toArray()));
-		jed.closeJedis();
+		
 	}
 }

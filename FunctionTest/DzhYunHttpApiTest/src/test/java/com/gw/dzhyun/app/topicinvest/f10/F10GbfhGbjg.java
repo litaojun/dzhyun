@@ -17,9 +17,9 @@ public class F10GbfhGbjg {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("retstr="+retstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10GbfhGbjgOutput");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10GbfhGbjgOutput");
+//		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(data+"\n");
 	}
 	@ Test
 	public void testF10GsgkObjb() throws SAXException, Exception
@@ -28,9 +28,9 @@ public class F10GbfhGbjg {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("retstr="+retstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10GbfhGbjgOutput");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10GbfhGbjgOutput");
+//		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(data+"\n");
 	}
 	@ Test
 	public void testF10GsgkObjc() throws SAXException, Exception
@@ -39,9 +39,9 @@ public class F10GbfhGbjg {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("retstr="+retstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10GbfhGbjgOutput");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10GbfhGbjgOutput");
+//		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(data+"\n");
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -37,6 +37,7 @@ public class GetTestJson {
 	public JSONObject sentHttpReq() throws SAXException, Exception
 	{
 		String urlstr = this.createReqUrlStr(this.classPara);
+		urlstr = urlstr + "&token=ee4b9cbd63fe46518690d00bee12865b";
 		System.out.println("(\""+urlstr+"\","+"(\"SH600000\",\"MA\",\"1min\")),");
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("GetTestJson->sentHttpReq-retstr="+retstr);

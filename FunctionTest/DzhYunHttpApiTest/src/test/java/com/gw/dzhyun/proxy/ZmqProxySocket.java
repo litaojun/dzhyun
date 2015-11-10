@@ -4,7 +4,6 @@ import org.zeromq.ZMQ;
 
 import com.atopcloud.util.MyConfigUtil;
 import com.google.protobuf.InvalidProtocolBufferException;
-
 public class ZmqProxySocket {
     private static ZMQ.Socket socket = null;
     private  ZMQ.Socket zmqsocket = null;

@@ -1,9 +1,10 @@
 package com.gw.dzhyun.util;
 
+
 public class BytesHexStringTran {
 
     /** 
-     * Convert byte[] to hex string.这里我们可以将byte转换成int，然后利用Integer.toHexString(int)来转换成16进制字符串。 
+     * Convert byte[] to hex string.
      * @param src byte[] data 
      * @return hex string 
      */     

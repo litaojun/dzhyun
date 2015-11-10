@@ -19,9 +19,9 @@ public class F10CwtsZycwzb {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("retstr="+retstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10CwtsZycwzbOutput");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10CwtsZycwzbOutput");
+//		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(data+"\n");
 	}
 	@ Test
 	public void testF10CwtsZycwzbObjb() throws SAXException, Exception

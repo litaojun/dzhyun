@@ -17,9 +17,9 @@ public class F10ZxjbDjdleb {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("retstr="+retstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10ZxjbdjdlebOutput");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10ZxjbdjdlebOutput");
+//		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(data+"\n");
 	}
 	@ Test
 	public void testF10ZxjbDjdlebObjb() throws SAXException, Exception
@@ -28,9 +28,9 @@ public class F10ZxjbDjdleb {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("retstr="+retstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10ZxjbdjdlebOutput");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10ZxjbdjdlebOutput");
+//		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(data+"\n");
 	}
 	@ Test
 	public void testF10ZxjbDjdlebObjc() throws SAXException, Exception
@@ -39,8 +39,8 @@ public class F10ZxjbDjdleb {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("retstr="+retstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10ZxjbdjdlebOutput");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataF10ZxjbdjdlebOutput");
+//		JSONObject tranjson = tym.dealJsonArray();
+		System.out.println(data+"\n");
 	}
 }

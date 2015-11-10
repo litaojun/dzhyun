@@ -37,7 +37,7 @@ public class TestSvcStkinfoData  extends BaseDao {
 						"from tDD2002 " + 
 						"where SUBSTRING(CO,1,2) in('IF','B$','SH','SO','SW','SZ','HI','ZI')) m " +
 						"group by m.sc";
-			
+
 			ResultSet result = select(sql);
 			while (null != result && result.next()) {
 				jsonobj.put(result.getString("SCDM"), result.getLong("ALLCOUNT"));
@@ -133,7 +133,7 @@ public class TestSvcStkinfoData  extends BaseDao {
 		while(keys.hasNext())
 		{
 			String key = keys.next();
-			long tmp = (long) redisjs.get(key);
+			long tmp = Long.parseLong((String) redisjs.get(key));
 			ArrayList<byte[]> curkeylist = this.getRedisDataList(key, 0, (int) tmp);
 			ReadFileUtil.printByteArr(curkeylist);
 			ReadFileUtil.writeByteToFile(pathstr + key+".dat" , curkeylist);
@@ -143,7 +143,7 @@ public class TestSvcStkinfoData  extends BaseDao {
 	}
 	
 	/*
-	 * 通过key获取指定市场的股票代码列表。
+	 * 
 	 */
 	public ArrayList<byte[]> getArrListByReidsKey(String key)
 	{
@@ -172,7 +172,7 @@ public class TestSvcStkinfoData  extends BaseDao {
 	
 	public static void main(String[] args) throws IOException 
 	{
-		// TODO Auto-generated method stub
+		// TODO Auto-generated中文还是会报错吗 method stub
 		TestSvcStkinfoData tsd = new TestSvcStkinfoData();
 		JSONObject tsj = tsd.getMysqlDataLen();
 		System.out.println(tsj.toJSONString());

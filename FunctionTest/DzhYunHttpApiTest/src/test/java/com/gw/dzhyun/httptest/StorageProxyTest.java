@@ -115,7 +115,7 @@ public class StorageProxyTest {
 			int retcode=0;
 			String ret =MyHttpUtil.getQuoteDyna(urlString,type);
 			//System.out.println("ret="+ret);
-			//assertNotNull("错误：行情返回null",ret);
+
 			//JSONObject data = MyNewsGetUtil.getNews(ret);
 			JSONObject data = MyNewsGetUtil.getIndicatorCalc(ret);
 			if(data == null)
@@ -124,7 +124,7 @@ public class StorageProxyTest {
 				retcode = 1;
 			}
 			return retcode;
-			//assertNotNull("错误：股票数据为null",data);
+
 		}
 	
 	public static void main(String[] args) {

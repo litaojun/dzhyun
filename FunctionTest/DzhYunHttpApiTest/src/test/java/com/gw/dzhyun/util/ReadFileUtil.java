@@ -11,10 +11,8 @@ import java.util.ArrayList;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.xml.sax.SAXException;
-
 import com.gw.dzhyun.httptest.StorageProxyTest;
 public class ReadFileUtil {
-	
 	public static ArrayList readFileToArrayList() throws FileNotFoundException,IOException
 	{
 		ArrayList sb = new ArrayList();

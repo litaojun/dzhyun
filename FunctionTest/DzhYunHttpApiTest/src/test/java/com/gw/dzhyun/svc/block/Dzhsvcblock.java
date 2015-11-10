@@ -16,7 +16,7 @@ public final class Dzhsvcblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     boolean hasId();
@@ -24,7 +24,7 @@ public final class Dzhsvcblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     long getId();
@@ -33,7 +33,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *¸ù°å¿é
+     *
      * </pre>
      */
     boolean hasSuoShuGenBanKuai();
@@ -41,7 +41,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *¸ù°å¿é
+     *
      * </pre>
      */
     long getSuoShuGenBanKuai();
@@ -50,7 +50,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *¸¸°å¿é
+     *
      * </pre>
      */
     boolean hasSuoShuFuBanKuai();
@@ -58,7 +58,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *¸¸°å¿é
+     *
      * </pre>
      */
     long getSuoShuFuBanKuai();
@@ -67,7 +67,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *×Ó°å¿é¸öÊý
+     *
      * </pre>
      */
     boolean hasBaoHanZiBanKuaiGeShu();
@@ -75,7 +75,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *×Ó°å¿é¸öÊý
+     *
      * </pre>
      */
     long getBaoHanZiBanKuaiGeShu();
@@ -84,7 +84,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *°å¿é²ã¼¶ºÅ
+     *
      * </pre>
      */
     boolean hasBanKuaiJiBie();
@@ -92,7 +92,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *°å¿é²ã¼¶ºÅ
+     *
      * </pre>
      */
     long getBanKuaiJiBie();
@@ -101,7 +101,7 @@ public final class Dzhsvcblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *°å¿éÃû³Æ
+     *
      * </pre>
      */
     boolean hasBanKuaiMingCheng();
@@ -109,7 +109,7 @@ public final class Dzhsvcblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *°å¿éÃû³Æ
+     *
      * </pre>
      */
     java.lang.String getBanKuaiMingCheng();
@@ -117,7 +117,7 @@ public final class Dzhsvcblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *°å¿éÃû³Æ
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -127,7 +127,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *°å¿éIDÈ«Â·¾¶
+     *
      * </pre>
      */
     boolean hasQuanLuJingIdZhi();
@@ -135,7 +135,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *°å¿éIDÈ«Â·¾¶
+     *
      * </pre>
      */
     java.lang.String getQuanLuJingIdZhi();
@@ -143,7 +143,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *°å¿éIDÈ«Â·¾¶
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -153,7 +153,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *°å¿éÃû³ÆÈ«Â·¾¶            
+     *
      * </pre>
      */
     boolean hasQuanLuJingMingChengZhi();
@@ -161,7 +161,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *°å¿éÃû³ÆÈ«Â·¾¶            
+     *
      * </pre>
      */
     java.lang.String getQuanLuJingMingChengZhi();
@@ -169,7 +169,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *°å¿éÃû³ÆÈ«Â·¾¶            
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -179,7 +179,7 @@ public final class Dzhsvcblock {
    * Protobuf type {@code dzhyun.BanKuaiShuXing}
    *
    * <pre>
-   * °å¿éÊý¾Ý 
+   * 
    * </pre>
    */
   public static final class BanKuaiShuXing extends
@@ -320,7 +320,7 @@ public final class Dzhsvcblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     public boolean hasId() {
@@ -330,7 +330,7 @@ public final class Dzhsvcblock {
      * <code>required int64 Id = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     public long getId() {
@@ -343,7 +343,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *¸ù°å¿é
+     *
      * </pre>
      */
     public boolean hasSuoShuGenBanKuai() {
@@ -353,7 +353,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuGenBanKuai = 2;</code>
      *
      * <pre>
-     *¸ù°å¿é
+     *
      * </pre>
      */
     public long getSuoShuGenBanKuai() {
@@ -366,7 +366,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *¸¸°å¿é
+     *
      * </pre>
      */
     public boolean hasSuoShuFuBanKuai() {
@@ -376,7 +376,7 @@ public final class Dzhsvcblock {
      * <code>required int64 SuoShuFuBanKuai = 3;</code>
      *
      * <pre>
-     *¸¸°å¿é
+     *
      * </pre>
      */
     public long getSuoShuFuBanKuai() {
@@ -389,7 +389,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *×Ó°å¿é¸öÊý
+     *
      * </pre>
      */
     public boolean hasBaoHanZiBanKuaiGeShu() {
@@ -399,7 +399,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
      *
      * <pre>
-     *×Ó°å¿é¸öÊý
+     *
      * </pre>
      */
     public long getBaoHanZiBanKuaiGeShu() {
@@ -412,7 +412,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *°å¿é²ã¼¶ºÅ
+     *
      * </pre>
      */
     public boolean hasBanKuaiJiBie() {
@@ -422,7 +422,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiJiBie = 5;</code>
      *
      * <pre>
-     *°å¿é²ã¼¶ºÅ
+     *
      * </pre>
      */
     public long getBanKuaiJiBie() {
@@ -435,7 +435,7 @@ public final class Dzhsvcblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *°å¿éÃû³Æ
+     *
      * </pre>
      */
     public boolean hasBanKuaiMingCheng() {
@@ -445,7 +445,7 @@ public final class Dzhsvcblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *°å¿éÃû³Æ
+     *
      * </pre>
      */
     public java.lang.String getBanKuaiMingCheng() {
@@ -466,7 +466,7 @@ public final class Dzhsvcblock {
      * <code>required string BanKuaiMingCheng = 6;</code>
      *
      * <pre>
-     *°å¿éÃû³Æ
+     *
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -489,7 +489,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *°å¿éIDÈ«Â·¾¶
+     *
      * </pre>
      */
     public boolean hasQuanLuJingIdZhi() {
@@ -499,7 +499,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *°å¿éIDÈ«Â·¾¶
+     *
      * </pre>
      */
     public java.lang.String getQuanLuJingIdZhi() {
@@ -520,7 +520,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingIdZhi = 7;</code>
      *
      * <pre>
-     *°å¿éIDÈ«Â·¾¶
+     *
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -543,7 +543,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *°å¿éÃû³ÆÈ«Â·¾¶            
+     *
      * </pre>
      */
     public boolean hasQuanLuJingMingChengZhi() {
@@ -553,7 +553,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *°å¿éÃû³ÆÈ«Â·¾¶            
+     *
      * </pre>
      */
     public java.lang.String getQuanLuJingMingChengZhi() {
@@ -574,7 +574,7 @@ public final class Dzhsvcblock {
      * <code>required string QuanLuJingMingChengZhi = 8;</code>
      *
      * <pre>
-     *°å¿éÃû³ÆÈ«Â·¾¶            
+     *
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -793,7 +793,7 @@ public final class Dzhsvcblock {
      * Protobuf type {@code dzhyun.BanKuaiShuXing}
      *
      * <pre>
-     * °å¿éÊý¾Ý 
+     * 
      * </pre>
      */
     public static final class Builder extends
@@ -1018,7 +1018,7 @@ public final class Dzhsvcblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public boolean hasId() {
@@ -1028,7 +1028,7 @@ public final class Dzhsvcblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public long getId() {
@@ -1038,7 +1038,7 @@ public final class Dzhsvcblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public Builder setId(long value) {
@@ -1051,7 +1051,7 @@ public final class Dzhsvcblock {
        * <code>required int64 Id = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public Builder clearId() {
@@ -1066,7 +1066,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *¸ù°å¿é
+       *
        * </pre>
        */
       public boolean hasSuoShuGenBanKuai() {
@@ -1076,7 +1076,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *¸ù°å¿é
+       *
        * </pre>
        */
       public long getSuoShuGenBanKuai() {
@@ -1086,7 +1086,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *¸ù°å¿é
+       *
        * </pre>
        */
       public Builder setSuoShuGenBanKuai(long value) {
@@ -1099,7 +1099,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuGenBanKuai = 2;</code>
        *
        * <pre>
-       *¸ù°å¿é
+       *
        * </pre>
        */
       public Builder clearSuoShuGenBanKuai() {
@@ -1114,7 +1114,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *¸¸°å¿é
+       *
        * </pre>
        */
       public boolean hasSuoShuFuBanKuai() {
@@ -1124,7 +1124,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *¸¸°å¿é
+       *
        * </pre>
        */
       public long getSuoShuFuBanKuai() {
@@ -1134,7 +1134,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *¸¸°å¿é
+       *
        * </pre>
        */
       public Builder setSuoShuFuBanKuai(long value) {
@@ -1147,7 +1147,7 @@ public final class Dzhsvcblock {
        * <code>required int64 SuoShuFuBanKuai = 3;</code>
        *
        * <pre>
-       *¸¸°å¿é
+       *
        * </pre>
        */
       public Builder clearSuoShuFuBanKuai() {
@@ -1162,7 +1162,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *×Ó°å¿é¸öÊý
+       *
        * </pre>
        */
       public boolean hasBaoHanZiBanKuaiGeShu() {
@@ -1172,7 +1172,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *×Ó°å¿é¸öÊý
+       *
        * </pre>
        */
       public long getBaoHanZiBanKuaiGeShu() {
@@ -1182,7 +1182,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *×Ó°å¿é¸öÊý
+       *
        * </pre>
        */
       public Builder setBaoHanZiBanKuaiGeShu(long value) {
@@ -1195,7 +1195,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BaoHanZiBanKuaiGeShu = 4;</code>
        *
        * <pre>
-       *×Ó°å¿é¸öÊý
+       *
        * </pre>
        */
       public Builder clearBaoHanZiBanKuaiGeShu() {
@@ -1210,7 +1210,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *°å¿é²ã¼¶ºÅ
+       *
        * </pre>
        */
       public boolean hasBanKuaiJiBie() {
@@ -1220,7 +1220,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *°å¿é²ã¼¶ºÅ
+       *
        * </pre>
        */
       public long getBanKuaiJiBie() {
@@ -1230,7 +1230,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *°å¿é²ã¼¶ºÅ
+       *
        * </pre>
        */
       public Builder setBanKuaiJiBie(long value) {
@@ -1243,7 +1243,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiJiBie = 5;</code>
        *
        * <pre>
-       *°å¿é²ã¼¶ºÅ
+       *
        * </pre>
        */
       public Builder clearBanKuaiJiBie() {
@@ -1258,7 +1258,7 @@ public final class Dzhsvcblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *°å¿éÃû³Æ
+       *
        * </pre>
        */
       public boolean hasBanKuaiMingCheng() {
@@ -1268,7 +1268,7 @@ public final class Dzhsvcblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *°å¿éÃû³Æ
+       *
        * </pre>
        */
       public java.lang.String getBanKuaiMingCheng() {
@@ -1289,7 +1289,7 @@ public final class Dzhsvcblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *°å¿éÃû³Æ
+       *
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -1309,7 +1309,7 @@ public final class Dzhsvcblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *°å¿éÃû³Æ
+       *
        * </pre>
        */
       public Builder setBanKuaiMingCheng(
@@ -1326,7 +1326,7 @@ public final class Dzhsvcblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *°å¿éÃû³Æ
+       *
        * </pre>
        */
       public Builder clearBanKuaiMingCheng() {
@@ -1339,7 +1339,7 @@ public final class Dzhsvcblock {
        * <code>required string BanKuaiMingCheng = 6;</code>
        *
        * <pre>
-       *°å¿éÃû³Æ
+       *
        * </pre>
        */
       public Builder setBanKuaiMingChengBytes(
@@ -1358,7 +1358,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *°å¿éIDÈ«Â·¾¶
+       *
        * </pre>
        */
       public boolean hasQuanLuJingIdZhi() {
@@ -1368,7 +1368,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *°å¿éIDÈ«Â·¾¶
+       *
        * </pre>
        */
       public java.lang.String getQuanLuJingIdZhi() {
@@ -1389,8 +1389,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *°å¿éIDÈ«Â·¾¶
-       * </pre>
+       *      * </pre>
        */
       public com.google.protobuf.ByteString
           getQuanLuJingIdZhiBytes() {
@@ -1409,7 +1408,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *°å¿éIDÈ«Â·¾¶
+       *
        * </pre>
        */
       public Builder setQuanLuJingIdZhi(
@@ -1426,7 +1425,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *°å¿éIDÈ«Â·¾¶
+       *
        * </pre>
        */
       public Builder clearQuanLuJingIdZhi() {
@@ -1439,7 +1438,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingIdZhi = 7;</code>
        *
        * <pre>
-       *°å¿éIDÈ«Â·¾¶
+       *
        * </pre>
        */
       public Builder setQuanLuJingIdZhiBytes(
@@ -1458,7 +1457,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *°å¿éÃû³ÆÈ«Â·¾¶            
+       *            
        * </pre>
        */
       public boolean hasQuanLuJingMingChengZhi() {
@@ -1468,7 +1467,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *°å¿éÃû³ÆÈ«Â·¾¶            
+       *            
        * </pre>
        */
       public java.lang.String getQuanLuJingMingChengZhi() {
@@ -1489,7 +1488,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *°å¿éÃû³ÆÈ«Â·¾¶            
+       *            
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -1509,7 +1508,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *°å¿éÃû³ÆÈ«Â·¾¶            
+       *            
        * </pre>
        */
       public Builder setQuanLuJingMingChengZhi(
@@ -1526,7 +1525,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *°å¿éÃû³ÆÈ«Â·¾¶            
+       *            
        * </pre>
        */
       public Builder clearQuanLuJingMingChengZhi() {
@@ -1539,7 +1538,7 @@ public final class Dzhsvcblock {
        * <code>required string QuanLuJingMingChengZhi = 8;</code>
        *
        * <pre>
-       *°å¿éÃû³ÆÈ«Â·¾¶            
+       *            
        * </pre>
        */
       public Builder setQuanLuJingMingChengZhiBytes(
@@ -1572,7 +1571,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     boolean hasBanKuaiId();
@@ -1580,7 +1579,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     long getBanKuaiId();
@@ -1589,7 +1588,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     com.google.protobuf.ProtocolStringList
@@ -1598,7 +1597,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     int getChengFenGuObjCount();
@@ -1606,7 +1605,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     java.lang.String getChengFenGuObj(int index);
@@ -1614,7 +1613,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -1735,7 +1734,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     public boolean hasBanKuaiId() {
@@ -1745,7 +1744,7 @@ public final class Dzhsvcblock {
      * <code>required int64 BanKuaiId = 1;</code>
      *
      * <pre>
-     *°å¿éID
+     *
      * </pre>
      */
     public long getBanKuaiId() {
@@ -1758,7 +1757,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     public com.google.protobuf.ProtocolStringList
@@ -1769,7 +1768,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     public int getChengFenGuObjCount() {
@@ -1779,7 +1778,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     public java.lang.String getChengFenGuObj(int index) {
@@ -1789,7 +1788,7 @@ public final class Dzhsvcblock {
      * <code>repeated string ChengFenGuObj = 2;</code>
      *
      * <pre>
-     *°å¿é³É·Ý¹É
+     *
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -2069,7 +2068,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public boolean hasBanKuaiId() {
@@ -2079,7 +2078,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public long getBanKuaiId() {
@@ -2089,7 +2088,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public Builder setBanKuaiId(long value) {
@@ -2102,7 +2101,7 @@ public final class Dzhsvcblock {
        * <code>required int64 BanKuaiId = 1;</code>
        *
        * <pre>
-       *°å¿éID
+       *
        * </pre>
        */
       public Builder clearBanKuaiId() {
@@ -2123,7 +2122,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public com.google.protobuf.ProtocolStringList
@@ -2134,7 +2133,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public int getChengFenGuObjCount() {
@@ -2144,7 +2143,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public java.lang.String getChengFenGuObj(int index) {
@@ -2154,7 +2153,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -2165,7 +2164,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public Builder setChengFenGuObj(
@@ -2182,7 +2181,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public Builder addChengFenGuObj(
@@ -2199,7 +2198,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public Builder addAllChengFenGuObj(
@@ -2214,7 +2213,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public Builder clearChengFenGuObj() {
@@ -2227,7 +2226,7 @@ public final class Dzhsvcblock {
        * <code>repeated string ChengFenGuObj = 2;</code>
        *
        * <pre>
-       *°å¿é³É·Ý¹É
+       *
        * </pre>
        */
       public Builder addChengFenGuObjBytes(
