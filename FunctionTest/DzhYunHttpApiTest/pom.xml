@@ -198,7 +198,7 @@
 				<configuration>
 					<includes>
 						<!--  <include>**/AllTests.java</include>-->
-						<include>**/QuoteDynaTest.java</include>
+						<!--  该节点下不要配置内容！-->
 					</includes>
 				</configuration>
 			</plugin>
