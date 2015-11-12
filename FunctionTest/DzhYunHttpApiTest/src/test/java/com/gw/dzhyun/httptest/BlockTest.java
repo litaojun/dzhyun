@@ -1,3 +1,15 @@
+/**
+ *验证云平台提供的 http格式请求。
+ *使用了HttpUnit工具和JUnit框架。
+ *1）、junit是java单元测试框架
+ *2）、HttpUnit作为junit的辅助工具，可以理解为api提供者。
+ *
+ *负责板块名及板块成分股查询请求
+     涉及字段：
+   1、prop?find 板块类别
+   2、obj?gql 板块成份股
+   3、or、and
+ */
 package com.gw.dzhyun.httptest;
 
 import static org.junit.Assert.*;
@@ -23,8 +35,9 @@ import com.meterware.httpunit.WebResponse;
 import com.gw.dzhyun.util.TranYfloatMain;
 
 /**
- * @author wangying001
- *
+ * 
+ * @author Wangying001
+ * @date 2015年11月12日
  */
 public class BlockTest {
 	//变量
@@ -75,6 +88,10 @@ public class BlockTest {
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
 			assertNotNull("错误：排序返回null",blockprop);
 			System.out.println(blockprop);
+			
+			//yfloat转换
+			/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+			  System.out.println(jsonyfloatResponse);*/
 		
 		}
 		

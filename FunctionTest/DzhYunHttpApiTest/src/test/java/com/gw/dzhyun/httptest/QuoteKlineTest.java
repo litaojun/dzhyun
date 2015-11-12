@@ -1,3 +1,18 @@
+/**
+ *验证云平台提供的 http格式请求。
+ *使用了HttpUnit工具和JUnit框架。
+ *1）、junit是java单元测试框架
+ *2）、HttpUnit作为junit的辅助工具，可以理解为api提供者。
+ *
+ *测试动态行情-K线，目前支持SH/SZ/B$/SO/ZI/SW/HI/SF
+     （json格式，查询数量count:<=78条）
+       涉及字段：
+  1、period:1day、1min、5min、15min、30min、60min
+  2、field:ShiJian,ZuiGaoJia...
+  3、begin_time=YYYYMMDD-HHMMSS
+     &end_time=YYYYMMDD-HHMMSS
+  4、split:0、1、2，0是不除权，1是前复权，2是后复权，默认取0
+  */
 package com.gw.dzhyun.httptest;
 
 import static org.junit.Assert.*;
@@ -32,8 +47,9 @@ import com.meterware.httpunit.WebResponse;
 import com.gw.dzhyun.util.TranYfloatStatic;
 
 /**
- * @author Lizhiqiang
- *
+ * 
+ * @author Wangying001
+ * @date 2015年11月12日
  */
 public class QuoteKlineTest {
 	//变量
@@ -62,160 +78,6 @@ public class QuoteKlineTest {
 	public void tearDown() throws Exception {
 		//System.out.println("teardown");
 	}
-
-//	/**
-//	 * 1.3测试1日K线，数量<=78条(json格式)，股票代码是SH600000。
-//	 * @throws Exception 
-//	 */
-//	@Test
-//	public void testOneDayKLine() throws Exception {
-//		String code="SZ000002";
-//		String period= "1day";
-//		///quote/kline?obj=SH600000&period=1day&start=-1&count=1
-//		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period +"&start=-1&count=1";  //每个测试方法需要修改
-//		String type="json";
-//		
-//		String ret =MyHttpUtil. getData(urlString,type);
-//		assertNotNull("错误：行情返回null",ret);
-//		//System.out.println(ret);
-//		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
-//		assertNotNull("错误：股票k线为null",data);
-//		System.out.println(ret);
-//	}
-//	
-//	/**
-//	 * 1.1测试1minK线，数量<=78条(json格式)，股票代码是SH600000,目前1min线数据错误。
-//	 * @throws Exception 
-//	 */
-//	@Test
-//	public void testOneMinKLine() throws Exception {
-//		String code="SZ000001";
-//		String period= "1min";
-//		///quote/kline?obj=SH600000&period=1min&start=-1&count=1
-//		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period;  //每个测试方法需要修改
-//		String type="json";
-//		
-//		String ret =MyHttpUtil. getData(urlString,type);
-//		assertNotNull("错误：行情返回null",ret);
-//		//System.out.println(ret);
-//		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
-//		assertNotNull("错误：股票k线为null",data);
-//		System.out.println(ret);
-//	}
-//	
-//	/**
-//	 * 1.2测试5minK线，股票代码是SH600000。
-//	 * @throws Exception 
-//	 */
-//	@Test
-//	public void testFiveMinKLine() throws Exception {
-//		String code="SH600000";
-//		String period= "5min";
-//		///quote/kline?obj=SH600000&period=5min
-//		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period;  //每个测试方法需要修改
-//		String type="json";
-//		
-//		String ret =MyHttpUtil. getData(urlString,type);
-//		assertNotNull("错误：行情返回null",ret);
-//		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
-//		assertNotNull("错误：股票k线为null",data);
-//		System.out.println(data);
-//	}
-	
-	
-//	/**
-//	 * 1.1-1.6测试json格式，最新X条1day（或1min或5min）K线,股票代码是SH600000，period取值1day、1min、5min。
-//	 * @throws Exception 
-//	 */
-//	@Test
-//	public void testHistoryPeriodKLine() throws Exception {
-//		code="SH600008";
-//		//period取值1day、1min、5min
-//		period= "5min";
-//		start= "1";
-//		//count取值<=78，json格式
-//		count= "1";
-//		
-//		//quote/kline?obj=SH600000&period=1min&start=-20&count=20
-//		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count;  //每个测试方法需要修改
-//		String type="json";
-//		
-//		String ret =MyHttpUtil. getData(urlString,type);
-//		assertNotNull("错误：行情返回null",ret);
-//		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
-//		assertNotNull("错误：股票k线为null",data);
-//		System.out.println(data);
-//	}
-		
-//	/**
-//	 * 1.7-1.9测试最新X条1day（或1min或5min）K线中某些指标项，股票代码是SH600008。
-//	 * @throws Exception 
-//	 */
-//	@Test
-//	public void testHistoryPeriodFieldKLine() throws Exception {
-//		code="SH600008";
-//		//period取值1day、1min、5min
-//		period= "5min";
-//		start= "-78";
-//		count= "78";
-//		//field字段首字母大写
-//		field= "ShiJian,ZuiGaoJia,ZuiDiJia,ChengJiaoBiShu";
-//		
-//		//quote/kline?obj=SH600000&period=5min&start=-10&count=10&field=ShiJian,ZuiGaoJia,ChengJiaoBiShu
-//		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&field=" + field;  //每个测试方法需要修改
-//		String type="json";
-//		
-//		String ret =MyHttpUtil. getData(urlString,type);
-//		assertNotNull("错误：行情返回null",ret);
-//		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
-//		assertNotNull("错误：股票k线为null",data);
-//		System.out.println(data);
-//	}
-	
-//	/**
-//	 * 1.10-1.12测试一段时间的日K线，股票代码是SH600000。
-//	 * @throws Exception 
-//	 */
-//	@Test
-//	public void testPeriodDayKLine() throws Exception {
-//		code="SH600008";
-//		period= "1day";
-	    //period取值1day、1min、5min
-//		begin_time= "20150403-000000";
-//		end_time= "20150403-230000";
-//		//quote/kline?obj=SH600000&period=1day&begin_time=20150402-000000&end_time=20150402-110000
-//		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time;  //每个测试方法需要修改
-//		String type="json";
-//		
-//		String ret =MyHttpUtil. getData(urlString,type);
-//		assertNotNull("错误：行情返回null",ret);
-//		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
-//		assertNotNull("错误：股票k线为null",data);
-//		System.out.println(data);
-//	}
-
-//	/**
-//	 * 1.13-1.15测试一段时间的日K线中某些指标项，股票代码是SH600000。
-//	 * @throws Exception 
-//	 */
-//	@Test
-//	public void testPeriodFieldKLine() throws Exception {
-//		code="SH600000";
-//		period= "1day";
-	    //period取值1day、1min、5min
-//		field= "shiJian,zuiGaoJia,zuiDiJia";
-//		begin_time= "20150403-000000";
-//		end_time= "20150403-130000";
-//		//quote/kline?obj=SH600000&period=1day&field=shiJian,zuiGaoJia,chenJiaoBiShu&begin_time=20150402-000000&end_time=20150402-110000
-//		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&field=" + field+  "&begin_time=" + begin_time + "&end_time=" + end_time;  //每个测试方法需要修改
-//		String type="json";
-//		
-//		String ret =MyHttpUtil. getData(urlString,type);
-//		assertNotNull("错误：行情返回null",ret);
-//		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
-//		assertNotNull("错误：股票k线为null",data);
-//		System.out.println(ret);
-//	}
 	
 	/**
 	 * 1.1测试json格式，最新1条1day K线,股票代码是SH600000，period取值1day。
@@ -236,16 +98,13 @@ public class QuoteKlineTest {
 		
 		String ret =MyHttpUtil. getData(urlString,type);
 		assertNotNull("错误：行情返回null",ret);
-		/*JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
 		assertNotNull("错误：股票k线为null",data);
-		System.out.println(data);*/
+		System.out.println(data);
 		
-		assert(ret!=null);
-		System.out.println(ret+"\n");
-		
-		TranYfloatMain tym = new TranYfloatMain(ret,"RepDataQuoteKlineSingle");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
+		//yfloat转换
+		/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+		  System.out.println(jsonyfloatResponse);*/
 	}
 	
 	/**
@@ -295,9 +154,9 @@ public class QuoteKlineTest {
 		assertNotNull("错误：股票k线为null",data);
 		System.out.println(data+"\n");
 		
-		//yfloat转换
+		/*//yfloat转换
 		JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
-		System.out.println(jsonyfloatResponse);
+		System.out.println(jsonyfloatResponse);*/
 	}
 	
 	/**
@@ -465,16 +324,10 @@ public class QuoteKlineTest {
 		
 		String ret =MyHttpUtil. getData(urlString,type);
 		assertNotNull("错误：行情返回null",ret);
-		/*JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
 		assertNotNull("错误：股票k线为null",data);
-		System.out.println(data);*/
+		System.out.println(data);
 		
-		assert(ret!=null);
-		System.out.println(ret+"\n");
-		
-		TranYfloatMain tym = new TranYfloatMain(ret,"RepDataQuoteKlineSingle");
-		JSONObject tranjson = tym.dealJsonArray();
-		System.out.println(tranjson+"\n");
 	}
 	
 	/**

@@ -3,6 +3,20 @@
  *使用了HttpUnit工具和JUnit框架。
  *1）、junit是java单元测试框架
  *2）、HttpUnit作为junit的辅助工具，可以理解为api提供者。
+ *
+ *1）测试键盘宝中输入拼音或代码的匹配数据（不指定count时，默认输出结果的ShuJu数量<=20条）
+            涉及字段：
+	1、input=p、pfyh、6、600000（证券：拼音或代码，可不全）或MA（指标）（默认只搜SH/SZ市场的，如果要搜其他市场，要带market参数）
+	2、type:0、1(0证券，1指标)
+	3、market:SH、SZ市场分类（* 代表全部搜索）
+	4、count:指定输出结果数量
+	5、delist:0、1（0不过滤退市股票，1过滤，默认为1）
+  2）测试键盘宝中输入主题拼音或代码的匹配数据（输出结果的ShuJu数量<=20条）
+	涉及字段：
+	1、input=中国证券报、pfyh、6、600000（主题的拼音或汉字--拼音至少含首字母或匹配名称中的英文字母，汉字可不全，主题成分股的代码--代码数字全）
+	2、type:2(2主题)
+	3、count:指定输出结果数量
+	4、kuozhan：1、2（为1显示成份股obj的列表,用'\n'换行符分割；为2不显示，默认为2）
  */
 package com.gw.dzhyun.httptest;
 
@@ -26,8 +40,9 @@ import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebResponse;
 /**
- * @author Lizhiqiang
- *
+ * 
+ * @author Wangying001
+ * @date 2015年11月12日
  */
 public class JpbTest {
 	//变量
@@ -77,6 +92,10 @@ public class JpbTest {
 		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
 		assertNotNull("错误：键盘宝为null",jieguo);
 		System.out.println(jieguo);
+		
+		//yfloat转换
+		/*JSONObject  jsonyfloatResponse = TranYfloatStatic.startTrans2(ret);
+		  System.out.println(jsonyfloatResponse);*/
 	}
 	
 	/**
@@ -487,6 +506,7 @@ public class JpbTest {
 		assertNotNull("错误：键盘宝为null",jieguo);
 		System.out.println(jieguo);
 	}
+	
 	/**
 	 * 1.7.1退市股票(暂无支持的退市股票)
        delist=0不过滤
@@ -666,7 +686,7 @@ public class JpbTest {
 	/**
 	 * 2.2.1主题投资相关----type=2
 	 * 查询一定数量主题
-        input=z&type=2
+       count=2
 	 * @throws Exception 
 	 */
 	@Test
@@ -688,8 +708,8 @@ public class JpbTest {
 	
 	/**
 	 * 2.3.1主题投资相关----type=2
-	 * 查询一定数量主题
-        input=z&type=2
+	 * 查看成分股
+        kuozhan=1
 	 * @throws Exception 
 	 */
 	@Test
@@ -700,7 +720,71 @@ public class JpbTest {
 		count="5";
 		
 		//kbspirit?input=2&type=2&kuozhan=1&count=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+ "&count=" + count+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 2.3.2主题投资相关----type=2
+	 * 查看成分股，为2不显示，默认为2
+        kuozhan=2
+	 * @throws Exception 
+	 */
+	@Test
+	public void t232estztJpb() throws Exception {
+		input="2";
+		type= "2";
+		kuozhan="2";
+		
+		//kbspirit?input=2&type=2&kuozhan=2
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 2.4.1多音字
+        input=z(zhong重工装备)
+	 * @throws Exception 
+	 */
+	@Test
+	public void t241estMultiPyJpb() throws Exception {
+		input="zgzb";
+		type= "2";
+				
+		//kbspirit?input=zgzb&type=2
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	/**
+	 * 2.4.2多音字
+        input=c(chong重工装备)
+	 * @throws Exception 
+	 */
+	@Test
+	public void t242estMultiPyJpb() throws Exception {
+		input="cgzb";
+		type= "2";
+				
+		//kbspirit?input=cgzb&type=2
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
 		String ret =MyHttpUtil. getData(urlString,type);
