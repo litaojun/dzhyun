@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.ArrayList;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -55,6 +56,7 @@ import com.meterware.httpunit.WebResponse;
 
 
 
+
 //io
 import java.io.BufferedReader;
 import java.io.File;
@@ -80,6 +82,8 @@ public class StorageProxyTest {
 		this.jop = new JedisOperator();
 		zmproxysocket = new ZmqProxySocket();
 	}
+	
+	@Ignore
 	@Test
 	public void testOneKeyList()
 	{
