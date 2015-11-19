@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.atopcloud.util.MyConfigUtil;
 import com.atopcloud.util.MyHttpUtil;
+import com.gw.dzhyun.util.DateFormatTran;
 import com.gw.dzhyun.util.TranYfloatMain;
 
 public class TopicInvestHistory {
@@ -123,7 +124,7 @@ public class TopicInvestHistory {
 	 */
 	public void initInterfaceKXianData() throws SAXException, Exception
 	{
-		String urlstr = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") + "/topicinvest/history?topicid=52&token=ae8003a973aa43b5a00fd617275badde";
+		String urlstr = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") + "/topicinvest/history?topicid=52&token=0e86eccefeeb42f6add81e881dcba673";
 		//System.out.println("urlstr="+urlstr+"\n");
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		JSONObject data = JSON.parseObject(retstr);
@@ -145,8 +146,9 @@ public class TopicInvestHistory {
 		String retstr = MyHttpUtil. getQuoteDyna(urlstr,"json");
 		//System.out.println("urlstr="+urlstr+"\n");
 		JSONObject data = JSON.parseObject(retstr);
-		TranYfloatMain tym = new TranYfloatMain(data,"RepDataQuoteKlineSingle");
-		return tym.dealJsonArray();
+//		TranYfloatMain tym = new TranYfloatMain(data,"RepDataQuoteKlineSingle");
+//		return tym.dealJsonArray();
+		return data;
 	}
 	/*
 	 * 将k线 http请求返回的json数据提取部分数据组成新的json数据，只提取其中的时间和收盘价，组成{时间：开盘价}格式的json返回
@@ -156,13 +158,25 @@ public class TopicInvestHistory {
 		if(srcjson==null)
 			return null;
 		JSONObject destjson = new JSONObject();
-		JSONArray curarr = srcjson.getJSONObject("Data").getJSONArray("RepDataQuoteKlineSingle").getJSONObject(0).getJSONArray("Data");
-		if(curarr==null)
-			return null;
+		JSONArray curarr =null;
+		try {  
+		 curarr = srcjson.getJSONObject("Data").getJSONArray("RepDataQuoteKlineSingle").getJSONObject(0).getJSONArray("Data");
+		}
+		catch (ClassCastException e) {  
+			curarr = null;
+		}
+		catch (Exception e) {  
+			curarr = null;
+		}
+		finally {  
+			if(curarr==null)
+				return null;
+		}
 		for(int i = 0;i<curarr.size();i++)
 		{
 			JSONObject ts = curarr.getJSONObject(i);
-			String datestr = ts.getString("ShiJian");
+			//String datestr = ts.getString("ShiJian");
+			String datestr = DateFormatTran.liunxDateTranDateStr(ts.getLong("ShiJian"));
 			float spj = ts.getFloat("ShouPanJia");
 			destjson.put(datestr.substring(0, 10), spj);
 		}
@@ -177,11 +191,11 @@ public class TopicInvestHistory {
 		ArrayList<String> objlist = (ArrayList<String>) tistdao.getListByUId();
 		for(String objstr:objlist)
 		{
-			String curstr = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") + "/quote/kline?obj=%s&period=1day&begin_time=%s&end_time=%s&token=ae8003a973aa43b5a00fd617275badde";
+			String curstr = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") + "/quote/kline?obj=%s&period=1day&begin_time=%s&end_time=%s&token=0e86eccefeeb42f6add81e881dcba673";
 			curstr = String.format(curstr, new String[]{objstr,startdate,enddate});
 			JSONObject tranjson = this.getKxianDataByUrl(curstr);
 			//System.out.println(objstr + "股票代码从"+startdate+"到"+enddate+"http请求URL==="+curstr+"\n");
-			//System.out.println(objstr + "股票代码从"+startdate+"到"+enddate+"K线数据为：\n"+tranjson+"\n");
+			System.out.println(objstr + "股票代码从"+startdate+"到"+enddate+"K线数据为：\n"+tranjson+"\n");
 			if(tranjson !=null)
 			{
 			     JSONObject zhjson = this.tranJsonData(tranjson);
@@ -206,9 +220,9 @@ public class TopicInvestHistory {
 		{
 			String tmpobj = allkey.next();
 			JSONObject curjson = this.objKxianData.getJSONObject(tmpobj);
-			//System.out.println("curjson="+curjson);
+			System.out.println("curjson="+curjson);
 			float a=0;
-			if(curjson.containsKey(startdate))
+			if(curjson!=null && curjson.containsKey(startdate))
 			{
 				a = curjson.getFloatValue(startdate);
 				System.out.println(startdate+"日期股票代码"+tmpobj+"基准价格="+a);
@@ -247,7 +261,7 @@ public class TopicInvestHistory {
 		cal.add(Calendar.DATE, -90);
 		Date enddate = cal.getTime(); 
 		String endstrdate = df.format(enddate);
-		String curstr = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") + "/quote/kline?obj=%s&period=1day&begin_time=%s&end_time=%s&token=ae8003a973aa43b5a00fd617275badde";
+		String curstr = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") + "/quote/kline?obj=%s&period=1day&begin_time=%s&end_time=%s&token=0e86eccefeeb42f6add81e881dcba673";
 		curstr = String.format(curstr, new String[]{obj,endstrdate+"-000000",startstrdate+"-173502"});
 		//System.out.println("ltjurl="+curstr);
 		JSONObject alldata = this.getKxianDataByUrl(curstr);
@@ -333,6 +347,7 @@ public class TopicInvestHistory {
 		{
 			String keyobj = allkey.next();
 			JSONObject datejsb = jsb.getJSONObject(keyobj);
+			System.out.println("keyobj="+keyobj);
 			Set<String> kxsetxx = datejsb.keySet();
 			Iterator<String> allkeyxx = kxsetxx.iterator();
 			String dk=null,oj=null;
@@ -378,10 +393,8 @@ public class TopicInvestHistory {
 		        	Object[] menu2=(Object[])o2;  
 		            if(((String)menu1[0]).compareTo(((String)menu2[0]))>0)
 		            {  
-		            	//System.out.println((String)menu1[0]+"-------"+menu2[0]+"111");
 		                return 1;  
 		            }else {  
-		            	//System.out.println((String)menu1[0]+"-------"+menu2[0]+"000");
 		                return -1;  
 		            }  
 		        }  
@@ -395,8 +408,8 @@ public class TopicInvestHistory {
 	{
 		// TODO Auto-generated method stub
 		TopicInvestHistory tphistory = new TopicInvestHistory();
-		tphistory.initKxianJsonData("20150727-000000", "20151028-173502");
-		tphistory.initObjBsPrice("2015-07-28");
+		tphistory.initKxianJsonData("20150810-000000", "20151110-173502");
+		tphistory.initObjBsPrice("2015-08-10");
 		tphistory.jsObjZhangfu();
 		JSONObject rs = tphistory.getZfresult();
 		System.out.println("自己计算ID52的主题投资20150728~20151028时间的json数据="+rs);
