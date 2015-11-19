@@ -19,6 +19,7 @@ public class HistoryTest {
 		TranYfloatMain tym = new TranYfloatMain(data,"RepDataQuoteKlineSingle");
 		JSONObject tranjson = tym.dealJsonArray();
 		System.out.println(tranjson+"\n");
+		System.out.println("加一行测试代码");
 		return tranjson;
 	}
 
