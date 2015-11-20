@@ -62,7 +62,7 @@ public class QuoteKlineTest {
 	String field= "ShiJian,ZuiGaoJia,ZuiDiJia";
 	String begin_time= "20140101-000000";
 	String end_time= "20141231-000000";
-	String token="58cd20c8affb4013ae7f3301d420e245";
+	String token="5158e9ef5b9e4c059173882648549ac7";
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -80,13 +80,13 @@ public class QuoteKlineTest {
 	}
 	
 	/**
-	 * 1.1测试json格式，最新1条1day K线,股票代码是SH600000，period取值1day。
+	 * 1.1.1测试json格式，最新1条1day K线,股票代码是SH600000，period取值1day。
 	 * @throws Exception 
 	 */
 	@Test
-	public void test1DayKLine() throws Exception {
+	public void test111DayKLine() throws Exception {
 		code="SH600008";
-		//period取值1day、1min、5min
+		//period取值1day、1min、5min、15min、30min、60min
 		period= "1day";
 		start= "-1";
 		//count取值<=78，json格式
@@ -108,19 +108,18 @@ public class QuoteKlineTest {
 	}
 	
 	/**
-	 * 1.2测试json格式，最新78条1day K线,股票代码是SH600000，period取值1day。
+	 * 1.1.2测试json格式，最新1条1day K线, SZ市场代码
 	 * @throws Exception 
 	 */
 	@Test
-	public void test78DayKLine() throws Exception {
-		code="SH600008";
-		//period取值1day、1min、5min
+	public void test112DayKLine() throws Exception {
+		code="SZ000777";
 		period= "1day";
-		start= "78";
+		start= "-1";
 		//count取值<=78，json格式
-		count= "78";
+		count= "1";
 		
-		//quote/kline?obj=SH600000&period=1day&start=-78&count=78
+		//quote/kline?obj=SZ000777&period=1day&start=-1&count=1
 		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -132,11 +131,172 @@ public class QuoteKlineTest {
 	}
 	
 	/**
-	 * 1.3测试json格式，最新1条1min K线,股票代码是SH600000，period取值1min。
+	 * 1.1.3测试json格式，最新1条1day K线, B$市场代码
 	 * @throws Exception 
 	 */
 	@Test
-	public void test1MinKLine() throws Exception {
+	public void test113DayKLine() throws Exception {
+		code="B$991036";
+		period= "1day";
+		start= "-1";
+		//count取值<=78，json格式
+		count= "1";
+		
+		//quote/kline?obj=B$991036&period=1day&start=-1&count=1
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
+		System.out.println(data);
+	}
+	
+	/**
+	 * 1.1.4测试json格式，最新1条1day K线, ZI市场代码
+	 * @throws Exception 
+	 */
+	@Test
+	public void test114DayKLine() throws Exception {
+		code="ZI000008";
+		period= "1day";
+		start= "-10";
+		//count取值<=78，json格式
+		count= "10";
+		
+		//quote/kline?obj=ZI000008&period=1day&start=-10&count=10
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
+		System.out.println(data);
+	}
+	
+	/**
+	 * 1.1.5测试json格式，最新1条1day K线, HI市场代码
+	 * @throws Exception 
+	 */
+	@Test
+	public void test115DayKLine() throws Exception {
+		code="HIHSCCI";
+		period= "1day";
+		start= "-10";
+		//count取值<=78，json格式
+		count= "10";
+		
+		//quote/kline?obj=HIHSCCI&period=1day&start=-10&count=10
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
+		System.out.println(data);
+	}
+	
+	/**
+	 * 1.1.6测试json格式，最新1条1day K线, SW市场代码
+	 * @throws Exception 
+	 */
+	@Test
+	public void test116DayKLine() throws Exception {
+		code="SW801164";
+		period= "1day";
+		start= "-10";
+		//count取值<=78，json格式
+		count= "10";
+		
+		//quote/kline?obj=SW801164&period=1day&start=-10&count=10
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
+		System.out.println(data);
+	}
+	
+	/**
+	 * 1.1.7测试json格式，最新1条1day K线, SO市场代码
+	 * @throws Exception 
+	 */
+	@Test
+	public void test117DayKLine() throws Exception {
+		code="SO430010";
+		period= "1day";
+		start= "-10";
+		//count取值<=78，json格式
+		count= "10";
+		
+		//quote/kline?obj=SO430010&period=1day&start=-10&count=10
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
+		System.out.println(data);
+	}
+	
+	/**
+	 * 1.1.8测试json格式，最新1条1day K线, SF市场代码
+	 * @throws Exception 
+	 */
+	@Test
+	public void test118DayKLine() throws Exception {
+		code="SFIC1511";
+		period= "1day";
+		start= "-10";
+		//count取值<=78，json格式
+		count= "10";
+		
+		//quote/kline?obj=SFIC1511&period=1day&start=-10&count=10
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
+		System.out.println(data);
+	}
+	
+	/**
+	 * 1.1.9测试json格式，最新78条1day K线,股票代码是SH600000，period取值1day。
+	 * @throws Exception 
+	 */
+	@Test
+	public void test119DayKLine() throws Exception {
+		code="SH600004";
+		period= "1day";
+		start= "-78";
+		//count取值<=78，json格式
+		count= "78";
+		
+		//quote/kline?obj=SH600004&period=1day&start=-78&count=78
+		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&start=" + start + "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：行情返回null",ret);
+		JSONArray data = MyQuoteKlineUtil.getQuoteKlineByObjCode(ret, code);
+		assertNotNull("错误：股票k线为null",data);
+		System.out.println(data);
+	}
+	
+	/**
+	 * 1.2.1测试json格式，最新1条1min K线,股票代码是SH600000，period取值1min。
+	 * @throws Exception 
+	 */
+	@Test
+	public void test121MinKLine() throws Exception {
 		code="SH600600";
 		//period取值1day、1min、5min
 		period= "1min";
@@ -160,15 +320,15 @@ public class QuoteKlineTest {
 	}
 	
 	/**
-	 * 1.4测试json格式，最新78条1min K线,股票代码是SH600000，period取值1min。
+	 * 1.2.2测试json格式，最新78条1min K线,股票代码是SH600000，period取值1min。
 	 * @throws Exception 
 	 */
 	@Test
-	public void test78OneMinKLine() throws Exception {
+	public void test122neMinKLine() throws Exception {
 		code="SH600008";
 		//period取值1day、1min、5min
 		period= "1min";
-		start= "78";
+		start= "-78";
 		//count取值<=78，json格式
 		count= "78";
 		
@@ -184,11 +344,11 @@ public class QuoteKlineTest {
 	}
 	
 	/**
-	 * 1.5测试json格式，最新1条5min K线,股票代码是SH600000，period取值5min。
+	 * 1.3.1测试json格式，最新1条5min K线,股票代码是SH600000，period取值5min。
 	 * @throws Exception 
 	 */
 	@Test
-	public void test5MinKLine() throws Exception {
+	public void test131FiveMinKLine() throws Exception {
 		code="SH600008";
 		//period取值1day、1min、5min
 		period= "5min";
@@ -208,15 +368,15 @@ public class QuoteKlineTest {
 	}
 	
 	/**
-	 * 1.6测试json格式，最新78条5min K线,股票代码是SH600000，period取值5min。
+	 * 1.3.2测试json格式，最新78条5min K线,股票代码是SH600000，period取值5min。
 	 * @throws Exception 
 	 */
 	@Test
-	public void test78FiveMinKLine() throws Exception {
+	public void test132FiveMinKLine() throws Exception {
 		code="SH600008";
 		//period取值1day、1min、5min
 		period= "5min";
-		start= "78";
+		start= "-78";
 		//count取值<=48，json格式
 		count= "78";
 		
@@ -315,8 +475,8 @@ public class QuoteKlineTest {
 	public void testPeriodDayKLine() throws Exception {
 		code="SH600008";
 		period= "1day";
-		begin_time= "20150622-000000";
-		end_time= "20150622-230000";
+		begin_time= "20150623-000000";
+		end_time= "20150623-230000";
 		
 		//quote/kline?obj=SH600008&period=1day&begin_time=20150403-000000&end_time=20150403-173502
 		String urlString = "http://" + ip + ":" +port + "/quote/kline?obj=" + code + "&period=" + period + "&begin_time=" + begin_time + "&end_time=" + end_time+ "&token=" + token;  //每个测试方法需要修改
