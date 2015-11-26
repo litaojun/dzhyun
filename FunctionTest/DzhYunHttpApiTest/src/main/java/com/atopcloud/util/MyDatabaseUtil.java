@@ -85,4 +85,36 @@ public class MyDatabaseUtil {
     	return num;
     }
     
+    /***
+     * ADDED BY WUZHIPEI
+     * @param ip
+     * @param port
+     * @param user
+     * @param pwd
+     * @param dbname
+     * @param queryesql
+     * @return
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public static ResultSet doQuerySqlS(String ip,String port,String user,String pwd,String dbname,String queryesql) throws SQLException, ClassNotFoundException
+	{
+		url = "jdbc:mysql://" + ip + ":" + port + "/" + dbname;
+
+		//open
+		Class.forName(driver);
+		con = DriverManager.getConnection(url, user, pwd);
+		con.setAutoCommit(false);
+		//System.out.println("Open db ok!");
+		//excute sql
+		stmt = con.createStatement();
+		ResultSet result = stmt.executeQuery(queryesql);
+		con.commit();
+		//System.out.println("deleted " + num + " rows!");
+		//close
+		if(stmt != null) stmt.close();
+		if(con != null) con.close();
+		//System.out.println("Close db ok!");
+		return result;
+	}
 }
