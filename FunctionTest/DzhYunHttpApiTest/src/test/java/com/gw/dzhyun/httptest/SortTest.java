@@ -549,7 +549,7 @@ public class SortTest {
 	@Test
 	public void t302estobjSOSort() throws Exception {
 				
-		String obj= "SO400064"; 
+		String obj= "SO400061"; 
 		String field= "ZuiXinJia";
 				
 		//sort/range?obj=SO400064&field=ZuiXinJia&desc=false

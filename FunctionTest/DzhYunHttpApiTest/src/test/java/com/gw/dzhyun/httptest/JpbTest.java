@@ -228,7 +228,7 @@ public class JpbTest {
 		assertNotNull("错误：键盘宝返回null",ret);
 		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
 		assertNotNull("错误：键盘宝为null",jieguo);
-		System.out.println(ret);
+		System.out.println(jieguo);
 	}
 	
 	/**
@@ -690,6 +690,28 @@ public class JpbTest {
 	}
 	
 	/**
+	 * 2.1.7主题投资相关----type=2
+	 * 根据obj搜索主题功能增强, 支持逗号分隔多个obj 
+        input=z&type=2
+	 * @throws Exception 
+	 */
+	@Test
+	public void t217estztJpb() throws Exception {
+		input="sh600221,sh600600,000777";
+		type= "2";
+		
+		//kbspirit?input=sh600221,sh600600,000777&type=2
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		/*JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);*/
+		System.out.println(ret);
+	}
+	
+	/**
 	 * 2.2.1主题投资相关----type=2
 	 * 查询一定数量主题
        count=2
@@ -760,6 +782,53 @@ public class JpbTest {
 	}
 	
 	/**
+	 * 2.3.4主题投资相关----type=2
+	 * 查看成分股（一次搜多个obj，但每个obj只列count个主题）
+        kuozhan=1
+	 * @throws Exception 
+	 */
+	@Test
+	public void t233estztJpb() throws Exception {
+		input="sh600221,sh600600,000777";
+		type= "2";
+		kuozhan="1";
+		
+		//kbspirit?input=2&type=2&kuozhan=1&count=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		/*JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);*/
+		System.out.println(ret);
+	}
+	
+	/**
+	 * 2.3.4主题投资相关----type=2
+	 * 查看成分股（一次搜多个obj，但每个obj只列count个主题）
+        kuozhan=1
+	 * @throws Exception 
+	 */
+	@Test
+	public void t234estztJpb() throws Exception {
+		input="sh600221,sh600600,000777";
+		type= "2";
+		kuozhan="1";
+		count="1";
+		
+		//kbspirit?input=2&type=2&kuozhan=1&count=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+ "&count=" + count+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		/*JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);*/
+		System.out.println(ret);
+	}
+	
+	/**
 	 * 2.4.1多音字
         input=z(zhong重工装备)
 	 * @throws Exception 
@@ -803,14 +872,14 @@ public class JpbTest {
 	
 	/**
 	 * 3.1.1龙虎榜相关----type=3
-	 * 根据股票名称、营业部名称、股票首字母、营业部首字母查询龙虎榜
+	 * 根据股票名称、营业部名称、股票首字母、营业部首字母、股票代码查询龙虎榜
 	 * （输出结果的ShuJu数量默认为5条股票、5条营业部）
         input=z&type=3
 	 * @throws Exception 
 	 */
 	@Test
 	public void t311estztJpb() throws Exception {
-		input="gz";
+		input="z";
 		type= "3";
 		
 		//kbspirit?input=z&type=3
@@ -873,7 +942,7 @@ public class JpbTest {
 	 */
 	@Test
 	public void t314estztJpb() throws Exception {
-		input="机构";
+		input="专用";
 		type= "3";
 		
 		//kbspirit?input=机构&type=3
@@ -898,6 +967,69 @@ public class JpbTest {
 		type= "3";
 		
 		//kbspirit?input=2&type=3
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 3.1.6龙虎榜相关----type=3
+        input=601788&type=3
+	 * @throws Exception 
+	 */
+	@Test
+	public void t316estztJpb() throws Exception {
+		input="601788";
+		type= "3";
+		
+		//kbspirit?input=601788&type=3
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 3.1.7龙虎榜相关----type=3
+        input=6017&type=3   前缀匹配搜索
+	 * @throws Exception 
+	 */
+	@Test
+	public void t317estztJpb() throws Exception {
+		input="6017";
+		type= "3";
+		
+		//kbspirit?input=6017&type=3
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 3.1.8龙虎榜相关----type=3
+        input=1788&type=3   后四位代码搜索
+	 * @throws Exception 
+	 */
+	@Test
+	public void t318estztJpb() throws Exception {
+		input="1788";
+		type= "3";
+		
+		//kbspirit?input=1788&type=3
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
