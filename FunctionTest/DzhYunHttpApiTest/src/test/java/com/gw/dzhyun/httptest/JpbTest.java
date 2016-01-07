@@ -368,12 +368,12 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t135estallmarketJpb() throws Exception {
-		input="B$9";
+	public void t135estSWJpb() throws Exception {
+		input="02";
 		type= "0";
-		market="*";
+		market="SW";
 				
-		//kbspirit?input=B$9&market=*&type=0
+		//kbspirit?input=02&type=0&market=SW
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -390,12 +390,78 @@ public class JpbTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void t136estallmarketJpb() throws Exception {
+	public void t136estSFJpb() throws Exception {
+		input="02";
+		type= "0";
+		market="SF";
+				
+		//kbspirit?input=02&type=0&market=SF
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 1.3.7按代码、市场查询股票
+        input&type&market
+	 * @throws Exception 
+	 */
+	@Test
+	public void t137estallmarketJpb() throws Exception {
+		input="B$9";
+		type= "0";
+		market="*";
+				
+		//kbspirit?input=B$9&market=*&type=0
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 1.3.8按代码、市场查询股票
+        input&type&market
+	 * @throws Exception 
+	 */
+	@Test
+	public void t138estallmarketJpb() throws Exception {
 		input="960";
 		type= "0";
 		market="SH,SZ,SO,B$";
 				
 		//kbspirit?input=960&type=0&market=SH,SZ,SO,B$
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 1.3.9按代码、市场查询股票
+        input&type&market
+	 * @throws Exception 
+	 */
+	@Test
+	public void t139estallmarketJpb() throws Exception {
+		input="160";
+		type= "0";
+		market="SW,SF,SO";
+				
+		//kbspirit?input=160&type=0&market=SW,SF,SO
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -782,7 +848,7 @@ public class JpbTest {
 	}
 	
 	/**
-	 * 2.3.4主题投资相关----type=2
+	 * 2.3.3主题投资相关----type=2
 	 * 查看成分股（一次搜多个obj，但每个obj只列count个主题）
         kuozhan=1
 	 * @throws Exception 
@@ -848,6 +914,7 @@ public class JpbTest {
 		assertNotNull("错误：键盘宝为null",jieguo);
 		System.out.println(jieguo);
 	}
+	
 	/**
 	 * 2.4.2多音字
         input=c(chong重工装备)
@@ -1005,10 +1072,10 @@ public class JpbTest {
 	 */
 	@Test
 	public void t317estztJpb() throws Exception {
-		input="6017";
+		input="6";
 		type= "3";
 		
-		//kbspirit?input=6017&type=3
+		//kbspirit?input=6&type=3
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -1107,6 +1174,7 @@ public class JpbTest {
 		assertNotNull("错误：键盘宝为null",jieguo);
 		System.out.println(jieguo);
 	}
+	
 	/**
 	 * 3.3.2龙虎榜相关----type=3
 	 *  多音字
@@ -1128,5 +1196,407 @@ public class JpbTest {
 		assertNotNull("错误：键盘宝为null",jieguo);
 		System.out.println(jieguo);
 	}	
+	
+	/**
+	 * 4.1.1天天慧问股相关----type=4
+                      根据股票完整代码搜索其所属板块代码和名称
+       input=000001
+	 * @throws Exception 
+	 */
+	@Test
+	public void t411estzgJpb() throws Exception {
+		input="000001";
+		type= "4";
+				
+		//kbspirit?input=000001&type=4
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}	
+	
+	/**
+	 * 4.1.2天天慧问股相关----type=4
+                      根据股票完整代码搜索其所属板块代码和名称
+       input=SH601788
+	 * @throws Exception 
+	 */
+	@Test
+	public void t412estzgJpb() throws Exception {
+		input="SH601788";
+		type= "4";
+				
+		//kbspirit?input=SH601788&type=4
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}	
+	
+	/**
+	 * 4.1.3天天慧问股相关----type=4
+                      根据股票完整代码搜索其所属板块代码和名称
+       input=300197
+	 * @throws Exception 
+	 */
+	@Test
+	public void t413estzgJpb() throws Exception {
+		input="300197";
+		type= "4";
+				
+		//kbspirit?input=300197&type=4
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 4.2.1天天慧问股相关----type=4
+                      查询一定数量股票所属的B$991板块
+       input=SZ300492&count=10
+	 * @throws Exception 
+	 */
+	@Test
+	public void t421estzgJpb() throws Exception {
+		input="SZ300492";
+		type= "4";
+		count="10";
+				
+		//kbspirit?input=SZ300492&type=4&count=10
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&count=" + count + "&token="+ token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.1.1主题分析相关----type=5
+                      测试键盘宝中输入股票代码/中文名称/拼音首字母的主题分析匹配数据
+       input=z 主题首字母（必须至少有首字母）
+	 * @throws Exception 
+	 */
+	@Test
+	public void t511estztfxJpb() throws Exception {
+		input="z";
+		type= "5";
+				
+		//kbspirit?input=z&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&count=" + count + "&token="+ token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.1.2主题分析相关----type=5
+                      测试键盘宝中输入股票代码/中文名称/拼音首字母的主题分析匹配数据
+       input=znjj 主题字母
+	 * @throws Exception 
+	 */
+	@Test
+	public void t512estztfxJpb() throws Exception {
+		input="znjj";
+		type= "5";
+				
+		//kbspirit?input=znjj&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&count=" + count + "&token="+ token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.1.3主题分析相关----type=5
+                      测试键盘宝中输入股票代码/中文名称/拼音首字母的主题分析匹配数据
+       input=2 主题中含的数字
+	 * @throws Exception 
+	 */
+	@Test
+	public void t513estztfxJpb() throws Exception {
+		input="2";
+		type= "5";
+				
+		//kbspirit?input=2&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&count=" + count + "&token="+ token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.1.4主题分析相关----type=5
+                      测试键盘宝中输入股票代码/中文名称/拼音首字母的主题分析匹配数据
+       input=家   主题中含的中文
+	 * @throws Exception 
+	 */
+	@Test
+	public void t514estztfxJpb() throws Exception {
+		input="家";
+		type= "5";
+				
+		//kbspirit?input=家&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&count=" + count + "&token="+ token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.1.5主题投资相关----type=5
+	 *  测试键盘宝中输入股票代码/中文名称/拼音首字母的主题分析匹配数据
+        input=600221&type=5  必须完整代码数字
+	 * @throws Exception 
+	 */
+	@Test
+	public void t515estztJpb() throws Exception {
+		input="600221";
+		type= "5";
+		
+		//kbspirit?input=600221&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.1.6主题投资相关----type=5
+	 * 测试键盘宝中输入股票代码/中文名称/拼音首字母的主题分析匹配数据
+        input=sh600221&type=5
+	 * @throws Exception 
+	 */
+	@Test
+	public void t516estztJpb() throws Exception {
+		input="sh600221";
+		type= "5";
+		
+		//kbspirit?input=sh600221&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.1.7主题投资相关----type=5
+	 * 根据obj搜索主题功能增强, 支持逗号分隔多个obj 
+        input=sh600221,sh600600,000777&type=5
+	 * @throws Exception 
+	 */
+	@Test
+	public void t517estztJpb() throws Exception {
+		input="sh600221,sh600600,000777";
+		type= "5";
+		
+		//kbspirit?input=sh600221,sh600600,000777&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		/*JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);*/
+		System.out.println(ret);
+	}
+	
+	/**
+	 * 5.2.1主题投资相关----type=5
+	 * 查询一定数量主题
+       count=2
+	 * @throws Exception 
+	 */
+	@Test
+	public void t521estztJpb() throws Exception {
+		input="家";
+		type= "5";
+		count="2";
+		
+		//kbspirit?input=家&type=5&count=2
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&count=" + count+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.3.1主题投资相关----type=5
+	 * 查看成分股
+        kuozhan=1
+	 * @throws Exception 
+	 */
+	@Test
+	public void t531estztJpb() throws Exception {
+		input="2";
+		type= "5";
+		kuozhan="1";
+		count="5";
+		
+		//kbspirit?input=2&type=5&kuozhan=1&count=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+ "&count=" + count+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.3.2主题投资相关----type=5
+	 * 查看成分股，为2不显示，默认为2
+        kuozhan=2
+	 * @throws Exception 
+	 */
+	@Test
+	public void t532estztJpb() throws Exception {
+		input="2";
+		type= "5";
+		kuozhan="2";
+		
+		//kbspirit?input=2&type=5&kuozhan=2
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.3.3主题投资相关----type=5
+	 * 查看成分股（一次搜多个obj，但每个obj只列count个主题）
+        kuozhan=1
+	 * @throws Exception 
+	 */
+	@Test
+	public void t533estztJpb() throws Exception {
+		input="sh600221,sh600600,000777";
+		type= "5";
+		kuozhan="1";
+		
+		//kbspirit?input=2&type=2&kuozhan=1&count=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		/*JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);*/
+		System.out.println(ret);
+	}
+	
+	/**
+	 * 5.3.4主题投资相关----type=5
+	 * 查看成分股（一次搜多个obj，但每个obj只列count个主题）
+        kuozhan=1
+	 * @throws Exception 
+	 */
+	@Test
+	public void t534estztJpb() throws Exception {
+		input="sh600221,sh600600,000777";
+		type= "5";
+		kuozhan="1";
+		count="1";
+		
+		//kbspirit?input=2&type=5&kuozhan=1&count=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+  "&kuozhan=" + kuozhan+ "&count=" + count+"&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		/*JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);*/
+		System.out.println(ret);
+	}
+	
+	/**
+	 * 5.4.1多音字
+        input=z(zhong重工装备)
+	 * @throws Exception 
+	 */
+	@Test
+	public void t541estMultiPyJpb() throws Exception {
+		input="zgzb";
+		type= "5";
+				
+		//kbspirit?input=zgzb&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
+	
+	/**
+	 * 5.4.2多音字
+        input=c(chong重工装备)
+	 * @throws Exception 
+	 */
+	@Test
+	public void t542estMultiPyJpb() throws Exception {
+		input="cgzb";
+		type= "5";
+				
+		//kbspirit?input=cgzb&type=5
+		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&token=" + token;  //每个测试方法需要修改
+		String type="json";
+		
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：键盘宝返回null",ret);
+		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
+		assertNotNull("错误：键盘宝为null",jieguo);
+		System.out.println(jieguo);
+	}
 	
 }

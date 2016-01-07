@@ -1349,5 +1349,554 @@ public class SortTest {
 		assertNotNull("错误：排序返回null",sort);
 		System.out.println(sort);
 	}
+	
+	/**
+	 * 4.1.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=RongZiYuEZhangFu
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4011estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "RongZiYuEZhangFu";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=RongZiYuEZhangFu
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.1.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=RongZiYuEZhangFu
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4012estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\一带一路";				
+		String field= "RongZiYuEZhangFu";
+						
+		//sort/rank?gql=block=股票\\主题投资\\一带一路&field=RongZiYuEZhangFu
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.2.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=RongZiYuELiuTongShiZhiBiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4021estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "RongZiYuELiuTongShiZhiBiLv";
+		String desc="true";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=RongZiYuELiuTongShiZhiBiLv&desc=true
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&desc=" + desc+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.2.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=RongZiYuELiuTongShiZhiBiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4022estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "RongZiYuELiuTongShiZhiBiLv";
+		String obj="SZ000333";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=RongZiYuELiuTongShiZhiBiLv&resultobj=SZ000333
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&resultobj=" + obj + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.3.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=RiZhangFu5
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4031estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "RiZhangFu5";
+		String start= "0";
+		String count= "5";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=RiZhangFu5&start=0&count=5
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+  "&start=" + start + "&count=" +count+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.3.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=RiZhangFu5
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4032estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "RiZhangFu5";
+		String desc="true";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=RiZhangFu5&desc=true
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&desc=" + desc + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.4.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=ZhangFu
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4041estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "ZhangFu";
+		String desc="true";
+		String start= "0";
+		String count= "5";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=ZhangFu&desc=true&start=0&count=5
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&desc=" + desc+  "&start=" + start + "&count=" +count+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.4.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=ZhangFu
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4042estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "ZhangFu";
+		String obj="SZ000333";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=ZhangFu&resultobj=SZ000333
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&resultobj=" + obj + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.5.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=ZhuYingShouRu
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4051estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "ZhuYingShouRu";
+		
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=ZhuYingShouRu
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.5.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=ZhuYingShouRu
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4052estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "ZhuYingShouRu";
+		String start= "0";
+		String count= "5";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=ZhuYingShouRu&start=0&count=5
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&start=" + start + "&count=" +count+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.6.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=XiaoShouMaoLiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4061estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "XiaoShouMaoLiLv";
+		String desc="true";
+		String start= "0";
+		String count= "5";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=XiaoShouMaoLiLv&desc=true&start=0&count=5
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&desc=" + desc+  "&start=" + start + "&count=" +count+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.6.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=XiaoShouMaoLiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4062estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "XiaoShouMaoLiLv";
+		String desc="true";
+		String start= "0";
+		String count= "5";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=XiaoShouMaoLiLv&desc=true&start=0&count=5
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&desc=" + desc+  "&start=" + start + "&count=" +count + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.7.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=ZiChanFuZhaiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4071estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "ZiChanFuZhaiLv";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=ZiChanFuZhaiLv
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.7.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=ZiChanFuZhaiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4072estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "ZiChanFuZhaiLv";
+		String obj="SZ000333";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=ZiChanFuZhaiLv&resultobj=SZ000333
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&resultobj=" + obj + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.8.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=JingTaiShiYingLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4081estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "JingTaiShiYingLv";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=JingTaiShiYingLv
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.8.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=JingTaiShiYingLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4082estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "JingTaiShiYingLv";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=JingTaiShiYingLv
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.9.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=JingZiChanShouYiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4091estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "JingZiChanShouYiLv";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=JingZiChanShouYiLv
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.9.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=JingZiChanShouYiLv
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4092estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "JingZiChanShouYiLv";
+		String obj="SZ000333";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=JingZiChanShouYiLv&resultobj=SZ000333
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&resultobj=" + obj + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.10.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=DDXZongHe10
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4101estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "DDXZongHe10";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=DDXZongHe10
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.10.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=DDXZongHe10
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4102estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "DDXZongHe10";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=DDXZongHe10
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.11.1 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=DDXBiaoZhunCha10
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4111estobjfieldSort() throws Exception {
+		String block= "股票\\地区板块\\北京市";				
+		String field= "DDXBiaoZhunCha10";
+						
+		//sort/range?gql=block=股票\\地区板块\\北京市&field=DDXBiaoZhunCha10
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/range?gql=block=" + block + "&field=" + field+ "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
+	
+	/**
+	 * 4.11.2 天天慧问股相关 排序
+	 * 负责处理主题、板块成分股的实时排序查询请求
+	   field=DDXBiaoZhunCha10
+	 * @throws Exception 
+	 */
+	@Test
+	public void t4112estobjfieldSort() throws Exception {
+		String block= "股票\\主题投资\\智能家居";				
+		String field= "DDXBiaoZhunCha10";
+		String obj="SZ000333";
+						
+		//sort/rank?gql=block=股票\\主题投资\\智能家居&field=DDXBiaoZhunCha10&resultobj=SZ000333
+						
+		String urlString = "http://" + ip + ":" +port + "/sort/rank?gql=block=" + block + "&field=" + field+ "&resultobj=" + obj + "&token=" + token;
+		
+		String type="json";
+						
+		String ret =MyHttpUtil. getData(urlString,type);
+		assertNotNull("错误：排序返回null",ret);
+		JSONArray sort = MySortUtil.getsortByObj(ret);
+		assertNotNull("错误：排序返回null",sort);
+		System.out.println(sort);
+	}
 		
 }
