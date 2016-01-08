@@ -46,7 +46,7 @@ public class BlockTest {
 	String find= "地区";           //板块类别
 	String block= "股票\\\\地区板块\\\\北京市";           
 	String obj= "SH000001,SH000300,SH600600,SH900902,SZ000001,SZ200028,SZ399009,SZ002002,SZ300033,SZ300159";         //按个股分
-	String field= "ZuiXinJia";		//排序的字段
+	String field= "ZuiXinJia";		//查询板块藏恒分股的字段
 	String start= "0";
 	String count= "30";
 	String desc= "true";		   //true为降序，false为升序，默认升序
@@ -84,9 +84,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 			
 			//yfloat转换
@@ -111,9 +111,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -134,9 +134,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -157,9 +157,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -180,9 +180,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -203,9 +203,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -226,9 +226,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -249,9 +249,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -272,9 +272,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -295,9 +295,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -318,9 +318,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -341,9 +341,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -364,9 +364,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -387,9 +387,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -410,9 +410,9 @@ public class BlockTest {
 			String type="json";
 		
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockprop = MyBlockUtil.getBlockProp(ret);
-			assertNotNull("错误：排序返回null",blockprop);
+			assertNotNull("错误：板块返回null",blockprop);
 			System.out.println(blockprop);
 		
 		}
@@ -433,9 +433,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -456,9 +456,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -479,9 +479,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -502,9 +502,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -525,9 +525,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -548,9 +548,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -571,9 +571,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -594,9 +594,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -617,9 +617,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -640,9 +640,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -663,9 +663,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -686,9 +686,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -709,9 +709,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -732,9 +732,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -755,9 +755,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
@@ -778,15 +778,15 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
 		
 		/**
-		 * 3.2按板块排序(用gql板块参数)
+		 * 3.2按板块板块(用gql板块参数)
 	                  （block取and &&） gql=block=股票\\地区板块\\上海市 and block=股票\\指数成份股\\大智慧策略指数\\板块指数\\上海
 		 * @throws Exception 
 		 */
@@ -801,16 +801,16 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}
 		
 		
 		/**
-		 * 3.3按板块排序(用gql板块参数)
+		 * 3.3按板块板块(用gql板块参数)
 	                  （block取and &&） gql=block=股票\\地区板块\\上海市 and block=股票\\指数成份股\\大智慧策略指数\\板块指数\\上海 or block=股票\\市场分类\\全部A股
 		 * @throws Exception 
 		 */
@@ -825,9 +825,9 @@ public class BlockTest {
 			String type="json";
 			
 			String ret =MyHttpUtil. getData(urlString,type);
-			assertNotNull("错误：排序返回null",ret);
+			assertNotNull("错误：板块返回null",ret);
 			JSONArray blockobj = MyBlockUtil.getBlockObj(ret);
-			assertNotNull("错误：排序返回null",blockobj);
+			assertNotNull("错误：板块返回null",blockobj);
 			System.out.println(blockobj);
 			
 		}

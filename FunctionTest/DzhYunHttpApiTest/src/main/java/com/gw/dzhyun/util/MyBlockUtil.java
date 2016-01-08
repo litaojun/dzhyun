@@ -8,7 +8,7 @@ import com.dzhyun.proto.Dzhoutput.QuoteDyna;
 public class MyBlockUtil {
 	
 	/**
-	 * 根据{@code RepDataBlockPropOutput} 取得排序结果。
+	 * 根据{@code RepDataBlockPropOutput} 取得板块结果。
 	 * @param jsonstring 
 	 * @return JSONArray
 	 */
