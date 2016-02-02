@@ -59,7 +59,7 @@ public class JpbTest {
 	String count= "1";
 	String delist= "0";		//0不过滤退市股票，1过滤，默认为1
 	String kuozhan="2";
-	String token="5158e9ef5b9e4c059173882648549ac7";
+	String token="00000001:1540799745:a5c22860c8fb8b1bcb59dd74fea526b9725f11d9";
 	
 	/**
 	 * @throws java.lang.Exception
@@ -283,9 +283,9 @@ public class JpbTest {
 	public void t131estSHJpb() throws Exception {
 		input="602";
 		type= "0";
-		market="SH";
+		market="SH,SZ";
 				
-		//kbspirit?input=602&type=0&market=SH
+		//kbspirit?input=602&type=0&market=SH,SZ
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -303,11 +303,11 @@ public class JpbTest {
 	 */
 	@Test
 	public void t132estSZJpb() throws Exception {
-		input="602";
+		input="02";
 		type= "0";
-		market="SZ";
+		market="B$,SW";
 				
-		//kbspirit?input=60&type=0&market=SZ
+		//kbspirit?input=02&type=0&market=B$,SW
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -327,9 +327,9 @@ public class JpbTest {
 	public void t133estSOJpb() throws Exception {
 		input="02";
 		type= "0";
-		market="SO";
+		market="SF,SO";
 				
-		//kbspirit?input=02&type=0&market=SO
+		//kbspirit?input=02&type=0&market=SF,SO
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -349,9 +349,9 @@ public class JpbTest {
 	public void t134estB$Jpb() throws Exception {
 		input="02";
 		type= "0";
-		market="B$";
+		market="ZC,DC,SC";
 				
-		//kbspirit?input=02&type=0&market=B$
+		//kbspirit?input=02&type=0&market=ZC,DC,SC
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -369,11 +369,11 @@ public class JpbTest {
 	 */
 	@Test
 	public void t135estSWJpb() throws Exception {
-		input="02";
+		input="50";
 		type= "0";
-		market="SW";
+		market="BO,SG";
 				
-		//kbspirit?input=02&type=0&market=SW
+		//kbspirit?input=50&type=0&market=BO,SG
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -391,11 +391,11 @@ public class JpbTest {
 	 */
 	@Test
 	public void t136estSFJpb() throws Exception {
-		input="02";
+		input="HS";
 		type= "0";
-		market="SF";
+		market="ZI,HI";
 				
-		//kbspirit?input=02&type=0&market=SF
+		//kbspirit?input=HS&type=0&market=ZI,HI
 		String urlString = "http://" + ip + ":" +port + "/kbspirit?input=" + input + "&type=" + type+ "&market=" + market+ "&token=" + token;  //每个测试方法需要修改
 		String type="json";
 		
@@ -596,8 +596,8 @@ public class JpbTest {
 		String ret =MyHttpUtil. getData(urlString,type);
 		assertNotNull("错误：键盘宝返回null",ret);
 		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
-		assertNotNull("错误：键盘宝为null",jieguo);
-		System.out.println(ret);
+		assertNull("正确：键盘宝为null",jieguo);
+		System.out.println(jieguo);
 	}
 	
 	/**
@@ -618,8 +618,8 @@ public class JpbTest {
 		String ret =MyHttpUtil. getData(urlString,type);
 		assertNotNull("错误：键盘宝返回null",ret);
 		JSONArray jieguo = MykbspiritUtil.getkbspiritByGuanJianZi(ret, input);
-		assertNotNull("错误：键盘宝为null",jieguo);
-		System.out.println(ret);
+		assertNull("正确：键盘宝为null",jieguo);
+		System.out.println(jieguo);
 	}
 	
 	
