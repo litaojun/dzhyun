@@ -25,6 +25,7 @@ public class BytesHexStringTran {
             inputStream.close();  
         } catch (IOException e) {  
             // TODO Auto-generated catch block  
+        	System.out.println("error");
             e.printStackTrace();  
         }  
         /** 
