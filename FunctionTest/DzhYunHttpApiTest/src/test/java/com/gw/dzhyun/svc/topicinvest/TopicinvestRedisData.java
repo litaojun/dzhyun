@@ -13,55 +13,12 @@ public class TopicinvestRedisData {
 //	private JedisOperator jed = new JedisOperator();
 //	private BlockStruct bstruct = null;
 	private JedisOperator jed = new JedisOperator();
+	private String token="00000001:1454118599:1bef295fd190b8b13d5a9956a7be7ef1804e76b3";
 	public TopicinvestRedisData()
 	{
 
 	}
-//	public static  HashMap<String,BanKuaiShuXingInfo> tranMapBanKuaiShuXingToSeflClass(HashMap<String,Topicinvestblock.BanKuaiShuXing> bksxMap)
-//	{
-//		HashMap<String,BanKuaiShuXingInfo> retHamp = new HashMap<String,BanKuaiShuXingInfo>();
-//		Iterator<String> itr = bksxMap.keySet().iterator();
-//		while(itr.hasNext())
-//		{
-//			BanKuaiShuXingInfo bksinfo = new BanKuaiShuXingInfo();
-//			String key = itr.next();
-//			Topicinvestblock.BanKuaiShuXing bkx = bksxMap.get(key);
-//			bksinfo.setId(bkx.getId());
-//			bksinfo.setBanKuaiJiBie(bkx.getBanKuaiJiBie());
-//			bksinfo.setBaoHanZiBanKuaiGeShu(bkx.getBaoHanZiBanKuaiGeShu());
-//			bksinfo.setSuoShuFuBanKuai(bkx.getSuoShuFuBanKuai());
-//			bksinfo.setSuoShuGenBanKuai(bkx.getSuoShuGenBanKuai());
-//			retHamp.put(key, bksinfo);
-//			
-//		}
-//		return retHamp;
-//	}
-//	public static BanKuaiChengFenGuInfo tranBanKuaiChengFenGuToSelfClass(Topicinvestblock.BanKuaiChengFenGu bkcfg)
-//	{
-//		BanKuaiChengFenGuInfo bkcfginfo = new BanKuaiChengFenGuInfo();
-//		bkcfginfo.setBanKuaiId(bkcfg.getBanKuaiId());
-//		ArrayList<String> ass = new ArrayList<String>();
-//		for(int i=0;i<bkcfg.getChengFenGuObjCount();i++)
-//		{
-//			ass.add(bkcfg.getChengFenGuObj(i));
-//		}
-//		bkcfginfo.setChengFenGuObj(ass);
-//		return bkcfginfo;
-//	}
-//
-//	public static TopicInvestDataInfo tranTopicInvestDataToSelfClass(Topicinvestdata.TopicInvestData topicdata)
-//	{
-//		TopicInvestDataInfo tidata = new TopicInvestDataInfo();
-//		tidata.setTopicInvestId(topicdata.getTopicInvestId());
-//		tidata.setTopicInvestName(topicdata.getTopicInvestName());
-//		ArrayList<String> b = new ArrayList<String>();
-//		for(int i=0;i<topicdata.getComponentObjCount();i++)
-//		{
-//			b.add(topicdata.getComponentObj(i));
-//		}
-//		tidata.setComponentObj(b);
-//		return tidata;
-//	}
+
 	public byte[] getKeyBytes(String ktstr,int topicid)
 	{
 		IoBuffer ioBuffer = IoBuffer.allocate(1024);   
@@ -86,9 +43,21 @@ public class TopicinvestRedisData {
 		System.out.println("keybs="+keybs);
 		byte[] data = jed.getByte(keybs);
 		System.out.println("data="+data);
-		Topicinvestdata.TopicInvestData tid = Topicinvestdata.TopicInvestData.parseFrom(data);
-		String topstr = tid.getTopicInvestId()+"----"+tid.getTopicInvestName()+"---"+tid.getComponentObjCount();
-		System.out.println(topstr);
+		Topicinvestdata.TopicInvestData tid = null;
+		if(data != null)
+		{
+		   tid = Topicinvestdata.TopicInvestData.parseFrom(data);
+			String topstr = tid.getTopicInvestId()+"----"+tid.getTopicInvestName()+"---"+tid.getComponentObjCount();
+			for(int i=0;i<tid.getComponentObjCount();i++)
+			{
+			    String obj = tid.getComponentObjList().get(i);
+			    System.out.println(obj);
+			    
+			}
+			System.out.println(topstr);
+		}
+		else
+			System.out.println("topicid="+topicid+",这个主题ID在redis中不存在");
 		return tid;
 	}
 	public HashMap<String,Topicinvestblock.BanKuaiShuXing> getBanKuaiShuXingFromRedis(int topicid) throws InvalidProtocolBufferException
@@ -136,8 +105,8 @@ public class TopicinvestRedisData {
 	public static void main(String[] args) throws InvalidProtocolBufferException
 	{
 		TopicinvestRedisData trd = new TopicinvestRedisData();
-		trd.getTitdataFromRedisByKey(52);
+		trd.getTitdataFromRedisByKey(4194);
 		trd.getBanKuaiShuXingFromRedis(999999);
-		trd.getBanKcfgFromRedis(52);
+		trd.getBanKcfgFromRedis(4194);
 	}
 }

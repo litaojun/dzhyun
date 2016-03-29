@@ -102,7 +102,6 @@ public class MyHQServerUtil {
 	 *
 	 */
 	public static class  DSCallback implements DSCallbackInterface{
-		@Override
 		public void invoke(final DSResponse.ByReference response, Pointer  userdata)
 		{
 			//TODO:处理返回的数据
@@ -118,7 +117,6 @@ public class MyHQServerUtil {
 	 */
 	public static class AsynReqCallback implements DSCallbackInterface
 	{
-		@Override
 		public void invoke(final DSResponse.ByReference response, Pointer  userdata)
 		{
 			if (null != response)

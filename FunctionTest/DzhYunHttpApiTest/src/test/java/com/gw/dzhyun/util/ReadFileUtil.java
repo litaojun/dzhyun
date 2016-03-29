@@ -29,6 +29,22 @@ public class ReadFileUtil {
         reader.close();
         return sb;
 	}
+	public static ArrayList readFileToArrayListByFilePath(String filepath) throws FileNotFoundException,IOException
+	{
+		ArrayList sb = new ArrayList();
+		FileReader reader;
+		reader = new FileReader(filepath);
+        BufferedReader br = new BufferedReader(reader);
+        String str = null;
+		while((str = br.readLine()) != null)
+		{
+			      sb.add(str);
+			      //System.out.println(str);
+		}
+        br.close();
+        reader.close();
+        return sb;
+	}
 	public static void addArrayListToFile(ArrayList<String> al) throws IOException
 	{
 		  FileWriter writer;

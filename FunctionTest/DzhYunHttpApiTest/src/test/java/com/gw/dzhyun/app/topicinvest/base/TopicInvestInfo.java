@@ -1,4 +1,4 @@
-package com.gw.dzhyun.app.topicinvest;
+package com.gw.dzhyun.app.topicinvest.base;
 
 import org.xml.sax.SAXException;
 
@@ -17,6 +17,12 @@ public class TopicInvestInfo {
     private long shiJian;
     private float zhangFu;
     public int sznum,xdnum,ppnum;
+    public TopicInvestInfo()
+    {
+    	this.liangBi = 0;
+    	this.huanShou = 0;
+    	this.zhangFu = 0;
+    }
     public void setObj(String obj)
     {
     	this.obj = obj;
@@ -77,7 +83,21 @@ public class TopicInvestInfo {
     {
     	System.out.println("换手huanShou:"+huanShou + "\r\n量比liangBi:"+liangBi + "\r\n涨幅zhangFu:"+zhangFu + "\r\n上涨家数sznum:"+sznum+"\r\n下跌家数xdnum:"+xdnum+"\r\n平盘家数ppnum:"+ppnum);
     }
-    
+    public boolean equals(TopicInvestInfo o)
+    {
+    	boolean ret = false;
+//    	this.printAvgData();
+//    	System.out.println("--------------------------------------");
+//    	o.printAvgData();
+        float tmlb = this.liangBi - o.getLiangBi();
+        float tmzf = this.zhangFu - o.getZhangFu();
+        float tmhs = this.huanShou - o.getHuanShou();
+    	if(tmlb>-0.01 && tmlb<=0.01 && tmzf>-0.01 && tmzf<=0.01 && tmhs>-0.01 && tmhs<=0.01 && this.sznum == o.sznum && this.ppnum == o.ppnum && this.xdnum == o.xdnum)
+    	{
+    		ret = true;
+    	}
+    	return ret;
+    }
 	public static void main(String[] args) throws SAXException, Exception {
 		// TODO Auto-generated method stub
 		String[] urlstr = {"http://10.15.144.80/quote/dyna?obj=SZ300171&token=df1afda4ead649ff8dd52f3b770495e9",

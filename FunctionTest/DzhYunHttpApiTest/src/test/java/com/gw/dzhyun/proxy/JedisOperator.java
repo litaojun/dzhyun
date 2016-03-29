@@ -13,25 +13,32 @@ import redis.clients.jedis.Jedis;
 
 public class JedisOperator 
 {  
-	private BinaryJedis bjess = new BinaryJedis("10.15.144.81", 10001) ;
+	private BinaryJedis bjess = new BinaryJedis("10.15.144.81", 10012) ;
 	private Jedis  jedis = null;
 	public JedisOperator()
 	{
 		
 	}
-	public void init()
+	public void init(String redisip,int port)
 	{
 		if(jedis!=null && jedis.isConnected())
 			return;
-		 jedis = new Jedis("10.15.144.81", 10001);
+		 //jedis = new Jedis("10.15.144.81", 10012);
+		jedis = new Jedis(redisip, port);
 	}
 	public void closeJedis()
 	{
+		
 		this.jedis.close();
+	}
+	
+	public void setHashValue(String key,String field,String value)
+	{
+		this.jedis.hset(key, field, value);
 	}
 	public ArrayList<String> getJredisList(String keystr,int start,int end)
 	{
-		this.init();
+		this.init("10.15.144.81", 10012);
 		ArrayList<String> als = (ArrayList<String>) jedis.lrange(keystr,start,end);
 		for(String tmstr:als)
 		{
@@ -41,7 +48,7 @@ public class JedisOperator
 	}
 	public ArrayList<byte[]> getJredisList(byte[] keystr,int start,int end)
 	{
-		this.init();
+		this.init("10.15.144.81", 10012);
 		ArrayList<byte[]> als = (ArrayList<byte[]>) jedis.lrange(keystr,start,end);
 //		for(byte[] tmstr:als)
 //		{
@@ -54,7 +61,7 @@ public class JedisOperator
 	}
 	public String getValueByKey(String key)
 	{
-		this.init();
+		this.init("10.15.144.81", 10012);
 		String a = this.jedis.get(key);
 		String b = this.jedis.type(key);
 		System.out.println(String.format("a=%s,key=%s,b=%s", new String[]{a,key,b}));
@@ -63,8 +70,8 @@ public class JedisOperator
 	public byte[] getByte(byte[] keys)
 	{
 		byte[] rsby = this.bjess.get(keys);
-		System.out.println("keytype="+this.bjess.type(keys));
-		System.out.println("rsby len="+rsby.length);
+		//System.out.println("keytype="+this.bjess.type(keys));
+		//System.out.println("rsby len="+rsby.length);
 		return this.bjess.get(keys);
 	}
 	public Map<byte[],byte[]> getHashByteArr(byte[] keys)
@@ -78,7 +85,7 @@ public class JedisOperator
 	
 	public byte[] getByteByKey(String key)
 	{
-		this.init();
+		this.init("10.15.144.81", 10012);
 		byte[] a=null;
 		a = this.bjess.get(key.getBytes());
 		//this.bjess.
@@ -123,7 +130,7 @@ public class JedisOperator
 	}
 	public long getJredisLLen(String keystr)
 	{
-		this.init();
+		this.init("10.15.144.81", 10012);
 		long num = 0;
 		//System.out.println("keystr="+keystr);
 		//num = jedis.llen(keystr);
@@ -142,7 +149,7 @@ public class JedisOperator
 	public Long delKey(String keystr)
 	{
 		Long num ;
-		this.init();
+		this.init("10.15.144.81", 10012);
 		num = this.jedis.del(keystr);
 		return num;
 	}

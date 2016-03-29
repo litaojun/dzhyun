@@ -48,7 +48,8 @@ public class GetTestJson {
 	}
 	public String createReqUrlStr(String[] arr)
 	{
-		String urlString = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") +this.tcs.getOpeSteps();
+		//String urlString = "http://" + MyConfigUtil.getConfig("ip") + ":" +MyConfigUtil.getConfig("port") +this.tcs.getOpeSteps();
+		urlString = "http://v2.yundzh.com" +this.tcs.getOpeSteps();
 		StringBuffer testurl =new StringBuffer();
 		testurl.append(urlString);
 		String tmp = this.getStrParaHashmap(arr);

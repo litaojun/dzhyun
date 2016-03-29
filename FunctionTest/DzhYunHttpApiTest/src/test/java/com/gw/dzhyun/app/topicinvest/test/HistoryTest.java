@@ -1,4 +1,4 @@
-package com.gw.dzhyun.app.topicinvest;
+package com.gw.dzhyun.app.topicinvest.test;
 
 import org.xml.sax.SAXException;
 
@@ -26,8 +26,8 @@ public class HistoryTest {
 	public static void main(String[] args) throws SAXException, Exception
 	{
 		// TODO Auto-generated method stub
-		HistoryTest hts = new HistoryTest();
-		hts.findOneObjKxianData("SZ300161", "20150624", "20150924");
+		TopicInvestTest tit = new TopicInvestTest();
+		tit.testTopicInvestBasic();
 
 	}
 

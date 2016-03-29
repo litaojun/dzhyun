@@ -49,8 +49,8 @@ public class IndicatorCalcTest extends GetTestJson
 	@Parameters 
 	public static Collection dateFeed() throws IOException
 	{
-		 //TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标计算接口",126);
-		 TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标查询接口",19);
+		 TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标计算接口",126);
+		 //TestCaseManagr a = new TestCaseManagr("E:\\环境文档\\测试用例.xlsx","指标查询接口",19);
 		 List allcoll =new LinkedList();
 		 allcoll.addAll(a.getCurList(new String[] {"obj","name","period","begin_time","end_time","start","count","parameter"}));
 		 //allcoll.addAll(b.getCurList(new String[] {"name","type","output"}));

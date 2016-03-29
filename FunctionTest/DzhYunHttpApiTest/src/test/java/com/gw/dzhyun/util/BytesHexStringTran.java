@@ -1,7 +1,39 @@
 package com.gw.dzhyun.util;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 
 public class BytesHexStringTran {
+	
+	/** 
+     * 读取流中的数据: 将字节输入流中的数据转变成字节数组 
+     *  
+     * @param inputStream:要转化的输入流 
+     */  
+    public static byte[] read(InputStream inputStream) {  
+        /** ByteArrayOutputStream在内存中创建缓冲区.所有送往"流"的数据都要放置在此缓冲区. */  
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();  
+        try {  
+            byte[] buffer = new byte[inputStream.available()];  
+            System.out.println(buffer.length);  
+            int len = 0;  
+            while ((len = inputStream.read(buffer)) != -1) {  
+                outStream.write(buffer, 0, len);      
+            }  
+            inputStream.close();  
+        } catch (IOException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        }  
+        /** 
+         * Returns the contents of this ByteArrayOutputStream as a byte 
+         * array. Any changes made to the receiver after returning will not 
+         * be reflected(反射)in the byte array returned to the caller. 
+         **/  
+        return outStream.toByteArray();  
+    }  
 
     /** 
      * Convert byte[] to hex string.
