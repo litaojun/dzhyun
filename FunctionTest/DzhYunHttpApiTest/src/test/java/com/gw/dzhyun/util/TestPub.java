@@ -10,5 +10,14 @@ package com.gw.dzhyun.util;
  * @date   2016年3月29日
  */
 public class TestPub {
+	public void setA()
+	{
+		
+	}
+	public void setB()
+	{
+		
+	}
+
 
 }
