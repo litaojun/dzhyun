@@ -11,4 +11,8 @@ package com.gw.dzhyun.util;
  */
 public class TestLiu {
 
+	public void testA()
+	{
+		
+	}
 }
